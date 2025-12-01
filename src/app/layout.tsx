@@ -44,9 +44,9 @@ export default function RootLayout({
         className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} antialiased`}
       >
         <div className="fixed top-0 z-40 w-full">
-          <Header />
+          {/* <Header /> */}
         </div>
-        <main className="flex-1 pt-[5.8rem] md:pt-[6.1rem]">
+        <main className="flex-1">
           {children}
         </main>
       </body>

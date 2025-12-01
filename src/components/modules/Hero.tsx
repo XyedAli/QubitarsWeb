@@ -1,84 +1,116 @@
 "use client";
 
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { homeImages } from "@/../public/assets/images";
 import { heroLeftIconConfigs, heroRightIconConfigs } from "@/data/home";
-import type { HeroIconConfig } from "@/types/home";
-import { container, h1 } from "@/commonStyles/styles";
+import type { HeroIconConfig } from "@/lib/types/home";
+import { styles, combine } from "@/commonStyles/styles";
+import Header from "../navbar";
+import { useHero } from "@/lib/hooks";
 
-const Hero = () => {
-  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
-  const ICON_SIZE = 74;
-  const hasAnimatedRef = useRef(false);
-
-  useEffect(() => {
-    hasAnimatedRef.current = true;
-  }, []);
-
-  // Helper function to render hover box
-  const HoverBox = ({ label }: { label: string }) => (
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 -translate-y-1 z-20 pointer-events-none">
-      <div className="relative flex items-center rounded-xl border-[2px] border-dashed border-[#FF8E29] bg-white px-3 py-1.5 whitespace-nowrap">
-        <span className="text-[#1E274F] font-semibold text-sm tracking-wide capitalize">
-          {label}
-        </span>
-      </div>
+// Tooltip shown on hover
+const HoverBox = ({ label }: { label: string }) => (
+  <div className="absolute bottom-full left-1/2 -translate-x-1/2 -translate-y-1 z-20 pointer-events-none">
+    <div
+      className={combine(
+        "relative rounded-xl border-[2px] border-dashed border-[#FF8E29] bg-white px-3 py-1.5 whitespace-nowrap",
+        styles.flexitems
+      )}
+    >
+      <span className="text-[#1E274F] font-semibold text-sm tracking-wide capitalize">
+        {label}
+      </span>
     </div>
-  );
+  </div>
+);
 
-  // Helper function to render icon with hover
-  const IconWithHover = memo(
-    ({
-      iconId,
-      label,
-      src,
-      alt,
-      className,
-      isHovered,
-      delay,
-    }: HeroIconConfig & { isHovered: boolean }) => (
+type IconWithHoverProps = HeroIconConfig & {
+  isHovered: boolean;
+  iconSize: number;
+  hasAnimatedRef: React.MutableRefObject<boolean>;
+  onHoverChange: (id: string | null) => void;
+};
+
+// Separate, memoized icon component so hover doesn't restart intro motion
+const IconWithHover = memo(
+  ({
+    iconId,
+    label,
+    src,
+    alt,
+    className,
+    isHovered,
+    delay,
+    iconSize,
+    hasAnimatedRef,
+    onHoverChange,
+  }: IconWithHoverProps) => {
+    // If hero has already animated in this session, show icons instantly with no motion.
+    const transition = hasAnimatedRef.current
+      ? { duration: 0, delay: 0 }
+      : { duration: 0.65, delay, ease: "easeOut" as const };
+
+    return (
       <motion.div
         className={`${className} z-30 pointer-events-auto`}
         variants={{
-          hidden: { opacity: 0, scale: 0.7, y: 16 },
-          visible: { opacity: 1, scale: 1, y: 0 },
+          hidden: { opacity: 0, scale: 0.7 },
+          visible: { opacity: 1, scale: 1 },
         }}
-        initial={hasAnimatedRef.current ? false : "hidden"}
-        animate={hasAnimatedRef.current ? undefined : "visible"}
-        transition={{ duration: 0.65, delay, ease: "easeOut" }}
-        onMouseEnter={() => setHoveredIcon(iconId)}
-        onMouseLeave={() => setHoveredIcon(null)}
+        initial="hidden"
+        animate="visible"
+        transition={transition}
+        onMouseEnter={() => onHoverChange(iconId)}
+        onMouseLeave={() => onHoverChange(null)}
       >
         <div
           className="relative cursor-pointer pointer-events-auto"
-          style={{ width: ICON_SIZE, height: ICON_SIZE }}
+          style={{ width: iconSize, height: iconSize }}
         >
           <Image
             src={src}
             alt={alt}
-            width={ICON_SIZE}
-            height={ICON_SIZE}
+            width={iconSize}
+            height={iconSize}
             className="relative z-0 w-full h-full pointer-events-none"
           />
           {isHovered && <HoverBox label={label} />}
         </div>
       </motion.div>
-    )
-  );
+    );
+  }
+);
+
+const Hero = () => {
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+  const { iconSize, logoWidth, isMobile, boxDimensions, arrowOffset, hasAnimatedRef } = useHero();
+
+  // After the first mount, mark animation as played so future re-renders skip intro motion
+  useEffect(() => {
+    hasAnimatedRef.current = true;
+  }, [hasAnimatedRef]);
 
   return (
-    <main className="relative w-full overflow-hidden h-calc(100vh - 5.6rem)">
-
+    <main className="relative w-full overflow-hidden h-screen">
+      <div className="fixed top-0 w-full z-50">
+        <Header />
+      </div>
       {/* Main Orange Background - heroBg.png */}
-      <div className="absolute top-54 left-1/2 transform -translate-x-1/2 z-10 flex justify-center items-center w-full">
+      <div
+        className={combine(
+          "absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-full",
+          styles.flexCenter
+        )}
+      >
         <Image
-          src={homeImages.companyLogo}
+          src={isMobile ? homeImages.companyLogoMobile : homeImages.companyLogo}
           alt="Company Logo"
           width={300}
           height={100}
-          className="w-[1200px] h-auto max-w-full"
+          className="h-auto max-w-full"
+          style={{ width: logoWidth }}
         />
       </div>
 
@@ -86,70 +118,81 @@ const Hero = () => {
         <IconWithHover
           key={icon.iconId}
           {...icon}
+          iconSize={iconSize}
+          hasAnimatedRef={hasAnimatedRef}
           isHovered={hoveredIcon === icon.iconId}
+          onHoverChange={setHoveredIcon}
         />
       ))}
 
       <div
-        className="absolute inset-0 w-full h-[70vh] z-0"
-        style={{
-          backgroundImage: `url('${homeImages.heroBg}')`,
-          backgroundSize: '100% 100%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+        className="absolute inset-0 bg-[url('/assets/images/home/heroBg.png')] w-full h-[98vh] z-0 bg-center bg-no-repeat bg-[length:100%_100%]"/>
       {heroRightIconConfigs.map((icon: HeroIconConfig) => (
         <IconWithHover
           key={icon.iconId}
           {...icon}
+          iconSize={iconSize}
+          hasAnimatedRef={hasAnimatedRef}
           isHovered={hoveredIcon === icon.iconId}
+          onHoverChange={setHoveredIcon}
         />
       ))}
 
       {/* Left Side Background Shape - bg4.png */}
       <div
-        className="absolute left-0 top-23 w-[15%] h-full z-0 pointer-events-none bg-contain bg-left bg-no-repeat"
-        style={{
-          backgroundImage: `url('${homeImages.bg4}')`,
-        }}
+        className="hidden md:block absolute left-0 top-23 xl:top-25 w-[13%] xl:w-[10%] h-full z-0 pointer-events-none bg-[url('/assets/images/home/bg4.png')] bg-contain bg-left bg-no-repeat"
       />
 
       {/* Right Side Background Shape - bg3.png */}
       <div
-        className="absolute right-0 top-22 w-[15%] h-full z-0 pointer-events-none bg-contain bg-right bg-no-repeat"
-        style={{
-          backgroundImage: `url('${homeImages.bg3}')`,
-        }}
+        className="hidden md:block absolute right-0 top-21 xl:top-20 w-[13%] xl:w-[10%] h-full z-0 pointer-events-none bg-[url('/assets/images/home/bg3.png')] bg-contain bg-right bg-no-repeat"
       />
 
       {/* Content Container */}
-      <div className={`relative z-10 ${container} w-full mt-8`}>
-        <div className=" gap-12 min-h-[81.3vh] pt-10">
+      <div
+        className={combine("relative z-10 w-full mt-8", styles.container)}
+      >
+        <div className=" gap-12 min-h-[81.3vh] pt-31">
 
           {/* Left Side - Text Content */}
-          <div className="flex flex-col items-center text-center max-w-2xl z-20 flex-1 mx-auto">
+          <div
+            className={combine(
+              "items-center text-center max-w-2xl z-20 flex-1 mx-auto",
+              styles.flexCol
+            )}
+          >
             {/* Next-Gen Innovation Pill Button */}
             <button
-              className="relative px-8 py-2 rounded-full text-[19px] font-semibold text-black mb-5 transition-all duration-300 overflow-hidden border-2 border-white/40 bg-white/10 backdrop-blur-md"
+              className={combine("relative px-8 py-2 rounded-full font-semibold text-black mb-4 xl:mb-5 transition-all duration-300 overflow-hidden border-2 border-white/40 bg-white/10 backdrop-blur-md",styles.p3)}
             >
               <span className="relative z-10">Next-Gen Innovation</span>
             </button>
 
             {/* Main Headline */}
-            <h1 className="text-5xl lg:text-6xl xl:text-[46px] font-poppins font-black text-black leading-tight text-center flex items-center">
+            <h1
+              className={combine(
+                styles.h1,styles.flexCenter,
+                "text-black leading-tight text-center"
+                
+              )}
+            >
               Your Partner In<br />
               <span className="text-white ms-2">Digital</span>
             </h1>
 
             {/* Step 1: Plus Sign, Arrow Movement, and Box Animation */}
-            <div className="relative flex items-center justify-start w-[200px] h-[80px] self-start ms-52 mt-5">
+            <div
+              className={combine(
+                "relative justify-start w-[200px] h-[80px] self-start xl:ml-[13rem] lg:ml-[14.5rem] md:ml-[15.2rem] ml-[7.2rem] mt-5",
+                styles.flexitems
+              )}
+            >
               {/* Plus Sign - Left Top Corner */}
               <div className="absolute left-0 top-0 z-10">
                 {/* Horizontal Line */}
-                <div className="absolute bg-[#FF8415] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30px] h-[2.5px] rounded-[1px]" />
+                <div className="absolute bg-[#FF8415] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[25px] lg:w-[30px] h-[2px] lg:h-[2.5px] rounded-[1px]" />
                 {/* Vertical Line */}
-                <div className="absolute bg-[#FF8415] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[30px] w-[2.5px] rounded-[1px]" />
+                <div className="absolute bg-[#FF8415] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[25px] lg:h-[30px] w-[2px] lg:w-[2.5px] rounded-[1px]" />
               </div>
 
               {/* Arrow - Moves from Plus Sign to Right Bottom (Outside Box) */}
@@ -161,8 +204,8 @@ const Hero = () => {
                   opacity: 1
                 }}
                 animate={{
-                  x: 240,
-                  y: 65,
+                  x: arrowOffset.x,
+                  y: arrowOffset.y,
                   opacity: 1
                 }}
                 transition={{
@@ -176,7 +219,7 @@ const Hero = () => {
                   alt="Arrow Cursor"
                   width={100}
                   height={100}
-                  className="w-[35px] h-[30px]"
+                  className="w-[27px] lg:w-[35px] h-[25px] lg:h-[30px]"
                 />
               </motion.div>
 
@@ -189,8 +232,8 @@ const Hero = () => {
                   opacity: 0
                 }}
                 animate={{
-                  width: 240,
-                  height: 65,
+                  width: boxDimensions.width,
+                  height: boxDimensions.height,
                   opacity: 1
                 }}
                 transition={{
@@ -201,7 +244,10 @@ const Hero = () => {
               >
                 {/* Success Text */}
                 <motion.span
-                  className="absolute inset-0 flex items-center justify-center text-[#1E274F] font-black font-poppins z-10 text-[44px]"
+                  className={combine(
+                    "absolute inset-0 text-[#1E274F] font-black font-poppins z-10 text-[30px] lg:text-[36px] xl:text-[44px]",
+                    styles.flexCenter
+                  )}
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{

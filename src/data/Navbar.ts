@@ -215,9 +215,9 @@ interface CompanyDataItem {
 }
 
 export const companyData: CompanyDataItem[] = [
-    { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: "/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
-    { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: "/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
-    { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: "/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
     { type: "statistic", id: "client-retention", icon: Users, value: "95%", label: "Client Retention" },
     { type: "statistic", id: "automation-efficiency", icon: LandPlot, value: "90%", label: "Automation Efficiency" },
     { type: "statistic", id: "users-impacted", icon: Handshake, value: "100+", label: "Users Impacted" },

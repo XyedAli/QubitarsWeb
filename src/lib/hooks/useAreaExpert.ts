@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import type { ExpertService } from '@/lib/types/home';
 
 // Services Section Hooks
-
 interface UseAreaExpertProps {
   services: ExpertService[];
 }

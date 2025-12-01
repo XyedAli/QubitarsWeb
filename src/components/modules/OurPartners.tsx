@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { partnerIndustries, partnerRowsAfterHeading, partnerRowsBeforeHeading } from "@/data/home";
-import type { Logo } from "@/types/home";
+import type { Logo } from "@/lib/types/home";
 import { container, h2 } from "@/commonStyles/styles";
 
 const LogoRow = ({
@@ -14,10 +14,10 @@ const LogoRow = ({
   items: Logo[];
   desktopCols: 4 | 5;
 }) => {
-  const colsClass = desktopCols === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4";
-  const widthClass = desktopCols === 4 ? "max-w-6xl" : "max-w-full";
+  const colsClass = desktopCols === 5 ? "grid-cols-5" : "grid-cols-4";
+  const widthClass = desktopCols === 4 ? "max-w-2xl lg:max-w-3xl xl:max-w-6xl" : "max-w-7xl";
   return (
-    <div className={`grid grid-cols-2 gap-6 sm:grid-cols-3 ${colsClass} ${widthClass} mx-auto`}>
+    <div className={`grid gap-1 md:gap-6 ${colsClass} ${widthClass} mx-auto`}>
       {items.map((logo) => (
         <div key={logo.alt} className="flex items-center justify-center">
           <Image
@@ -25,7 +25,7 @@ const LogoRow = ({
             alt={logo.alt}
             width={200}
             height={70}
-            className="h-[50px] w-[180px]"
+            className="h-[25px] md:h-[40px] lg:h-[50px] w-[140px] md:w-[150px] lg:w-[180px]"
           />
         </div>
       ))}
@@ -45,15 +45,15 @@ const OurPartners = () => {
   }, []);
 
   return (
-    <section className="relative bg-[#F2F2F2] py-15  px-4 sm:px-10 lg:px-14">
-      <div className={`${container} `}>
+    <section className="relative bg-[#F2F2F2] py-9 lg:py-12 xl:py-15  px-4 sm:px-4 lg:px-14">
+      {/* <div className={`${container} `}> */}
         <div className="space-y-6">
           <LogoRow items={partnerRowsBeforeHeading[0]} desktopCols={4} />
           <LogoRow items={partnerRowsBeforeHeading[1]} desktopCols={5} />
         </div>
 
-        <div className="my-22 text-center">
-          <h2 className="text-[56px] font-black text-[#1e1e1e] leading-tight sm:text-[46px]">
+        <div className="my-14 md:my-18 lg:my-20 xl:my-22 text-center">
+          <h2 className="text-[41px] lg:text-[48px] xl:text-[56px] font-black text-[#1e1e1e] leading-tight sm:text-[46px]">
             We partner
             <br className="hidden sm:block" /> with brands in
             <br className="sm:hidden" />
@@ -78,7 +78,7 @@ const OurPartners = () => {
           <LogoRow items={partnerRowsAfterHeading[0]} desktopCols={5} />
           <LogoRow items={partnerRowsAfterHeading[1]} desktopCols={4} />
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };

@@ -1,8 +1,12 @@
-// Website Styles - Separate from Dashboard
 // This file contains styles specific to the website (homepage, landing pages)
 
+// Utility function to combine class names
+export const combine = (
+  ...classes: Array<string | false | null | undefined>
+): string => classes.filter(Boolean).join(" ");
+
 // Typography
-export const h1 = "text-[30px] md:text-[34px] lg:text-[38px] xl:text-[48px] font-bold font-unigeo64";
+export const h1 = "text-[30px] md:text-[34px] lg:text-[38px] xl:text-[47px] font-bold font-unigeo64";
 export const h2 = "text-[28px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-semibold font-unigeo64";
 export const h3 = "text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px] font-unigeo64";
 export const h4 = "text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] font-unigeo64";

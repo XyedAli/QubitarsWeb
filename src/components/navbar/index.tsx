@@ -313,13 +313,13 @@ const Header = () => {
           <div className="fixed inset-0 z-50 md:hidden">
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMenu} />
             <div
-                className="pointer-events-none absolute inset-y-0 right-0 w-[43%] bg-no-repeat top-25 z-0"
+                className={`pointer-events-none absolute inset-y-0 right-0 w-[43%] bg-no-repeat top-25 z-10 transition-opacity duration-300 ${mobileDropdown === "capabilities" ? "opacity-0" : "opacity-100"}`}
                 style={{
                   backgroundImage: `url('${homeImages.bg6}')`,
-                  backgroundSize: "103% 102%",
+                  backgroundSize: "103% 135%",
                 }}
               />
-            <div className="absolute inset-0 bg-white/80 shadow-2xl flex flex-col overflow-hidden relative z-10">
+            <div className="absolute inset-0 bg-white shadow-2xl flex flex-col overflow-hidden relative z-0">
              
               <div className="md:hidden block">
                 <TopNav />
