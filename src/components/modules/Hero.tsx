@@ -4,27 +4,37 @@ import React, { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { homeImages } from "@/../public/assets/images";
-import { heroLeftIconConfigs, heroRightIconConfigs } from "@/data/home";
+import { heroLeftIconConfigs, heroRightIconConfigs, twoLineLabels } from "@/data/home";
 import type { HeroIconConfig } from "@/lib/types/home";
 import { styles, combine } from "@/commonStyles/styles";
 import Header from "../navbar";
 import { useHero } from "@/lib/hooks";
 
 // Tooltip shown on hover
-const HoverBox = ({ label }: { label: string }) => (
-  <div className="absolute bottom-full left-1/2 -translate-x-1/2 -translate-y-1 z-20 pointer-events-none">
-    <div
-      className={combine(
-        "relative rounded-xl border-[2px] border-dashed border-[#FF8E29] bg-white px-3 py-1.5 whitespace-nowrap",
-        styles.flexitems
-      )}
-    >
-      <span className="text-[#1E274F] font-semibold text-sm tracking-wide capitalize">
-        {label}
-      </span>
+const HoverBox = ({ label }: { label: string }) => {
+  const config = twoLineLabels[label];
+
+  return (
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 -translate-y-1 z-20 pointer-events-none">
+      <div
+        className={combine(
+          "relative rounded-xl border-[2px] border-dashed border-[#FF8E29] bg-white px-3 py-1.5",
+          config?.minWidth,
+          styles.flexitems
+        )}
+      >
+        <span
+          className={combine(
+            "text-[#1E274F] font-semibold text-sm tracking-wide capitalize text-center",
+            config ? "whitespace-pre-line" : "whitespace-nowrap"
+          )}
+        >
+          {config ? config.text : label}
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 type IconWithHoverProps = HeroIconConfig & {
   isHovered: boolean;

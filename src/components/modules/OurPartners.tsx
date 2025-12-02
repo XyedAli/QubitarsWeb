@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { partnerIndustries, partnerRowsAfterHeading, partnerRowsBeforeHeading } from "@/data/home";
 import type { Logo } from "@/lib/types/home";
-import { container, h2 } from "@/commonStyles/styles";
-
 const LogoRow = ({
   items,
   desktopCols,

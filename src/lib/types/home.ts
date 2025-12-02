@@ -22,7 +22,7 @@ export interface ChooseUsCard {
   title: string;
   description: string;
   accentColor: string;
-  icon?: "rocket" | "eye";
+  icon?: "rocket" | "eye" | "LuGitCompareArrows";
   imageSrc?: string;
 }
 
