@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { h6, p2 } from '@/commonStyles/styles';
+import { h6, p2 } from '@/styles/style';
 
 const Card = () => {
   const expert = [

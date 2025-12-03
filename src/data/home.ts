@@ -4,7 +4,7 @@ import {
   ExpertService,
   HeroIconConfig,
   LogoGrid,
-} from "@/lib/types/home";
+} from "@/lib/types";
 import { LuGitCompareArrows } from "react-icons/lu";
 
 // Hover box labels that should be displayed on two lines

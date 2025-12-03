@@ -5,8 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { homeImages } from "@/../public/assets/images";
 import { heroLeftIconConfigs, heroRightIconConfigs, twoLineLabels } from "@/data/home";
-import type { HeroIconConfig } from "@/lib/types/home";
-import { styles, combine } from "@/commonStyles/styles";
+import type { HeroIconConfig } from "@/lib/types";
+import { styles, combine } from "@/styles/style";
 import Header from "../navbar";
 import { useHero } from "@/lib/hooks";
 
@@ -181,8 +181,8 @@ const Hero = () => {
             {/* Main Headline */}
             <h1
               className={combine(
-                styles.h1,styles.flexCenter,
-                "text-black leading-tight text-center"
+                styles.flexCenter,
+                "text-black leading-tight text-center text-[30px] md:text-[34px] lg:text-[38px] xl:text-[47px] 3xl:text-[64px] font-black font-unigeo64"
                 
               )}
             >

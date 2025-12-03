@@ -2,8 +2,8 @@
 import React from "react";
 import { LuRocket, LuScanEye, LuGitCompareArrows } from "react-icons/lu";
 import { chooseUsContent } from "@/data/home";
-import type { ChooseUsCard } from "@/lib/types/home";
-import { h2, p3, p4, h4} from "@/commonStyles/styles";
+import type { ChooseUsCard } from "@/lib/types";
+import { styles } from "@/styles/style";
 
 const iconMap = {
     rocket: LuRocket,
@@ -25,8 +25,8 @@ const FeatureCard = ({ card }: { card: ChooseUsCard }) => {
             {!IconComponent && card.imageSrc && (
                 <img src={card.imageSrc} alt={card.title} className="mb-2 lg:mb-3 xl:mb-4 w-[100px] h-[100px] lg:w-[170px] lg:h-[170px] xl:w-[250px] xl:h-[250px]" />
             )}
-            <p className={`${p3} font-bold`}>{card.title}</p>
-            <p className={p4}>{card.description}</p>
+            <p className={`${styles.p3} font-bold`}>{card.title}</p>
+            <p className={styles.p4}>{card.description}</p>
         </div>
     );
 };
@@ -39,14 +39,14 @@ const ChooseUs = () => {
         <section className="relative w-full overflow-hidden bg-[#EDEFF8]/40 py-20 px-4 xl:px-8">
             <div className="relative mx-auto max-w-7xl">
                 <div className="mb-16 text-center">
-                    <h2 className={`${h2} font-black text-black font-satoshi`}>
+                    <h2 className={`${styles.h2} font-black text-black font-satoshi`}>
                         {chooseUsContent.heading}
                     </h2>
                 </div>
 
                 <div className="grid gap-3 lg:gap-5 xl:gap-8 grid-cols-12 lg:gap-5">
                     <div className="col-span-12 md:col-span-5 xl:col-span-6 flex items-center">
-                        <p className={`${h4} font-normal leading-normal font-fjalla-one text-black max-w-md`}>
+                        <p className={`${styles.h4} font-normal leading-normal font-fjalla-one text-black max-w-md`}>
                             {chooseUsContent.subheading}
                         </p>
                     </div>

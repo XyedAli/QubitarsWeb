@@ -1,6 +1,12 @@
+import React from "react";
 import Icons from "../../public/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
 import { headerImages, industriesImages, companyImages } from "../../public/assets/images";
+import { Capabilities } from "@/components/NavLinks/Capabilities";
+import { Industries } from "@/components/NavLinks/Industries";
+import { Company } from "@/components/NavLinks/Company";
+import { Engagement } from "@/components/NavLinks/Engagement";
+import { NavItem } from "@/lib/types";
 
 export const capabilitiesData = [
     {
@@ -295,4 +301,11 @@ export const engagementData: EngagementDataItem[] = [
         clientName: "Michael Chen",
         clientTitle: "VP of Technology - InnovateNow"
     }
+];
+
+export const navItems: NavItem[] = [
+    { id: "capabilities", label: "Capabilities", DropdownComponent: Capabilities },
+    { id: "industries", label: "Industries", DropdownComponent: Industries },
+    { id: "company", label: "Company", DropdownComponent: Company },
+    { id: "engagement", label: "Engagement Models", DropdownComponent: Engagement },
 ];

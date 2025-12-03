@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import type { ExpertService } from '@/lib/types/home';
+import type { ExpertService } from '@/lib/types';
 
 // Services Section Hooks
 interface UseAreaExpertProps {

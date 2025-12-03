@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { partnerIndustries, partnerRowsAfterHeading, partnerRowsBeforeHeading } from "@/data/home";
-import type { Logo } from "@/lib/types/home";
+import type { Logo } from "@/lib/types";
 const LogoRow = ({
   items,
   desktopCols,
@@ -23,7 +23,7 @@ const LogoRow = ({
             alt={logo.alt}
             width={200}
             height={70}
-            className="h-[25px] md:h-[40px] lg:h-[50px] w-[140px] md:w-[150px] lg:w-[180px]"
+            className="h-[25px] md:h-[40px] lg:h-[52px] xl:h-[60px] w-[140px] md:w-[150px] lg:w-[180px]"
           />
         </div>
       ))}

@@ -33,8 +33,11 @@ export const useHero = (): UseHeroReturn => {
     const updateIconSize = () => {
       if (typeof window === "undefined") return;
       const width = window.innerWidth;
-
-      if (width >= 1280) {
+      if (width >= 1920){
+        setIconSize(74);
+        setLogoWidth("1700px");
+      }
+     else if (width >= 1280) {
         setIconSize(74);
         setLogoWidth("1200px");
       } else if (width >= 1024) {

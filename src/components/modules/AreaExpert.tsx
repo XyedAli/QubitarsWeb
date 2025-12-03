@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { homeImages } from '@/../public/assets/images'
 import { areaExpertServices } from '@/data/home'
-import { combine, styles } from '@/commonStyles/styles'
+import { combine, styles } from '@/styles/style'
 import { useAreaExpert } from '@/lib/hooks/useAreaExpert'
 
 const AreaExpert = () => {
