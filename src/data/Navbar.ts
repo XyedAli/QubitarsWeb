@@ -1,7 +1,7 @@
 import React from "react";
 import Icons from "../../public/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
-import { headerImages, industriesImages, companyImages } from "../../public/assets/images";
+import { navbarImages, industriesImages, companyImages } from "../../public/assets/images";
 import { Capabilities } from "@/components/NavLinks/Capabilities";
 import { Industries } from "@/components/NavLinks/Industries";
 import { Company } from "@/components/NavLinks/Company";
@@ -12,7 +12,7 @@ export const capabilitiesData = [
     {
         id: "ai-ml",
         title: "AI & ML Development",
-        image: headerImages.top,
+        image: navbarImages.top,
         items: [
             {
                 id: "ai-consultation",
@@ -221,9 +221,9 @@ interface CompanyDataItem {
 }
 
 export const companyData: CompanyDataItem[] = [
-    { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
-    { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
-    { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: "/assets/images/Header/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
+    { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
     { type: "statistic", id: "client-retention", icon: Users, value: "95%", label: "Client Retention" },
     { type: "statistic", id: "automation-efficiency", icon: LandPlot, value: "90%", label: "Automation Efficiency" },
     { type: "statistic", id: "users-impacted", icon: Handshake, value: "100+", label: "Users Impacted" },

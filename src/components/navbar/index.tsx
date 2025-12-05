@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { rootImages, homeImages } from "@/../public/assets/images";
+import { navbarImages } from "@/../public/assets/images";
 import { BriefcaseBusiness, Building2, ChevronDown, Lightbulb, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import Button from "../ui/button/Button";
 import TopNav from "../topNav";
@@ -191,7 +191,7 @@ const Header = () => {
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
-            src={rootImages.logoSvg}
+            src={navbarImages.logoSvg}
             alt="Qubitars Technology Logo"
             width={150}
             height={40}
@@ -265,7 +265,7 @@ const Header = () => {
             <div
                 className={`pointer-events-none absolute inset-y-0 right-0 w-[39%] bg-no-repeat top-25 z-10 transition-opacity duration-300 ${mobileDropdown === "capabilities" ? "opacity-0" : "opacity-100"}`}
                 style={{
-                  backgroundImage: `url('${homeImages.bg6}')`,
+                  backgroundImage: `url('${navbarImages.bg6}')`,
                   backgroundSize: "103% 102%",
                 }}
               />
@@ -281,7 +281,7 @@ const Header = () => {
               {/* Mobile header */}
               <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
               <Image
-                src={rootImages.logoSvg}
+                src={navbarImages.logoSvg}
                 alt="Qubitars Technology Logo"
                 width={120}
                 height={33}

@@ -1,12 +1,15 @@
-// Optimized image exports - only keeping what's actually used
+// Optimized image exports - organized by usage
 
-// Root level images (used in navbar)
-export const rootImages = {
-  logo: "/assets/images/Logo.png",
-  logoSvg: "/assets/images/logo.svg",
+// Navbar images (logo, backgrounds, icons used in navigation)
+export const navbarImages = {
+  logo: "/assets/images/navbar/Logo.png",
+  logoSvg: "/assets/images/navbar/logo.svg",
+  bg6: "/assets/images/navbar/bg6.png",
+  top: "/assets/images/navbar/top.svg",
+  lorem: "/assets/images/navbar/lorem.svg",
 };
 
-// Company images (used in Company NavLink)
+// Company images (used in Company NavLink - testimonials, blogs)
 export const companyImages = {
   jake: "/assets/images/Company/Jake.png",
   blog1: "/assets/images/Company/blog1.jpeg",
@@ -14,17 +17,7 @@ export const companyImages = {
   blog3: "/assets/images/Company/blog3.png",
 };
 
-// Header images (used in Navbar capabilities)
-export const headerImages = {
-  top: "/assets/images/Header/top.svg",
-};
-
-// Home images (used in navbar mobile menu)
-export const homeImages = {
-  bg6: "/assets/images/home/bg6.png",
-};
-
-// Industries images (used in Navbar Industries dropdown)
+// Industries images (used in Industries dropdown - company logos, testimonials)
 export const industriesImages = {
   clogo1: "/assets/images/Industries/clogo1.svg",
   clogo2: "/assets/images/Industries/clogo2.svg",
@@ -47,7 +40,21 @@ export const industriesImages = {
   man: "/assets/images/Industries/Man.png",
 };
 
-// Legacy exports for backward compatibility (empty objects to prevent errors)
+// Legacy exports for backward compatibility (deprecated - use navbarImages instead)
+export const rootImages = {
+  logo: "/assets/images/navbar/Logo.png",
+  logoSvg: "/assets/images/navbar/logo.svg",
+};
+
+export const headerImages = {
+  top: "/assets/images/navbar/top.svg",
+};
+
+export const homeImages = {
+  bg6: "/assets/images/navbar/bg6.png",
+};
+
+// Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
 export const logoImages = {};
 export const svgIcons = {};
