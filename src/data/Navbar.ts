@@ -2,10 +2,10 @@ import React from "react";
 import Icons from "../../public/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
 import { navbarImages, industriesImages, companyImages } from "../../public/assets/images";
-import { Capabilities } from "@/components/NavLinks/Capabilities";
-import { Industries } from "@/components/NavLinks/Industries";
-import { Company } from "@/components/NavLinks/Company";
-import { Engagement } from "@/components/NavLinks/Engagement";
+import { Capabilities } from "@/components/features/navigation/Capabilities";
+import { Industries } from "@/components/features/navigation/Industries";
+import { Company } from "@/components/features/navigation/Company";
+import { Engagement } from "@/components/features/navigation/Engagement";
 import { NavItem } from "@/lib/types";
 
 export const capabilitiesData = [

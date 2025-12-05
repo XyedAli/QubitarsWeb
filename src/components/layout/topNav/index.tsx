@@ -1,5 +1,5 @@
 import React from 'react'
-import Icons from '../../../public/assets/icons'
+import Icons from '@/../public/assets/icons'
 import { US, PK } from 'country-flag-icons/react/3x2'
 import Link from 'next/link'
 import {styles, combine} from '@/styles/style'

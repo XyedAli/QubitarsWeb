@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Poppins, Fjalla_One } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/navbar";
+import { Navbar } from "@/components/layout";
 
 // Optimize font loading with display swap for better performance
 const dmSans = DM_Sans({
@@ -119,7 +119,7 @@ export default function RootLayout({
         className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} antialiased`}
         suppressHydrationWarning
       >
-        <Header />
+        <Navbar />
         <main className="flex-1 min-h-screen">
           {children}
         </main>

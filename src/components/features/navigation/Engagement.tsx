@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Button from "../ui/button/Button";
-import { CustomSlider } from "@/components/ui/slider/Slider";
+import { Button, CustomSlider } from "@/components/shared/ui";
 import { engagementData } from "@/data/Navbar";
 import { styles, combine } from "@/styles/style";
 import { ArrowLeft, ArrowRight } from "lucide-react";

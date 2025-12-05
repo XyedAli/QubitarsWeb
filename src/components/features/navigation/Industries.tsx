@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Button from "../ui/button/Button";
-import { CustomSlider, sliderBreakpoints } from "@/components/ui/slider/Slider";
+import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { industries } from "@/data/Navbar";
 import { styles, combine } from "@/styles/style";
 

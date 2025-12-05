@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { navbarImages } from "@/../public/assets/images";
 import { BriefcaseBusiness, Building2, ChevronDown, Lightbulb, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
-import Button from "../ui/button/Button";
+import { Button } from "@/components/shared/ui";
 import TopNav from "../topNav";
 import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData, navItems } from "@/data/Navbar";
 import { useNavbar } from "@/lib/hooks";
