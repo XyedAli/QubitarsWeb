@@ -42,7 +42,7 @@ export const homeImages = {
   bg5: "/assets/images/home/bg5.png",
   bg6: "/assets/images/home/bg6.png",
   companyLogo: "/assets/images/home/companyLogo.png",
-  companyLogoMobile: "/assets/images/home/Company Logo (1).png",
+  companyLogoMobile: "/assets/images/home/companyLogoMobile.png",
   header: "/assets/images/home/header.png",
   heroBg: "/assets/images/home/heroBg.png",
   herobg2: "/assets/images/home/herobg2.png",

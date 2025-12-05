@@ -91,7 +91,7 @@ export const Engagement = () => {
                                     {engagementData.filter(item => item.type === "testimonial").map((testimonial) => (
                                         <div key={testimonial.id} className="space-y-4">
                                             <p className="text-gray-700 text-sm leading-relaxed">
-                                                "{testimonial.quote}"
+                                                &ldquo;{testimonial.quote}&rdquo;
                                             </p>
                                             {/* Profile Content */}
                                             <div className={combine(styles.flexitems, "gap-3 mt-4")}>

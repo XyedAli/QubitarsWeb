@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { h6, p2 } from '@/styles/style';
+import { styles } from '@/styles/style';
 
 const Card = () => {
   const expert = [
@@ -113,11 +113,11 @@ const Card = () => {
                 className="pt-[100px] pr-[60px] pl-[30px]"
                 style={{ transform: 'translate3d(0, 0, 26px)' }}
               >
-                <h2 className={`${h6} font-bold mb-2 w-full border-b-2 pb-2 ${
+                <h2 className={`${styles.h6} font-bold mb-2 w-full border-b-2 pb-2 ${
                   index % 2 === 0 ? 'text-lightGray border-lightGray' : 'text-darkGray border-darkGray'
                 }`}>{item.name}</h2>
                 <div className="overflow-y-auto max-h-[100px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                  <p className={`${p2} text-left ${
+                  <p className={`${styles.p2} text-left ${
                     index % 2 === 0 ? 'text-lightGray' : 'text-darkGray'
                   }`}>{item.description}</p>
                 </div>

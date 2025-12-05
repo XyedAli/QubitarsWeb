@@ -107,7 +107,7 @@ export const Industries = () => {
                             {industry.testimonials?.map((testimonial) => (
                               <div key={testimonial.id}>
                                 <p className="text-[#666666] text-sm lg:text-base font-medium">
-                                  "{testimonial.quote}"
+                                  &ldquo;{testimonial.quote}&rdquo;
                                 </p>
                                 <div className={combine(styles.flexitems, "gap-3 mt-3")}>
                                   <Image
@@ -130,8 +130,8 @@ export const Industries = () => {
                           {/* CTA section */}
                           <div className={combine(styles.flexBetween, "w-full")}>
                             <div className={combine(styles.flexCol, "gap-1")}>
-                              <h3 className="font-bold text-sm lg:text-base text-accent">Let's Build Your Next Project Together</h3>
-                              <p className="text-[#1E274F] font-semibold text-sm">With over 1000 tech experts, we're ready to discuss your project.</p>
+                              <h3 className="font-bold text-sm lg:text-base text-accent">Let&apos;s Build Your Next Project Together</h3>
+                              <p className="text-[#1E274F] font-semibold text-sm">With over 1000 tech experts, we&apos;re ready to discuss your project.</p>
                             </div>
                             <Button variant="accent" size="lg">
                               Schedule a Call

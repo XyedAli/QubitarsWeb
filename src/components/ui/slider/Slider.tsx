@@ -62,7 +62,7 @@ interface SliderProps {
   showArrows?: boolean;
   arrowPosition?: "bottom-right" | "top-right" | "custom";
   className?: string;
-  onSliderReady?: (sliderRef: React.RefObject<Slider>) => void;
+  onSliderReady?: (sliderRef: React.RefObject<Slider | null>) => void;
 }
 
 export const CustomSlider = ({ 

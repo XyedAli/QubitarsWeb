@@ -5,7 +5,7 @@ import {
   HeroIconConfig,
   LogoGrid,
 } from "@/lib/types";
-import { LuGitCompareArrows } from "react-icons/lu";
+// LuGitCompareArrows is used in iconMap in ChooseUs component
 
 // Hover box labels that should be displayed on two lines
 export const twoLineLabels: Record<string, { text: string; minWidth: string }> = {

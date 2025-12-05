@@ -43,6 +43,8 @@ const Header = () => {
                         width={24}
                         height={24}
                         className="w-9 h-9 object-contain"
+                        loading="lazy"
+                        sizes="24px"
                       />
                     )}
                   </div>
@@ -190,7 +192,7 @@ const Header = () => {
           {/* Logo */}
           <Image
             src={rootImages.logoSvg}
-            alt="logo"
+            alt="Qubitars Technology Logo"
             width={150}
             height={40}
             sizes="(max-width: 768px) 130px, 150px"
@@ -280,10 +282,12 @@ const Header = () => {
               <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
               <Image
                 src={rootImages.logoSvg}
-                alt="logo"
+                alt="Qubitars Technology Logo"
                 width={120}
                 height={33}
                 className="cursor-pointer"
+                priority
+                sizes="120px"
               />
               <button
                 type="button"

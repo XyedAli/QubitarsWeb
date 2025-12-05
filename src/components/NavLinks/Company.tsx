@@ -46,7 +46,7 @@ export const Company = () => {
               {/* Testimonial quote */}
               <div className={styles.flexCol}>
               <p className="text-black font-medium text-sm">
-                  "Qubitars is an integral part of our team and we probably wouldn't be here today without them, Some of their team has worked with us for 5-8 years and we've built a trusted business relationship."
+                  &ldquo;Qubitars is an integral part of our team and we probably wouldn&apos;t be here today without them, Some of their team has worked with us for 5-8 years and we&apos;ve built a trusted business relationship.&rdquo;
                 </p>
                 <div className={combine(styles.flexitems, "gap-3 mt-3")}>
                   <Image src={companyImages.jake} alt="Logo PayPerks" width={60} height={30} className="rounded-sm hover:opacity-90 transition-opacity" />
