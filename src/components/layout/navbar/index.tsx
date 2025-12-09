@@ -2,16 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { navbarImages } from "@/../public/assets/images";
+import { navbarImages } from "@/lib/assets/images";
 import { BriefcaseBusiness, Building2, ChevronDown, Lightbulb, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
-import TopNav from "../topNav";
+import TopNav from "@/components/layout/topnav";
 import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData, navItems } from "@/data/Navbar";
 import { useNavbar } from "@/lib/hooks";
 import { styles, combine } from "@/styles/style";
 
 // Main navigation header component
-const Header = () => {
+const Navbar = () => {
   const {
     activeDropdown,        // Currently active desktop dropdown ID
     setActiveDropdown,     // Function to set active dropdown
@@ -360,4 +360,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

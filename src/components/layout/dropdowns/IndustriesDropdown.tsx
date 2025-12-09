@@ -7,7 +7,7 @@ import { industries } from "@/data/Navbar";
 import { styles, combine } from "@/styles/style";
 
 // Industries dropdown component
-export const Industries = () => {
+export const IndustriesDropdown = () => {
   const [activeIndustry, setActiveIndustry] = useState("real-estate");
   
   // Slider config for company logos carousel

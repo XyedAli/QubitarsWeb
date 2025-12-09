@@ -9,7 +9,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";
 
 // Engagement dropdown component
-export const Engagement = () => {
+export const EngagementDropdown = () => {
     const sliderRef = useRef<Slider | null>(null);
 
     // Slider config for testimonials carousel

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { companyImages } from "@/../public/assets/images";
+import { companyImages } from "@/lib/assets/images";
 import Link from "next/link";
 import {Building2, Lightbulb, BriefcaseBusiness} from "lucide-react";
 import { CustomSlider } from "@/components/shared/ui";
@@ -8,7 +8,7 @@ import { companyData } from "@/data/Navbar";
 import { styles, combine } from "@/styles/style";
 
 // Company dropdown component
-export const Company = () => {
+export const CompanyDropdown = () => {
 
   const sliderSettings = {
     fade: true,
