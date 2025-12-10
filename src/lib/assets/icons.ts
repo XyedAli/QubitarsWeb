@@ -1,4 +1,3 @@
-// Re-export icons from public folder
-export { default } from "../../../public/assets/icons";
-export { Icons } from "../../../public/assets/icons";
-
+// Re-export icons from src/lib/assets/icons folder
+export { default } from "./icons";
+export { Icons } from "./icons";

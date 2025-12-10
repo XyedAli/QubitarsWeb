@@ -19,11 +19,6 @@ const nextConfig: NextConfig = {
   // React strict mode for better development experience
   reactStrictMode: true,
 
-  // ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-
   // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,
