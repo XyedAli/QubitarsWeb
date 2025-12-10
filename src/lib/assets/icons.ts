@@ -1,3 +1,4 @@
 // Re-export icons from src/lib/assets/icons folder
-export { default } from "./icons";
-export { Icons } from "./icons";
+export { default } from "./icons/index";
+export { Icons } from "./icons/index";
+
