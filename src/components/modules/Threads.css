@@ -1,0 +1,87 @@
+.threads-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.threads-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  mask-image: url('/assets/images/home/heroSection.png');
+  -webkit-mask-image: url('/assets/images/home/heroSection.png');
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: left center;
+  -webkit-mask-position: left center;
+  mask-size: 115% 115%;
+  -webkit-mask-size: 115% 115%;
+  pointer-events: none;
+}
+
+.threads-rotated {
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg) scale(1.12);
+  transform-origin: center;
+}
+
+.threads-circle {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.threads-circle-mask {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  mask-image: radial-gradient(circle at center, #000 70%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, #000 70%, transparent 75%);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+
+@media (min-width: 768px) {
+  .threads-mask {
+    mask-size: 110% 110%;
+    -webkit-mask-size: 110% 110%;
+    mask-position: left center;
+    -webkit-mask-position: left center;
+  }
+  .threads-rotated {
+    transform: rotate(90deg) scale(1.08);
+  }
+}
+
+@media (min-width: 1280px) {
+  .threads-mask {
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-position: left center;
+    -webkit-mask-position: left center;
+  }
+  .threads-rotated {
+    transform: rotate(90deg) scale(1.04);
+  }
+}
+
+.threads-pan-x {
+  animation: threads-pan-x 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes threads-pan-x {
+  from {
+    transform: translateX(-36px);
+  }
+  to {
+    transform: translateX(52px);
+  }
+}
+
