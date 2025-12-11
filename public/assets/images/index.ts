@@ -52,6 +52,11 @@ export const headerImages = {
 
 export const homeImages = {
   bg6: "/assets/images/navbar/bg6.png",
+  himg1: "/assets/images/home/himg1.svg",
+  himg2: "/assets/images/home/himg2.svg",
+  himg3: "/assets/images/home/himg3.svg",
+  himg4: "/assets/images/home/himg4.svg",
+  himg5: "/assets/images/home/himg5.png",
 };
 
 // Unused exports (empty objects to prevent errors)

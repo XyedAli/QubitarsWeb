@@ -119,8 +119,10 @@ export default function RootLayout({
         className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} antialiased`}
         suppressHydrationWarning
       >
+        {/* <div className="absolute top-0 left-0 right-0 z-50"> */}
         <Navbar />
-        <main className="flex-1 min-h-screen">
+        {/* </div> */}
+        <main className="flex-1 ">
           {children}
         </main>
       </body>
