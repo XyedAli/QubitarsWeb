@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { navbarImages } from "@/lib/assets/images";
@@ -187,7 +186,7 @@ const Navbar = () => {
       <TopNav />
 
       {/* Main header */}
-      <div className={styles.container}>
+      <div className="mx-4 lg:mx-12 xl:mx-16">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image

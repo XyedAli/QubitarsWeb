@@ -9,7 +9,7 @@ import { homeImages } from "@/lib/assets/images";
 const Hero = () => {
   return (
     <div className="mx-6">
-      <div className="relative w-full min-h-screeen overflow-hidden flex items-center mb-5 mt-5 rounded-xl ">
+      <div className="relative w-full overflow-hidden flex items-center mb-5 mt-5 rounded-xl ">
         {/* Background Pattern */}
         <div className={`relative z-10  bg-[#1E274F] px-10 w-full pb-25`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-9 items-center w-full">
@@ -35,7 +35,7 @@ const Hero = () => {
               </p>
 
               {/* CTA Button */}
-              <button className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-[#1E274F] font-semibold rounded-lg hover:bg-white/90 transition-all duration-300 hover:shadow-lg">
+              <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg">
                 <span>Book a Consultation, it&apos;s free</span>
                 <div className="relative">
                   <MoveUpRight className="w-5 h-5 transition-opacity duration-300 group-hover:opacity-0" />
