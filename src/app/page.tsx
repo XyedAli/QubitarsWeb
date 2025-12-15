@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Hero from "@/components/modules/Hero";
 import AreaExpert from "@/components/modules/AreaExpert";
 import OurPartners from "@/components/modules/OurPartners";
@@ -23,5 +24,14 @@ export default function Home() {
     <HeroBg3 />
 
   </main>
+=======
+import { Hero } from "@/components/features/home";
+
+export default function Home() {
+  return (
+    <>
+      <Hero />
+    </>
+>>>>>>> Hammad
   );
 }
