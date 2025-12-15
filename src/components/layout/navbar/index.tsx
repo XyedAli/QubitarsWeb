@@ -186,7 +186,7 @@ const Navbar = () => {
       <TopNav />
 
       {/* Main header */}
-      <div className="mx-4 lg:mx-12 xl:mx-16">
+      <div className="mx-4 xl:mx-9">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
@@ -232,7 +232,7 @@ const Navbar = () => {
               <Button
                 variant="accent"
                 size="md"
-                className="group hover:bg-transparent hover:text-accent border border-accent"
+                className="group hover:bg-transparent border border-accent"
               >
                 Contact Us
                 <div className="relative">

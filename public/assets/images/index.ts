@@ -57,6 +57,8 @@ export const homeImages = {
   himg3: "/assets/images/home/himg3.svg",
   himg4: "/assets/images/home/himg4.svg",
   himg5: "/assets/images/home/himg5.png",
+  bgLines: "/assets/images/home/bgLines.svg",
+  bgLines1: "/assets/images/home/bgLines1.svg"
 };
 
 // Unused exports (empty objects to prevent errors)
