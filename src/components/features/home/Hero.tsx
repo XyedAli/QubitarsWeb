@@ -45,6 +45,10 @@ const Hero = () => {
     ? "top-0 xl:top-[-10px] [1440px]:top-[-15px] 2xl:top-[-50px] [1920px]:top-[-25px] 3xl:top-[-30px]"
     : "top-0";
 
+  const desktopImageMinWidthClass = isMac
+    ? "min-w-[195%] lg:min-w-[135%] xl:min-w-[125%] [1440px]:min-w-[135%] 2xl:min-w-[140%] [1920px]:min-w-[145%] 3xl:min-w-[150%]"
+    : "min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%]";
+
   const buttonMarginTopClass = isMac
     ? "mt-4"
     : "";
@@ -113,13 +117,13 @@ const Hero = () => {
 
             {/* Right Side - Visual Element */}
             <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/3 overflow-visible pointer-events-none z-0">
-              <div className="relative w-full h-full flex items-center justify-end">
+              <div className="relative w-full h-full flex justify-end">
                 <Image
                   src={homeImages.bgLines}
                   alt="Background lines pattern"
                   width={1800}
                   height={1400}
-                  className={`object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%] ${desktopImageTopClass}`}
+                  className={`object-contain object-right w-auto h-auto ${desktopImageMinWidthClass} min-h-[9%] ${desktopImageTopClass}`}
                   priority
                   unoptimized
                 />
