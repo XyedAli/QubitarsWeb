@@ -42,7 +42,7 @@ const Hero = () => {
     : "top-0";
 
   const desktopImageTopClass = isMac
-    ? "top-0 xl:top-[-10px] [1440px]:top-[-15px] 2xl:top-[-20px] [1920px]:top-[-25px] 3xl:top-[-30px]"
+    ? "top-0 xl:top-[-10px] [1440px]:top-[-15px] 2xl:top-[-50px] [1920px]:top-[-25px] 3xl:top-[-30px]"
     : "top-0";
 
   const buttonMarginTopClass = isMac
