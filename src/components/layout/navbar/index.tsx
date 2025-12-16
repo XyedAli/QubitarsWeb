@@ -8,7 +8,6 @@ import TopNav from "@/components/layout/topNav";
 import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData, navItems } from "@/data/Navbar";
 import { useNavbar } from "@/lib/hooks";
 import { styles, combine } from "@/styles/style";
-
 // Main navigation header component
 const Navbar = () => {
   const {
@@ -44,6 +43,7 @@ const Navbar = () => {
                         className="w-9 h-9 object-contain"
                         loading="lazy"
                         sizes="24px"
+                        unoptimized
                       />
                     )}
                   </div>
@@ -197,6 +197,7 @@ const Navbar = () => {
             sizes="(max-width: 768px) 130px, 150px"
             className="cursor-pointer w-[120px] h-auto lg:w-[150px]"
             priority
+            unoptimized
           />
 
           <div className={combine(styles.flexitems, "gap-4")}>
@@ -287,6 +288,7 @@ const Navbar = () => {
                 className="cursor-pointer"
                 priority
                 sizes="120px"
+                unoptimized
               />
               <button
                 type="button"

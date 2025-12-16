@@ -91,6 +91,7 @@ const Hero = () => {
                     height={award.height}
                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 160px"
                     className={`object-contain opacity-90 hover:opacity-100 transition-opacity ${award.className}`}
+                    unoptimized
                   />
                 ))}
                 <div>
