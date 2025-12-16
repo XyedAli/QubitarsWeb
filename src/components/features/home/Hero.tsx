@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
@@ -12,11 +11,11 @@ const Hero = () => {
       <div className="relative w-full overflow-hidden flex items-center mt-5 rounded-xl ">
         {/* Background Pattern */}
         <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-135px)]`}>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-center w-full">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full">
             {/* Left Side - Text Content */}
             {/* title*/}
           
-            <div className="text-white col-span-8 text-center md:text-left flexn flex-col justify-center">
+            <div className="text-white col-span-8 text-center md:text-left relative z-10">
             <p
               className={`${styles.p1} mb-2 mt-18 md:mt-0 font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}
             >
@@ -43,7 +42,7 @@ const Hero = () => {
             </div>
 
             {/* Mobile Background Lines */}
-            <div className="md:hidden absolute inset-0 overflow-hidden">
+            <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none">
               <div className="relative w-full h-full flex items-center justify-end">
                 <Image
                   src={homeImages.bgLines1}
@@ -52,12 +51,13 @@ const Hero = () => {
                   height={600}
                   className="object-contain object-right w-full h-full"
                   priority
+                  unoptimized
                 />
               </div>
             </div>
 
             {/* Right Side - Visual Element */}
-            <div className="hidden md:block relative col-span-4 overflow-visible">
+            <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/3 overflow-visible pointer-events-none z-0">
               <div className="relative w-full h-full flex items-center justify-end">
                 <Image
                   src={homeImages.bgLines}
@@ -66,13 +66,14 @@ const Hero = () => {
                   height={1400}
                   className="object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%]"
                   priority
+                  unoptimized
                 />
               </div>
             </div>
           </div>
 
           {/* Awards Section */}
-          <div className="absolute bottom-4 lg:bottom-5 xl:bottom-7 [1440px]:bottom-9 md:right-0 px-0 md:px-5 xl:px-10 z-20">
+          <div className="absolute bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-9 md:right-0 px-0 md:px-5 xl:px-10 z-20">
             <div className="">
               <p className={(`${styles.p4} text-white/50 uppercase flex justify-start mb-1 lg:mb-2 xl:mb-3`)}>Awards & Certifications</p>
               <div className={`${styles.flexCenter} gap-2 lg:gap-3 xl:gap-5`}>

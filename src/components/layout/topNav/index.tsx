@@ -1,4 +1,3 @@
-import React from "react";
 import Icons from "@/lib/assets/icons";
 import { US, PK } from "country-flag-icons/react/3x2";
 import Link from "next/link";

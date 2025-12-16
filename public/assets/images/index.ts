@@ -52,11 +52,11 @@ export const headerImages = {
 
 export const homeImages = {
   bg6: "/assets/images/navbar/bg6.png",
-  himg1: "/assets/images/home/himg1.svg",
-  himg2: "/assets/images/home/himg2.svg",
-  himg3: "/assets/images/home/himg3.svg",
-  himg4: "/assets/images/home/himg4.svg",
-  himg5: "/assets/images/home/himg5.png",
+  himg1: "/assets/images/generals/awards/himg1.svg",
+  himg2: "/assets/images/generals/awards/himg2.svg",
+  himg3: "/assets/images/generals/awards/himg3.svg",
+  himg4: "/assets/images/generals/awards/himg4.svg",
+  himg5: "/assets/images/generals/awards/himg5.png",
   bgLines: "/assets/images/home/bgLines.svg",
   bgLines1: "/assets/images/home/bgLines1.svg"
 };
