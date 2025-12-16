@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { navbarImages } from "@/lib/assets/images";
-import { BriefcaseBusiness, Building2, ChevronDown, Lightbulb, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
+import { ChevronDown, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
 import TopNav from "@/components/layout/topNav";
-import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData, navItems } from "@/data/Navbar";
+import { navItems } from "@/data/Navbar";
 import { useNavbar } from "@/lib/hooks";
 import { styles, combine } from "@/styles/style";
+import { MobileDropdownContent } from "./MobileDropdownContent";
 // Main navigation header component
 const Navbar = () => {
   const {
@@ -23,170 +24,13 @@ const Navbar = () => {
     closeMenu,             // Close mobile menu handler
   } = useNavbar();
 
-  // Render mobile dropdown content
-  const renderMobileContent = (dropdownId: string) => {
-    switch (dropdownId) {
-      case "capabilities":
-        return (
-          <div className="space-y-6">
-            {capabilitiesData.map((section, index) => {
-              const sectionContent = (
-                <div className="space-y-4 flex-1 min-w-[180px]">
-                  <div className={combine(styles.flexitems, "gap-3")}>
-                  <h4 className="font-semibold text-base text-accent">{section.title}</h4>
-                    {section.image && (
-                      <Image
-                        src={section.image}
-                        alt={section.title || ""}
-                        width={24}
-                        height={24}
-                        className="w-9 h-9 object-contain"
-                        loading="lazy"
-                        sizes="24px"
-                        unoptimized
-                      />
-                    )}
-                  </div>
-                  <ul className="space-y-2">
-                    {section.items.map((item) => (
-                      <li
-                        key={item.id}
-                        className={combine(styles.flexitems, "gap-2 text-black mb-4")}
-                      >
-                        <div className="flex-shrink-0">
-                          <item.icon.component width="20" height="20" />
-                        </div>
-                        <span >{item.name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-
-              // First section shows additional services
-              if (index === 0) {
-                return (
-                  <div
-                    key={section.id}
-                    className="flex flex-wrap gap-6 items-start"
-                  >
-                    <div className="flex-1 min-w-[220px] ">
-                      {sectionContent}
-                    </div>
-                    <div className="flex-1 min-w-[80px] space-y-2">
-                      <div className="space-y-2 text-[18px] font-bold text-accent">
-                        {additionalServices.map((service) => (
-                          <p key={service.id}>{service.name}</p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <div key={section.id} className="space-y-4">
-                  {sectionContent}
-                </div>
-              );
-            })}
-          </div>
-        );
-      case "industries":
-        return (
-          <div className="space-y-2 text-sm text-[#1E274F]">
-            {industriesData.map((industry) => (
-              <div
-                key={industry.id}
-                className={combine(styles.flexitems, "gap-2 py-1")}
-              >
-                <span className={combine(styles.flexCenter, "h-6 w-6")}>
-                  <industry.icon width={22} height={22} className="" />
-                </span>
-                <span className="text-sm font-medium">{industry.name}</span>
-              </div>
-            ))}
-          </div>
-        );
-      // Company dropdown: Displays three sections (Company, Inside Qubitars, Careers)
-      case "company":
-        return (
-          <div className="space-y-5 text-sm text-[#1E274F]">
-            {[
-              {
-                title: "Company",
-                icon: Building2,
-                items: companyData.filter((item) => item.type === "companyLink"),
-              },
-              {
-                title: "Inside Qubitars",
-                icon: Lightbulb,
-                items: companyData.filter((item) => item.type === "insideQubitarsLink"),
-              },
-              {
-                title: "Careers",
-                icon: BriefcaseBusiness,
-                items: companyData.filter((item) => item.type === "careersLink"),
-              },
-            ].map((section) => (
-              <div key={section.title} className="space-y-2">
-                 {/* Section header with icon and title */}
-                 <div className={combine(styles.flexitems, "gap-2 text-base font-semibold")}>
-                  <section.icon className="h-6 w-6" />
-                  <span className="text-accent">{section.title}</span>
-                </div>
-                {/* Section items list */}
-                <ul className="space-y-1 pl-6 text-[14px] font-medium text-blackish/80">
-                  {section.items.map((item) => (
-                    <li key={item.id}>{item.label}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        );
-      case "engagement":
-        return (
-          <div className="space-y-2">
-            {engagementData
-              .filter((item) => item.type === "service")
-              .map((service) => {
-                const IconComponent = service.icon;
-                return (
-                  <div
-                    key={service.id}
-                    className="flex items-start gap-3 pl-2 text-blackish/80"
-                  >
-                    {IconComponent && (
-                      <IconComponent
-                        width={28}
-                        height={28}
-                        className="mt-1 text-base"
-                      />
-                    )}
-                    <div>
-                      <p className="font-medium text-sm text-accent">{service.title}</p>
-                      <p className="text-xs text-blackish/90 max-w-xs">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
 
   return (
     <main className="w-full sticky top-0 z-50 bg-white shadow-sm">
       {/* Top bar */}
       <TopNav />
-
       {/* Main header */}
-      <div className="mx-4 lg:mx-6 xl:mx-11">
+      <div className="mx-4 lg:mx-7 xl:mx-13">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
@@ -208,8 +52,6 @@ const Navbar = () => {
                   <div
                     key={id}
                     className="relative group"
-                    onMouseEnter={() => setActiveDropdown(id)}
-                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
                       onClick={() => handleDropdownToggle(id)}
@@ -237,8 +79,8 @@ const Navbar = () => {
               >
                 Contact Us
                 <div className="relative">
-                  <MoveUpRight className="w-5 h-5 mx-1 bg-white rounded-full p-1 text-accent transition-opacity duration-300 group-hover:opacity-0" />
-                  <MoveRight className="w-5 h-5 mx-1 bg-accent rounded-full p-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+                  <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </Button>
             </div>
@@ -320,7 +162,7 @@ const Navbar = () => {
                   </button>
                   {mobileDropdown === id && (
                     <div className="mt-4 text-blackish">
-                      {renderMobileContent(id)}
+                      <MobileDropdownContent dropdownId={id} />
                     </div>
                   )}
                 </div>

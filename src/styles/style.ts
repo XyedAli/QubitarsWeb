@@ -32,7 +32,7 @@
 //bg Colors
 // TopNav styles
  topNavContainer : "flex items-center gap-[6px] hover:text-accent transition-all duration-300 cursor-pointer group",
- topNavText : "text-black text-[10px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
+ topNavText : "text-black text-[9px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
 
 };
 export const combine = (...classes: (string | undefined | null | false)[]): string => {

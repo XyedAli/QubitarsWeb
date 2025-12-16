@@ -17,7 +17,7 @@ export const CompanyDropdown = () => {
 
   return (
     <>
-      <div className="fixed inset-x-0 top-[93.5px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
+      <div className="fixed inset-x-0 top-[97.5px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
         <div className="mx-4 lg:mx-8 xl:mx-16 py-6">
           <div className="grid grid-cols-1 md:grid-cols-[42%_23%_32%] lg:grid-cols-[41%_25%_28%] xl:grid-cols-[38%_25%_28%] gap-4 lg:gap-7 xl:gap-12 w-full">
             {/* Left column - testimonials and stats */}

@@ -19,7 +19,7 @@ export const IndustriesDropdown = () => {
   };
   return (
     <>
-      <div className="fixed inset-x-0 top-[91px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
+      <div className="fixed inset-x-0 top-[97px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
         <div className="px-4 lg:px-10 xl:px-19 py-6">
           <div className="grid grid-cols-12 lg:grid-cols-12 gap-4 xl:gap-8">
             {/* Industry list sidebar */}

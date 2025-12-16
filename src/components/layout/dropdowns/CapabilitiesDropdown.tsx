@@ -7,7 +7,7 @@ import { styles, combine } from "@/styles/style";
 export const CapabilitiesDropdown = () => {
   return (
     <>
-      <div className="fixed inset-x-0 top-[91px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white backdrop-blur-sm rounded-lg rounded-bl-[48px] rounded-br-[48px] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
+      <div className="fixed inset-x-0 top-[97px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white backdrop-blur-sm rounded-lg rounded-bl-[48px] rounded-br-[48px] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
         <div className="pl-5 lg:pl-9 xl:pl-16 pt-10 pb-7 relative">
           {/* Grid Columns */}
           <div className="grid grid-cols-3 gap-6 lg:gap-12 z-10 relative">
