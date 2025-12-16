@@ -46,8 +46,18 @@ body {
   font-family: var(--font-satoshi);
 }
 
+.font-outfit {
+  font-family: var(--font-outfit), sans-serif;
+}
+
 .font-fjalla-one {
   font-family: var(--font-fjalla-one), sans-serif;
+}
+
+@media (min-width: 1440px) {
+  .bottom-1440-11 {
+    bottom: 2.30rem !important;
+  }
 }
 
 /* CUSTOM CSS */

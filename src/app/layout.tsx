@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Poppins, Fjalla_One } from "next/font/google";
+import { DM_Sans, Poppins, Fjalla_One, Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout";
@@ -25,6 +25,14 @@ const fjallaOne = Fjalla_One({
   variable: "--font-fjalla-one",
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
+  preload: true,
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   preload: true,
 });
@@ -116,7 +124,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} antialiased`}
+        className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} ${outfit.variable} antialiased`}
         suppressHydrationWarning
       >
         {/* <div className="absolute top-0 left-0 right-0 z-50"> */}

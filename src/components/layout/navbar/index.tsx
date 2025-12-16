@@ -186,7 +186,7 @@ const Navbar = () => {
       <TopNav />
 
       {/* Main header */}
-      <div className="mx-4 xl:mx-9">
+      <div className="mx-4 lg:mx-6 xl:mx-11">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
