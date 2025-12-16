@@ -26,7 +26,7 @@ const Hero = () => {
     : "text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[44px] 2xl:text-[44px] [1920px]:text-[48px] 3xl:text-[49px]";
 
   const awardsBottomClass = isMac
-    ? "bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[32px] 2xl:bottom-[32px] [1920px]:bottom-[35px] 3xl:bottom-[38px]"
+    ? "bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[45px] [1920px]:bottom-[47px] 3xl:bottom-[49px]"
     : "bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px]";
 
   const marginTopClass = isMac
@@ -34,7 +34,7 @@ const Hero = () => {
     : "mt-5";
 
   const marginBottomClass = isMac
-    ? "mb-12 xl:mb-14 [1440px]:mb-20 2xl:mb-24"
+    ? "mb-12 xl:mb-14 [1440px]:mb-22 2xl:mb-24"
     : "mb-11";
 
   const mobileImageTopClass = isMac
@@ -42,8 +42,16 @@ const Hero = () => {
     : "top-0";
 
   const desktopImageTopClass = isMac
-    ? "top-0"
+    ? "top-0 xl:top-[-10px] [1440px]:top-[-15px] 2xl:top-[-20px] [1920px]:top-[-25px] 3xl:top-[-30px]"
     : "top-0";
+
+  const buttonMarginTopClass = isMac
+    ? "mt-4"
+    : "";
+
+  const descriptionClass = isMac
+    ? "mb-6 text-[16px] md:text-[18px] xl:text-[20px] [1440px]:text-[22px] 2xl:text-[25px] [1920px]:text-[28px]"
+    : "mb-6";
 
   return (
     <div className="mx-4 lg:mx-6 xl:mx-10">
@@ -66,12 +74,12 @@ const Hero = () => {
               </h1>
 
               {/* Description */}
-              <p className={`${styles.p2} text-white/90 max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-poppins mb-6`}>
+              <p className={`${styles.p2} text-white/90 max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-poppins ${descriptionClass}`}>
                 We help companies across North America, the Middle East, Africa, and Asia Pacific automate operations and transform their asset lifecycle with intelligent software.
               </p>
 
               {/* CTA Button */}
-              <button className="group inline-flex items-center text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg">
+              <button className={`group inline-flex items-center text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg ${buttonMarginTopClass}`}>
                 <span>Book a Consultation, it&apos;s free</span>
                 <div className="relative">
                   <MoveUpRight className="w-5 h-5 transition-opacity duration-300 group-hover:opacity-0" />
