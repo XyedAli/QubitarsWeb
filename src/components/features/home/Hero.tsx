@@ -1,16 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { homeImages } from "@/lib/assets/images";
 
 const Hero = () => {
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const platform = window.navigator.platform.toLowerCase();
+      setIsMac(/macintosh|mac os x|macintel/.test(userAgent) || /mac/.test(platform));
+    }
+  }, []);
+
+  const heightClass = isMac
+    ? "h-[calc(100vh-170px)] 2xl:h-[calc(100vh-180px)] [1920px]:h-[calc(100vh-185px)] 3xl:h-[calc(100vh-190px)]"
+    : "h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]";
+
   return (
     <div className="mx-4 lg:mx-6 xl:mx-10">
       <div className="relative w-full overflow-hidden flex items-center mt-5 rounded-xl ">
         {/* Background Pattern */}
-        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]`}>
+        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full ${heightClass}`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full">
             {/* Left Side - Text Content */}
             {/* title*/}
