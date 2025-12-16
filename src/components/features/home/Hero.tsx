@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   const heightClass = isMac
-    ? "h-[calc(100vh-175px)] 2xl:h-[calc(100vh-185px)] [1920px]:h-[calc(100vh-190px)] "
+    ? "h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
     : "h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]";
 
   const h1FontClass = isMac
@@ -30,14 +30,18 @@ const Hero = () => {
     : "bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px]";
 
   const marginTopClass = isMac
-    ? "mt-6 xl:mt-7 [1440px]:mt-8 2xl:mt-8 [1920px]:mt-9 3xl:mt-10"
+    ? "mt-6 xl:mt-7 [1440px]:mt-8 2xl:mt-7 [1920px]:mt-9 3xl:mt-10"
     : "mt-5";
 
   const marginBottomClass = isMac
-    ? "mb-12 xl:mb-14 [1440px]:mb-16 2xl:mb-16 [1920px]:mb-[72px] 3xl:mb-[80px]"
+    ? "mb-12 xl:mb-14 [1440px]:mb-20 2xl:mb-24"
     : "mb-11";
 
   const mobileImageTopClass = isMac
+    ? "top-0"
+    : "top-0";
+
+  const desktopImageTopClass = isMac
     ? "top-0"
     : "top-0";
 
@@ -99,7 +103,7 @@ const Hero = () => {
                   alt="Background lines pattern"
                   width={1800}
                   height={1400}
-                  className="object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%] top-0"
+                  className={`object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%] ${desktopImageTopClass}`}
                   priority
                   unoptimized
                 />
