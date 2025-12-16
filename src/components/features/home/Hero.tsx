@@ -7,23 +7,23 @@ import { homeImages } from "@/lib/assets/images";
 
 const Hero = () => {
   return (
-    <div className="mx-4 xl:mx-10">
+    <div className="mx-4 lg:mx-6 xl:mx-10">
       <div className="relative w-full overflow-hidden flex items-center mt-5 rounded-xl ">
         {/* Background Pattern */}
-        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-158px)]`}>
+        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-158px)] 3xl:h-[calc(100vh-172px)]`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full">
             {/* Left Side - Text Content */}
             {/* title*/}
           
-            <div className="text-white col-span-8 text-center md:text-left relative z-10">
+            <div className="text-white col-span-8 text-center md:text-left relative z-10 mb-11">
             <p
               className={`${styles.h6} mb-2 mt-18 md:mt-0 font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}
             >
               Next-Gen Innovation
             </p>
               {/* Main Heading */}
-              <h1 className={`text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] font-bold text-white leading-tight font-outfit uppercase mb-4`}>
-                AI-Powered Ecosystems for<span className="hidden xl:inline"><br /></span> Global Companies
+              <h1 className={`text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] font-bold text-white leading-tight font-outfit uppercase xl:max-w-3xl 2xl:max-w-4xl 3xl:max-w-4xl mb-4`}>
+                AI-Powered Ecosystems for Global Companies
               </h1>
 
               {/* Description */}
@@ -78,10 +78,10 @@ const Hero = () => {
               <p className={(`${styles.p4} text-white/50 uppercase flex justify-start font-poppins mb-1 lg:mb-2 xl:mb-3`)}>Awards & Certifications</p>
               <div className={`${styles.flexCenter} gap-2 lg:gap-3 xl:gap-5`}>
                 {[
-                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-3 md:h-4 lg:h-4 xl:h-5 w-auto" },
-                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 w-auto" },
-                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 w-auto" },
-                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 w-auto" },
+                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-3 md:h-4 lg:h-4 xl:h-5 3xl:h-6 w-auto" },
+                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
+                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
+                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
                 ].map((award, index) => (
                   <Image
                     key={index}
