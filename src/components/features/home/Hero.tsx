@@ -26,7 +26,7 @@ const Hero = () => {
     : "text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[44px] 2xl:text-[44px] [1920px]:text-[48px] 3xl:text-[49px]";
 
   const awardsBottomClass = isMac
-    ? "bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[45px] [1920px]:bottom-[47px] 3xl:bottom-[49px]"
+    ? "bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[50px] [1920px]:bottom-[52px] 3xl:bottom-[54px]"
     : "bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px]";
 
   const marginTopClass = isMac
@@ -50,8 +50,16 @@ const Hero = () => {
     : "";
 
   const descriptionClass = isMac
-    ? "mb-6 text-[16px] md:text-[18px] xl:text-[20px] [1440px]:text-[22px] 2xl:text-[25px] [1920px]:text-[28px]"
+    ? "mb-6 text-[16px] md:text-[18px] xl:text-[20px] [1440px]:text-[22px] 2xl:text-[24px] [1920px]:text-[28px]"
     : "mb-6";
+
+  const ministryTextClass = isMac
+    ? "text-[10px] md:text-xs xl:text-sm [1440px]:text-sm 2xl:text-base [1920px]:text-lg"
+    : "text-[9px] md:text-xs 2xl:text-sm";
+
+  const governmentTextClass = isMac
+    ? "text-xs xl:text-sm [1440px]:text-sm 2xl:text-base [1920px]:text-lg"
+    : "text-xs 2xl:text-sm";
 
   return (
     <div className="mx-4 lg:mx-6 xl:mx-10">
@@ -142,8 +150,8 @@ const Hero = () => {
                   />
                 ))}
                 <div>
-                <p className="text-white font-bold font-inter text-[9px] md:text-xs capatilize 2xl:text-sm">Ministry of Information Technology & Telecom </p>
-                <p className="text-white/90 font-inter text-xs 2xl:text-sm">Government of Pakistan</p>
+                <p className={`text-white font-bold font-inter capatilize ${ministryTextClass}`}>Ministry of Information Technology & Telecom </p>
+                <p className={`text-white/90 font-inter ${governmentTextClass}`}>Government of Pakistan</p>
                 </div>
               </div>
             </div>
