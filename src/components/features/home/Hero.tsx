@@ -10,7 +10,7 @@ const Hero = () => {
     <div className="mx-4 lg:mx-6 xl:mx-10">
       <div className="relative w-full overflow-hidden flex items-center mt-5 rounded-xl ">
         {/* Background Pattern */}
-        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-158px)] 3xl:h-[calc(100vh-172px)]`}>
+        <div className={`relative z-10 bg-[#1E274F] pe-4 md:pe-0 ps-4 xl:ps-10 w-full h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full">
             {/* Left Side - Text Content */}
             {/* title*/}
@@ -22,8 +22,8 @@ const Hero = () => {
               Next-Gen Innovation
             </p>
               {/* Main Heading */}
-              <h1 className={`text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] font-bold text-white leading-tight font-outfit uppercase xl:max-w-3xl 2xl:max-w-4xl 3xl:max-w-4xl mb-4`}>
-                AI-Powered Ecosystems for Global Companies
+              <h1 className={`text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[46px] 2xl:text-[46px] [1920px]:text-[48px] 3xl:text-[49px] font-bold text-white leading-tight font-outfit uppercase mb-4`}>
+                AI-Powered Ecosystems for<span className="hidden xl:inline"><br /></span> Global Companies
               </h1>
 
               {/* Description */}
@@ -42,7 +42,7 @@ const Hero = () => {
             </div>
 
             {/* Mobile Background Lines */}
-            <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="md:hidden absolute inset-0 top-0 overflow-hidden pointer-events-none">
               <div className="relative w-full h-full flex items-center justify-end">
                 <Image
                   src={homeImages.bgLines1}
@@ -64,7 +64,7 @@ const Hero = () => {
                   alt="Background lines pattern"
                   width={1800}
                   height={1400}
-                  className="object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%]"
+                  className="object-contain object-right w-auto h-auto min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%] min-h-[9%] top-0"
                   priority
                   unoptimized
                 />
@@ -73,15 +73,15 @@ const Hero = () => {
           </div>
 
           {/* Awards Section */}
-          <div className="absolute bottom-5 lg:bottom-5 xl:bottom-7 bottom-1440-11 md:right-0 px-0 md:px-5 xl:px-10 z-20">
+          <div className="absolute bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px] md:right-0 px-0 md:px-5 xl:px-10 z-20">
             <div className="">
               <p className={(`${styles.p4} text-white/50 uppercase flex justify-start font-poppins mb-1 lg:mb-2 xl:mb-3`)}>Awards & Certifications</p>
               <div className={`${styles.flexCenter} gap-2 lg:gap-3 xl:gap-5`}>
                 {[
-                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-3 md:h-4 lg:h-4 xl:h-5 3xl:h-6 w-auto" },
-                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
-                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
-                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 3xl:h-10 w-auto" },
+                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-3 md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto" },
+                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
                 ].map((award, index) => (
                   <Image
                     key={index}
