@@ -44,6 +44,7 @@ export const industriesImages = {
 export const rootImages = {
   logo: "/assets/images/navbar/Logo.png",
   logoSvg: "/assets/images/navbar/logo.svg",
+  logo2: "/assets/images/generals/awards/logo2.svg",
 };
 
 export const headerImages = {
@@ -57,6 +58,8 @@ export const homeImages = {
   himg3: "/assets/images/generals/awards/himg3.svg",
   himg4: "/assets/images/generals/awards/himg4.svg",
   himg5: "/assets/images/generals/awards/himg5.png",
+  himg6: "/assets/images/generals/awards/himg6.svg",
+  himg7: "/assets/images/generals/awards/himg7.svg",
   bgLines: "/assets/images/home/bgLines.svg",
   bgLines1: "/assets/images/home/bgLines1.svg"
 };

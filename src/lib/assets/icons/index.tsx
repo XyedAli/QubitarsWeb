@@ -18,6 +18,9 @@ import { MobileIcon } from './Mobile'
 import { MVPIcon } from './MVP'
 import { SaasIcon } from './Saas'
 import { WorkflowIcon } from './Workflow'
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
 
 // Main Icons Component - Access all icons through this single export
 export const Icons = {
@@ -40,6 +43,9 @@ export const Icons = {
   MVP: MVPIcon,
   Saas: SaasIcon,
   Workflow: WorkflowIcon,
+  FaFacebook,
+  FaLinkedin,
+  RiInstagramFill,
 }
 
 // Default export - Import this to access all icons
