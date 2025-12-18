@@ -23,7 +23,6 @@ export const industriesImages = {
   clogo2: "/assets/images/Industries/clogo2.svg",
   clogo3: "/assets/images/Industries/clogo3.svg",
   clogo4: "/assets/images/Industries/clogo4.svg",
-  clogo5: "/assets/images/Industries/clogo5.svg",
   clogo6: "/assets/images/Industries/clogo6.svg",
   clogo7: "/assets/images/Industries/clogo7.svg",
   clogo8: "/assets/images/Industries/clogo8.svg",
@@ -44,7 +43,7 @@ export const industriesImages = {
 export const rootImages = {
   logo: "/assets/images/navbar/Logo.png",
   logoSvg: "/assets/images/navbar/logo.svg",
-  logo2: "/assets/images/generals/awards/logo2.svg",
+  logo2: "/assets/images/generals/awards/Logo2.svg",
 };
 
 export const headerImages = {

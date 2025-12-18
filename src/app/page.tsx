@@ -1,6 +1,6 @@
-import { Hero } from "@/components/features/home";
-import SliderComponent from "@/components/features/home/slider";
-import { Footer } from "@/components/layout";
+import { Hero, BusinessTypes } from "@/components/features/home";
+import SliderComponent from "@/components/shared/ui/slider/slider2";
+import { Awards, Footer } from "@/components/layout";
 import { industriesImages } from "@/lib/assets/images";
 
 export default function Home() {
@@ -24,6 +24,8 @@ export default function Home() {
           <SliderComponent firstRowItems={firstRowItems} secondRowItems={secondRowItems} />
         </div>
       </div>
+      <BusinessTypes />
+      <Awards />
       <Footer />
     </>
   );

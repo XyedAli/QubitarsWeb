@@ -10,10 +10,10 @@ import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/d
 const Footer = () => {
   return (
     <footer className="bg-[#1E274F] relative overflow-hidden">
-      <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 xl:gap-8 mb-12">
+      <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 xl:gap-8 mb-4">
           <div className="lg:col-span-6">
-            <div className="mb-4 lg:mb-6">
+            <div className="mb-4 lg:mb-4">
               <Image
                 src={rootImages.logo2}
                 alt="Qubitars Technologies Logo"
@@ -22,7 +22,7 @@ const Footer = () => {
                 className="mb-6 lg:mb-7 xl:mb-8 w-auto h-10 md:h-12 lg:h-14 xl:h-16"
                 unoptimized
               />
-              <div className="flex items-start gap-2 mb-5">
+              <div className="flex items-start gap-2 mb-3">
                 <MapPin className="w-4 h-4 text-white/90 mt-1 flex-shrink-0" />
                 <p className="text-white/90 text-base">
                   Qubitars Technologies, Mumtaz Market,<br />
@@ -41,18 +41,21 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex gap-4">
-              {partnerBadges.map((badge) => (
-                <Image
-                  key={badge.name}
-                  src={badge.src}
-                  alt={badge.name}
-                  width={60}
-                  height={30}
-                  className="object-contain h-6 w-auto"
-                  unoptimized
+            <div className="mt-1">
+              <h4 className="text-white font-semibold text-base mb-3">Subscribe to our Newsletter</h4>
+              <div className="flex gap-2 max-w-md">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-accent focus:bg-white/15 transition-all"
                 />
-              ))}
+                <button
+                  type="submit"
+                  className="px-3 lg:px-4 py-2 text-base font-medium bg-white text-[#1E274F] hover:text-[#5496D6] transition-all duration-300 rounded-lg"
+                >
+                  Subscribe
+                </button>
+              </div>
             </div>
           </div>
           <div className="lg:col-span-2">
@@ -106,35 +109,35 @@ const Footer = () => {
         </div>
 
         <div className="relative">
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent mb-2" />
-          <div className="relative -mb-2">
-            <h1 className="text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] 2xl:text-[173px] font-bold bg-gradient-to-r from-transparent via-white to-transparent bg-clip-text text-transparent opacity-40 font-bebas-neue tracking-wide">
+          <div className="relative hidden md:block ">
+            <h2 className="text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] 2xl:text-[173px] font-bold bg-gradient-to-r from-transparent via-white to-transparent bg-clip-text text-transparent opacity-40 font-bebas-neue tracking-wide">
               QUBITARS TECHNOLOGIES
-            </h1>
+            </h2>
           </div>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-0 lg:gap-3 xl:gap-4 items-center relative z-10">
-              <div className="col-span-5 text-white/60 text-[13px] lg:text-base text-center md:text-left ">
-                © 2023 Qubitars Technologies | All Rights Reserved
-              </div>
 
-            <div className={combine(styles.flexCenter, "gap-4 col-span-3")}>
-              <Link href="https://www.facebook.com/qubitars" target="_blank" className="text-white/80 p-2 rounded-full border border-white/80 hover:text-white transition-colors">
-                <Icons.FaFacebook width={26} height={26} />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 pt-5 md:pt-4 border-t border-white/40 relative z-10">
+            <div className="flex flex-col items-center md:items-start gap-0.3 text-white/80 text-sm lg:text-base text-center md:text-left order-2 md:order-1">
+              <span>© 2023 Qubitars Technologies</span>
+              <span>All Rights Reserved</span>
+            </div>
+
+            <div className={combine(styles.flexCenter, "gap-3 lg:gap-4 order-1 md:order-2")}>
+              <Link href="https://www.facebook.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+                <Icons.Facebook className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
-              <Link href="https://www.instagram.com/qubitars" target="_blank" className="text-white/80 p-2 rounded-full border border-white/80 hover:text-white transition-colors">
-                <Icons.RiInstagramFill width={26} height={26} />
+              <Link href="https://www.instagram.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+                <Icons.Instagram className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
-              <Link href="https://www.linkedin.com/company/qubitars" target="_blank" className="text-white/80 p-2 rounded-full border border-white/80 hover:text-white transition-colors">
-                <Icons.FaLinkedin width={26} height={26} />
+              <Link href="https://www.linkedin.com/company/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+                <Icons.Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
             </div>
 
-            <div className="col-span-4 flex gap-3 justify-center md:justify-end text-[13px] lg:text-base">
-              <Link href="/privacy-policy" className="text-white/60 hover:text-white transition-colors">
+            <div className="flex flex-col items-center md:items-end gap-0.3 text-sm lg:text-base order-3">
+              <Link href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <span className="text-white/60">|</span>
-              <Link href="/terms-conditions" className="text-white/60 hover:text-white transition-colors">
+              <Link href="/terms-conditions" className="text-white/80 hover:text-white transition-colors">
                 Terms & Conditions
               </Link>
             </div>
