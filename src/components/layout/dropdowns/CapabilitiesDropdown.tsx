@@ -1,5 +1,5 @@
 import React from "react";
-import { capabilitiesData, additionalServices } from "@/data/Navbar";
+import { capabilitiesData, additionalServices } from "@/data";
 import Image from "next/image";
 import { styles, combine } from "@/styles/style";
 

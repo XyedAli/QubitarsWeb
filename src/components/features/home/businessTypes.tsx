@@ -1,61 +1,57 @@
 "use client";
 
-import { Home, Briefcase, Building } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
-
-const businessTypes = [
-  {
-    icon: Home,
-    title: "Startups",
-    description: "Transform your innovative software ideas into reality with our tailored and scalable solutions designed specifically for startups ready to make their mark.",
-  },
-  {
-    icon: Briefcase,
-    title: "Small Business",
-    description: "We understand and tackle the unique challenges faced by SMEs with tailored software solutions that drive growth and operational efficiency.",
-  },
-  {
-    icon: Building,
-    title: "Enterprise",
-    description: "Drive innovation, optimize operations, and ensure seamless scalability for your enterprise with our comprehensive software development services.",
-  },
-];
+import { SectionHeading } from "@/components/shared/headingContent/headings";
+import { businessTypes } from "@/data";
+import { CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 
 const BusinessTypes = () => {
-  return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="mx-4 lg:mx-7 xl:mx-12">
-        <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
-          <h2 className={`${styles.h1} font-bold text-blue mb-5 md:mb-6 leading-tight font-outfit`}>
-            Driving Success for All Business Types
-          </h2>
-          <p className={`${styles.p2} text-blue max-w-3xl mx-auto leading-relaxed`}>
-            Being the leading software development agency, we help all kinds of businesses, whether budding startups or established enterprises, overcome challenges through our top-notch software solutions.
-          </p>
-        </div>
+  const sliderSettings = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    infinite: false,
+    responsive: sliderBreakpoints.threeToTwoToOne,
+  };
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
-          {businessTypes.map((business, index) => (
-            <div
-              key={index}
-              className="relative bg-white rounded-2xl shadow-md hover:shadow-xl p-8 lg:p-8 transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-            >
-              <div className="absolute top-4 right-4 lg:-top-8 lg:right-6">
-                <div className="relative">
-                  <div className="w-16 h-16 lg:w-14 lg:h-14 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <business.icon className="w-8 h-8 lg:w-8 lg:h-8 text-[#F05C22]" strokeWidth={2} />
+  return (
+    <section className="bg-white">
+      <div className={styles.sectionPadding}>
+        <SectionHeading 
+          subtitle="Business Model"
+          title="Strategic Partner for"
+          highlightedText="Global Growth"
+        />
+
+        <div className="mb-10 mt-12">
+          <CustomSlider settings={sliderSettings}>
+            {businessTypes.map((business, index) => (
+              <div key={index} className="px-3">
+                <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl p-4 lg:p-5 xl:p-8 pt-12 transition-all border border-gray-100 hover:border-[#F05C22] group">
+                  <div className={`absolute -top-8 lg:-top-9 xl:-top-10 right-3 w-15 lg:w-17 xl:w-20 h-15 lg:h-17 xl:h-20 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] ${styles.flexCenter} shadow-md z-20`}>
+                    <business.icon className="w-10 h-10 text-white" />
                   </div>
-                  <div className="absolute inset-0 rounded-full border-2 border-[#F05C22] m-[-4px]"></div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white"></div>
+                  </div>
+                  <h3 className={`${styles.h4} font-bold mb-2 xl:mb-4 text-blue font-outfit relative z-10`}>
+                    {business.title}
+                  </h3>
+                  <p className={`${styles.p3} text-blue leading-normal xl:leading-relaxed font-inter relative z-10`}>
+                    {business.description}
+                  </p>
                 </div>
               </div>
-              <h3 className={`${styles.h4} font-bold mb-4 text-blue pr-20`}>
-                {business.title}
-              </h3>
-              <p className={`${styles.p3} text-blue leading-relaxed`}>
-                {business.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </CustomSlider>
+        </div>
+
+        <div className="flex justify-center">
+          <button className={`bg-gray-100 hover:bg-gray-200 text-blue px-7 py-4 rounded-xl font-semibold ${styles.flexitems} gap-3 transition-all`}>
+            Let&apos;s Discuss
+            <MoveUpRight className="w-4 h-5 text-blue" />
+          </button>
         </div>
       </div>
     </section>

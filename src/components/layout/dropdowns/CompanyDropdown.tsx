@@ -4,7 +4,7 @@ import { companyImages } from "@/lib/assets/images";
 import Link from "next/link";
 import {Building2, Lightbulb, BriefcaseBusiness} from "lucide-react";
 import { CustomSlider } from "@/components/shared/ui";
-import { companyData } from "@/data/Navbar";
+import { companyData } from "@/data";
 import { styles, combine } from "@/styles/style";
 
 // Company dropdown component

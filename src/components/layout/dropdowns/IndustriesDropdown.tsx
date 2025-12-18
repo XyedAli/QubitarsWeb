@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
-import { industries } from "@/data/Navbar";
+import { industries } from "@/data";
 import { styles, combine } from "@/styles/style";
 
 // Industries dropdown component

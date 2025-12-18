@@ -1,0 +1,26 @@
+import { styles } from "@/styles/style";
+
+interface SectionHeadingProps {
+  subtitle: string;
+  title: string;
+  highlightedText?: string;
+}
+
+export const SectionHeading = ({ subtitle, title, highlightedText }: SectionHeadingProps) => {
+  return (
+    <div className="mb-12 md:mb-16">
+      <div className="flex items-center gap-2 mb-2">
+        <span className={`${styles.h6} font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}>
+          {subtitle}
+        </span>
+      </div>
+      <h2 className={`${styles.h1} font-bold text-blue leading-tight font-outfit`}>
+        {title}{" "}
+        {highlightedText && (
+          <span className="text-[#F05C22]">{highlightedText}</span>
+        )}
+      </h2>
+    </div>
+  );
+};
+

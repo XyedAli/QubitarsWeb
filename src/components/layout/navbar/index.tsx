@@ -5,7 +5,7 @@ import { navbarImages } from "@/lib/assets/images";
 import { ChevronDown, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
 import TopNav from "@/components/layout/topNav";
-import { navItems } from "@/data/Navbar";
+import { navItems } from "@/data";
 import { useNavbar } from "@/lib/hooks";
 import { styles, combine } from "@/styles/style";
 import { MobileDropdownContent } from "./MobileDropdownContent";

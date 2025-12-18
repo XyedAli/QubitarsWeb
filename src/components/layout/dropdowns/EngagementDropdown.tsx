@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { Button, CustomSlider } from "@/components/shared/ui";
-import { engagementData } from "@/data/Navbar";
+import { engagementData } from "@/data";
 import { styles, combine } from "@/styles/style";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";

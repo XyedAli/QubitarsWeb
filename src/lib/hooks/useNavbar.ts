@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { companyData } from '@/data/Navbar';
+import { companyData } from '@/data';
 
 interface UseNavbarReturn {
   activeDropdown: string | null;

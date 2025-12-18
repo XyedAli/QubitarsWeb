@@ -5,13 +5,13 @@ import { US, PK } from "country-flag-icons/react/3x2";
 import { rootImages } from "@/lib/assets/images";
 import Icons from "@/lib/assets/icons";
 import { styles, combine } from "@/styles/style";
-import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/data/footer";
+import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/data";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1E274F] relative overflow-hidden">
-      <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-3">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 xl:gap-8 mb-4">
+    <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
+      <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 xl:gap-8 mb-7">
           <div className="lg:col-span-6">
             <div className="mb-4 lg:mb-4">
               <Image
@@ -109,26 +109,27 @@ const Footer = () => {
         </div>
 
         <div className="relative">
-          <div className="relative hidden md:block ">
+          <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-90" />
+          <div className="relative hidden md:block -mb-4">
             <h2 className="text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] 2xl:text-[173px] font-bold bg-gradient-to-r from-transparent via-white to-transparent bg-clip-text text-transparent opacity-40 font-bebas-neue tracking-wide">
               QUBITARS TECHNOLOGIES
             </h2>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 pt-5 md:pt-4 border-t border-white/40 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 relative z-10">
             <div className="flex flex-col items-center md:items-start gap-0.3 text-white/80 text-sm lg:text-base text-center md:text-left order-2 md:order-1">
               <span>© 2023 Qubitars Technologies</span>
               <span>All Rights Reserved</span>
             </div>
 
             <div className={combine(styles.flexCenter, "gap-3 lg:gap-4 order-1 md:order-2")}>
-              <Link href="https://www.facebook.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+              <Link href="https://www.facebook.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/50 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
                 <Icons.Facebook className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
-              <Link href="https://www.instagram.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+              <Link href="https://www.instagram.com/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/50 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
                 <Icons.Instagram className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
-              <Link href="https://www.linkedin.com/company/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/30 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
+              <Link href="https://www.linkedin.com/company/qubitars" target="_blank" className="w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-transparent border border-white/50 hover:border-[#60A5FA] hover:bg-[#60A5FA]/10 transition-all hover:scale-110">
                 <Icons.Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </Link>
             </div>

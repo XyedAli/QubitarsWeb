@@ -86,7 +86,7 @@ const Hero = () => {
               </h1>
 
               {/* Description */}
-              <p className={`${styles.p2} text-white/90 max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-poppins ${descriptionClass}`}>
+              <p className={`${styles.p2} text-white/90 max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-inter ${descriptionClass}`}>
                 We help companies across North America, the Middle East, Africa, and Asia Pacific automate operations and transform their asset lifecycle with intelligent software.
               </p>
 

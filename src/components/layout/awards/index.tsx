@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { awards } from "@/data/awards";
+import { awards } from "@/data";
+import { styles } from "@/styles/style";
 
 const Awards = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className={`${styles.sectionPaddingY} bg-gradient-to-b from-white to-gray-50`}>
       <div className="mx-4 lg:mx-8 xl:mx-14">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">

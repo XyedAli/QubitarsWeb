@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BriefcaseBusiness, Building2, Lightbulb } from "lucide-react";
-import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData } from "@/data/Navbar";
+import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData } from "@/data";
 import { styles, combine } from "@/styles/style";
 
 interface MobileDropdownContentProps {
