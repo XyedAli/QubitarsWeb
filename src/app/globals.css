@@ -114,3 +114,31 @@ body {
     }
   }
 }
+
+.slider-equal-height {
+  overflow: visible !important;
+}
+
+.slider-equal-height .slick-list {
+  overflow: visible !important;
+}
+
+.slider-equal-height .slick-track {
+  display: flex !important;
+}
+
+.slider-equal-height .slick-slide {
+  height: inherit !important;
+  display: flex !important;
+}
+
+.slider-equal-height .slick-slide > div {
+  height: 100%;
+  display: flex;
+}
+
+.vertical-text-rotated {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  letter-spacing: 0.15em;
+}

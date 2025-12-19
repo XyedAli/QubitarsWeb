@@ -1,4 +1,4 @@
-import { Hero, BusinessTypes } from "@/components/features/home";
+import { Hero, BusinessTypes, Services } from "@/components/features/home";
 import SliderComponent from "@/components/shared/ui/slider/slider2";
 import { Awards, Footer } from "@/components/layout";
 import { industriesImages } from "@/lib/assets/images";
@@ -25,6 +25,7 @@ export default function Home() {
         </div>
       </div>
       <BusinessTypes />
+      <Services />
       <Awards />
       <Footer />
     </>
