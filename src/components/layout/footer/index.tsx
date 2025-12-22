@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
@@ -8,6 +11,18 @@ import { styles, combine } from "@/styles/style";
 import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/data";
 
 const Footer = () => {
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      setIsMac(/macintosh|mac os x|macintel|ipad|iphone/.test(userAgent));
+    }
+  }, []);
+
+  const footerTextClass = isMac
+    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[182px] [1920px]:text-[185px] 3xl:text-[188px]"
+    : "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[165px] [1440px]:text-[168px] 2xl:text-[174px] [1920px]:text-[172px] 3xl:text-[178px]";
   return (
     <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
       <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-7">
@@ -111,7 +126,7 @@ const Footer = () => {
         <div className="relative">
           <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-90" />
           <div className="relative hidden md:block -mb-4">
-            <h2 className="text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] 2xl:text-[173px] font-bold bg-gradient-to-r from-transparent via-white to-transparent bg-clip-text text-transparent opacity-40 font-bebas-neue tracking-wide">
+            <h2 className={`${footerTextClass} font-bold bg-gradient-to-r from-transparent via-white to-transparent bg-clip-text text-transparent opacity-40 tracking-wide font-bebas-neue text-center`}>
               QUBITARS TECHNOLOGIES
             </h2>
           </div>

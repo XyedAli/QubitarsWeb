@@ -4,7 +4,7 @@ import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { businessTypes } from "@/data";
-import { CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
+import { CustomSlider, sliderBreakpoints, Button } from "@/components/shared/ui";
 
 const BusinessTypes = () => {
   const sliderSettings = {
@@ -71,10 +71,14 @@ const BusinessTypes = () => {
         </div>
 
         <div className="flex justify-center">
-          <button className={`bg-gray-100 hover:bg-gray-200 text-blue px-7 py-4 rounded-xl font-semibold ${styles.flexitems} gap-3 transition-all`}>
-            Let&apos;s Discuss
-            <MoveUpRight className="w-4 h-5 text-blue" />
-          </button>
+          <Button
+            variant="accent"
+            size="lg"
+            className="bg-gray-100 hover:bg-gray-200 text-blue px-7 py-4 rounded-xl hover:opacity-90 font-semibold gap-3"
+          >
+            Book Consultation
+            <MoveUpRight className="w-4 h-5 text-white" />
+          </Button>
         </div>
       </div>
     </section>

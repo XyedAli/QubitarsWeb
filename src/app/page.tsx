@@ -1,4 +1,5 @@
 import { Hero, BusinessTypes, Services } from "@/components/features/home";
+import CallToAction from "@/components/layout/workTogether";
 import { DualRowSlider } from "@/components/shared/ui";
 import { Awards, Footer } from "@/components/layout";
 import { industriesImages } from "@/lib/assets/images";
@@ -27,6 +28,7 @@ export default function Home() {
       <BusinessTypes />
       <Services />
       <Awards />
+      <CallToAction />
       <Footer />
     </>
   );

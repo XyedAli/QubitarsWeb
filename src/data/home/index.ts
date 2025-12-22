@@ -1,7 +1,7 @@
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
-import { homeImages } from "@/lib/assets/images";
+import { AwardsImages } from "@/lib/assets/images";
 
 export const businessTypes = [
   {
@@ -25,32 +25,32 @@ export const awards = [
   {
     id: 1,
     name: "Clutch",
-    image: homeImages.himg1,
+    image: AwardsImages.caward1,
   },
   {
     id: 2,
     name: "TopDevelopers",
-    image: homeImages.himg2,
+    image: AwardsImages.caward2,
   },
   {
     id: 3,
     name: "DesignRush",
-    image: homeImages.himg3,
+    image: AwardsImages.caward3,
   },
   {
     id: 4,
     name: "GoodFirms",
-    image: homeImages.himg4,
+    image: AwardsImages.caward4,
   },
   {
     id: 5,
     name: "Trustpilot",
-    image: homeImages.himg6,
+    image: AwardsImages.caward5,
   },
   {
     id: 6,
     name: "DesignFirms",
-    image: homeImages.himg7,
+    image: AwardsImages.caward6,
   },
 ];
 

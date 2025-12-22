@@ -3,7 +3,6 @@ import { DM_Sans, Poppins, Fjalla_One, Outfit, Bebas_Neue, Inter } from "next/fo
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout";
-import BookConsultationButton from "@/components/shared/ui/bookConsultationButton";
 
 // Optimize font loading with display swap for better performance
 const dmSans = DM_Sans({
@@ -145,7 +144,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Navbar />
-        <BookConsultationButton />
+        {/* <BookConsultationButton /> */}
         <main className="flex-1 min-h-screeen overflow-hidden ">
           {children}
         </main>

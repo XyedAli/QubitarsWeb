@@ -39,6 +39,14 @@ export const industriesImages = {
   man: "/assets/images/Industries/Man.png",
 };
 
+export const AwardsImages = {
+  caward1: "/assets/images/generals/awards/caward1.svg",
+  caward2: "/assets/images/generals/awards/caward2.svg",
+  caward3: "/assets/images/generals/awards/caward3.svg",
+  caward4: "/assets/images/generals/awards/caward4.svg",
+  caward5: "/assets/images/generals/awards/caward5.svg",
+  caward6: "/assets/images/generals/awards/caward6.svg",
+};
 // Legacy exports for backward compatibility (deprecated - use navbarImages instead)
 export const rootImages = {
   logo: "/assets/images/navbar/Logo.png",
