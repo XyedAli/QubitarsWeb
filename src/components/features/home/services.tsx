@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
-import { SectionHeading } from "@/components/shared/headingContent/headings";
+import { SectionHeading } from "@/components/shared/headings";
 
 const services = [
   {

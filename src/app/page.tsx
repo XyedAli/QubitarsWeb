@@ -1,5 +1,5 @@
 import { Hero, BusinessTypes, Services } from "@/components/features/home";
-import SliderComponent from "@/components/shared/ui/slider/slider2";
+import { DualRowSlider } from "@/components/shared/ui";
 import { Awards, Footer } from "@/components/layout";
 import { industriesImages } from "@/lib/assets/images";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <div className="py-8 bg-white">
         <div className="mx-4 lg:mx-7 xl:mx-12">
-          <SliderComponent firstRowItems={firstRowItems} secondRowItems={secondRowItems} />
+          <DualRowSlider firstRowItems={firstRowItems} secondRowItems={secondRowItems} />
         </div>
       </div>
       <BusinessTypes />
