@@ -15,12 +15,20 @@ interface SliderItem {
   className?: string;
 }
 
-interface SliderProps {
+interface DualRowSliderProps {
   firstRowItems: SliderItem[];
   secondRowItems: SliderItem[];
 }
 
-const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
+/**
+ * DualRowSlider - A reusable two-row infinite scrolling slider component
+ * Perfect for displaying logos, client lists, or any items in two rows
+ * 
+ * @param firstRowItems - Array of items for the first row (scrolls right to left)
+ * @param secondRowItems - Array of items for the second row (scrolls left to right)
+ */
+const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) => {
+  // Duplicate items for seamless infinite scroll
   const duplicatedFirstItems = [...firstRowItems, ...firstRowItems, ...firstRowItems];
   const duplicatedSecondItems = [...secondRowItems, ...secondRowItems, ...secondRowItems];
 
@@ -34,7 +42,7 @@ const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
     pauseOnHover: false,
     arrows: false,
     cssEase: "linear",
-    rtl: true,
+    rtl: true, // Right to left direction
     variableWidth: false,
     swipe: false,
     touchMove: false,
@@ -71,7 +79,7 @@ const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
     pauseOnHover: false,
     arrows: false,
     cssEase: "linear",
-    rtl: false,
+    rtl: false, // Left to right direction
     variableWidth: false,
     swipe: false,
     touchMove: false,
@@ -164,6 +172,8 @@ const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
           animation-play-state: paused;
         }
       `}</style>
+      
+      {/* First Row - Scrolls Right to Left */}
       <div className="overflow-hidden smooth-slider-1">
         <Slider {...firstSliderSettings}>
           {duplicatedFirstItems.map((item, index) => (
@@ -183,6 +193,7 @@ const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
         </Slider>
       </div>
 
+      {/* Second Row - Scrolls Left to Right */}
       <div className="overflow-hidden smooth-slider-2">
         <Slider {...secondSliderSettings}>
           {duplicatedSecondItems.map((item, index) => (
@@ -205,4 +216,5 @@ const SliderComponent = ({ firstRowItems, secondRowItems }: SliderProps) => {
   );
 };
 
-export default SliderComponent;
+export default DualRowSlider;
+
