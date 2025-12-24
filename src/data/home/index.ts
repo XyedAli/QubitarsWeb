@@ -56,34 +56,34 @@ export const awards = [
 
 export const servicesData = [
   {
+    title: "AI & ML Development",
+    description: "Unlock the power of artificial intelligence and machine learning to automate processes, gain insights, and drive innovation.",
+    image: "/assets/images/home/himg8.png",
+  },
+  {
+    title: "Digital Transformation",
+    description: "Transform your business with modern digital solutions that streamline operations, enhance efficiency, and accelerate growth.",
+    image: "/assets/images/home/himg9.png",
+  },
+  {
     title: "Product Design",
     description: "We craft intuitive, user-first digital experiences that look stunning and function flawlessly—turning complex ideas into designs users love.",
-    image: "/assets/images/home/himg8.svg",
+    image: "/assets/images/home/himg10.png",
   },
   {
-    title: "Custom Software",
-    description: "Tailored software solutions designed to scale with your business, streamline operations, and deliver measurable results.",
-    image: "/assets/images/home/himg9.svg",
+    title: "Quality Assurance",
+    description: "Ensure flawless performance with comprehensive testing and quality assurance that delivers reliable, bug-free software solutions.",
+    image: "/assets/images/home/himg11.png",
   },
   {
-    title: "AI/ML Development",
-    description: "Unlock the power of artificial intelligence and machine learning to automate processes, gain insights, and drive innovation.",
-    image: "/assets/images/home/himg10.svg",
-  },
-  {
-    title: "MVP Development",
-    description: "Launch faster with a minimum viable product that validates your idea, attracts early adopters, and sets the foundation for growth.",
-    image: "/assets/images/home/himg11.svg",
-  },
-  {
-    title: "Mobile App Development",
-    description: "Build high-performance mobile applications for iOS and Android that engage users and deliver seamless experiences across devices.",
-    image: "/assets/images/home/himg12.svg",
+    title: "DevOps",
+    description: "Accelerate deployment and improve reliability with automated CI/CD pipelines, infrastructure management, and cloud solutions.",
+    image: "/assets/images/home/himg12.png",
   },
   {
     title: "Staff Augmentation",
     description: "Scale your team with vetted developers, designers, and AI experts—ready to plug in, deliver results, and adapt to your workflow.",
-    image: "/assets/images/home/himg8.svg",
+    image: "/assets/images/home/himg13.png",
   },
 ];
 

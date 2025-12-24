@@ -77,7 +77,9 @@ const Navbar = () => {
                 size="md"
                 className="group hover:bg-transparent border border-accent"
               >
+                <Link href="/contact">
                 Contact Us
+                </Link>
                 <div className="relative">
                   <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
                   <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -174,7 +176,9 @@ const Navbar = () => {
                 className="w-full justify-center gap-3 text-base font-semibold mt-5 z-10"
                 onClick={closeMenu}
               >
-                Contact Us
+                <Link href="/contact">
+                  Contact Us
+                </Link>
                 <MoveUpRight className="h-5 w-5" />
               </Button>
               {/* Social links */}

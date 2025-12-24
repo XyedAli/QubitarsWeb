@@ -36,6 +36,34 @@
  topNavContainer : "flex items-center gap-[6px] hover:text-accent transition-all duration-300 cursor-pointer group",
  topNavText : "text-black text-[9px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
 
+// Contact Form styles
+ inputBase: "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent font-inter placeholder:text-gray-400",
+ inputError: "border-red-500",
+ inputNormal: "border-gray-300",
+ labelBase: "text-black font-semibold mb-2 block font-inter",
+ errorText: "text-red-500 text-sm mt-1 font-inter",
+ checkboxBase: "w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent cursor-pointer",
+ checkboxLabel: "flex items-center gap-2 cursor-pointer group",
+ checkboxText: "text-black font-inter group-hover:text-accent transition-colors",
+ dropdownButton: "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent font-inter bg-white flex items-center justify-between gap-2 text-left",
+ dropdownContainer: "absolute top-full left-0 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-50 max-h-[300px] overflow-hidden flex flex-col",
+ dropdownSearchContainer: "p-2 border-b border-gray-200 sticky top-0 bg-white",
+ dropdownSearchInput: "w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm",
+ dropdownList: "overflow-y-auto max-h-[240px]",
+ dropdownItem: "w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors",
+ dropdownItemActive: "bg-accent/10",
+ dropdownNoResults: "px-4 py-2 text-gray-500 text-sm",
+ phoneInputContainer: "flex items-center border rounded-lg focus-within:ring-2 focus-within:ring-accent focus-within:border-transparent overflow-hidden",
+ phoneCodeButton: "ps-3 py-3 flex items-center gap-1 font-inter min-w-[91px] whitespace-nowrap",
+ phoneInput: "flex-1 ps-1 pe-4 py-3 focus:outline-none font-inter",
+ submitButton: "w-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold py-4 rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg font-inter text-lg",
+ chevronIcon: "w-4 h-4 transition-transform flex-shrink-0",
+ searchIcon: "absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400",
+ countryItem: "flex items-center gap-3",
+ countryFlag: "font-medium min-w-[50px]",
+ countryName: "text-gray-700 flex-1",
+ countryCode: "text-gray-500 font-medium",
+
 };
 export const combine = (...classes: (string | undefined | null | false)[]): string => {
   return classes.filter(Boolean).join(' ');

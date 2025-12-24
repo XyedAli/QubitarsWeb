@@ -40,12 +40,11 @@ const BusinessTypes = () => {
   );
 
   return (
-    <section className="bg-white">
+    <section className="bg-white mb-11 md:mb-14 lg:mb-18 xl:mb-20">
       <div className={styles.sectionPadding}>
-        <SectionHeading 
+        <SectionHeading
           subtitle="Business Model"
-          title="Strategic Partner for"
-          highlightedText="Global Growth"
+          title="Strategic Partner for Global Growth"
         />
 
         <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-11 mb-10 pt-10 ">
@@ -76,7 +75,7 @@ const BusinessTypes = () => {
             size="lg"
             className="bg-gray-100 hover:bg-gray-200 text-blue px-7 py-4 rounded-xl hover:opacity-90 font-semibold gap-3"
           >
-            Book Consultation
+            lets Talk Business
             <MoveUpRight className="w-4 h-5 text-white" />
           </Button>
         </div>

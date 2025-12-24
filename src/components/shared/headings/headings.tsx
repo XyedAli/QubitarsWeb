@@ -14,11 +14,8 @@ export const SectionHeading = ({ subtitle, title, highlightedText }: SectionHead
           {subtitle}
         </span>
       </div>
-      <h2 className={`${styles.h1} font-bold text-blue leading-tight font-outfit`}>
-        {title}{" "}
-        {highlightedText && (
-          <span className="text-[#F05C22]">{highlightedText}</span>
-        )}
+      <h2 className={`${styles.h1} font-semibold text-blue leading-tight font-outfit`}>
+        {title}
       </h2>
     </div>
   );
