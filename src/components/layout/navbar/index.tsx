@@ -39,7 +39,7 @@ const Navbar = () => {
             width={450}
             height={120}
             sizes="(max-width: 768px) 240px, 300px"
-            className="cursor-pointer w-[60px] h-[42px] lg:w-[150px]"
+            className="cursor-pointer w-[120px] h-[42px] lg:w-[150px]"
             priority
           />
 

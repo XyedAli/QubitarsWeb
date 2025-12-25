@@ -84,8 +84,8 @@
 
 @media (max-width: 480px) {
   .dual-row-slider .slider-item img {
-    height: 47px;
-    max-width: 99px;
+    height: 45px;
+    max-width: 92px;
   }
 }
 @media (max-width: 370px) {
