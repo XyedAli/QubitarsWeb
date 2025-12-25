@@ -142,3 +142,51 @@ body {
   text-orientation: upright;
   letter-spacing: 0.15em;
 }
+
+.testimonial-slider .slick-slide {
+  transition: all 0.3s ease;
+}
+
+.testimonial-slider .slick-list {
+  padding: 20px 0 !important;
+  overflow: visible !important;
+}
+
+.testimonial-slider .slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 768px) {
+  .testimonial-slider .slick-slide > div {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+}
+
+.our-client-slider .slick-dots {
+  bottom: -30px !important;
+  position: relative !important;
+}
+
+.our-client-slider .slick-dots li button:before {
+  color: #D9D9D9 !important;
+  opacity: 0.3 !important;
+  font-size: 14px !important;
+}
+
+.our-client-slider .slick-dots li.slick-active button:before {
+  color: #FC7E13 !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+}
+
+.testimonial-text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+  word-break: break-word;
+}

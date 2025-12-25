@@ -121,8 +121,8 @@ const ContactForm = () => {
   return (
     <div className="bg-white">
       <div className={`${styles.sectionPadding} py-10`}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12">
-          <div className="bg-white relative overflow-hidden rounded-xl ps-1 pe-1 lg:pe-4 lg:col-span-7">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="bg-white relative overflow-hidden rounded-xl ps-1 pe-1 lg:pe-4 lg:col-span-7 xl:col-span-6">
             <div className="relative z-10 mb-8">
               <h1 className={`${styles.h1} text-blue font-bold mb-4 font-outfit`}>
               Let’s Build Something Great
@@ -134,7 +134,7 @@ const ContactForm = () => {
 
             <form onSubmit={handleSubmit} className="relative z-10">
               <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 xl:gap-6">
                   {textFields.map((field) => (
                     <div key={field.name}>
                       <label className={`${styles.p2} ${styles.labelBase}`}>
@@ -155,7 +155,7 @@ const ContactForm = () => {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 xl:gap-6">
                   <div>
                     <label className={`${styles.p2} ${styles.labelBase}`}>
                       Phone Number<span className="text-red-500">*</span>
@@ -312,11 +312,8 @@ const ContactForm = () => {
             </form>
           </div>
 
-          <div className="ps-0 xl:ps-9 lg:col-span-5">
+          <div className="ps-0 xl:ps-24 lg:col-span-5 xl:col-span-6">
             <div className="sticky top-8">
-              <h2 className={`${styles.h3} text-blue font-bold mb-6 font-outfit`}>
-                Our Location
-              </h2>
               <div className="w-full h-[370px] md:h-[410px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg">
                 <iframe
                   src="https://www.google.com/maps?q=Mumtaz+Market,+Gujranwala,+Punjab,+Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed"

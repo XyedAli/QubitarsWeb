@@ -87,3 +87,36 @@ export const servicesData = [
   },
 ];
 
+export const testimonialsData = [
+  {
+    id: "1",
+    image1: "/assets/images/navbar/logo.svg",
+    image2: "/assets/images/Industries/clogo1.svg",
+    image3: "/assets/images/home/himg14.png",
+    desp: "Qubitars transformed our digital presence with exceptional expertise and professionalism. Their team delivered a solution that exceeded our expectations and significantly improved our business operations.",
+    author: "John Smith",
+    title: "CEO, InnovativeTech",
+    logo: "/assets/images/navbar/lorem.svg",
+  },
+  {
+    id: "2",
+    image1: "/assets/images/navbar/logo.svg",
+    image2: "/assets/images/Industries/clogo2.svg",
+    image3: "/assets/images/Company/Jake.png",
+    desp: "Working with Qubitars has been an outstanding experience. They understood our vision, provided innovative solutions, and delivered on time. Highly recommended for anyone looking for quality development services.",
+    author: "Sarah Johnson",
+    title: "CTO, TechSolutions",
+    logo: "/assets/images/navbar/lorem.svg",
+  },
+  {
+    id: "3",
+    image1: "/assets/images/navbar/logo.svg",
+    image2: "/assets/images/Industries/clogo3.svg",
+    image3: "/assets/images/Industries/Man.png",
+    desp: "The Qubitars team demonstrated exceptional technical skills and a deep understanding of our business needs. Their approach to problem-solving and attention to detail made all the difference in our project's success.",
+    author: "Michael Chen",
+    title: "Founder, DigitalWorks",
+    logo: "/assets/images/navbar/lorem.svg",
+  },
+];
+

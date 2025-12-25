@@ -42,28 +42,36 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
     pauseOnHover: false,
     arrows: false,
     cssEase: "linear",
-    rtl: true, // Right to left direction
+    rtl: true,
     variableWidth: false,
     swipe: false,
     touchMove: false,
     draggable: false,
+    centerMode: false,
+    centerPadding: "0",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 6,
+          centerMode: false,
+          centerPadding: "0",
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
+          centerMode: false,
+          centerPadding: "0",
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
+          centerMode: false,
+          centerPadding: "0",
         }
       }
     ]
@@ -79,74 +87,95 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
     pauseOnHover: false,
     arrows: false,
     cssEase: "linear",
-    rtl: false, // Left to right direction
+    rtl: false,
     variableWidth: false,
     swipe: false,
     touchMove: false,
     draggable: false,
+    centerMode: false,
+    centerPadding: "0",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 6,
+          centerMode: false,
+          centerPadding: "0",
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
+          centerMode: false,
+          centerPadding: "0",
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
+          centerMode: false,
+          centerPadding: "0",
         }
       }
     ]
   };
 
   return (
-    <div className="space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 my-10">
+    <div className="dual-row-slider space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 my-10">
       <style jsx global>{`
-        .slick-slide > div {
-          padding: 0 1px !important;
+        .dual-row-slider .slick-slide > div {
+          padding: 0 4px !important;
         }
-        .slick-slide img {
+        @media (max-width: 768px) {
+          .dual-row-slider .slick-slide > div {
+            padding: 0 2px !important;
+          }
+        }
+        .dual-row-slider .slick-slide img {
           width: auto !important;
           height: 60px !important;
           max-width: 120px !important;
         }
         @media (max-width: 1024px) {
-          .slick-slide img {
+          .dual-row-slider .slick-slide img {
             height: 50px !important;
             max-width: 104px !important;
           }
         }
         @media (max-width: 768px) {
-          .slick-slide img {
-            height: 55px !important;
-            max-width: 97px !important;
+          .dual-row-slider .slick-slide img {
+            height: 45px !important;
+            max-width: 90px !important;
           }
         }
         @media (max-width: 480px) {
-          .slick-slide img {
-            height: 37px !important;
-            max-width: 80px !important;
+          .dual-row-slider .slick-slide img {
+            height: 35px !important;
+            max-width: 70px !important;
           }
         }
-        .smooth-slider-1 .slick-list {
-          overflow: visible !important;
+        .dual-row-slider .smooth-slider-1 .slick-list {
+          overflow: hidden !important;
         }
-        .smooth-slider-2 .slick-list {
-          overflow: visible !important;
+        .dual-row-slider .smooth-slider-2 .slick-list {
+          overflow: hidden !important;
         }
-        .smooth-slider-1 .slick-track {
+        @media (min-width: 769px) {
+          .dual-row-slider .smooth-slider-1 .slick-list {
+            overflow: visible !important;
+          }
+          .dual-row-slider .smooth-slider-2 .slick-list {
+            overflow: visible !important;
+          }
+        }
+        .dual-row-slider .smooth-slider-1 .slick-track {
           display: flex !important;
           animation: slideRight 60s linear infinite !important;
           will-change: transform;
         }
-        .smooth-slider-2 .slick-track {
+        .dual-row-slider .smooth-slider-2 .slick-track {
           display: flex !important;
           animation: slideLeft 60s linear infinite !important;
           will-change: transform;
@@ -167,8 +196,8 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
             transform: translateX(0);
           }
         }
-        .smooth-slider-1:hover .slick-track,
-        .smooth-slider-2:hover .slick-track {
+        .dual-row-slider .smooth-slider-1:hover .slick-track,
+        .dual-row-slider .smooth-slider-2:hover .slick-track {
           animation-play-state: paused;
         }
       `}</style>
@@ -217,4 +246,5 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
 };
 
 export default DualRowSlider;
+
 

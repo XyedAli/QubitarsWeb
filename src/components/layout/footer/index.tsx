@@ -48,11 +48,11 @@ const Footer = () => {
                     placeholder="Enter your Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-2.5 lg:py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-[230px] lg:min-w-[325px] xl:min-w-[517px]"
+                    className="px-4 py-2.5 lg:py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-[230px] lg:min-w-[325px] xl:min-w-[370px]"
                   />
                   <button
                     type="submit"
-                    className="px-4 lg:px-8 xl:px-12 py-2.5 lg:py-3 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 whitespace-nowrap text-base"
+                    className="px-4 lg:px-8 xl:px-7 py-2.5 lg:py-3 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 whitespace-nowrap text-base me-17"
                   >
                     Subscribe
                   </button>
@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6 relative z-10">
-            <div className="flex flex-row md:flex-col items-center md:items-start gap-0.3 text-white/50 text-sm lg:text-base text-center md:text-left order-2 md:order-1 self-start md:self-auto">
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-0.3 text-white/50 text-sm text-center md:text-left order-2 md:order-1 self-start md:self-auto">
               <span>© 2023 Qubitars Technologies</span>
               <span>All Rights Reserved</span>
             </div>
@@ -164,7 +164,7 @@ const Footer = () => {
               </Link>
             </div>
 
-            <div className="flex flex-row md:flex-col items-start md:items-end gap-0.3 text-sm lg:text-base order-3 self-start md:self-auto">
+            <div className="flex flex-row md:flex-col items-start md:items-end gap-0.3 text-sm order-3 self-start md:self-auto">
               <Link href="/privacy-policy" className="text-white/50 hover:text-white transition-colors">
                 Privacy Policy
               </Link>

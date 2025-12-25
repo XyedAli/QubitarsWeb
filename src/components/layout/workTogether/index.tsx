@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { styles } from "@/styles/style";
 
-const CallToAction = () => {
+const WorkTogether = () => {
   return (
     <section className="bg-white py-8 lg:py-10 xl:py-13">
       <div className={`${styles.sectionPadding}`}>
@@ -32,5 +32,5 @@ const CallToAction = () => {
   );
 };
 
-export default CallToAction;
+export default WorkTogether;
 

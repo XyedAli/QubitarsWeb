@@ -1,8 +1,8 @@
 import { Hero, BusinessTypes, Services } from "@/components/features/home";
-import CallToAction from "@/components/layout/workTogether";
 import { DualRowSlider } from "@/components/shared/ui";
-import { Awards, Footer } from "@/components/layout";
 import { industriesImages } from "@/lib/assets/images";
+import OurClient from "@/components/features/home/ourClient";
+import { testimonialsData } from "@/data/home";
 
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
@@ -27,9 +27,7 @@ export default function Home() {
       </div>
       <BusinessTypes />
       <Services />
-      <Awards />
-      <CallToAction />
-      <Footer />
+      <OurClient testimonials={testimonialsData} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Poppins, Fjalla_One, Outfit, Bebas_Neue, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navbar } from "@/components/layout";
+import { Navbar, Awards, Footer, WorkTogether } from "@/components/layout";
 
 // Optimize font loading with display swap for better performance
 const dmSans = DM_Sans({
@@ -148,6 +148,9 @@ export default function RootLayout({
         <main className="flex-1 min-h-screeen overflow-hidden ">
           {children}
         </main>
+        <WorkTogether />
+        <Awards />
+        <Footer />
       </body>
     </html>
   );

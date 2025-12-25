@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
@@ -22,10 +21,16 @@ const Services = () => {
     
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
+    
+    servicesData.forEach((service) => {
+      const img = new Image();
+      img.src = service.image;
+    });
+    
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  const handleCardClick = (index: number) => {
+  const handleCardHover = (index: number) => {
     if (isLgScreen) {
       if (index < 3) {
         setActiveCardRow1Lg(index);
@@ -40,6 +45,17 @@ const Services = () => {
       } else {
         setActiveCardRow3(index);
       }
+    }
+  };
+
+  const handleCardLeave = () => {
+    if (isLgScreen) {
+      setActiveCardRow1Lg(0);
+      setActiveCardRow2Lg(5);
+    } else {
+      setActiveCardRow1(0);
+      setActiveCardRow2(3);
+      setActiveCardRow3(4);
     }
   };
 
@@ -74,60 +90,60 @@ const Services = () => {
             return (
               <div
                 key={index}
-                onClick={() => handleCardClick(index)}
-                className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 cursor-pointer ${
+                onMouseEnter={() => handleCardHover(index)}
+                onMouseLeave={handleCardLeave}
+                className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-[background-color,box-shadow] duration-500 ease-in-out cursor-pointer ${
                   isActive
                     ? "bg-[#010101] shadow-xl col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-6"
-                    : "bg-white py-4 pe-3 xl:pe-0 border border-gray-200 col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3"
+                    : "bg-white border border-gray-200 col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3"
                 }`}
               >
-                <div className={`relative ps-4 lg:ps-5 xl:ps-7 h-full min-h-[240px] lg:min-h-[270px] xl:min-h-[180px] overflow-hidden ${
-                  isActive ? "flex items-center" : "flex flex-col justify-between"
+                <div className={`relative ps-4 lg:ps-5 xl:ps-5 h-full ${isActive ? "min-h-[270px] lg:min-h-[310px] xl:min-h-[330px]" : "min-h-[270px] lg:min-h-[290px] xl:min-h-[270px]"} ${
+                  isActive ? "flex items-center py-5 xl:py-6" : "flex flex-col justify-between py-4 pe-3 xl:pe-0"
                 }`}>
-                  {isActive ? (
-                    <div className="flex items-center gap-3 lg:gap-4 xl:gap-3 w-full">
-                      <div className="flex-1 flex flex-col justify-between py-3 xl:py-4 min-h-[240px] lg:min-h-[220px] xl:min-h-[230px]">
-                        <div>
-                          <h3 className={`text-[27px] lg:text-[23px] xl:text-[27px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
-                            {service.title}
-                          </h3>
-                          <p className={`${styles.p3} text-white/90 leading-relaxed font-inter`}>
-                            {service.description}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2 mt-4">
-                          <span className={`${styles.p3} font-semibold text-white`}>Explore More</span>
-                          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                            <MoveUpRight className="w-4 h-4 text-accent" />
-                          </div>
-                        </div>
+                  <div 
+                    className={`absolute inset-0 ps-4 lg:ps-5 xl:ps-7 flex items-center gap-3 lg:gap-4 xl:gap-3 w-full h-full transition-opacity duration-500 ease-in-out ${
+                      isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                    }`}
+                    style={{
+                      backgroundImage: `url(${service.image})`,
+                      backgroundPosition: 'right center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'contain'
+                    }}
+                  >
+                    <div className="flex-1 flex flex-col justify-between py-4 xl:py-5 transition-opacity duration-500 ease-in-out pr-[41%] lg:pr-[44%] xl:pr-[44%]">
+                      <div>
+                        <h3 className={`text-[27px] lg:text-[23px] xl:text-[27px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
+                          {service.title}
+                        </h3>
+                        <p className={`${styles.p3} text-white/90 leading-relaxed font-inter`}>
+                          {service.description}
+                        </p>
                       </div>
-                      <div className="flex-1 flex items-center justify-center max-w-[41%] lg:max-w-[44%] xl:max-w-[40%]">
-                        <div className="relative w-full h-[240px] lg:h-[280px] xl:h-[330px]">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            fill
-                            className="object-contain"
-                          />
+                      <div className="flex items-center gap-2 mt-4">
+                        <span className={`${styles.p3} font-semibold text-white`}>Explore More</span>
+                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                          <MoveUpRight className="w-4 h-4 text-accent" />
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <>
-                      <div>
-                        <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[32px] font-semibold text-blue font-outfit`}>
-                          {service.title}
-                        </h3>
+                  </div>
+                  <div className={`relative pe-2 flex flex-col justify-between w-full h-full transition-opacity duration-500 ease-in-out ${
+                    isActive ? "opacity-0 z-0 pointer-events-none absolute inset-0" : "opacity-100 z-10"
+                  }`}>
+                    <div className="pt-1">
+                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[30px] font-semibold text-blue font-outfit`}>
+                        {service.title}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-2 pb-1">
+                      <span className={`${styles.p3} font-semibold text-blue`}>Explore More</span>
+                      <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center">
+                        <MoveUpRight className="w-4 h-4 text-blue" />
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className={`${styles.p3} font-semibold text-blue`}>Explore More</span>
-                        <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center">
-                          <MoveUpRight className="w-4 h-4 text-blue" />
-                        </div>
-                      </div>
-                    </>
-                  )}
+                    </div>
+                  </div>
                 </div>
               </div>
             );
