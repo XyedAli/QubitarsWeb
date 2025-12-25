@@ -55,29 +55,29 @@
 
 .dual-row-slider .slider-item img {
   width: auto;
-  height: 60px;
+  height: 65px;
   max-width: 120px;
   object-fit: contain;
 }
 
 @media (max-width: 1024px) {
   .dual-row-slider .slider-item img {
-    height: 50px;
-    max-width: 104px;
+    height: 55px;
+    max-width: 110px;
   }
 }
 
 @media (max-width: 768px) {
   .dual-row-slider .slider-item img {
-    height: 45px;
-    max-width: 90px;
+    height: 50px;
+    max-width: 105px;
   }
 }
 
 @media (max-width: 480px) {
   .dual-row-slider .slider-item img {
-    height: 35px;
-    max-width: 70px;
+    height: 40px;
+    max-width: 80px;
   }
 }
 
