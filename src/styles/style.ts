@@ -34,7 +34,7 @@
 //bg Colors
 // TopNav styles
  topNavContainer : "flex items-center gap-[6px] hover:text-accent transition-all duration-300 cursor-pointer group",
- topNavText : "text-black text-[9px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
+ topNavText : "text-black text-[11px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
 
 // Contact Form styles
  inputBase: "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent font-inter placeholder:text-gray-400",

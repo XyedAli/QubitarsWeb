@@ -11,7 +11,7 @@ const TopNav = () => {
           {/* Website Link */}
           <div className={combine(styles.flexitems, "gap-2 hover:text-accent transition-all duration-300 cursor-pointer group")}>
             <Icons.Mail width={20} height={20} />
-            <p className={combine(styles.topNavText, "text-[11px] md:text-[13px]")}>info@qubitars.com</p>
+            <p className={combine(styles.topNavText, "text-[13px] md:text-[13px]")}>info@qubitars.com</p>
           </div>
           <div className={combine(styles.flexitems, "gap-2 md:gap-4")}>
             {/* Pakistan Contact Number */}

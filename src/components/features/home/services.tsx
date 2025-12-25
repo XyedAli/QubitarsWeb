@@ -114,7 +114,7 @@ const Services = () => {
                   >
                     <div className="flex-1 flex flex-col justify-between py-4 xl:py-5 transition-opacity duration-500 ease-in-out pr-[41%] lg:pr-[44%] xl:pr-[44%]">
                       <div>
-                        <h3 className={`text-[27px] lg:text-[23px] xl:text-[27px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
+                        <h3 className={`text-[24px] lg:text-[23px] xl:text-[27px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
                           {service.title}
                         </h3>
                         <p className={`${styles.p3} text-white/90 leading-relaxed font-inter`}>

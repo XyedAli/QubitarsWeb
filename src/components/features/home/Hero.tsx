@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   const heightClass = isMac
-    ? "h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
+    ? "h-[calc(100vh-145px)] md:h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
     : "h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]";
 
   const h1FontClass = isMac
@@ -26,8 +26,8 @@ const Hero = () => {
     : "text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[44px] 2xl:text-[44px] [1920px]:text-[48px] 3xl:text-[49px]";
 
   const awardsBottomClass = isMac
-    ? "bottom-8 md:bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[50px] [1920px]:bottom-[52px] 3xl:bottom-[54px]"
-    : "bottom-6 md:bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px]";
+    ? "bottom-10 md:bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[50px] [1920px]:bottom-[52px] 3xl:bottom-[54px]"
+    : "bottom-7 md:bottom-5 lg:bottom-5 xl:bottom-7 [1440px]:bottom-[28px] 2xl:bottom-[28px] [1920px]:bottom-[30px] 3xl:bottom-[32px]";
 
   const marginTopClass = isMac
     ? "mt-6 xl:mt-7 [1440px]:mt-8 2xl:mt-7 [1920px]:mt-9 3xl:mt-10"
@@ -132,15 +132,15 @@ const Hero = () => {
           </div>
 
           {/* Awards Section */}
-          <div className={`absolute ${awardsBottomClass} md:right-0 ps-4 sm:px-0 md:px-5 xl:px-10 z-20`}>
+          <div className={`absolute ${awardsBottomClass} left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 ps-4 sm:px-0 md:px-5 xl:px-10 z-20`}>
             <div className="">
-              <p className={(`${styles.p4} text-white/50 uppercase flex justify-start font-poppins mb-1 lg:mb-2 xl:mb-3`)}>Awards & Certifications</p>
-              <div className={`${styles.flexCenter} gap-2 lg:gap-3 xl:gap-5`}>
+              <p className={(`${styles.p4} text-white/50 uppercase flex justify-center md:justify-start font-poppins mb-2 md:mb-1 lg:mb-2 xl:mb-3`)}>Awards & Certifications</p>
+              <div className={`${styles.flexCenter} gap-4 md:gap-2 lg:gap-3 xl:gap-5`}>
                 {[
-                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-3 md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto" },
-                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
-                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
-                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-4 md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto" },
+                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-7 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-7 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-7 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
                 ].map((award, index) => (
                   <Image
                     key={index}
@@ -154,8 +154,8 @@ const Hero = () => {
                   />
                 ))}
                 <div>
-                <p className={`text-white font-bold font-inter capatilize ${ministryTextClass}`}>Ministry of Information Technology & Telecom </p>
-                <p className={`text-white/90 font-inter ${governmentTextClass}`}>Government of Pakistan</p>
+                <p className={`hidden md:block text-white font-bold font-inter capatilize ${ministryTextClass}`}>Ministry of Information Technology & Telecom </p>
+                <p className={`hidden md:block text-white/90 font-inter ${governmentTextClass}`}>Government of Pakistan</p>
                 </div>
               </div>
             </div>
