@@ -77,9 +77,15 @@
 @media (max-width: 480px) {
   .dual-row-slider .slider-item img {
     height: 40px;
-    max-width: 80px;
+    max-width: 75px;
   }
 }
+@media (max-width: 370px) {
+    .dual-row-slider .slider-item img {
+      height: 35px;
+      max-width: 70px;
+    }
+  }
 
 .dual-row-slider .slider-track-row1 {
   animation: slideRight 60s linear infinite;
