@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { navbarImages } from "@/lib/assets/images";
+import { navbarImages, homeImages } from "@/lib/assets/images";
 import { ChevronDown, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
 import TopNav from "@/components/layout/topNav";
@@ -34,14 +34,13 @@ const Navbar = () => {
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
-            src={navbarImages.logoSvg}
+            src="/assets/images/home/logo3.svg"
             alt="Qubitars Technology Logo"
-            width={150}
-            height={40}
-            sizes="(max-width: 768px) 130px, 150px"
-            className="cursor-pointer w-[120px] h-auto lg:w-[150px]"
+            width={450}
+            height={120}
+            sizes="(max-width: 768px) 240px, 300px"
+            className="cursor-pointer w-[60px] h-[42px] lg:w-[150px]"
             priority
-            unoptimized
           />
 
           <div className={combine(styles.flexitems, "gap-4")}>
@@ -127,12 +126,11 @@ const Navbar = () => {
               <Image
                 src={navbarImages.logoSvg}
                 alt="Qubitars Technology Logo"
-                width={120}
-                height={33}
+                width={360}
+                height={99}
                 className="cursor-pointer"
                 priority
-                sizes="120px"
-                unoptimized
+                sizes="240px"
               />
               <button
                 type="button"

@@ -6,18 +6,6 @@ import { SectionHeading } from "@/components/shared/headings/headings";
 const Awards = () => {
   return (
     <section className={`${styles.sectionPaddingY} bg-[#EDEFF880] relative overflow-hidden`}>
-      {/* <div 
-        className="absolute top-0 right-0 w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] pointer-events-none blur-3xl"
-        style={{
-          background: 'radial-gradient(circle at top right, rgba(252, 126, 19, 0.08) 0%, rgba(252, 126, 19, 0.04) 40%, rgba(252, 126, 19, 0.01) 70%, transparent 100%)'
-        }}
-      ></div>
-      <div 
-        className="absolute bottom-0 left-0 w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] pointer-events-none blur-3xl"
-        style={{
-          background: 'radial-gradient(circle at bottom left, rgba(252, 126, 19, 0.08) 0%, rgba(252, 126, 19, 0.04) 40%, rgba(252, 126, 19, 0.01) 70%, transparent 100%)'
-        }}
-      ></div> */}
       <div className="absolute bottom-0 left-0 right-0 w-full h-[260px] md:h-[300px] lg:h-[330px] pointer-events-none">
         <Image
           src="/assets/images/generals/awards/map.png"
@@ -46,7 +34,7 @@ const Awards = () => {
                   alt={award.name}
                   width={150}
                   height={150}
-                  className="w-full h-auto max-w-[90px] md:max-w-[102px] lg:max-w-[110px] object-contain"
+                  className="w-full h-auto max-w-[83px] md:max-w-[102px] lg:max-w-[110px] object-contain"
                   unoptimized
                 />
               </div>

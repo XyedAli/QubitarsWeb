@@ -68,7 +68,8 @@ export const homeImages = {
   himg6: "/assets/images/generals/awards/himg6.svg",
   himg7: "/assets/images/generals/awards/himg7.svg",
   bgLines: "/assets/images/home/bgLines.svg",
-  bgLines1: "/assets/images/home/bgLines1.svg"
+  bgLines1: "/assets/images/home/bgLines1.svg",
+  Qlogo: "/assets/images/home/Qlogo.png"
 };
 
 // Unused exports (empty objects to prevent errors)

@@ -148,8 +148,8 @@ export default function RootLayout({
         <main className="flex-1 min-h-screeen overflow-hidden ">
           {children}
         </main>
-        <WorkTogether />
         <Awards />
+        <WorkTogether />
         <Footer />
       </body>
     </html>

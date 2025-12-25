@@ -5,13 +5,13 @@ import { styles, combine } from "@/styles/style";
 
 const TopNav = () => {
   return (
-    <div className="bg-[#C2C2C2]/10 md:bg-[#F7F7F7] shadow-mD py-2.5">
+    <div className="hidden md:block bg-[#C2C2C2]/10 md:bg-[#F7F7F7] shadow-mD py-2.5">
       <div className="mx-4 lg:mx-8 xl:mx-14">
         <div className={styles.flexBetween}>
           {/* Website Link */}
           <div className={combine(styles.flexitems, "gap-2 hover:text-accent transition-all duration-300 cursor-pointer group")}>
             <Icons.Mail width={20} height={20} />
-            <p className={combine(styles.topNavText, "text-[13px] md:text-[13px]")}>info@qubitars.com</p>
+            <p className={combine(styles.topNavText, "text-[12px] md:text-[13px]")}>info@qubitars.com</p>
           </div>
           <div className={combine(styles.flexitems, "gap-2 md:gap-4")}>
             {/* Pakistan Contact Number */}
