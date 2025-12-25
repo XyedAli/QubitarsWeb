@@ -85,13 +85,13 @@
 @media (max-width: 480px) {
   .dual-row-slider .slider-item img {
     height: 45px;
-    max-width: 85px;
+    max-width: 89px;
   }
 }
 @media (max-width: 370px) {
     .dual-row-slider .slider-item img {
       height: 44px;
-      max-width: 85px;
+      max-width: 95px;
     }
   }
 
