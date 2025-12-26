@@ -34,12 +34,12 @@ const Navbar = () => {
         <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
           {/* Logo */}
           <Image
-            src="/assets/images/home/logo3.svg"
+            src="/assets/images/home/logo3.png"
             alt="Qubitars Technology Logo"
             width={450}
             height={120}
             sizes="(max-width: 768px) 240px, 300px"
-            className="cursor-pointer w-[120px] h-[42px] lg:w-[150px]"
+            className="cursor-pointer w-[125px] h-[37px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
             priority
           />
 

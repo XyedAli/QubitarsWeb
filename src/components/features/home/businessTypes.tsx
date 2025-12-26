@@ -37,7 +37,7 @@ const BusinessTypes = () => {
   };
 
   const renderCard = (business: typeof businessTypes[0], index: number) => (
-    <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl p-7 md:p-4 lg:p-5 xl:p-8 pt-6 md:pt-8 lg:pt-12 transition-all border border-gray-100 hover:border-[#F05C22] group h-full flex flex-col">
+    <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl px-6 py-11 md:px-4 lg:px-5 xl:px-8 pt-6 md:pt-8 lg:pt-12 transition-all border border-gray-100 hover:border-[#F05C22] group h-full flex flex-col">
       <div className={`absolute -top-8 lg:-top-9 xl:-top-10 right-3 w-16 lg:w-20 xl:w-20 h-16 lg:h-20 xl:h-20 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] ${styles.flexCenter} shadow-md z-20`}>
         <business.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
       </div>
