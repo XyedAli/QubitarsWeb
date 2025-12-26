@@ -18,8 +18,8 @@ const Hero = () => {
   }, []);
 
   const heightClass = isMac
-    ? "h-[calc(100vh-190px)] md:h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
-    : "h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]";
+    ? "h-[580px] md:h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
+    : "h-[460px] md:h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]"; 
 
   const h1FontClass = isMac
     ? "text[30px] md:text-[28px] lg:text-[34px] xl:text-[46px] [1440px]:text-[48px] 2xl:text-[48px] [1920px]:text-[50px] 3xl:text-[52px]"
@@ -133,14 +133,14 @@ const Hero = () => {
 
           {/* Awards Section */}
           <div className={`absolute ${awardsBottomClass} left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 ps-4 sm:px-0 md:px-5 xl:px-10 z-20`}>
-            <div className="">
+            <div className="max-w-md lg:max-w-lg xl:max-w-2xl">
               <p className={(`${styles.p4} text-white/50 uppercase flex justify-center md:justify-start font-poppins mb-2 md:mb-1 lg:mb-2 xl:mb-3 whitespace-nowrap`)}>Awards & Certifications</p>
-              <div className={`${styles.flexCenter} gap-4 md:gap-2 lg:gap-3 xl:gap-5`}>
+              <div className={`${styles.flexCenter} gap-6 md:gap-2 lg:gap-3 xl:gap-5`}>
                 {[
-                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-5 md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto" },
-                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-8 md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
-                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-8 md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
-                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-8 md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg1, alt: "Award Logo 1", width: 160, height: 50, className: "h-[6vw] md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto" },
+                  { src: homeImages.himg2, alt: "Award Logo 2", width: 120, height: 40, className: "h-[8vw] md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg3, alt: "Award Logo 3", width: 120, height: 40, className: "h-[8vw] md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
+                  { src: homeImages.himg4, alt: "Award Logo 4", width: 120, height: 40, className: "h-[8vw] md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto" },
                 ].map((award, index) => (
                   <Image
                     key={index}
@@ -148,7 +148,7 @@ const Hero = () => {
                     alt={award.alt}
                     width={award.width}
                     height={award.height}
-                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 120px, 160px"
+                    sizes="(max-width: 640px) 20vw, (max-width: 1024px) 120px, 160px"
                     className={`object-contain opacity-90 hover:opacity-100 transition-opacity ${award.className}`}
                     unoptimized
                   />
