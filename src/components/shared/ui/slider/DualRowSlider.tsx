@@ -21,7 +21,7 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
   const duplicatedSecondItems = [...secondRowItems, ...secondRowItems, ...secondRowItems];
 
   return (
-    <div className="dual-row-slider space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 my-10">
+    <div className="dual-row-slider space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 my-6 md:my-8 lg:my-10">
       <div className="slider-row">
         <div className="slider-track slider-track-row1">
           {duplicatedFirstItems.map((item, index) => (

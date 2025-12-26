@@ -47,16 +47,16 @@
 
 @media (max-width: 430px) {
     .dual-row-slider .slider-item {
-      width: calc(100vw / 4);
-      min-width: calc(100vw / 4);
+      width: calc(100vw / 3);
+      min-width: calc(100vw / 3);
       padding: 0 2px;
     }
   }
 
 @media (max-width: 370px) {
   .dual-row-slider .slider-item {
-    width: calc(100vw / 3);
-    min-width: calc(100vw / 3);
+    width: calc(100vw / 2);
+    min-width: calc(100vw / 2);
     padding: 0 2px;
   }
 }
@@ -84,14 +84,14 @@
 
 @media (max-width: 480px) {
   .dual-row-slider .slider-item img {
-    height: 45px;
-    max-width: 92px;
+    height: 47px;
+    max-width: 99px;
   }
 }
 @media (max-width: 370px) {
     .dual-row-slider .slider-item img {
-      height: 45px;
-      max-width: 103px;
+      height: 46px;
+      max-width: 108px;
     }
   }
 

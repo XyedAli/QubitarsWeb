@@ -31,7 +31,7 @@ const Navbar = () => {
       <TopNav />
       {/* Main header */}
       <div className="mx-4 lg:mx-7 xl:mx-13">
-        <div ref={headerRef} className={combine(styles.flexBetween, "py-2")}>
+        <div ref={headerRef} className={combine(styles.flexBetween, "py-3 md:py-2")}>
           {/* Logo */}
           <Image
             src="/assets/images/home/logo3.png"
@@ -39,7 +39,7 @@ const Navbar = () => {
             width={450}
             height={120}
             sizes="(max-width: 768px) 240px, 300px"
-            className="cursor-pointer w-[125px] h-[37px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
+            className="cursor-pointer w-[135px] md:w-[125px] h-[40px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
             priority
           />
 
