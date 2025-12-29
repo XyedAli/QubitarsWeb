@@ -122,12 +122,12 @@ const Navbar = () => {
                 <TopNav />
               </div>
               {/* Mobile header */}
-              <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
+              <div className={combine(styles.flexBetween, "px-4 py-5 mb-6 flex-shrink-0")}>
               <Image
-                src={navbarImages.logoSvg}
+                src="/assets/images/home/logo3.png"
                 alt="Qubitars Technology Logo"
-                width={360}
-                height={99}
+                width={150}
+                height={35}
                 className="cursor-pointer"
                 priority
                 sizes="240px"
@@ -171,7 +171,7 @@ const Navbar = () => {
               <Button
                 variant="accent"
                 size="lg"
-                className="w-full justify-center gap-3 text-base font-semibold mt-5 z-10"
+                className="w-45 justify-center gap-3 text-base font-semibold mt-5 z-10"
                 onClick={closeMenu}
               >
                 <Link href="/contact">
@@ -180,7 +180,7 @@ const Navbar = () => {
                 <MoveUpRight className="h-5 w-5" />
               </Button>
               {/* Social links */}
-              <div className={combine(styles.flexCenter, "mt-3")}>
+              <div className={combine(styles.flexCenter, "mt-3 gap-3 border-t border-gray-400 pt-3")}>
                 {socialLinks.map((link) => {
                   const Icon = link.icon!;
                   return (
@@ -188,7 +188,7 @@ const Navbar = () => {
                       key={link.id}
                       href={link.href || "#"}
                       aria-label={link.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-full text-blackish/80 hover:text-accent transition-colors duration-200"
+                      className="flex h-10 w-10 border border-gray-400 p-2 items-center justify-center rounded-full text-gray-400 hover:text-accent hover:border-accent transition-colors duration-200"
                     >
                       <Icon width={18} height={18} className="h-7 w-7" />
                     </Link>

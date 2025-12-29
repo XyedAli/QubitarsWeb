@@ -190,3 +190,12 @@ body {
   line-height: 1.5;
   word-break: break-word;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

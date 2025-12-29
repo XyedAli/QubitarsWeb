@@ -120,3 +120,70 @@ export const testimonialsData = [
   },
 ];
 
+export interface EngagementOption {
+  id: string;
+  title: string;
+  description: string[];
+  includes: string[];
+  bestSuitedFor: string[];
+}
+
+export const engagementOptions: EngagementOption[] = [
+  {
+    id: "product-development",
+    title: "Product Development",
+    description:
+      ["End-to-end execution, built for scale",
+         "We collaborate closely with your team to turn ideas into high-impact digital products. From early discovery to continuous improvement, this model ensures speed, quality, and alignment with your business goals.",
+      ],
+         includes: [
+      "Product discovery, research, and requirement validation",
+      "UX/UI design focused on usability and conversion",
+      "Scalable architecture and clean, production-ready development",
+      "Continuous testing, optimization, and iteration",
+    ],
+    bestSuitedFor: [
+      "Startups building MVPs or new platforms",
+      "Businesses launching new digital products",
+      "Companies modernizing or scaling existing solutions",
+    ],
+  },
+  {
+    id: "team-augmentation",
+    title: "Team Augmentation",
+    description:[
+      "Extend your team. Accelerate delivery",
+      "Our Team Augmentation model allows you to seamlessly scale your capabilities with vetted experts who integrate directly into your workflows. You retain full control while gaining speed, flexibility, and specialized expertise—without long-term hiring overhead.",
+    ],
+      includes: [
+      "Skilled professionals across design, engineering, QA, DevOps, and product",
+      "Flexible engagement (short-term, long-term, or project-based)",
+      "Seamless integration with your tools, processes, and culture",
+      "Direct communication and transparent collaboration",
+    ],
+    bestSuitedFor: [
+      "Teams needing rapid scale without permanent hires",
+      "Projects with fluctuating workload or tight timelines",
+      "Companies seeking niche skills or additional delivery power",
+    ],
+  },
+  {
+    id: "consultation",
+    title: "Consultation",
+    description:[
+    "Clarity before commitment",
+   "Our consultation engagement helps you make informed decisions before investing in execution. We assess your current state, identify opportunities, and define a clear, actionable roadmap aligned with your business objectives.",
+    ],
+    includes: [
+      "Business and technical assessments",
+      "Opportunity and feasibility analysis",
+      "Technology and architecture recommendations",
+      "Risk evaluation and implementation roadmap",
+    ],
+    bestSuitedFor: [
+      "Organizations planning digital transformation",
+      "Teams exploring new technologies or automation",
+      "Decision-makers seeking strategic direction and validation",
+    ],
+  },
+];

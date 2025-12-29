@@ -3,6 +3,7 @@ import { DualRowSlider } from "@/components/shared/ui";
 import { industriesImages } from "@/lib/assets/images";
 import OurClient from "@/components/features/home/ourClient";
 import { testimonialsData } from "@/data/home";
+import DigitalServices from "@/components/features/home/digitalServices";
 
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
@@ -27,6 +28,7 @@ export default function Home() {
       </div>
       <BusinessTypes />
       <Services />
+      <DigitalServices />
       <OurClient testimonials={testimonialsData} />
     </>
   );
