@@ -28,11 +28,11 @@ const Footer = () => {
   };
 
   const footerTextClass = isMac
-    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[196px] [1920px]:text-[185px] 3xl:text-[188px]"
+    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[211px] [1920px]:text-[185px] 3xl:text-[188px]"
     : "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[165px] [1440px]:text-[168px] 2xl:text-[174px] [1920px]:text-[172px] 3xl:text-[178px]";
   return (
     <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
-      <div className="relative z-10 mx-4 lg:mx-7 xl:mx-12 pt-16 pb-7">
+      <div className="relative z-10 pt-16 pb-7 mx-4 lg:mx-8 xl:mx-15">
       <div className="flex flex-col md:flex-row md:items-start justify-center md:justify-between gap-6 mb-6 lg:mb-7">
                 <Image
                   src={rootImages.logo2}
@@ -59,9 +59,17 @@ const Footer = () => {
                 </form>
               </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 md:gap-12 lg:gap-6 xl:gap-8 mb-7">
-       
-          <div className="lg:col-span-6">
-            <div className="mb-4 lg:mb-4">
+          <div className="lg:col-span-6 relative pr-5 md:mr-1 lg:mr-8 xl:mr-10">
+            <div className="absolute right-0 top-0 h-full w-[1px] z-10" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.05) 100%)' }}></div>
+            <Image
+              src="/assets/images/home/footerbg.png"
+              alt=""
+              fill
+              className="absolute top-0 h-full w-full object-contain object-left opacity-100 z-0"
+              style={{ left: '-40px' }}
+              unoptimized
+            />
+            <div className="mb-4 lg:mb-4 relative z-10">
               <h6 className={`text-lg font-bold text-white mb-3`}>Texas</h6>
               <div className="flex items-start gap-2 ">
                 <MapPin className="w-4 h-4 text-white/90 mt-1 flex-shrink-0" />

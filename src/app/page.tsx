@@ -4,6 +4,7 @@ import { industriesImages } from "@/lib/assets/images";
 import OurClient from "@/components/features/home/ourClient";
 import { testimonialsData } from "@/data/home";
 import DigitalServices from "@/components/features/home/digitalServices";
+import { styles } from "@/styles/style";
 
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
@@ -22,7 +23,7 @@ export default function Home() {
     <>
       <Hero />
       <div className="py-8 bg-white">
-        <div className="mx-4 lg:mx-7 xl:mx-12">
+        <div className={styles.sectionPadding}>
           <DualRowSlider firstRowItems={firstRowItems} secondRowItems={secondRowItems} />
         </div>
       </div>

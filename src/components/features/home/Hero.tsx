@@ -66,7 +66,7 @@ const Hero = () => {
     : "mb-2 mt-18 md:mt-0";
 
   return (
-    <div className="mx-4 lg:mx-7 xl:mx-12">
+    <div className="mx-4 lg:mx-7 xl:mx-15">
       <div className={`relative w-full overflow-hidden flex items-center ${marginTopClass} rounded-xl`}>
         {/* Background Pattern */}
         <div className={`relative z-10 bg-[#1E274F] w-full ${heightClass}`}>
