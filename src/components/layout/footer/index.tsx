@@ -28,7 +28,7 @@ const Footer = () => {
   };
 
   const footerTextClass = isMac
-    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[211px] [1920px]:text-[185px] 3xl:text-[188px]"
+    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[207px] [1920px]:text-[185px] 3xl:text-[188px]"
     : "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[165px] [1440px]:text-[168px] 2xl:text-[174px] [1920px]:text-[172px] 3xl:text-[178px]";
   return (
     <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
