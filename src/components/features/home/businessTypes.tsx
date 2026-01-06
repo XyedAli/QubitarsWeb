@@ -9,6 +9,7 @@ import { CustomSlider, Button } from "@/components/shared/ui";
 
 const BusinessTypes = () => {
   const [slidesToShow, setSlidesToShow] = useState(2);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0); // First card active by default
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,22 +37,29 @@ const BusinessTypes = () => {
     infinite: true,
   };
 
-  const renderCard = (business: typeof businessTypes[0], index: number) => (
-    <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl px-6 py-11 md:px-4 lg:px-5 xl:px-8 pt-6 md:pt-8 lg:pt-12 transition-all border border-gray-100 hover:border-[#F05C22] group h-full flex flex-col">
-      <div className={`absolute -top-8 lg:-top-9 xl:-top-10 right-3 w-16 lg:w-20 xl:w-20 h-16 lg:h-20 xl:h-20 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] ${styles.flexCenter} shadow-md z-20`}>
-        <business.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+  const renderCard = (business: typeof businessTypes[0], index: number) => {
+    const isHovered = hoveredIndex === index;
+    return (
+      <div 
+        className={`relative bg-white rounded-2xl ${isHovered ? 'shadow-xl' : 'shadow-sm'} px-6 py-14 lg:py-7 xl:py-10 md:px-4 lg:px-5 xl:px-8 pt-8 xl:pt-12 transition-all border ${isHovered ? 'border-[#F05C22]' : 'border-gray-100'} group h-full flex flex-col`}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(0)}
+      >
+        <div className={`absolute -top-8 lg:-top-9 xl:-top-10 right-3 w-16 lg:w-17 xl:w-20 h-16 lg:h-17 xl:h-20 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] ${styles.flexCenter} shadow-md z-20`}>
+          <business.icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+        </div>
+        <div className={`absolute inset-0 ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity pointer-events-none rounded-2xl overflow-hidden`}>
+          <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white"></div>
+        </div>
+        <h3 className={`${styles.h4} font-bold mb-2 xl:mb-4 text-blue font-outfit relative z-10`}>
+          {business.title}
+        </h3>
+        <p className={`text-[16px] lg:text-[18px] xl:text-[19px] text-blue leading-normal xl:leading-relaxed font-inter relative z-10`}>
+          {business.description}
+        </p>
       </div>
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white"></div>
-      </div>
-      <h3 className={`${styles.h4} font-bold mb-2 xl:mb-4 text-blue font-outfit relative z-10`}>
-        {business.title}
-      </h3>
-      <p className={`${styles.p3} text-blue leading-normal xl:leading-relaxed font-inter relative z-10`}>
-        {business.description}
-      </p>
-    </div>
-  );
+    );
+  };
 
   return (
     <section className="bg-white mb-11 md:mb-14 lg:mb-18 xl:mb-20">

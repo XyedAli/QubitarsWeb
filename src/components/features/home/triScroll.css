@@ -1,0 +1,201 @@
+.tri-scroll-slider-wrapper {
+  width: 100%;
+  border-radius: 1.5rem; /* rounded-2xl - 24px */
+  overflow: hidden;
+  background: white;
+  padding: 0;
+  position: relative;
+  /* Ensure all edges are rounded */
+  border-top-left-radius: 1.5rem !important;
+  border-top-right-radius: 1.5rem !important;
+  border-bottom-left-radius: 1.5rem !important;
+  border-bottom-right-radius: 1.5rem !important;
+}
+
+.tri-scroll-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.tri-scroll-slider .slider-row {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.tri-scroll-slider .slider-track {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 14px;
+}
+
+/* Slider 1 (first row) - increase gap between images */
+.tri-scroll-slider .slider-row-top .slider-track {
+  gap: 20px !important;
+}
+
+/* Slider 2 (second row) - decrease gap between images */
+.tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+  gap: 13px !important;
+}
+
+/* Slider 3 (third row) - increase gap between images */
+.tri-scroll-slider .slider-row-bottom .slider-track {
+  gap: 21px !important;
+}
+
+/* Third slider - negative margin bottom */
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item {
+  margin-bottom: -20px !important;
+  margin-top: -4px !important;
+}
+
+.tri-scroll-slider .slider-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 210px;
+}
+
+@media (min-width: 1025px) {
+  .tri-scroll-slider .slider-item {
+    width: calc(100vw / 5);
+    min-width: calc(100vw / 5);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tri-scroll-slider .slider-item {
+    width: calc(100vw / 4);
+    min-width: calc(100vw / 4);
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .tri-scroll-slider .slider-item {
+    width: calc(100vw / 3);
+    min-width: calc(100vw / 3);
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tri-scroll-slider .slider-item {
+    width: calc(100vw / 2);
+    min-width: calc(100vw / 2);
+    padding: 0;
+  }
+}
+
+.tri-scroll-slider .slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.tri-scroll-slider .slider-track-row1 {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.tri-scroll-slider .slider-track-row2 {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* .tri-scroll-slider .slider-track-row3 {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+} */
+
+.tri-scroll-slider .slider-track {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Clip first row from top - sharp transition to avoid shadow */
+/* .tri-scroll-slider .slider-row-top {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+} */
+
+/* Clip third row from bottom - sharp transition to avoid shadow */
+/* .tri-scroll-slider .slider-row-bottom {
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 80%,
+    transparent 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 80%,
+    transparent 80%,
+    transparent 100%
+  );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+} */
+.tri-scroll-card {
+  border-radius: 24px;
+  overflow: hidden; /* Required for border-radius to work */
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* First row items (Logo 1-4) - negative margin */
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item {
+  margin-top: -20px !important;
+}
+
+/* First image in first row - rounded top-left corner */
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item:first-child {
+  border-top-left-radius: 24px !important;
+  overflow: hidden !important;
+}
+
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item:first-child > *,
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item:first-child img,
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item:first-child span,
+.tri-scroll-card .tri-scroll-slider .slider-row-top .slider-track .slider-item:first-child span img {
+  border-top-left-radius: 24px !important;
+}
+
+/* Last image in last row - rounded top-right corner */
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child {
+  border-top-right-radius: 24px !important;
+  overflow: hidden !important;
+}
+
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child > *,
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child img,
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child span,
+.tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child span img {
+  border-top-right-radius: 24px !important;
+}

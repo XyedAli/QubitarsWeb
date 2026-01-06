@@ -5,6 +5,10 @@ import OurClient from "@/components/features/home/ourClient";
 import { testimonialsData } from "@/data/home";
 import DigitalServices from "@/components/features/home/digitalServices";
 import { styles } from "@/styles/style";
+import Banner1 from "@/components/layout/banners/banner1";
+import Banner2 from "@/components/layout/banners/banner2";
+import Banner3 from "@/components/layout/banners/banner3";
+import TriScroll from "@/components/features/home/triScroll";
 
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
@@ -24,12 +28,16 @@ export default function Home() {
       <Hero />
       <div className="py-8 bg-white">
         <div className={styles.sectionPadding}>
-          <DualRowSlider firstRowItems={firstRowItems} secondRowItems={secondRowItems} />
+          <DualRowSlider firstRowItems={firstRowItems} secondRowItems={secondRowItems} /> 
         </div>
       </div>
       <BusinessTypes />
       <Services />
       <DigitalServices />
+      <Banner1 />
+      <Banner2 />
+      <Banner3 />
+      <TriScroll />
       <OurClient testimonials={testimonialsData} />
     </>
   );

@@ -199,3 +199,14 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+@media (max-width: 640px) {
+  .service-bg {
+    background-size: 160px auto;      /* adjust image size */
+    background-position: center bottom; /* better for mobile */
+  }
+}
+/* @media (max-width: 640px) {
+  .service-bg {
+    padding-bottom: 120px;
+  }
+} */

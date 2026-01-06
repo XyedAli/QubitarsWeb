@@ -13,10 +13,13 @@ const Services = () => {
   const [activeCardRow1Lg, setActiveCardRow1Lg] = useState<number>(0);
   const [activeCardRow2Lg, setActiveCardRow2Lg] = useState<number>(5);
   const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsLgScreen(window.innerWidth >= 1024);
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsLgScreen(width >= 1024);
     };
     
     checkScreenSize();
@@ -31,6 +34,9 @@ const Services = () => {
   }, []);
 
   const handleCardHover = (index: number) => {
+    // Don't handle hover on mobile - all cards are always active
+    if (isMobileScreen) return;
+    
     if (isLgScreen) {
       if (index < 3) {
         setActiveCardRow1Lg(index);
@@ -49,6 +55,9 @@ const Services = () => {
   };
 
   const handleCardLeave = () => {
+    // Don't handle leave on mobile - all cards are always active
+    if (isMobileScreen) return;
+    
     if (isLgScreen) {
       setActiveCardRow1Lg(0);
       setActiveCardRow2Lg(5);
@@ -71,7 +80,10 @@ const Services = () => {
           {servicesData.map((service, index) => {
             let isActive = false;
             
-            if (isLgScreen) {
+            // On mobile, all cards are always active
+            if (isMobileScreen) {
+              isActive = true;
+            } else if (isLgScreen) {
               if (index < 3) {
                 isActive = activeCardRow1Lg === index;
               } else {

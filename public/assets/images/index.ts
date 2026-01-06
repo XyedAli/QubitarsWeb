@@ -72,6 +72,20 @@ export const homeImages = {
   Qlogo: "/assets/images/home/Qlogo.png"
 };
 
+export const TriScrollImages = {
+  tsimg1: "/assets/images/generals/sliderLogos/Logo1.png",
+  tsimg2: "/assets/images/generals/sliderLogos/Logo2.png",
+  tsimg3: "/assets/images/generals/sliderLogos/Logo3.png",
+  tsimg4: "/assets/images/generals/sliderLogos/Logo4.png",
+  tsimg5: "/assets/images/generals/sliderLogos/Logo5.png",
+  tsimg6: "/assets/images/generals/sliderLogos/Logo6.png",
+  tsimg7: "/assets/images/generals/sliderLogos/Logo7.png",
+  tsimg8: "/assets/images/generals/sliderLogos/Logo8.png",
+  tsimg9: "/assets/images/generals/sliderLogos/Logo9.png",
+  tsimg10: "/assets/images/generals/sliderLogos/Logo10.png",
+  tsimg11: "/assets/images/generals/sliderLogos/Logo11.png",
+  tsimg12: "/assets/images/generals/sliderLogos/Logo12.png",
+};
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
 export const logoImages = {};

@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* Top bar */}
       <TopNav />
       {/* Main header */}
-      <div className="mx-4 lg:mx-7 xl:mx-13">
+      <div className="mx-4 lg:mx-7 xl:mx-15">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-3 md:py-2")}>
           {/* Logo */}
           <Image
@@ -39,7 +39,7 @@ const Navbar = () => {
             width={450}
             height={120}
             sizes="(max-width: 768px) 240px, 300px"
-            className="cursor-pointer w-[135px] md:w-[125px] h-[40px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
+            className="cursor-pointer w-[135px] md:w-[125px] h-[36px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
             priority
           />
 
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <TopNav />
               </div>
               {/* Mobile header */}
-              <div className={combine(styles.flexBetween, "px-4 py-5 mb-6 flex-shrink-0")}>
+              <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
               <Image
                 src="/assets/images/home/logo3.png"
                 alt="Qubitars Technology Logo"
@@ -130,7 +130,7 @@ const Navbar = () => {
                 height={35}
                 className="cursor-pointer"
                 priority
-                sizes="240px"
+                sizes="170px"
               />
               <button
                 type="button"
