@@ -9,6 +9,7 @@ import Banner1 from "@/components/layout/banners/banner1";
 import Banner2 from "@/components/layout/banners/banner2";
 import Banner3 from "@/components/layout/banners/banner3";
 import TriScroll from "@/components/features/home/triScroll";
+import RealEstatePartner from "@/components/features/home/realEstatepatner";
 
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
@@ -33,9 +34,10 @@ export default function Home() {
       </div>
       <BusinessTypes />
       <Services />
+      <RealEstatePartner />
       <DigitalServices />
-      <Banner1 />
-      <Banner2 />
+      {/* <Banner1 /> */}
+      {/* <Banner2 /> */}
       <Banner3 />
       <TriScroll />
       <OurClient testimonials={testimonialsData} />
