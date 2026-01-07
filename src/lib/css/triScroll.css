@@ -47,6 +47,81 @@
   gap: 21px !important;
 }
 
+/* Responsive gaps for mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .tri-scroll-slider .slider-row-top .slider-track {
+    gap: 14px !important;
+  }
+  
+  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+    gap: 0px !important;
+  }
+  
+  .tri-scroll-slider .slider-row-bottom .slider-track {
+    gap: 14px !important;
+  }
+}
+
+/* Responsive gaps for tablet (481px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .tri-scroll-slider .slider-row-top .slider-track {
+    gap: 14px !important;
+  }
+  
+  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+    gap: 0px !important;
+  }
+  
+  .tri-scroll-slider .slider-row-bottom .slider-track {
+    gap: 14px !important;
+  }
+}
+
+/* Responsive gaps for desktop (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tri-scroll-slider .slider-row-top .slider-track {
+    gap: 16px !important;
+  }
+  
+  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+    gap: 9px !important;
+  }
+  
+  .tri-scroll-slider .slider-row-bottom .slider-track {
+    gap: 16px !important;
+  }
+}
+
+/* Responsive gaps for large desktop (1025px - 1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+  .tri-scroll-slider .slider-row-top .slider-track {
+    gap: 18px !important;
+  }
+  
+  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+    gap: 10px !important;
+  }
+  
+  .tri-scroll-slider .slider-row-bottom .slider-track {
+    gap: 19px !important;
+  }
+}
+
+/* Responsive gaps for extra large desktop (min-width: 1280px) */
+@media (min-width: 1280px) {
+  .tri-scroll-slider .slider-row-top .slider-track {
+    gap: 20px !important;
+  }
+  
+  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+    gap: 13px !important;
+  }
+  
+  .tri-scroll-slider .slider-row-bottom .slider-track {
+    gap: 21px !important;
+  }
+}
+
 /* Third slider - negative margin bottom */
 .tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item {
   margin-bottom: -20px !important;
@@ -198,4 +273,60 @@
 .tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child span,
 .tri-scroll-card .tri-scroll-slider .slider-row-bottom .slider-track .slider-item:last-child span img {
   border-top-right-radius: 24px !important;
+}
+.tri-scroll-slider {
+  width: 100%;
+  overflow: hidden;
+  /* Remove fixed vertical spacing */
+}
+
+.tri-scroll-slider .slider-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center; /* better vertical alignment */
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 160px; /* smaller height for mobile/tablet */
+}
+
+/* Mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+  .tri-scroll-slider .slider-item {
+    height: 138px; /* mobile screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .tri-scroll-slider .slider-item {
+    height: 167px; /* medium screens */
+  }
+}
+@media (min-width: 1024px) {
+  .tri-scroll-slider .slider-item {
+    height: 172px; /* desktop */
+  }
+}
+@media (min-width: 1280px) {
+  .tri-scroll-slider .slider-item {
+    height: 208px; /* desktop */
+  }
+}
+
+/* Remove extra space between rows */
+.tri-scroll-slider.space-y-6 {
+  gap: 0; /* remove vertical spacing */
+}
+
+@media (min-width: 768px) {
+  .tri-scroll-slider.space-y-6 {
+    gap: 8px; /* small spacing for tablet/desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  .tri-scroll-slider.space-y-6 {
+    gap: 2px; /* original spacing for desktop */
+  }
 }

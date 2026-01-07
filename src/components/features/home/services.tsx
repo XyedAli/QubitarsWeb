@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
-import { servicesData } from "@/data/home";
+import { servicesData, ServiceData } from "@/data/home";
+import ServiceModal from "@/components/shared/ui/ServiceModal";
 
 const Services = () => {
   const [activeCardRow1, setActiveCardRow1] = useState<number>(0);
@@ -14,6 +15,8 @@ const Services = () => {
   const [activeCardRow2Lg, setActiveCardRow2Lg] = useState<number>(5);
   const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -68,8 +71,18 @@ const Services = () => {
     }
   };
 
+  const handleExploreMore = (service: ServiceData) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+  };
+
   return (
-    <section className="bg-blue-50 rounded-t-[40px]">
+    <section className="bg-blue-50">
       <div className={`${styles.sectionPadding} ${styles.sectionPaddingY}`}>
         <SectionHeading
           subtitle="OUR SERVICES"
@@ -104,10 +117,10 @@ const Services = () => {
                 key={index}
                 onMouseEnter={() => handleCardHover(index)}
                 onMouseLeave={handleCardLeave}
-                className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-[background-color,box-shadow] duration-500 ease-in-out cursor-pointer ${
+                className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-500 ease-in-out cursor-pointer group ${
                   isActive
-                    ? "bg-[#010101] shadow-xl col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-6"
-                    : "bg-white border border-gray-200 col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3"
+                    ? "bg-[#010101] shadow-2xl scale-[1.02] col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-6"
+                    : "bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-3"
                 }`}
               >
                 <div className={`relative ps-4 lg:ps-5 xl:ps-5 h-full ${isActive ? "min-h-[270px] lg:min-h-[310px] xl:min-h-[330px]" : "min-h-[270px] lg:min-h-[290px] xl:min-h-[270px]"} ${
@@ -133,10 +146,13 @@ const Services = () => {
                           {service.description}
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 mt-4">
-                        <span className={`${styles.p3} font-semibold text-white`}>Explore More</span>
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                          <MoveUpRight className="w-4 h-4 text-accent" />
+                      <div 
+                        className="group/btn flex items-center gap-2 mt-9 cursor-pointer transition-all duration-300 hover:gap-3"
+                        onClick={() => handleExploreMore(service)}
+                      >
+                        <span className={`${styles.p3} font-semibold text-white transition-all duration-300 group-hover/btn:translate-x-1`}>Explore More</span>
+                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">
+                          <MoveUpRight className="w-4 h-4 text-accent transition-transform duration-300" />
                         </div>
                       </div>
                     </div>
@@ -144,15 +160,18 @@ const Services = () => {
                   <div className={`relative pe-2 flex flex-col justify-between w-full h-full transition-opacity duration-500 ease-in-out ${
                     isActive ? "opacity-0 z-0 pointer-events-none absolute inset-0" : "opacity-100 z-10"
                   }`}>
-                    <div className="pt-1">
-                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[30px] font-semibold text-blue font-outfit`}>
+                    <div className="pt-1 group-hover:pt-0 transition-all duration-300">
+                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[30px] font-semibold text-blue font-outfit transition-colors duration-300 group-hover:text-blue-600`}>
                         {service.title}
                       </h3>
                     </div>
-                    <div className="flex items-center gap-2 pb-1">
-                      <span className={`${styles.p3} font-semibold text-blue`}>Explore More</span>
-                      <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center">
-                        <MoveUpRight className="w-4 h-4 text-blue" />
+                    <div 
+                      className="group/btn flex items-center gap-2 pb-1 cursor-pointer transition-all duration-300 hover:gap-3"
+                      onClick={() => handleExploreMore(service)}
+                    >
+                      <span className={`${styles.p3} font-semibold text-blue transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-blue-600`}>Explore More</span>
+                      <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-blue/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">
+                        <MoveUpRight className="w-4 h-4 text-blue transition-transform duration-300" />
                       </div>
                     </div>
                   </div>
@@ -162,6 +181,13 @@ const Services = () => {
           })}
         </div>
       </div>
+
+      {/* Service Modal */}
+      <ServiceModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        service={selectedService}
+      />
     </section>
   );
 };

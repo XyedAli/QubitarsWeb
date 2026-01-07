@@ -11,6 +11,7 @@ const BusinessTypes = () => {
   const [slidesToShow, setSlidesToShow] = useState(2);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0); // First card active by default
 
+  // Keep slide count responsive without server/client mismatch.
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -40,8 +41,8 @@ const BusinessTypes = () => {
   const renderCard = (business: typeof businessTypes[0], index: number) => {
     const isHovered = hoveredIndex === index;
     return (
-      <div 
-        className={`relative bg-white rounded-2xl ${isHovered ? 'shadow-xl' : 'shadow-sm'} px-6 py-14 lg:py-7 xl:py-10 md:px-4 lg:px-5 xl:px-8 pt-8 xl:pt-12 transition-all border ${isHovered ? 'border-[#F05C22]' : 'border-gray-100'} group h-full flex flex-col`}
+      <div
+        className={`relative bg-white rounded-2xl ${isHovered ? "shadow-xl" : "shadow-sm"} px-6 py-14 lg:py-7 xl:py-10 md:px-4 lg:px-5 xl:px-8 pt-8 xl:pt-12 transition-all border ${isHovered ? "border-[#F05C22]" : "border-gray-100"} h-full flex flex-col`}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(0)}
       >
@@ -69,7 +70,8 @@ const BusinessTypes = () => {
           title="Strategic Partner for Global Growth"
         />
 
-        <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-11 mb-10 pt-10 ">
+        {/* Desktop grid */}
+        <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-11 mb-10 pt-10">
           {businessTypes.map((business, index) => (
             <div key={index} className="h-full">
               {renderCard(business, index)}
@@ -77,6 +79,7 @@ const BusinessTypes = () => {
           ))}
         </div>
 
+        {/* Mobile slider */}
         <div className="block lg:hidden mb-10 pt-9">
           <div className="slider-equal-height">
             <CustomSlider settings={sliderSettings}>

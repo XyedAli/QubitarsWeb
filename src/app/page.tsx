@@ -2,7 +2,7 @@ import { Hero, BusinessTypes, Services } from "@/components/features/home";
 import { DualRowSlider } from "@/components/shared/ui";
 import { industriesImages } from "@/lib/assets/images";
 import OurClient from "@/components/features/home/ourClient";
-import { testimonialsData } from "@/data/home";
+import { testimonialsData, testimonialImagesById } from "@/data/home";
 import DigitalServices from "@/components/features/home/digitalServices";
 import { styles } from "@/styles/style";
 import Banner1 from "@/components/layout/banners/banner1";
@@ -24,6 +24,15 @@ export default function Home() {
   const firstRowItems = logoEntries.slice(0, 9);
   const secondRowItems = logoEntries.slice(9);
 
+  // Merge testimonials data with images
+  const testimonialsWithImages = testimonialsData.map((testimonial) => {
+    const images = testimonialImagesById[testimonial.id];
+    return {
+      ...testimonial,
+      ...images,
+    };
+  });
+
   return (
     <>
       <Hero />
@@ -38,9 +47,9 @@ export default function Home() {
       <DigitalServices />
       {/* <Banner1 /> */}
       {/* <Banner2 /> */}
-      <Banner3 />
+      {/* <Banner3 /> */}
       <TriScroll />
-      <OurClient testimonials={testimonialsData} />
+      <OurClient testimonials={testimonialsWithImages} />
     </>
   );
 }

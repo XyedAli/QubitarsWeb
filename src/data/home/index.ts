@@ -2,6 +2,15 @@ import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
 import { AwardsImages } from "@/lib/assets/images";
+import {
+  TriScrollImages,
+  homeImages,
+  serviceModalImages,
+  technologyIconImages,
+  navbarImages,
+  companyImages,
+  industriesImages,
+} from "../../../public/assets/images";
 
 export const businessTypes = [
   {
@@ -54,69 +63,237 @@ export const awards = [
   },
 ];
 
-export const servicesData = [
+export interface TriScrollLogo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export const triScrollLogos: TriScrollLogo[] = [
+  { src: TriScrollImages.tsimg1, alt: "Logo 1", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg2, alt: "Logo 2", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg3, alt: "Logo 3", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg4, alt: "Logo 4", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg5, alt: "Logo 5", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg6, alt: "Logo 6", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg7, alt: "Logo 7", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg8, alt: "Logo 8", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg9, alt: "Logo 9", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg10, alt: "Logo 10", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg11, alt: "Logo 11", width: 220, height: 90 },
+  { src: TriScrollImages.tsimg12, alt: "Logo 12", width: 220, height: 90 },
+];
+
+export interface ServiceData {
+  title: string;
+  description: string;
+  image: string;
+  modalImage?: string;
+  modalDescription?: string[];
+  services?: string[];
+  technologies?: string[];
+  technologyIcons?: { name: string; icon: string }[];
+}
+
+const serviceModalIcons: { name: string; icon: string }[] = [
+  { name: "Python", icon: technologyIconImages.micon1 },
+  { name: "TensorFlow", icon: technologyIconImages.micon2 },
+  { name: "PyTorch", icon: technologyIconImages.micon3 },
+  { name: "Docker", icon: technologyIconImages.micon4 },
+  { name: "Kubernetes", icon: technologyIconImages.micon5 },
+  { name: "AWS", icon: technologyIconImages.micon6 },
+  { name: "Azure", icon: technologyIconImages.micon7 },
+  { name: "GCP", icon: technologyIconImages.micon8 },
+  { name: "Technology 9", icon: technologyIconImages.micon9 },
+  { name: "Technology 10", icon: technologyIconImages.micon10 },
+];
+
+export const servicesData: ServiceData[] = [
   {
     title: "AI & ML Development",
     description: "Unlock the power of artificial intelligence and machine learning to automate processes, gain insights, and drive innovation.",
-    image: "/assets/images/home/himg8.png",
+    image: homeImages.himg10,
+    modalImage: serviceModalImages.mimg1,
+    modalDescription: [
+      "Unlock intelligent automation and data-driven insights with AI/ML solutions designed to solve real problems and create competitive advantage.",
+      "Launch faster, smarter. We build lean, scalable MVPs that validate your idea, attract users, and prepare you for full product rollout."
+    ],
+    services: [
+      "AI Consultation",
+      "AI Agent",
+      "AI Workflow Automation",
+      "Generative AI Solutions",
+      "AI Development & Integration",
+
+    ],
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Azure",
+      "GCP"
+    ],
+    technologyIcons: serviceModalIcons,
   },
   {
     title: "Digital Transformation",
     description: "Transform your business with modern digital solutions that streamline operations, enhance efficiency, and accelerate growth.",
-    image: "/assets/images/home/himg9.png",
+    image: homeImages.himg9,
+    modalDescription: [
+      "Say goodbye to complex tech stacks and long timelines. We help you achieve digital transformation through tools that are simple, powerful, and built for growth.",
+      "We eliminate development roadblocks so your team can focus on creating value and scaling your business with ease."
+    ],
+    services: [
+      "UI/UX Design",
+      "Web App Development",
+      "Mobile App Development",
+      "MVP Development",
+      "SAAS Development",
+      "Custom Software Development",
+      "Low-Code/No-Code Development"
+    ],
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes"
+    ],
+    technologyIcons: serviceModalIcons,
   },
   {
     title: "Product Design",
     description: "We craft intuitive, user-first digital experiences that look stunning and function flawlessly—turning complex ideas into designs users love.",
-    image: "/assets/images/home/himg10.png",
+    image: homeImages.himg8,
+    modalDescription: [
+      "We craft intuitive, user-first digital experiences that look stunning and function flawlessly—turning complex ideas into designs users love. Great design goes beyond aesthetics—it’s about creating experiences that feel natural and memorable.",
+      "Every screen, interaction, and flow is optimized to drive engagement, retention, and business success. With a balance of bold creativity and technical precision, we ensure your product not only looks great but also delivers measurable impact."
+    ],
+    technologies: [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "InVision",
+      "Principle",
+      "Framer"
+    ],
+    technologyIcons:serviceModalIcons,
   },
   {
     title: "Quality Assurance",
     description: "Ensure flawless performance with comprehensive testing and quality assurance that delivers reliable, bug-free software solutions.",
-    image: "/assets/images/home/himg11.png",
+    image: homeImages.himg13,
+    modalImage: serviceModalImages.mimg2,
+    modalDescription: [
+      "Software isn’t complete until it’s tested. Our QA team ensures your product is flawless, reliable, and future-proof.",
+      "We combine the power of manual testing and advanced automation frameworks to catch issues before your users do.",
+      "From functionality and performance to security and usability, our testing process is designed to minimize risks, improve stability, and guarantee customer satisfaction. With us, your product ships with zero compromises on quality.",
+    ],
+    technologies: [
+      "Selenium",
+      "Cypress",
+      "Jest",
+      "Playwright",
+      "Postman",
+      "JMeter"
+    ],
+    technologyIcons: serviceModalIcons,
   },
   {
     title: "DevOps",
     description: "Accelerate deployment and improve reliability with automated CI/CD pipelines, infrastructure management, and cloud solutions.",
-    image: "/assets/images/home/himg12.png",
+    image: homeImages.himg12,
+    modalImage: serviceModalImages.mimg3,
+    modalDescription: [
+      "We bring speed, security, and scalability to your software lifecycle. Speed, scalability, and security—that’s the promise of our DevOps approach.",
+      "We streamline the entire software delivery pipeline using CI/CD, cloud-native deployment, and real-time monitoring to ensure faster releases and reduced downtime.",
+    "By bridging the gap between development and operations, we help businesses innovate quickly while maintaining rock-solid reliability. With DevOps, your product evolves faster, costs less, and performs better.",
+    ],
+    technologies: [
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitLab CI",
+      "Terraform",
+      "Ansible"
+    ],
+    technologyIcons: serviceModalIcons,
   },
   {
     title: "Staff Augmentation",
     description: "Scale your team with vetted developers, designers, and AI experts—ready to plug in, deliver results, and adapt to your workflow.",
-    image: "/assets/images/home/himg13.png",
+    image: homeImages.himg11,
+    modalImage: serviceModalImages.mimg4,
+    modalDescription: [
+      "We bring speed, security, and scalability to your software lifecycle. Speed, scalability, and security—that’s the promise of our DevOps approach.",
+      "We streamline the entire software delivery pipeline using CI/CD, cloud-native deployment, and real-time monitoring to ensure faster releases and reduced downtime.",
+      "By bridging the gap between development and operations, we help businesses innovate quickly while maintaining rock-solid reliability. With DevOps, your product evolves faster, costs less, and performs better.",
+    ],
+    technologies: [
+      "React",
+      "Node.js",
+      "Python",
+      "TypeScript",
+      "AWS",
+      "Docker"
+    ],
+    technologyIcons: serviceModalIcons,
   },
 ];
+
+export interface TestimonialImageConfig {
+  image1: string;
+  image2: string;
+  image3: string;
+  logo: string;
+}
+
+// Centralized testimonial image configuration per id
+export const testimonialImagesById: Record<string, TestimonialImageConfig> = {
+  "1": {
+    image1: navbarImages.logoSvg,
+    image2: industriesImages.clogo1,
+    image3: homeImages.himg14,
+    logo: homeImages.himg16,
+  },
+  "2": {
+    image1: navbarImages.logoSvg,
+    image2: industriesImages.clogo2,
+    image3: companyImages.jake,
+    logo: homeImages.himg16,
+  },
+  "3": {
+    image1: navbarImages.logoSvg,
+    image2: industriesImages.clogo3,
+    image3: industriesImages.man,
+    logo: homeImages.himg16,
+  },
+};
 
 export const testimonialsData = [
   {
     id: "1",
-    image1: "/assets/images/navbar/logo.svg",
-    image2: "/assets/images/Industries/clogo1.svg",
-    image3: "/assets/images/home/himg14.png",
     desp: "Qubitars transformed our digital presence with exceptional expertise and professionalism. Their team delivered a solution that exceeded our expectations and significantly improved our business operations.",
     author: "John Smith",
     title: "CEO, InnovativeTech",
-    logo: "/assets/images/navbar/lorem.svg",
   },
   {
     id: "2",
-    image1: "/assets/images/navbar/logo.svg",
-    image2: "/assets/images/Industries/clogo2.svg",
-    image3: "/assets/images/Company/Jake.png",
     desp: "Working with Qubitars has been an outstanding experience. They understood our vision, provided innovative solutions, and delivered on time. Highly recommended for anyone looking for quality development services.",
     author: "Sarah Johnson",
     title: "CTO, TechSolutions",
-    logo: "/assets/images/navbar/lorem.svg",
   },
   {
     id: "3",
-    image1: "/assets/images/navbar/logo.svg",
-    image2: "/assets/images/Industries/clogo3.svg",
-    image3: "/assets/images/Industries/Man.png",
     desp: "The Qubitars team demonstrated exceptional technical skills and a deep understanding of our business needs. Their approach to problem-solving and attention to detail made all the difference in our project's success.",
     author: "Michael Chen",
     title: "Founder, DigitalWorks",
-    logo: "/assets/images/navbar/lorem.svg",
   },
 ];
 

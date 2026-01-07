@@ -67,6 +67,14 @@ export const homeImages = {
   himg5: "/assets/images/generals/awards/himg5.png",
   himg6: "/assets/images/generals/awards/himg6.svg",
   himg7: "/assets/images/generals/awards/himg7.svg",
+  himg8: "/assets/images/home/himg8.png",
+  himg9: "/assets/images/home/himg9.png",
+  himg10: "/assets/images/home/himg10.png",
+  himg11: "/assets/images/home/himg11.png",
+  himg12: "/assets/images/home/himg12.png",
+  himg13: "/assets/images/home/himg13.png",
+  himg14: "/assets/images/home/himg14.png",
+  himg16: "/assets/images/home/himg16.png",
   bgLines: "/assets/images/home/bgLines.svg",
   bgLines1: "/assets/images/home/bgLines1.svg",
   Qlogo: "/assets/images/home/Qlogo.png"
@@ -85,6 +93,28 @@ export const TriScrollImages = {
   tsimg10: "/assets/images/generals/sliderLogos/Logo10.png",
   tsimg11: "/assets/images/generals/sliderLogos/Logo11.png",
   tsimg12: "/assets/images/generals/sliderLogos/Logo12.png",
+};
+
+// Service modal images (used in services cards/modals)
+export const serviceModalImages = {
+  mimg1: "/assets/images/icons/mimg1.png",
+  mimg2: "/assets/images/icons/mimg2.png",
+  mimg3: "/assets/images/icons/mimg3.png",
+  mimg4: "/assets/images/icons/mimg4.png",
+};
+
+// Technology icons (used across services/technologies)
+export const technologyIconImages = {
+  micon1: "/assets/images/icons/micon1.png",
+  micon2: "/assets/images/icons/micon2.png",
+  micon3: "/assets/images/icons/micon3.png",
+  micon4: "/assets/images/icons/micon4.png",
+  micon5: "/assets/images/icons/micon5.png",
+  micon6: "/assets/images/icons/micon6.png",
+  micon7: "/assets/images/icons/micon7.png",
+  micon8: "/assets/images/icons/micon8.png",
+  micon9: "/assets/images/icons/micon9.png",
+  micon10: "/assets/images/icons/micon10.png",
 };
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
