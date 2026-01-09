@@ -7,6 +7,7 @@ import {
   homeImages,
   serviceModalImages,
   technologyIconImages,
+  techStackIcons,
   navbarImages,
   companyImages,
   industriesImages,
@@ -363,4 +364,46 @@ export const engagementOptions: EngagementOption[] = [
       "Decision-makers seeking strategic direction and validation",
     ],
   },
+];
+
+export type TechStackCategory = "All" | "Front-End" | "Back-End" | "Low/No Code" | "DevOps" | "Mobile" | "AI & ML";
+
+export interface TechStackItem {
+  id: number;
+  name: string;
+  icon: string;
+  category: TechStackCategory[];
+}
+
+export const techStackData: TechStackItem[] = [
+  { id: 1, name: "HTML", icon: techStackIcons.sicon1, category: ["Front-End"] },
+  { id: 2, name: "CSS", icon: techStackIcons.sicon2, category: ["Front-End"] },
+  { id: 3, name: "JavaScript", icon: techStackIcons.sicon3, category: ["Front-End", "Back-End"] },
+  { id: 4, name: "Sass", icon: techStackIcons.sicon4, category: ["Front-End"] },
+  { id: 5, name: "React Js", icon: techStackIcons.sicon5, category: ["Front-End"] },
+  { id: 6, name: "Vue Js", icon: techStackIcons.sicon6, category: ["Front-End"] },
+  { id: 7, name: "Angular", icon: techStackIcons.sicon7, category: ["Front-End"] },
+  { id: 8, name: "Meteor JS", icon: techStackIcons.sicon8, category: ["Front-End", "Back-End"] },
+  { id: 9, name: "Nuxt JS", icon: techStackIcons.sicon9, category: ["Front-End"] },
+  { id: 10, name: "WebGL", icon: techStackIcons.sicon10, category: ["Front-End"] },
+  { id: 11, name: "Node.js", icon: techStackIcons.sicon11, category: ["Back-End"] },
+  { id: 12, name: "Python", icon: techStackIcons.sicon12, category: ["Back-End", "AI & ML"] },
+  { id: 13, name: "Elixir", icon: techStackIcons.sicon13, category: ["Back-End"] },
+  { id: 14, name: "Ruby", icon: techStackIcons.sicon14, category: ["Back-End"] },
+  { id: 15, name: "Java", icon: techStackIcons.sicon15, category: ["Back-End", "Mobile"] },
+  { id: 16, name: "PHP", icon: techStackIcons.sicon16, category: ["Back-End"] },
+  { id: 17, name: "Golang", icon: techStackIcons.sicon17, category: ["Back-End"] },
+  { id: 18, name: "C#", icon: techStackIcons.sicon18, category: ["Back-End"] },
+  { id: 19, name: "TypeScript", icon: techStackIcons.sicon19, category: ["Front-End", "Back-End"] },
+  { id: 20, name: "Next.js", icon: techStackIcons.sicon20, category: ["Front-End"] },
+  { id: 21, name: "Express", icon: techStackIcons.sicon21, category: ["Back-End"] },
+  { id: 22, name: "MongoDB", icon: techStackIcons.sicon22, category: ["Back-End"] },
+  { id: 23, name: "PostgreSQL", icon: techStackIcons.sicon23, category: ["Back-End"] },
+  { id: 24, name: "Docker", icon: techStackIcons.sicon24, category: ["DevOps"] },
+  { id: 25, name: "Kubernetes", icon: techStackIcons.sicon25, category: ["DevOps"] },
+  { id: 26, name: "AWS", icon: techStackIcons.sicon26, category: ["DevOps"] },
+  { id: 27, name: "React Native", icon: techStackIcons.sicon27, category: ["Mobile"] },
+  { id: 28, name: "Flutter", icon: techStackIcons.sicon28, category: ["Mobile"] },
+  { id: 29, name: "TensorFlow", icon: techStackIcons.sicon29, category: ["AI & ML"] },
+  { id: 30, name: "PyTorch", icon: techStackIcons.sicon30, category: ["AI & ML"] },
 ];

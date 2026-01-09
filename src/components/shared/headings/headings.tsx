@@ -1,8 +1,8 @@
 import { styles } from "@/styles/style";
 
 interface SectionHeadingProps {
-  subtitle: string;
-  title: string;
+  subtitle?: string;
+  title?: string;
   highlightedText?: string;
 }
 

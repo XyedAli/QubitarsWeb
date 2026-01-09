@@ -33,15 +33,17 @@ const Navbar = () => {
       <div className="mx-4 lg:mx-7 xl:mx-15">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-3 md:py-2")}>
           {/* Logo */}
-          <Image
-            src="/assets/images/home/logo3.png"
-            alt="Qubitars Technology Logo"
-            width={450}
-            height={120}
-            sizes="(max-width: 768px) 240px, 300px"
-            className="cursor-pointer w-[135px] md:w-[125px] h-[36px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/assets/images/home/logo3.png"
+              alt="Qubitars Technology Logo"
+              width={450}
+              height={120}
+              sizes="(max-width: 768px) 240px, 300px"
+              className="cursor-pointer w-[135px] md:w-[125px] h-[36px] md:h-[36px] lg:h-[40px] xl:h-[44px] lg:w-[135px] xl:w-[160px]"
+              priority
+            />
+          </Link>
 
           <div className={combine(styles.flexitems, "gap-4")}>
             {/* Desktop nav */}
@@ -123,15 +125,17 @@ const Navbar = () => {
               </div>
               {/* Mobile header */}
               <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
-              <Image
-                src="/assets/images/home/logo3.png"
-                alt="Qubitars Technology Logo"
-                width={150}
-                height={35}
-                className="cursor-pointer"
-                priority
-                sizes="170px"
-              />
+              <Link href="/">
+                <Image
+                  src="/assets/images/home/logo3.png"
+                  alt="Qubitars Technology Logo"
+                  width={150}
+                  height={35}
+                  className="cursor-pointer"
+                  priority
+                  sizes="170px"
+                />
+              </Link>
               <button
                 type="button"
                 onClick={closeMenu}

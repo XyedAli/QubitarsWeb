@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MoveUpRight } from "lucide-react";
+import Link from "next/link";
+import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { businessTypes } from "@/data";
@@ -98,10 +99,14 @@ const BusinessTypes = () => {
           <Button
             variant="accent"
             size="lg"
-            className="bg-gray-100 hover:bg-gray-200 text-blue px-7 py-4 rounded-xl hover:opacity-90 font-semibold gap-3"
           >
-            lets Talk Business
-            <MoveUpRight className="w-4 h-5 text-white" />
+            <Link href="/contact">
+              lets Talk Business
+            </Link>
+            <div className="relative">
+              <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+              <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </div>
           </Button>
         </div>
       </div>

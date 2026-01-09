@@ -1,9 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { styles } from "@/styles/style";
-
+import Link from "next/link";
 const WorkTogether = () => {
+  const pathname = usePathname();
+  
+  // Hide this section on contact page
+  if (pathname === "/contact") {
+    return null;
+  }
+  
   return (
     <section className="bg-white py-8 lg:py-10 xl:py-13">
       <div className={`${styles.sectionPadding}`}>
@@ -13,7 +21,7 @@ const WorkTogether = () => {
           </span>
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
             <h2 className={`text-[32px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit `}>
-              Let&apos;s Work Together
+              <Link href="/contact">Let&apos;s Work Together</Link>
             </h2>
             <div className="flex-shrink-0">
                 <Image 

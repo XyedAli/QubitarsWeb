@@ -8,9 +8,10 @@ import { styles } from "@/styles/style";
 import Banner1 from "@/components/layout/banners/banner1";
 import Banner2 from "@/components/layout/banners/banner2";
 import Banner3 from "@/components/layout/banners/banner3";
+import Banner4 from "@/components/layout/banners/banner4";
 import TriScroll from "@/components/features/home/triScroll";
 import RealEstatePartner from "@/components/features/home/realEstatepatner";
-
+import OurTechStack from "@/components/features/home/our-tech-stack";
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
     .filter(([key]) => key.startsWith("clogo"))
@@ -48,8 +49,11 @@ export default function Home() {
       {/* <Banner1 /> */}
       {/* <Banner2 /> */}
       {/* <Banner3 /> */}
+      <Banner4 />
       <TriScroll />
+      <OurTechStack />
       <OurClient testimonials={testimonialsWithImages} />
+      
     </>
   );
 }

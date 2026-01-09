@@ -116,6 +116,40 @@ export const technologyIconImages = {
   micon9: "/assets/images/icons/micon9.png",
   micon10: "/assets/images/icons/micon10.png",
 };
+
+// Tech stack icons (used in our-tech-stack section)
+export const techStackIcons = {
+  sicon1: "/assets/images/generals/techStackIcons/sicon1.svg",
+  sicon2: "/assets/images/generals/techStackIcons/sicon2.svg",
+  sicon3: "/assets/images/generals/techStackIcons/sicon3.svg",
+  sicon4: "/assets/images/generals/techStackIcons/sicon4.svg",
+  sicon5: "/assets/images/generals/techStackIcons/sicon5.svg",
+  sicon6: "/assets/images/generals/techStackIcons/sicon6.svg",
+  sicon7: "/assets/images/generals/techStackIcons/sicon7.svg",
+  sicon8: "/assets/images/generals/techStackIcons/sicon8.svg",
+  sicon9: "/assets/images/generals/techStackIcons/sicon9.svg",
+  sicon10: "/assets/images/generals/techStackIcons/sicon10.svg",
+  sicon11: "/assets/images/generals/techStackIcons/sicon11.svg",
+  sicon12: "/assets/images/generals/techStackIcons/sicon12.svg",
+  sicon13: "/assets/images/generals/techStackIcons/sicon13.svg",
+  sicon14: "/assets/images/generals/techStackIcons/sicon14.svg",
+  sicon15: "/assets/images/generals/techStackIcons/sicon15.svg",
+  sicon16: "/assets/images/generals/techStackIcons/sicon16.svg",
+  sicon17: "/assets/images/generals/techStackIcons/sicon17.svg",
+  sicon18: "/assets/images/generals/techStackIcons/sicon18.svg",
+  sicon19: "/assets/images/generals/techStackIcons/sicon19.svg",
+  sicon20: "/assets/images/generals/techStackIcons/sicon20.svg",
+  sicon21: "/assets/images/generals/techStackIcons/sicon21.svg",
+  sicon22: "/assets/images/generals/techStackIcons/sicon22.svg",
+  sicon23: "/assets/images/generals/techStackIcons/sicon23.svg",
+  sicon24: "/assets/images/generals/techStackIcons/sicon24.svg",
+  sicon25: "/assets/images/generals/techStackIcons/sicon25.svg",
+  sicon26: "/assets/images/generals/techStackIcons/sicon26.svg",
+  sicon27: "/assets/images/generals/techStackIcons/sicon27.svg",
+  sicon28: "/assets/images/generals/techStackIcons/sicon28.svg",
+  sicon29: "/assets/images/generals/techStackIcons/sicon29.svg",
+  sicon30: "/assets/images/generals/techStackIcons/sicon30.svg",
+};
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
 export const logoImages = {};

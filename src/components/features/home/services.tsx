@@ -15,6 +15,7 @@ const Services = () => {
   const [activeCardRow2Lg, setActiveCardRow2Lg] = useState<number>(5);
   const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [activeMobileCard, setActiveMobileCard] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
 
@@ -37,7 +38,7 @@ const Services = () => {
   }, []);
 
   const handleCardHover = (index: number) => {
-    // Don't handle hover on mobile - all cards are always active
+    // Don't handle hover on mobile - only first card is active
     if (isMobileScreen) return;
     
     if (isLgScreen) {
@@ -58,7 +59,7 @@ const Services = () => {
   };
 
   const handleCardLeave = () => {
-    // Don't handle leave on mobile - all cards are always active
+    // Don't handle leave on mobile - only first card is active
     if (isMobileScreen) return;
     
     if (isLgScreen) {
@@ -71,9 +72,24 @@ const Services = () => {
     }
   };
 
-  const handleExploreMore = (service: ServiceData) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
+  const handleCardClick = (index: number) => {
+    // On mobile, clicking a card makes it active
+    if (isMobileScreen) {
+      setActiveMobileCard(index);
+    }
+  };
+
+  const handleExploreMore = (service: ServiceData, e?: React.MouseEvent) => {
+    // Prevent card click when clicking Explore More button
+    if (e) {
+      e.stopPropagation();
+    }
+    
+    // Only show modal for AI & ML Development and Digital Transformation
+    if (service.title === "AI & ML Development" || service.title === "Digital Transformation") {
+      setSelectedService(service);
+      setIsModalOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
@@ -93,9 +109,9 @@ const Services = () => {
           {servicesData.map((service, index) => {
             let isActive = false;
             
-            // On mobile, all cards are always active
+            // On mobile, use activeMobileCard state
             if (isMobileScreen) {
-              isActive = true;
+              isActive = activeMobileCard === index;
             } else if (isLgScreen) {
               if (index < 3) {
                 isActive = activeCardRow1Lg === index;
@@ -117,6 +133,7 @@ const Services = () => {
                 key={index}
                 onMouseEnter={() => handleCardHover(index)}
                 onMouseLeave={handleCardLeave}
+                onClick={() => handleCardClick(index)}
                 className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-500 ease-in-out cursor-pointer group ${
                   isActive
                     ? "bg-[#010101] shadow-2xl scale-[1.02] col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-6"
@@ -131,24 +148,24 @@ const Services = () => {
                       isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                     }`}
                     style={{
-                      backgroundImage: `url(${service.image})`,
+                      backgroundImage: (isMobileScreen || !isActive) ? 'none' : `url(${service.image})`,
                       backgroundPosition: 'right center',
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 'contain'
                     }}
                   >
-                    <div className="flex-1 flex flex-col justify-between py-4 xl:py-5 transition-opacity duration-500 ease-in-out pr-[41%] lg:pr-[44%] xl:pr-[44%]">
+                    <div className={`flex-1 flex flex-col justify-between py-4 xl:py-5 transition-opacity duration-500 ease-in-out ${isMobileScreen && isActive ? 'pr-0' : 'pr-[41%] lg:pr-[44%] xl:pr-[44%]'}`}>
                       <div>
                         <h3 className={`text-[24px] lg:text-[23px] xl:text-[27px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
                           {service.title}
                         </h3>
-                        <p className={`${styles.p3} text-white/90 leading-relaxed font-inter`}>
+                        <p className={`${styles.p3} text-white/90 leading-relaxed font-inter pe-3 md:pe-0`}>
                           {service.description}
                         </p>
                       </div>
                       <div 
                         className="group/btn flex items-center gap-2 mt-9 cursor-pointer transition-all duration-300 hover:gap-3"
-                        onClick={() => handleExploreMore(service)}
+                        onClick={(e) => handleExploreMore(service, e)}
                       >
                         <span className={`${styles.p3} font-semibold text-white transition-all duration-300 group-hover/btn:translate-x-1`}>Explore More</span>
                         <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">
@@ -167,7 +184,7 @@ const Services = () => {
                     </div>
                     <div 
                       className="group/btn flex items-center gap-2 pb-1 cursor-pointer transition-all duration-300 hover:gap-3"
-                      onClick={() => handleExploreMore(service)}
+                      onClick={(e) => handleExploreMore(service, e)}
                     >
                       <span className={`${styles.p3} font-semibold text-blue transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-blue-600`}>Explore More</span>
                       <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-blue/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">

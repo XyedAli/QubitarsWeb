@@ -37,7 +37,7 @@ const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
 
       {/* Modal Content */}
       <div
-        className="relative bg-white rounded-[24px] md:rounded-[32px] shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-100 flex flex-col"
+        className="relative bg-white rounded-[24px] md:rounded-[32px] shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-100 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -50,24 +50,10 @@ const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
         </button>
 
         {/* Modal Body - Two Column Layout */}
-        <div className="grid grid-cols-12 h-full">
-          {/* Left Column - Black Background with Image (col-span-4) */}
-          <div className="hidden md:flex col-span-12 md:col-span-4 bg-[#010101] items-center justify-center p-6 lg:p-8 min-h-[300px] md:min-h-0">
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src={service.modalImage || service.image}
-                alt={service.title}
-                width={500}
-                height={500}
-                className="object-contain w-full h-full scale-110"
-                priority
-                unoptimized
-              />
-            </div>
-          </div>
+        <div className=" h-full">
 
           {/* Right Column - Content (col-span-8) */}
-          <div className="col-span-12 md:col-span-8 overflow-y-auto scrollbar-hide px-5 lg:px-8 py-6 md:py-8 lg:py-12">
+          <div className="overflow-y-auto scrollbar-hide px-5 lg:px-8 py-6 md:py-8 lg:py-12">
             {/* Title */}
             <h2 className={`${styles.h3} font-semibold text-accent font-outfit mb-2 lg:mb-4 xl:mb-6`}>
               {service.title}
@@ -102,7 +88,7 @@ const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
                       <div className="w-6 h-6 rounded-full bg-blue flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                         <MdOutlineArrowOutward className="w-3 h-3 text-white" />
                       </div>
-                      <span className={`text-[14px] lg:text-base text-gray-700 font-inter font-semibold`}>
+                      <span className={`${styles.p3} text-gray-700 font-inter font-semibold`}>
                         {item}
                       </span>
                     </li>

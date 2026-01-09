@@ -1,7 +1,9 @@
 "use client";
 
-import { MoveUpRight } from "lucide-react";
+import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
+import { Button } from "@/components/shared/ui";
+import Link from "next/link";
 
 const RealEstatePartner = () => {
   return (
@@ -38,15 +40,18 @@ const RealEstatePartner = () => {
           </p>
 
           {/* CTA Button */}
-          <a
-            href="#"
-            className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold px-8 py-4 lg:px-8 lg:py-4 rounded-xl transition-all duration-300 font-outfit"
+          <Button
+            variant="accent"
+            size="lg"
+            className="font-outfit "
           >
-            <span className={`${styles.p2}`}>Start Partnership</span>
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:rotate-45 transition-all duration-300">
-              <MoveUpRight className="w-4 h-4 text-white" />
+            <span className={`${styles.p2}`}>
+            <Link href="/contact">Start Partnership</Link></span>
+            <div className="relative">
+              <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+              <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
-          </a>
+          </Button>
         </div>
       </div>
     </section>
