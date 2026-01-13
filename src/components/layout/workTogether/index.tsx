@@ -15,15 +15,20 @@ const WorkTogether = () => {
   return (
     <section className="bg-white py-8 lg:py-10 xl:py-13">
       <div className={`${styles.sectionPadding}`}>
-        <div className=" gap-4 md:gap-6 lg:gap-8">
-          <span className={`${styles.h3} font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] `}>
+        <div className="gap-4 md:gap-6 lg:gap-8">
+          <span className={`${styles.h3} font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] block `}>
             Excited?
           </span>
-          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-            <h2 className={`text-[32px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit `}>
-              <Link href="/contact">Let&apos;s Work Together</Link>
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8 group">
+            <h2 className={`text-[32px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit transition-all duration-300`}>
+              <Link 
+                href="/contact" 
+                className="relative inline-block text-[#1E274F] transition-all duration-300 group-hover:scale-105"
+              >
+                Let&apos;s Work Together
+              </Link>
             </h2>
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110">
                 <Image 
                     src="/assets/images/home/emailicon.svg" 
                     alt="call to action" 

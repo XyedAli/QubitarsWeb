@@ -150,6 +150,13 @@ export const techStackIcons = {
   sicon29: "/assets/images/generals/techStackIcons/sicon29.svg",
   sicon30: "/assets/images/generals/techStackIcons/sicon30.svg",
 };
+
+// About Page Images
+export const aboutImages = {
+  heroBg: "/assets/images/about/herobg.png",
+  mission: "/assets/images/about/mission.png",
+  vision: "/assets/images/about/vision.png",
+};
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
 export const logoImages = {};

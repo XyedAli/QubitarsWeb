@@ -178,9 +178,15 @@ const Services = () => {
                     isActive ? "opacity-0 z-0 pointer-events-none absolute inset-0" : "opacity-100 z-10"
                   }`}>
                     <div className="pt-1 group-hover:pt-0 transition-all duration-300">
-                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[30px] font-semibold text-blue font-outfit transition-colors duration-300 group-hover:text-blue-600`}>
+                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[30px] font-semibold text-blue font-outfit transition-colors duration-300 group-hover:text-blue-600 mt-4 md:mt-0`}>
                         {service.title}
                       </h3>
+                      {/* Description - Only show on mobile for non-active cards */}
+                      {isMobileScreen && !isActive && (
+                        <p className={`${styles.p3} text-blue leading-relaxed font-inter mt-3`}>
+                          {service.description}
+                        </p>
+                      )}
                     </div>
                     <div 
                       className="group/btn flex items-center gap-2 pb-1 cursor-pointer transition-all duration-300 hover:gap-3"
