@@ -1,11 +1,32 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import Link from "next/link";
 
 const RealEstatePartner = () => {
+  const industries = [
+    "Real Estate",
+    "Travel & Hospitality",
+    "Oil, Gas & Energy",
+    "Banking & Fintech",
+    "Healthcare",
+    "EdTech",
+    "Startups"
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % industries.length);
+    }, 2500); // Change every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [industries.length]);
   return (
     <section className="relative bg-white overflow-hidden min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] flex items-center">
       {/* Background Image */}
@@ -29,9 +50,20 @@ const RealEstatePartner = () => {
           {/* Main Heading */}
           <h2 className={`${styles.h1} font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
             <span className="block">We partner with brands in</span>
-            <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-              Real Estate
-            </span>
+            <div className="relative inline-block min-h-[1.2em] mt-2 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]"
+                >
+                  {industries[currentIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </h2>
 
           {/* Description */}

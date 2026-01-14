@@ -5,12 +5,13 @@ import Image from "next/image";
 import { styles, combine } from "@/styles/style";
 import "@/lib/css";
 import { triScrollLogos } from "@/data/home";
-
+import { SectionHeading } from "@/components/shared/headings/headings"; 
 const TriScroll = () => {
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
   const row3Ref = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   // Slider 1: Logo 1 to 4
   const row1Items = triScrollLogos.slice(0, 4);
@@ -25,6 +26,19 @@ const TriScroll = () => {
   const duplicatedRow3 = [...row3Items, ...row3Items, ...row3Items, ...row3Items];
 
   useEffect(() => {
+    // Detect OS and apply class
+    if (typeof window !== "undefined" && sliderRef.current) {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const platform = window.navigator.platform.toLowerCase();
+      const isMac = /macintosh|mac os x|macintel/.test(userAgent) || /mac/.test(platform);
+      
+      if (isMac) {
+        sliderRef.current.classList.add("is-mac");
+      } else {
+        sliderRef.current.classList.add("is-windows");
+      }
+    }
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
@@ -73,18 +87,12 @@ const TriScroll = () => {
   return (
     <section ref={sectionRef} className={combine("pt-6 bg-white", styles.sectionPadding)}>
       <div>
-        <div className="mb-6 lg:mb-8 xl:mb-10">
-          <h2 className={`${styles.h1} font-semibold text-[#1E274F] font-outfit`}>
-            Creating{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-              Digital Products
-            </span>{" "}
-            & Experiences
-          </h2>
-        </div>
-
+<SectionHeading
+  subtitle="From Idea to Impact"
+  title="Creating Digital Products & Experiences"
+  />
         <div className="tri-scroll-card">
-        <div className="tri-scroll-slider">
+        <div ref={sliderRef} className="tri-scroll-slider">
         {/* ROW 1 */}
             <div className="slider-row slider-row-top">
               <div ref={row1Ref} className="slider-track">

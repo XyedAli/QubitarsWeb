@@ -1,103 +1,113 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { styles } from "@/styles/style";
-import { 
-  Lightbulb, 
-  FileEdit, 
-  Box, 
-  Users 
-} from "lucide-react";
+import { aboutImages } from "@/lib/assets/images";
 
 interface CoreValue {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: string;
   title: string;
   description: string;
 }
 
 const coreValues: CoreValue[] = [
   {
-    icon: Lightbulb,
+    icon: aboutImages.Aimg3,
     title: "Innovation",
-    description: "We use emerging technologies to build future-ready solutions."
+    description: "We leverage emerging technologies to build future-ready solutions globally."
   },
   {
-    icon: FileEdit,
+    icon: aboutImages.Aimg4,
     title: "Strive for Better",
-    description: "Continuous improvement drives everything we build and deliver."
+    description: "Continuous improvement guides everything we create and deliver daily."
   },
   {
-    icon: Box,
+    icon: aboutImages.Aimg5,
     title: "Transparency",
-    description: "Clear, open, and honest communication defines our work."
+    description: "Open and honest communication builds trust with clients always."
   },
   {
-    icon: Users,
+    icon: aboutImages.Aimg6,
     title: "Respect & Equality",
-    description: "Every voice matters; we value diversity and collaboration."
+    description: "We value every voice and encourage collaboration across teams."
+  },
+  {
+    icon: aboutImages.Aimg7,
+    title: "Integrity",
+    description: "We uphold ethical practices and keep our promises, always."
+  },
+  {
+    icon: aboutImages.Aimg8,
+    title: "Client Focus",
+    description: "We solve real client challenges with measurable business results."
   }
 ];
 
 const CoreValues = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <section className="bg-white relative overflow-hidden">
-      <div className={`${styles.sectionPadding} pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-2`}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Left column: heading + description */}
-          <div className="lg:col-span-5 flex flex-col justify-center items-start h-full">
-            <div className="mb-6 md:mb-8">
-              <h2 className={`${styles.h1} font-bold font-outfit leading-tight`}>
-                <span className="text-blue">Core Values</span>
-              </h2>
-              <div className="mt-2 h-1 w-20 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]" />
-            </div>
-            <p className={`${styles.p2} text-gray-600 font-inter max-w-md`}>
-              From startups to enterprises, we specialize in turning complex challenges into simple, scalable, and impactful solutions.
-            </p>
-          </div>
+    <section className="bg-white relative overflow-hidden mx-16">
+      <div className={`${styles.sectionPadding} pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
+        {/* Heading */}
+        <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-14 text-center">
+          <h2 className={`${styles.h1} font-bold font-outfit leading-tight`}>
+            <span className="text-blue">Values </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
+              Powering Our Vision
+            </span>
+          </h2>
+        </div>
 
-          {/* Right column: 4 cards in 2x2 grid */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 lg:gap-12">
-              {coreValues.map((value, index) => {
-                const isHovered = hoveredIndex === index;
-                const IconComponent = value.icon;
-                return (
-                  <div
-                    key={index}
-                    className={`relative bg-white rounded-2xl ${isHovered ? "shadow-xl" : "shadow-sm"} px-6 py-14 lg:py-7 xl:py-10 md:px-4 lg:px-5 xl:px-8 pt-8 xl:pt-12 transition-all border ${isHovered ? "border-[#F05C22]" : "border-gray-100"} h-full flex flex-col`}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                  >
-                    {/* Icon at top-right corner */}
-                    <div className={`absolute -top-8 lg:-top-9 xl:-top-10 right-3 w-16 lg:w-17 xl:w-18 h-16 lg:h-17 xl:h-18 rounded-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] ${styles.flexCenter} shadow-md z-20`}>
-                      <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
-                    </div>
-
-                    {/* Gradient overlay on hover */}
-                    <div className={`absolute inset-0 ${isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity pointer-events-none rounded-2xl overflow-hidden`}>
-                      <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col flex-1">
-                      {/* Title */}
-                      <h3 className={`${styles.h4} font-bold mb-2 xl:mb-4 text-blue font-outfit leading-tight`}>
-                        {value.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className={`text-[16px] lg:text-[18px] xl:text-[19px] text-blue leading-normal xl:leading-relaxed font-inter`}>
-                        {value.description}
-                      </p>
-                    </div>
+        {/* Cards Grid: 2 rows of 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-8">
+          {coreValues.map((value, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <div
+                key={index}
+                className={`group relative bg-[#FAFAFA] rounded-2xl transition-all duration-300 border-2 h-full flex flex-col cursor-pointer ${
+                  isActive 
+                    ? "border-[#F05C22] " 
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setActiveIndex(index)}
+              >
+                {/* Content */}
+                <div className="relative z-10 flex flex-col flex-1 p-6 md:p-7 lg:p-12">
+                  {/* Icon Box - Before Title */}
+                  <div className={`w-16 h-16 md:w-20 md:h-20 lg:w-20 lg:h-20 rounded-full bg-white border-2 transition-all duration-300 ${styles.flexCenter} mb-4 md:mb-5 lg:mb-6 ${
+                    isActive ? "border-[#F05C22]" : "border-transparent group-hover:border-[#F05C22]"
+                  }`}>
+                    <Image
+                      src={value.icon}
+                      alt={value.title}
+                      width={48}
+                      height={48}
+                      className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+                      unoptimized
+                    />
                   </div>
-                );
-              })}
-            </div>
-          </div>
+
+                  {/* Title */}
+                  <h3 className={`${styles.h4} font-bold mb-3 md:mb-4 font-outfit leading-tight ${
+                    isActive ? "text-[#F05C22]" : "text-gray-900"
+                  }`}>
+                    {value.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className={`text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-inter ${
+                    isActive ? "text-gray-700" : "text-gray-600"
+                  }`}>
+                    {value.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

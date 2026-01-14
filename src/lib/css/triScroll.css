@@ -37,9 +37,13 @@
   gap: 20px !important;
 }
 
-/* Slider 2 (second row) - decrease gap between images */
-.tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+/* Slider 2 (second row) - OS-based gap: Windows: 13px, Mac: 4px */
+.tri-scroll-slider.is-windows .slider-row:nth-child(2) .slider-track {
   gap: 13px !important;
+}
+
+.tri-scroll-slider.is-mac .slider-row:nth-child(2) .slider-track {
+  gap: 4px !important;
 }
 
 /* Slider 3 (third row) - increase gap between images */
@@ -113,8 +117,13 @@
     gap: 20px !important;
   }
   
-  .tri-scroll-slider .slider-row:nth-child(2) .slider-track {
+  /* Second row gap - Windows: 13px, Mac: 4px */
+  .tri-scroll-slider.is-windows .slider-row:nth-child(2) .slider-track {
     gap: 13px !important;
+  }
+  
+  .tri-scroll-slider.is-mac .slider-row:nth-child(2) .slider-track {
+    gap: 4px !important;
   }
   
   .tri-scroll-slider .slider-row-bottom .slider-track {

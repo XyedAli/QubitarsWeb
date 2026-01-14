@@ -4,4 +4,5 @@ export { default as AboutHero } from "./hero";
 export { default as MissionVision } from "./mission&vision";
 export { default as CoreValues } from "./coreValues";
 export { default as QubitarsAbout } from "./qubitarsAbout";
+export { default as InstaFeed } from "./instaFeed";
 

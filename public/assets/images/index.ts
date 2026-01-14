@@ -156,6 +156,21 @@ export const aboutImages = {
   heroBg: "/assets/images/about/herobg.png",
   mission: "/assets/images/about/mission.png",
   vision: "/assets/images/about/vision.png",
+  aboutimg2: "/assets/images/about/aboutimg2.svg",
+  Aimg3: "/assets/images/about/Aimg3.svg",
+  Aimg4: "/assets/images/about/Aimg4.svg",
+  Aimg5: "/assets/images/about/Aimg5.svg",
+  Aimg6: "/assets/images/about/Aimg6.svg",
+  Aimg7: "/assets/images/about/Aimg7.svg",
+  Aimg8: "/assets/images/about/Aimg8.svg",
+  Aimg9: "/assets/images/about/Aimg9.svg",
+  Aimg10: "/assets/images/about/Aimg10.svg",
+  Aimg11: "/assets/images/about/Aimg11.svg",
+  Aimg12: "/assets/images/about/Aimg12.svg",
+  Aimg13: "/assets/images/about/Aimg13.svg",
+  Aimg14: "/assets/images/about/Aimg14.svg",
+  Aimg15: "/assets/images/about/Aimg15.svg",
+  Aimg16: "/assets/images/about/Aimg16.svg",
 };
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};

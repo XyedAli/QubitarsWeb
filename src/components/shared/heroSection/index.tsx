@@ -18,8 +18,9 @@ interface HeroSectionProps {
   descriptions: string[];
   subtitle?: string;
   buttonText?: string;
-  backgroundType: "image" | "color" | "pattern";
+  backgroundType: "image" | "color" | "pattern" | "video"; // video added
   backgroundImage?: any;
+  backgroundVideo?: any; // new prop
   backgroundColor?: string;
   patternImages?: {
     mobile?: any;
@@ -43,6 +44,7 @@ const HeroSection = ({
   buttonText = "Book a Consultation, it's free",
   backgroundType,
   backgroundImage,
+  backgroundVideo,
   backgroundColor,
   patternImages,
   textColor = "white",
@@ -89,7 +91,6 @@ const HeroSection = ({
     : "min-w-[195%] lg:min-w-[130%] xl:min-w-[120%] [1440px]:min-w-[130%]";
 
   const buttonMarginTopClass = isMac ? "mt-4" : "";
-
   const descriptionClass = isMac
     ? "mb-6 text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] [1440px]:text-[18px] 2xl:text-[20px]"
     : "mb-6";
@@ -110,34 +111,59 @@ const HeroSection = ({
   const textOpacityClass = textColor === "white" ? "text-white/90" : "text-blue";
 
   return (
-    <div className="mx-4 lg:mx-7 xl:mx-15">
+    <div className="mx-4 lg:mx-7 xl:mx-15 relative">
       <div className={`relative w-full overflow-hidden flex items-center ${marginTopClass} rounded-xl`}>
         {/* Background */}
         <div
-          className={`relative z-10 w-full ${heightClass} overflow-hidden ${
-            backgroundType === "color"
+          className={`relative z-0 w-full ${heightClass} overflow-hidden ${
+            backgroundType === "video"
+              ? ""
+              : backgroundType === "color"
               ? backgroundColor || "bg-[#1E274F]"
               : backgroundType === "pattern"
               ? backgroundColor || "bg-[#1E274F]"
               : ""
           }`}
         >
-          {/* Background Image - Only show when backgroundType is "image" and backgroundImage exists */}
-          {backgroundType === "image" && backgroundImage ? (
+          {/* Video Background */}
+          {backgroundType === "video" && backgroundVideo && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/images/hero-poster.jpg" // optional fallback
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            >
+              <source src={backgroundVideo} type="video/mp4" />
+            </video>
+          )}
+
+          {/* Dark overlay for text readability */}
+          {backgroundType === "image" && (
+            <div className="absolute inset-0 bg-black/30 z-10" />
+          )}
+          {backgroundType === "pattern" && (
+            <div className="absolute inset-0 bg-black/30 z-10" />
+          )}
+          {/* No overlay for video - transparent background */}
+
+          {/* Background Image */}
+          {backgroundType === "image" && backgroundImage && (
             <Image
               src={backgroundImage}
               alt="Hero background"
               fill
-              className="object-cover"
+              className="object-cover z-0"
               style={{ objectPosition }}
               priority
               unoptimized
             />
-          ) : null}
+          )}
 
-          {/* Pattern Background - Mobile - Only show when backgroundType is "pattern" and mobile pattern exists */}
-          {backgroundType === "pattern" && patternImages?.mobile ? (
-            <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Pattern Background */}
+          {backgroundType === "pattern" && patternImages?.mobile && (
+            <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none z-0">
               <div className="relative w-full h-full flex items-center justify-end">
                 <Image
                   src={patternImages.mobile}
@@ -150,10 +176,8 @@ const HeroSection = ({
                 />
               </div>
             </div>
-          ) : null}
-
-          {/* Pattern Background - Desktop - Only show when backgroundType is "pattern" and desktop pattern exists */}
-          {backgroundType === "pattern" && patternImages?.desktop ? (
+          )}
+          {backgroundType === "pattern" && patternImages?.desktop && (
             <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/3 overflow-visible pointer-events-none z-0">
               <div className="relative w-full h-full flex justify-end">
                 <Image
@@ -167,14 +191,13 @@ const HeroSection = ({
                 />
               </div>
             </div>
-          ) : null}
+          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full">
-            {/* Left Side - Text Content */}
+          {/* Text Content */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full relative z-20">
             <div
-              className={`${textColorClass} col-span-8 text-center md:text-left relative z-10 pe-4 md:pe-0 ps-4 xl:ps-10 ${marginBottomClass}`}
+              className={`${textColorClass} col-span-8 text-center md:text-left relative z-20 pe-4 md:pe-0 ps-4 xl:ps-10 ${marginBottomClass}`}
             >
-              {/* Subtitle */}
               {subtitle && (
                 <p
                   className={`${styles.h6} ${nextGenTextClass} font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}
@@ -183,7 +206,6 @@ const HeroSection = ({
                 </p>
               )}
 
-              {/* Main Heading */}
               <h1
                 className={`${h1FontClass} font-bold ${textColorClass} leading-tight font-outfit mb-4 ${
                   titleUppercase ? "uppercase" : ""
@@ -192,7 +214,6 @@ const HeroSection = ({
                 {title}
               </h1>
 
-              {/* Descriptions */}
               {descriptions.map((description, index) => (
                 <p
                   key={index}
@@ -268,4 +289,3 @@ const HeroSection = ({
 };
 
 export default HeroSection;
-
