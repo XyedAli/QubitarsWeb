@@ -41,16 +41,16 @@ const RealEstatePartner = () => {
       <div className={`${styles.sectionPadding} relative z-10 w-full`}>
         <div className="max-w-4xl mx-auto text-center">
           {/* Subtitle */}
-          <div className="mb-4 md:mb-6">
+          <div className="mb-4 md:mb-3">
             <span className={`${styles.h6} font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] font-outfit uppercase tracking-wider`}>
               Real Estate Partnership
             </span>
           </div>
 
           {/* Main Heading */}
-          <h2 className={`${styles.h1} font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
+          <h2 className={`text-[59px] font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
             <span className="block">We partner with brands in</span>
-            <div className="relative inline-block min-h-[1.2em] mt-2 overflow-hidden">
+            <div className="relative inline-block min-h-[1.2em] mt-1 overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
@@ -66,10 +66,10 @@ const RealEstatePartner = () => {
             </div>
           </h2>
 
-          {/* Description */}
+          {/* Description
           <p className={`${styles.p2} text-gray-800 leading-relaxed font-inter max-w-2xl mx-auto mb-8 md:mb-10`}>
             We design and develop digital products, platforms, and tools for real estate brands—helping them modernize operations and scale their business.
-          </p>
+          </p> */}
 
           {/* CTA Button */}
           <Button

@@ -8,7 +8,7 @@ const MissionVision = () => {
     <section className={`${styles.sectionPadding} bg-[#F5F6FB] py-12 md:py-16 lg:py-20 xl:py-24`}>
       <div className={styles.sectionPadding}>
         {/* Our Mission Section */}
-        <div className="mb-8 md:mb-11 lg:mb-20 xl:mb-24">
+        <div className="mb-8 md:mb-11 lg:mb-14 xl:mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-12 xl:gap-18 items-center">
             {/* Image - Left Side */}
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[400px] rounded-lg overflow-hidden order-1 lg:order-1">

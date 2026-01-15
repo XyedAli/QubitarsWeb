@@ -48,7 +48,7 @@ const CoreValues = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <section className="bg-white relative overflow-hidden mx-16">
+    <section className="bg-white relative overflow-hidden mx-0 xl:mx-23">
       <div className={`${styles.sectionPadding} pt-12 md:pt-16 lg:pt-20 xl:pt-24 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
         {/* Heading */}
         <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-14 text-center">
@@ -61,7 +61,7 @@ const CoreValues = () => {
         </div>
 
         {/* Cards Grid: 2 rows of 3 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
           {coreValues.map((value, index) => {
             const isActive = activeIndex === index;
             return (
@@ -76,9 +76,9 @@ const CoreValues = () => {
                 onMouseEnter={() => setActiveIndex(index)}
               >
                 {/* Content */}
-                <div className="relative z-10 flex flex-col flex-1 p-6 md:p-7 lg:p-12">
+                <div className="relative z-10 flex flex-col flex-1 p-3 md:p-5 lg:p-7 xl:p-12">
                   {/* Icon Box - Before Title */}
-                  <div className={`w-16 h-16 md:w-20 md:h-20 lg:w-20 lg:h-20 rounded-full bg-white border-2 transition-all duration-300 ${styles.flexCenter} mb-4 md:mb-5 lg:mb-6 ${
+                  <div className={`w-16 h-16 md:w-17 md:h-17 lg:w-20 lg:h-20 rounded-full bg-white border-2 transition-all duration-300 ${styles.flexCenter} mb-4 md:mb-5 lg:mb-6 ${
                     isActive ? "border-[#F05C22]" : "border-transparent group-hover:border-[#F05C22]"
                   }`}>
                     <Image
@@ -86,20 +86,20 @@ const CoreValues = () => {
                       alt={value.title}
                       width={48}
                       height={48}
-                      className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+                      className="w-8 h-8 lg:w-12 lg:h-12 object-contain"
                       unoptimized
                     />
                   </div>
 
                   {/* Title */}
-                  <h3 className={`${styles.h4} font-bold mb-3 md:mb-4 font-outfit leading-tight ${
+                  <h3 className={`text-[17px] md:text-[22px] lg:text-[28px] xl:text-[32px] font-bold mb-3 lg:mb-4 font-outfit leading-tight ${
                     isActive ? "text-[#F05C22]" : "text-gray-900"
                   }`}>
                     {value.title}
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-inter ${
+                  <p className={`text-[12px] md:text-[14px] lg:text-[16px] lg:text-[17px] leading-relaxed font-inter ${
                     isActive ? "text-gray-700" : "text-gray-600"
                   }`}>
                     {value.description}

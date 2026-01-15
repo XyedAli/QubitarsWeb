@@ -171,6 +171,11 @@ export const aboutImages = {
   Aimg14: "/assets/images/about/Aimg14.svg",
   Aimg15: "/assets/images/about/Aimg15.svg",
   Aimg16: "/assets/images/about/Aimg16.svg",
+  Aimg17: "/assets/images/about/Aimg17.png",
+  Aimg18: "/assets/images/about/Aimg18.svg",
+  Aimg19: "/assets/images/about/Aimg19.svg",
+  Aimg20: "/assets/images/about/Aimg20.svg",
+  Aimg21: "/assets/images/about/Aimg21.svg",
 };
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};

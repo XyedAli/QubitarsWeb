@@ -1,4 +1,4 @@
-import { AboutHero, FAQ, MissionVision, CoreValues, QubitarsAbout ,InstaFeed} from "@/components/features/about";
+import { AboutHero, FAQ, MissionVision, CoreValues, QubitarsAbout ,InstaFeed, ChooseQubitars} from "@/components/features/about";
 import { Fragment } from "react/jsx-runtime";
 
 export default function AboutPage() {
@@ -9,6 +9,7 @@ export default function AboutPage() {
     <MissionVision />
     <CoreValues />
     <InstaFeed />
+    <ChooseQubitars />
     <FAQ />
    </Fragment>
   );
