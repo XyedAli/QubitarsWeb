@@ -22,7 +22,7 @@
  container : "max-w-7xl mx-auto px-4 xl:px-0",
  containerLarge : "max-w-[78.2rem] mx-auto",
  containerXl : "max-w-2xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl leading-relaxed",
- sectionPadding : "mx-4 lg:mx-8 xl:mx-16",
+ sectionPadding : "mx-4 lg:mx-8 xl:mx-16 mx-1600-312",
  sectionPaddingY : "py-16 md:py-20 lg:py-24",
 
 // Flex utilities

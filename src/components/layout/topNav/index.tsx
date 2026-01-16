@@ -5,8 +5,8 @@ import { styles, combine } from "@/styles/style";
 
 const TopNav = () => {
   return (
-    <div className="hidden md:block bg-[#C2C2C2]/10 md:bg-[#F7F7F7] shadow-mD py-2.5">
-      <div className="mx-4 lg:mx-8 xl:mx-16">
+    <div className="hidden md:block bg-[#C2C2C2]/10 md:bg-[#F7F7F7] shadow-mD py-2.5 ps-2">
+      <div className={styles.sectionPadding}>
         <div className={styles.flexBetween}>
           {/* Website Link */}
           <div className={combine(styles.flexitems, "gap-2 hover:text-accent transition-all duration-300 cursor-pointer group")}>

@@ -32,7 +32,7 @@ const Footer = () => {
     : "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[165px] [1440px]:text-[168px] 2xl:text-[174px] [1920px]:text-[172px] 3xl:text-[178px]";
   return (
     <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
-      <div className="relative z-10 pt-16 pb-7 mx-4 lg:mx-8 xl:mx-15">
+      <div className={`relative z-10 pt-16 pb-7 ${styles.sectionPadding}`}>
       <div className="flex flex-col md:flex-row md:items-start justify-center md:justify-between gap-6 mb-6 lg:mb-7">
                 <Image
                   src={rootImages.logo2}

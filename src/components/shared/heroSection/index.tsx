@@ -111,7 +111,7 @@ const HeroSection = ({
   const textOpacityClass = textColor === "white" ? "text-white/90" : "text-blue";
 
   return (
-    <div className="mx-4 lg:mx-7 xl:mx-15 relative">
+    <div className={`${styles.sectionPadding} relative`}>
       <div className={`relative w-full overflow-hidden flex items-center ${marginTopClass} rounded-xl`}>
         {/* Background */}
         <div

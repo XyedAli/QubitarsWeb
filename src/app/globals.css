@@ -68,6 +68,13 @@ body {
   }
 }
 
+@media (min-width: 1600px) {
+  .mx-1600-312 {
+    margin-left: 312px !important;
+    margin-right: 312px !important;
+  }
+}
+
 /* CUSTOM CSS */
 /*----------------------------------------
   CUSTOM CSS

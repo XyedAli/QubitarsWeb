@@ -16,7 +16,7 @@ const Awards = () => {
         />
       </div>
       
-      <div className="mx-4 lg:mx-8 xl:mx-14 relative z-10">
+      <div className={`${styles.sectionPadding} relative z-10`}>
             <SectionHeading
               subtitle="CERTIFICATIONS"
               title="Credentials Validate"

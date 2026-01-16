@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* Top bar */}
       <TopNav />
       {/* Main header */}
-      <div className="mx-4 lg:mx-7 xl:mx-15">
+      <div className="mx-4 lg:mx-7 xl:mx-16 mx-1600-312">
         <div ref={headerRef} className={combine(styles.flexBetween, "py-3 md:py-2")}>
           {/* Logo */}
           <Link href="/">
