@@ -1,67 +1,108 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { styles } from "@/styles/style";
 
-export interface CaseStudy {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  imageAlt?: string;
-  link?: string;
-}
+const caseStudies = [
+  {
+    image: "/assets/images/case/cashflow.jpg",
+    logo: "/assets/images/logos/cashflow.svg",
+    tag: "Real Estate",
+    title: "The #1 AI Platform for Streamlining Slow Flip and Rental Properties.",
+    desc:
+      "Cashflow Innovator provides an AI-driven platform that simplifies slow-flip and rental property investments for diverse stakeholders."
+  },
+  {
+    image: "/assets/images/case/charta.jpg",
+    logo: "/assets/images/logos/charta.svg",
+    tag: "Startup",
+    title: "AI-Human Solution Creation Platform. Build Your Network, Share Your Value",
+    desc:
+      "Charta is a premium mobility service reshaping transportation in Africa, operating in Lagos, Abuja, Accra, and Lomé."
+  },
+  {
+    image: "/assets/images/case/solve.jpg",
+    logo: "/assets/images/logos/solve.svg",
+    tag: "Healthcare",
+    title: "The greatest investment you can make is in yourself.",
+    desc:
+      "SolveMyAllergies blends AI, mindfulness, and user-centric design to help individuals heal respiratory allergies."
+  },
+  {
+    image: "/assets/images/case/africa.jpg",
+    logo: "/assets/images/logos/africa.svg",
+    tag: "Healthcare",
+    title: "Technology-Driven Healthcare for Africa",
+    desc:
+      "Africa Health Initiative delivers accessible healthcare solutions using modern digital infrastructure."
+  }
+];
 
-interface CaseStudyCardsProps {
-  caseStudies: CaseStudy[];
-}
-
-const CaseStudyCards: React.FC<CaseStudyCardsProps> = ({ caseStudies }) => {
+const CaseCard = ({ image, logo, tag, title, desc }: any) => {
   return (
-    <section className="w-full bg-white py-16 md:py-20 lg:py-24">
-      <div className={`${styles.container} ${styles.sectionPadding}`}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={study.image}
-                  alt={study.imageAlt || study.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowUpRight className="w-5 h-5 text-[#FC7E13]" />
-                </div>
-              </div>
-              
-              <div className="p-6 lg:p-8">
-                <h3 className={`${styles.h5} font-bold text-gray-900 mb-3 group-hover:text-[#FC7E13] transition-colors duration-300`}>
-                  {study.title}
-                </h3>
-                <p className={`${styles.p2} text-gray-600 leading-relaxed line-clamp-3`}>
-                  {study.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+    <div className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+
+      {/* Image */}
+      <div className="relative w-full h-[260px]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
-    </section>
+
+      {/* Content */}
+      <div className="p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <Image src={logo} alt="" width={22} height={22} />
+          <span className="text-xs px-2 py-0.5 rounded-full border border-slate-200 text-slate-600">
+            {tag}
+          </span>
+        </div>
+
+        <h3 className="text-base font-semibold text-slate-900 leading-snug">
+          {title}
+        </h3>
+
+        <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+          {desc}
+        </p>
+      </div>
+    </div>
   );
 };
 
-export default CaseStudyCards;
+export default function CaseStudiesSection() {
+  return (
+    <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
 
+      {/* Section Heading */}
+      <div className="mb-16">
+        <span className="text-sm font-semibold text-orange-500 uppercase">
+          Case Studies
+        </span>
+        <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
+          Real Products. Real Impact.
+        </h2>
+      </div>
+
+      {/* Staggered Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20">
+
+        {/* Left Column */}
+        <div className="space-y-20">
+          <CaseCard {...caseStudies[0]} />
+          <CaseCard {...caseStudies[2]} />
+        </div>
+
+        {/* Right Column (Offset like Figma) */}
+        <div className="space-y-20 md:pt-24">
+          <CaseCard {...caseStudies[1]} />
+          <CaseCard {...caseStudies[3]} />
+        </div>
+
+      </div>
+    </section>
+  );
+}
