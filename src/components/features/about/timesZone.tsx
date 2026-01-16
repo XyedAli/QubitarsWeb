@@ -3,14 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { RxSewingPin } from "react-icons/rx";
 
 interface Location {
     id: number;
     name: string;
     top: string;
     left: string;
-
-    // optional responsive positions (to avoid TS errors)
+    color: string;
     topSm?: string;
     leftSm?: string;
     topMd?: string;
@@ -20,20 +20,20 @@ interface Location {
 }
 
 const locations: Location[] = [
-    { id: 1, name: "Edmonton, Canada", top: "25%", left: "18%", topMd: "18%", leftMd: "16%", topSm: "20%", leftSm: "14%", topLg: "16%", leftLg: "17%" },
-    { id: 2, name: "Chicago, USA", top: "23%", left: "29%", topMd: "15%", leftMd: "27%", topSm: "19%", leftSm: "25%", topLg: "13%", leftLg: "28%" },
-    { id: 3, name: "San Francisco, USA", top: "43%", left: "12%", topMd: "43%", leftMd: "6%", topSm: "35%", leftSm: "8%", topLg: "37%", leftLg: "11%" },
-    { id: 4, name: "New York City, USA", top: "28%", left: "28%", topMd: "22%", leftMd: "26%", topSm: "24%", leftSm: "24%", topLg: "22%", leftLg: "27%" },
-    { id: 5, name: "Logan, USA", top: "46%", left: "24%", topMd: "48%", leftMd: "22%", topSm: "35%", leftSm: "20%", topLg: "43%", leftLg: "23%" },
-    { id: 6, name: "Miami, USA", top: "48%", left: "20%", topMd: "56%", leftMd: "18%", topSm: "42%", leftSm: "15%", topLg: "48%", leftLg: "19%" },
-    { id: 7, name: "Virginia, USA", top: "34%", left: "25%", topMd: "32%", leftMd: "23%", topSm: "30%", leftSm: "21%", topLg: "33%", leftLg: "17%" },
-    { id: 8, name: "Maryland, USA", top: "32%", left: "15%", topMd: "27%", leftMd: "14%", topSm: "28%", leftSm: "22%", topLg: "28%", leftLg: "25%" },
-    { id: 9, name: "North Carolina, USA", top: "37%", left: "28%", topMd: "40%", leftMd: "26%", topSm: "32%", leftSm: "24%", topLg: "36%", leftLg: "27%" },
-    { id: 10, name: "Tallinn, Estonia", top: "22%", left: "53%", topMd: "20%", leftMd: "50%", topSm: "18%", leftSm: "48%", topLg: "21%", leftLg: "51%" },
-    { id: 11, name: "Utrecht, Netherlands", top: "28%", left: "50%", topMd: "26%", leftMd: "52%", topSm: "24%", leftSm: "45%", topLg: "29%", leftLg: "49%" },
-    { id: 12, name: "Lagos, Nigeria", top: "55%", left: "51%", topMd: "52%", leftMd: "46%", topSm: "50%", leftSm: "48%", topLg: "54%", leftLg: "50%" },
-    { id: 13, name: "Kampala, Uganda", top: "60%", left: "58%", topMd: "57%", leftMd: "55%", topSm: "55%", leftSm: "52%", topLg: "59%", leftLg: "57%" },
-    { id: 14, name: "Seoul, Korea", top: "38%", left: "82%", topMd: "36%", leftMd: "78%", topSm: "34%", leftSm: "75%", topLg: "37%", leftLg: "80%" },
+    { id: 1, name: "Edmonton, Canada", top: "25%", left: "18%", color: "#FC7E13", topMd: "18%", leftMd: "16%", topSm: "20%", leftSm: "14%", topLg: "16%", leftLg: "17%" },
+    { id: 2, name: "Chicago, USA", top: "23%", left: "29%", color: "#3B82F6", topMd: "15%", leftMd: "27%", topSm: "19%", leftSm: "25%", topLg: "13%", leftLg: "28%" },
+    { id: 3, name: "San Francisco, USA", top: "43%", left: "12%", color: "#10B981", topMd: "43%", leftMd: "6%", topSm: "35%", leftSm: "8%", topLg: "37%", leftLg: "11%" },
+    { id: 4, name: "New York City, USA", top: "28%", left: "28%", color: "#EF4444", topMd: "22%", leftMd: "26%", topSm: "24%", leftSm: "24%", topLg: "22%", leftLg: "27%" },
+    { id: 5, name: "Logan, USA", top: "46%", left: "24%", color: "#8B5CF6", topMd: "48%", leftMd: "22%", topSm: "35%", leftSm: "20%", topLg: "43%", leftLg: "23%" },
+    { id: 6, name: "Miami, USA", top: "48%", left: "20%", color: "#F59E0B", topMd: "56%", leftMd: "18%", topSm: "42%", leftSm: "15%", topLg: "48%", leftLg: "19%" },
+    { id: 7, name: "Virginia, USA", top: "34%", left: "25%", color: "#EC4899", topMd: "32%", leftMd: "23%", topSm: "30%", leftSm: "21%", topLg: "33%", leftLg: "17%" },
+    { id: 8, name: "Maryland, USA", top: "32%", left: "15%", color: "#06B6D4", topMd: "27%", leftMd: "14%", topSm: "28%", leftSm: "22%", topLg: "28%", leftLg: "25%" },
+    { id: 9, name: "North Carolina, USA", top: "37%", left: "28%", color: "#84CC16", topMd: "40%", leftMd: "26%", topSm: "32%", leftSm: "24%", topLg: "36%", leftLg: "27%" },
+    { id: 10, name: "Tallinn, Estonia", top: "22%", left: "53%", color: "#6366F1", topMd: "20%", leftMd: "50%", topSm: "18%", leftSm: "48%", topLg: "21%", leftLg: "51%" },
+    { id: 11, name: "Utrecht, Netherlands", top: "28%", left: "50%", color: "#F97316", topMd: "26%", leftMd: "52%", topSm: "24%", leftSm: "45%", topLg: "29%", leftLg: "49%" },
+    { id: 12, name: "Lagos, Nigeria", top: "55%", left: "51%", color: "#14B8A6", topMd: "52%", leftMd: "46%", topSm: "50%", leftSm: "48%", topLg: "54%", leftLg: "50%" },
+    { id: 13, name: "Kampala, Uganda", top: "60%", left: "58%", color: "#A855F7", topMd: "57%", leftMd: "55%", topSm: "55%", leftSm: "52%", topLg: "59%", leftLg: "57%" },
+    { id: 14, name: "Seoul, Korea", top: "38%", left: "82%", color: "#DC2626", topMd: "36%", leftMd: "78%", topSm: "34%", leftSm: "75%", topLg: "37%", leftLg: "80%" },
 ];
 
 const TimesZone = () => {
@@ -59,7 +59,7 @@ const TimesZone = () => {
                                 style={{
                                     top: loc.top,
                                     left: loc.left,
-                                    transform: "translate(-50%, -50%)",
+                                    transform: "translate(-50%, -100%)",
                                 }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
@@ -71,11 +71,38 @@ const TimesZone = () => {
                                 }}
                             >
                                 <div className="relative">
-                                    <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-[#FC7E13]" />
-                                    <div className="absolute inset-0 animate-ping rounded-full bg-[#FC7E13] opacity-75" />
+                                    <svg
+                                        width="24"
+                                        height="32"
+                                        viewBox="0 0 24 32"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-6 h-8 sm:w-7 sm:h-9 drop-shadow-lg"
+                                    >
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12C0 19.5 12 32 12 32C12 32 24 19.5 24 12C24 5.373 18.627 0 12 0Z"
+                                            fill="#FC7E13"
+                                        />
+                                        <circle cx="12" cy="12" r="5" fill="white" />
+                                    </svg>
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 animate-ping">
+                                        <svg
+                                            width="24"
+                                            height="32"
+                                            viewBox="0 0 24 32"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-6 h-8 sm:w-7 sm:h-9 opacity-50"
+                                        >
+                                            <path
+                                                d="M12 0C5.373 0 0 5.373 0 12C0 19.5 12 32 12 32C12 32 24 19.5 24 12C24 5.373 18.627 0 12 0Z"
+                                                fill="#FC7E13"
+                                            />
+                                        </svg>
+                                    </div>
                                 </div>
 
-                                <span className="whitespace-nowrap text-[10px] sm:text-xs md:text-sm font-medium text-gray-700">
+                                <span className="whitespace-nowrap text-[10px] sm:text-xs md:text-sm font-medium text-gray-700 mt-1">
                                     {loc.name}
                                 </span>
                             </motion.div>

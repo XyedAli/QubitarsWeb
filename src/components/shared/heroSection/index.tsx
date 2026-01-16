@@ -141,7 +141,7 @@ const HeroSection = ({
 
           {/* Dark overlay for text readability */}
           {backgroundType === "image" && (
-            <div className="absolute inset-0 bg-black/30 z-10" />
+            <div className="absolute inset-0  z-10" />
           )}
           {backgroundType === "pattern" && (
             <div className="absolute inset-0 bg-black/30 z-10" />
