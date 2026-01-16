@@ -51,13 +51,14 @@ const TriScroll = () => {
 
         const rect = sectionRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const isMobile = window.innerWidth < 768;
 
         const rawProgress = Math.min(
           1,
           Math.max(0, (windowHeight - rect.top) / (windowHeight + rect.height))
         );
         
-        const progress = rawProgress * 0.10;
+        const progress = rawProgress * (isMobile ? 0.18 : 0.10);
 
         if (row1Ref.current) {
           const track = row1Ref.current;
