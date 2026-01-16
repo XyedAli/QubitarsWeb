@@ -204,7 +204,9 @@
 
 .tri-scroll-slider .slider-track {
   will-change: transform;
-  transition: transform 0.1s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 /* Clip first row from top - sharp transition to avoid shadow */

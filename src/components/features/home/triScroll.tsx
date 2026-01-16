@@ -26,7 +26,6 @@ const TriScroll = () => {
   const duplicatedRow3 = [...row3Items, ...row3Items, ...row3Items, ...row3Items];
 
   useEffect(() => {
-    // Detect OS and apply class
     if (typeof window !== "undefined" && sliderRef.current) {
       const userAgent = window.navigator.userAgent.toLowerCase();
       const platform = window.navigator.platform.toLowerCase();
@@ -39,49 +38,59 @@ const TriScroll = () => {
       }
     }
 
+    let rafId: number | null = null;
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      if (rafId) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      rafId = requestAnimationFrame(() => {
+        if (!sectionRef.current) {
+          rafId = null;
+          return;
+        }
 
-      const rawProgress = Math.min(
-        1,
-        Math.max(0, (windowHeight - rect.top) / (windowHeight + rect.height))
-      );
-      
-      // Slow down the animation by using a multiplier (0.15 = very slow)
-      const progress = rawProgress * 0.10;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-      // ROW 1 (left)
-      if (row1Ref.current) {
-        const track = row1Ref.current;
-        const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
-        track.style.transform = `translateX(-${progress * maxMove}px)`;
-      }
+        const rawProgress = Math.min(
+          1,
+          Math.max(0, (windowHeight - rect.top) / (windowHeight + rect.height))
+        );
+        
+        const progress = rawProgress * 0.10;
 
-      // ROW 2 (RIGHT → FIXED)
-      if (row2Ref.current) {
-        const track = row2Ref.current;
-        const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
+        if (row1Ref.current) {
+          const track = row1Ref.current;
+          const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
+          const translateX = Math.round(progress * maxMove);
+          track.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+        }
 
-        // 👇 KEY FIX
-        track.style.transform = `translateX(${(-maxMove) + progress * maxMove}px)`;
-      }
+        if (row2Ref.current) {
+          const track = row2Ref.current;
+          const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
+          const translateX = Math.round((-maxMove) + progress * maxMove);
+          track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+        }
 
-      // ROW 3 (left)
-      if (row3Ref.current) {
-        const track = row3Ref.current;
-        const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
-        track.style.transform = `translateX(-${progress * maxMove}px)`;
-      }
+        if (row3Ref.current) {
+          const track = row3Ref.current;
+          const maxMove = track.scrollWidth - track.parentElement!.offsetWidth;
+          const translateX = Math.round(progress * maxMove);
+          track.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+        }
+
+        rafId = null;
+      });
     };
-
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

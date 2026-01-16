@@ -1,8 +1,16 @@
 import { DualRowSlider } from "@/components";
-import { CaseStudies, CaseStudyCards, CaseStudy } from "@/components/features/caseStudies";
+import { CaseStudies, CaseStudyCards } from "@/components/features/caseStudies";
 import { Fragment } from "react/jsx-runtime";
 import { styles } from "@/styles/style";
 import { industriesImages } from "@/lib/assets/images";
+
+interface CaseStudy {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
 
 const caseStudies: CaseStudy[] = [
   {
@@ -68,7 +76,7 @@ export default function AboutPage() {
         <div className={styles.sectionPadding}>
           <DualRowSlider firstRowItems={firstRowItems} secondRowItems={secondRowItems} /> 
         </div>
-        <CaseStudyCards caseStudies={caseStudies} />
+        <CaseStudyCards />
             </Fragment>
   );
 }
