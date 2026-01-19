@@ -3,6 +3,9 @@ import { CaseStudies, CaseStudyCards } from "@/components/features/caseStudies";
 import { Fragment } from "react/jsx-runtime";
 import { styles } from "@/styles/style";
 import { industriesImages } from "@/lib/assets/images";
+import { caseStudiesMetadata } from "@/lib/metadata";
+
+export const metadata = caseStudiesMetadata;
 
 interface CaseStudy {
   id: string;

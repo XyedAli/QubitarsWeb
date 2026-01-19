@@ -12,6 +12,10 @@ import Banner4 from "@/components/layout/banners/banner4";
 import TriScroll from "@/components/features/home/triScroll";
 import RealEstatePartner from "@/components/features/home/realEstatepatner";
 import OurTechStack from "@/components/features/home/our-tech-stack";
+import { homeMetadata } from "@/lib/metadata";
+
+export const metadata = homeMetadata;
+
 export default function Home() {
   const logoEntries = Object.entries(industriesImages)
     .filter(([key]) => key.startsWith("clogo"))

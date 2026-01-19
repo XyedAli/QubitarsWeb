@@ -1,3 +1,7 @@
+import { servicesMetadata } from "@/lib/metadata";
+
+export const metadata = servicesMetadata;
+
 export default function ServicesPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
