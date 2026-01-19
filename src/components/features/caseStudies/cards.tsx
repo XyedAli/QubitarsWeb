@@ -4,32 +4,40 @@ import Image from "next/image";
 
 const caseStudies = [
   {
-    image: "/assets/images/case/cashflow.jpg",
-    logo: "/assets/images/logos/cashflow.svg",
+    image: "/assets/images/CaseStudies/csimage1.svg",
+    logo: "/assets/images/Industries/clogo1.svg",
     tag: "Real Estate",
     title: "The #1 AI Platform for Streamlining Slow Flip and Rental Properties.",
     desc:
       "Cashflow Innovator provides an AI-driven platform that simplifies slow-flip and rental property investments for diverse stakeholders."
   },
   {
-    image: "/assets/images/case/charta.jpg",
-    logo: "/assets/images/logos/charta.svg",
+    image: "/assets/images/CaseStudies/csimage2.svg",
+    logo: "/assets/images/Industries/clogo2.svg",
     tag: "Startup",
     title: "AI-Human Solution Creation Platform. Build Your Network, Share Your Value",
     desc:
       "Charta is a premium mobility service reshaping transportation in Africa, operating in Lagos, Abuja, Accra, and Lomé."
   },
   {
-    image: "/assets/images/case/solve.jpg",
-    logo: "/assets/images/logos/solve.svg",
+    image: "/assets/images/CaseStudies/csimage3.svg",
+    logo: "/assets/images/Industries/clogo5.svg",
     tag: "Healthcare",
     title: "The greatest investment you can make is in yourself.",
     desc:
       "SolveMyAllergies blends AI, mindfulness, and user-centric design to help individuals heal respiratory allergies."
   },
   {
-    image: "/assets/images/case/africa.jpg",
-    logo: "/assets/images/logos/africa.svg",
+    image: "/assets/images/CaseStudies/csimage4.svg",
+    logo: "/assets/images/Industries/clogo12.svg",
+    tag: "Healthcare",
+    title: "Technology-Driven Healthcare for Africa",
+    desc:
+      "Africa Health Initiative delivers accessible healthcare solutions using modern digital infrastructure."
+  },
+  {
+    image: "/assets/images/CaseStudies/csimage5.svg",
+    logo: "/assets/images/Industries/clogo17.svg",
     tag: "Healthcare",
     title: "Technology-Driven Healthcare for Africa",
     desc:
@@ -39,33 +47,33 @@ const caseStudies = [
 
 const CaseCard = ({ image, logo, tag, title, desc }: any) => {
   return (
-    <div className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+    <div className=" overflow-hidden bg-white transition">
 
       {/* Image */}
-      <div className="relative w-full h-[260px]">
+      <div className="relative w-full h-[330px]">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover"
+          className="object-cover rounded-2xl"
           priority
         />
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <Image src={logo} alt="" width={22} height={22} />
-          <span className="text-xs px-2 py-0.5 rounded-full border border-slate-200 text-slate-600">
+        <div className="flex items-center justify-between mb-5">
+          <Image src={logo} alt="" width={22} height={22} className="object-contain w-40 h-10" />
+          <span className="text-base px-4 py-2 rounded-lg border-2 border-slate-400 text-slate-600 font-medium">
             {tag}
           </span>
         </div>
 
-        <h3 className="text-base font-semibold text-slate-900 leading-snug">
+        <h3 className="text-[28px] font-semibold text-slate-900 leading-snug">
           {title}
         </h3>
 
-        <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+        <p className="mt-2 text-lg text-slate-600 leading-relaxed">
           {desc}
         </p>
       </div>
@@ -75,7 +83,7 @@ const CaseCard = ({ image, logo, tag, title, desc }: any) => {
 
 export default function CaseStudiesSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
+    <section className="max-w-6xl mx-auto px-6 lg:px-10 py-24">
 
       {/* Section Heading */}
       <div className="mb-16">
@@ -88,7 +96,7 @@ export default function CaseStudiesSection() {
       </div>
 
       {/* Staggered Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-20">
 
         {/* Left Column */}
         <div className="space-y-20">
