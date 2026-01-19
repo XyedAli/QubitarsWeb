@@ -61,7 +61,7 @@ const CaseCard = ({ image, logo, tag, title, desc }: any) => {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="mt-4">
         <div className="flex items-center justify-between mb-5">
           <Image src={logo} alt="" width={22} height={22} className="object-contain w-40 h-10" />
           <span className="text-base px-4 py-2 rounded-lg border-2 border-slate-400 text-slate-600 font-medium">
