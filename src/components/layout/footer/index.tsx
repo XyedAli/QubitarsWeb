@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
@@ -11,15 +11,7 @@ import { styles, combine } from "@/styles/style";
 import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/data";
 
 const Footer = () => {
-  const [isMac, setIsMac] = useState(false);
   const [email, setEmail] = useState("");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      setIsMac(/macintosh|mac os x|macintel|ipad|iphone/.test(userAgent));
-    }
-  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,9 +19,7 @@ const Footer = () => {
     setEmail("");
   };
 
-  const footerTextClass = isMac
-    ? "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[168px] [1440px]:text-[176px] 2xl:text-[207px] [1920px]:text-[185px] 3xl:text-[188px]"
-    : "text-[100px] md:text-[90px] lg:text-[120px] xl:text-[165px] [1440px]:text-[168px] 2xl:text-[174px] [1920px]:text-[172px] 3xl:text-[178px]";
+  const footerTextClass = "text-[8vw] md:text-[12vw] lg:text-[12vw] xl:text-[11vw] 2xl:text-[11.5vw] whitespace-nowrap";
   return (
     <footer className="bg-gradient-to-b from-[#1E274F] from-0% via-[#1E274F] via-85% to-[#171F3D] relative overflow-hidden">
       <div className={`relative z-10 pt-16 pb-7 ${styles.sectionPadding}`}>
