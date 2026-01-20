@@ -48,8 +48,8 @@ const RealEstatePartner = () => {
           </div>
 
           {/* Main Heading */}
-          <h2 className={`text-[59px] font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
-            <span className="block">We partner with brands in</span>
+          <h2 className={`font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
+            <span className="block text-[30px] sm:text-[35px] md:text-[45px] lg:text-[55px] xl:text-[66px]">We partner with brands in</span>
             <div className="relative inline-block min-h-[1.2em] mt-1 overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -58,7 +58,7 @@ const RealEstatePartner = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]"
+                  className="inline-block text-[25px] sm:text-[30px] md:text-[30px] lg:text-[38px] xl:text-[50px] bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]"
                 >
                   {industries[currentIndex]}
                 </motion.span>
