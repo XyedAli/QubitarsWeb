@@ -206,14 +206,14 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-@media (max-width: 640px) {
-  .service-bg {
-    background-size: 160px auto;      /* adjust image size */
-    background-position: center bottom; /* better for mobile */
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
-/* @media (max-width: 640px) {
-  .service-bg {
-    padding-bottom: 120px;
-  }
-} */
+
+

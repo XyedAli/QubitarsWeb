@@ -3,46 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { styles } from "@/styles/style";
-import { aboutImages } from "@/lib/assets/images";
-
-interface CoreValue {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-const coreValues: CoreValue[] = [
-  {
-    icon: aboutImages.Aimg3,
-    title: "Innovation",
-    description: "We leverage emerging technologies to build future-ready solutions globally."
-  },
-  {
-    icon: aboutImages.Aimg4,
-    title: "Strive for Better",
-    description: "Continuous improvement guides everything we create and deliver daily."
-  },
-  {
-    icon: aboutImages.Aimg5,
-    title: "Transparency",
-    description: "Open and honest communication builds trust with clients always."
-  },
-  {
-    icon: aboutImages.Aimg6,
-    title: "Respect & Equality",
-    description: "We value every voice and encourage collaboration across teams."
-  },
-  {
-    icon: aboutImages.Aimg7,
-    title: "Integrity",
-    description: "We uphold ethical practices and keep our promises, always."
-  },
-  {
-    icon: aboutImages.Aimg8,
-    title: "Client Focus",
-    description: "We solve real client challenges with measurable business results."
-  }
-];
+import { coreValues } from "@/data";
 
 const CoreValues = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);

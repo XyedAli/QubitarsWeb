@@ -3,57 +3,7 @@
 import { useState } from "react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings/headings";
-
-interface FAQItem {
-  id: number;
-  question: string;
-  answer: string;
-  link?: string;
-  href?: string;
-}
-
-const faqData: FAQItem[] = [
-  {
-    id: 1,
-    question: "What services does your company offer?",
-    answer: "We provide end-to-end solutions ranging from strategy and design to development and automation, helping businesses streamline operations and scale efficiently.",
-  },
-  {
-    id: 2,
-    question: "Who are your typical clients?",
-    answer: "Our clients range from startups and small businesses to large enterprises across various industries, including technology, healthcare, finance, and e-commerce.",
-  },
-  {
-    id: 3,
-    question: "How do you ensure quality in your projects?",
-    answer: "We follow rigorous quality assurance processes, including code reviews, automated testing, and continuous monitoring to ensure high-quality deliverables.",
-  },
-  {
-    id: 4,
-    question: "What makes your company different from others?",
-    answer: "We combine technical expertise with business acumen, delivering solutions that not only work flawlessly but also drive real business value and growth.",
-  },
-  {
-    id: 5,
-    question: "Do you customize solutions for each client?",
-    answer: "Yes, we believe in tailored solutions. Every project is unique, and we work closely with clients to understand their specific needs and deliver customized solutions.",
-  },
-  {
-    id: 6,
-    question: "How do you handle security and compliance?",
-    answer: "Security is our top priority. We implement industry best practices, regular security audits, and ensure compliance with relevant regulations and standards.",
-  },
-  {
-    id: 7,
-    question: "What does your process look like from start to finish?",
-    answer: "Our process includes discovery and planning, design and prototyping, development and testing, deployment, and ongoing support and maintenance.",
-  },
-  {
-    id: 8,
-    question: "How can we get started with you?",
-    answer: "Getting started is easy! Simply reach out through our contact form or schedule a consultation. We'll discuss your needs and provide a tailored proposal.",
-  },
-];
+import { faqData } from "@/data";
 
 const FAQ = () => {
   const [activeId, setActiveId] = useState<number | null>(0); // First item open by default

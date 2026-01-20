@@ -4,3 +4,11 @@ export { capabilitiesData, additionalServices, industries, companyData, engageme
 export { servicesOptions, budgetOptions, regionOptions, countryCodes } from "./contact";
 export type { FormData, FormErrors } from "./contact";
 
+// Blog data exports
+export { featuredPost, sidebarPosts, featuredBlogs } from "./blog";
+export type { BlogPost, FeaturedBlogPost } from "./blog";
+
+// About data exports
+export { faqData, coreValues, locations } from "./about";
+export type { FAQItem, CoreValue, Location } from "./about";
+
