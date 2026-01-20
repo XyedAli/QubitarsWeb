@@ -11,7 +11,6 @@ const WorkTogether = () => {
   if (pathname === "/contact") {
     return null;
   }
-  
   return (
     <section className="bg-white py-8 lg:py-10 xl:py-13">
       <div className={`${styles.sectionPadding}`}>
@@ -23,12 +22,12 @@ const WorkTogether = () => {
             <h2 className={`text-[32px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit transition-all duration-300`}>
               <Link 
                 href="/contact" 
-                className="relative inline-block text-[#1E274F] transition-all duration-300 group-hover:scale-105"
+                className="relative inline-block text-[#1E274F] transition-all duration-300 group-hover:scale-105 active:scale-95 active:opacity-80 active:bg-gradient-to-r active:from-[#F05C22] active:via-[#F58220] active:to-[#EA4D24] active:bg-clip-text active:text-transparent touch-manipulation"
               >
                 Let&apos;s Work Together
               </Link>
             </h2>
-            <div className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110">
+            <div className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110 group-active:translate-x-1 group-active:scale-105">
                 <Image 
                     src="/assets/images/home/emailicon.svg" 
                     alt="call to action" 

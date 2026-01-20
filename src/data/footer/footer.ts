@@ -1,7 +1,7 @@
 import { homeImages } from "@/lib/assets/images";
 
 export const companyLinks = [
-  { name: "About Us", href: "/about" },
+  { name: "About Us", href: "/about-us" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Blogs", href: "/blogs" },
   { name: "Life At Qubitars", href: "/life" },

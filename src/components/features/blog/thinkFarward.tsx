@@ -4,29 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { styles } from "@/styles/style";
 import { featuredPost, sidebarPosts } from "@/data";
+import { SectionHeading } from "@/components/shared/headings";
 
 const ThinkForward = () => {
   return (
-    <section className={`${styles.sectionPadding} pt-12 md:pt-16 lg:pt-20`}>
+    <section className={`${styles.sectionPadding} pt-8 md:pt-12 lg:pt-16 xl:pt-20`}>
       {/* THINK FORWARD Section */}
-      <div className="mb-8 md:mb-12 lg:mb-10">
-        <h3 className={`${styles.h6} font-semibold text-[#F05C22] uppercase tracking-wider mb-2 md:mb-3 font-outfit`}>
-          THINK FORWARD
-        </h3>
-        <h2 className={`${styles.h1} font-bold text-blue leading-tight font-outfit`}>
-          Thinking Ahead in{" "}
-          <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-            Tech
-          </span>
-        </h2>
-      </div>
+      <SectionHeading
+        subtitle="THINK FORWARD"
+        title="Thinking Ahead in Tech"
+      />
 
       {/* Main Blog Post and Sidebar Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-10 border-b border-gray-200 pb-12 md:pb-16 lg:pb-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-3 lg:gap-5 xl:gap-8 mb-6 md:mb-8 lg:mb-10 border-b border-gray-200 pb-5 md:pb-6 lg:pb-8">
         {/* Main Featured Post */}
-        <div className="lg:col-span-7">
+        <div className="md:col-span-6 lg:col-span-7">
           <Link href={`/blog/${featuredPost.id}`} className="group block">
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[480px] rounded-xl overflow-hidden mb-4 md:mb-6">
+            <div className="relative w-full h-[400px] md:h-[355px] lg:h-[445px] xl:h-[483px] rounded-xl overflow-hidden mb-4 lg:mb-6">
               {/* Background Image */}
               <div className="absolute inset-0 bg-gray-200 z-0" />
               <Image
@@ -76,18 +70,18 @@ const ThinkForward = () => {
         </div>
 
         {/* Sidebar Posts */}
-        <div className="lg:col-span-5 space-y-4 md:space-y-6">
+        <div className="md:col-span-6 lg:col-span-5 space-y-4 lg:space-y-6">
           {sidebarPosts.map((post, index) => (
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              className={`group block pb-4 md:pb-6 ${
+              className={`group block pb-4 lg:pb-6 ${
                 index !== sidebarPosts.length - 1 ? 'border-b border-gray-200' : ''
               }`}
             >
-              <div className="flex flex-row gap-4 items-center">
+              <div className="flex flex-row gap-3 lg:gap-4 items-center">
                 {/* Thumbnail Image */}
-                <div className="relative w-32 md:w-40 lg:w-44 h-32 md:h-40 lg:h-30 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="relative w-35 lg:w-40 xl:w-44 h-24 lg:h-29 xl:h-32 rounded-lg overflow-hidden flex-shrink-0">
                  
                   <div className="absolute inset-0 bg-gray-200 z-0" />
                   <Image
@@ -104,15 +98,15 @@ const ThinkForward = () => {
 
                 {/* Content */}
                 <div className="flex-1 flex flex-col justify-start">
-                  <h4 className={`${styles.h6} font-semibold text-blue leading-tight font-outfit mb-2 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#F05C22] group-hover:via-[#F58220] group-hover:to-[#EA4D24] transition-all duration-300 line-clamp-2`}>
+                  <h4 className={`${styles.p1} font-semibold text-blue leading-tight font-outfit mb-2 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#F05C22] group-hover:via-[#F58220] group-hover:to-[#EA4D24] transition-all duration-300 line-clamp-2`}>
                     {post.title}
                   </h4>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`${styles.p5} text-gray-600 font-inter`}>
+                  <div className="flex items-center gap-1 lg:gap-2 flex-wrap">
+                    <span className={`text-[12px] lg:text-[12px] xl:text-[14px] text-gray-600 font-inter`}>
                       {post.date}
                     </span>
                     <span className="text-gray-400">|</span>
-                    <span className={`${styles.p5} font-semibold text-[#F05C22] font-outfit`}>
+                    <span className={`text-[12px] lg:text-[12px] xl:text-[14px] font-semibold text-[#F05C22] font-outfit`}>
                       {post.category}
                     </span>
                   </div>
