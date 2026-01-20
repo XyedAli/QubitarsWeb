@@ -154,7 +154,7 @@ const HeroSection = ({
       <section className={`${styles.sectionPadding} relative`}>
         <div className={`${marginTopClass}`}>
           {/* Heading */}
-          <div className={`mb-6 md:mb-8`}>
+          <div className={`mb-5 md:mb-6 lg:mb-8`}>
             <h1 className={`${styles.h1} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
               {title}
             </h1>
