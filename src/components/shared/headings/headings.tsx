@@ -9,8 +9,8 @@ interface SectionHeadingProps {
 export const SectionHeading = ({ subtitle, title, highlightedText }: SectionHeadingProps) => {
   return (
     <div className="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-      <div className="flex items-center gap-2 mb-2">
-        <span className={`${styles.h6} font-semibold capitalize inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}>
+      <div className="flex items-center gap-2 mb-1">
+        <span className={`${styles.h6} font-bold capitalize inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}>
           {subtitle}
         </span>
       </div>

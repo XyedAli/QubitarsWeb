@@ -11,7 +11,7 @@ const ThinkForward = () => {
     <section className={`${styles.sectionPadding} pt-8 md:pt-12 lg:pt-16 xl:pt-20`}>
       {/* THINK FORWARD Section */}
       <SectionHeading
-        subtitle="THINK FORWARD"
+        subtitle="Think Forward"
         title="Thinking Ahead in Tech"
       />
 
@@ -20,7 +20,7 @@ const ThinkForward = () => {
         {/* Main Featured Post */}
         <div className="md:col-span-6 lg:col-span-7">
           <Link href={`/blog/${featuredPost.id}`} className="group block">
-            <div className="relative w-full h-[400px] md:h-[355px] lg:h-[445px] xl:h-[483px] rounded-xl overflow-hidden mb-4 lg:mb-6">
+            <div className="relative w-full h-[350px] md:h-[355px] lg:h-[445px] xl:h-[483px] rounded-xl overflow-hidden mb-4 lg:mb-6">
               {/* Background Image */}
               <div className="absolute inset-0 bg-gray-200 z-0" />
               <Image

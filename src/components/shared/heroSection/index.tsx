@@ -100,7 +100,7 @@ const HeroSection = ({
       : customHeightClass.nonMac || defaultHeightClass
     : isMac
     ? "h-[60vh] md:h-[calc(100vh-270px)] lg:h-[calc(100vh-280px)] 2xl:h-[calc(100vh-292px)] [1920px]:h-[calc(100vh-240px)]"
-    : "h-[60vh] md:h-[calc(100vh-255px)] lg:h-[calc(100vh-260px)] 2xl:h-[calc(100vh-278px)] [1920px]:h-[calc(100vh-290px)]";
+    : "h-[60vh] md:h-[calc(100vh-255px)] lg:h-[calc(100vh-260px)] 2xl:h-[calc(100vh-270px)] [1920px]:h-[calc(100vh-290px)]";
 
   const heightClass = variant === "blog" ? blogHeightClass : defaultHeightClass;
 
@@ -154,8 +154,8 @@ const HeroSection = ({
       <section className={`${styles.sectionPadding} relative`}>
         <div className={`${marginTopClass}`}>
           {/* Heading */}
-          <div className={`mb-5 md:mb-6 lg:mb-8`}>
-            <h1 className={`${styles.h1} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
+          <div className={`mb-5 md:mb-6 mt-6`}>
+            <h1 className={`${styles.h2} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
               {title}
             </h1>
             {descriptions.map((description, index) => (

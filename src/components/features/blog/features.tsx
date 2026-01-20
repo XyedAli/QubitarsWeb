@@ -9,7 +9,7 @@ const BlogFeatures = () => {
   return (
     <section className={`${styles.sectionPadding} pb-8 md:pb-12 lg:pb-16 xl:pb-20`}>
     <SectionHeading
-      subtitle="OUR INSIGHTS"
+      subtitle="Our Insights"
       title="Must-Read Articles"
     />
       {/* Blog Cards Grid */}
@@ -20,7 +20,7 @@ const BlogFeatures = () => {
             className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer group"
           >
             {/* Image Container */}
-            <div className="relative w-full h-[240px] md:h-[200px] xl:h-[240px] bg-gray-200 overflow-hidden">
+            <div className="relative w-full h-[190px] md:h-[200px] xl:h-[240px] bg-gray-200 overflow-hidden">
               {/* Grey placeholder background - always visible as fallback */}
               <div className="absolute inset-0 bg-gray-200 z-0" />
               {/* Image overlay */}
