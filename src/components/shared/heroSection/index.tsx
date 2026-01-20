@@ -99,8 +99,8 @@ const HeroSection = ({
       ? customHeightClass.mac || defaultHeightClass
       : customHeightClass.nonMac || defaultHeightClass
     : isMac
-    ? "h-[64vh] md:h-[calc(100vh-270px)] lg:h-[calc(100vh-280px)] 2xl:h-[calc(100vh-292px)] [1920px]:h-[calc(100vh-240px)]"
-    : "h-[65vh] md:h-[calc(100vh-255px)] lg:h-[calc(100vh-260px)] 2xl:h-[calc(100vh-278px)] [1920px]:h-[calc(100vh-290px)]";
+    ? "h-[60vh] md:h-[calc(100vh-270px)] lg:h-[calc(100vh-280px)] 2xl:h-[calc(100vh-292px)] [1920px]:h-[calc(100vh-240px)]"
+    : "h-[60vh] md:h-[calc(100vh-255px)] lg:h-[calc(100vh-260px)] 2xl:h-[calc(100vh-278px)] [1920px]:h-[calc(100vh-290px)]";
 
   const heightClass = variant === "blog" ? blogHeightClass : defaultHeightClass;
 
