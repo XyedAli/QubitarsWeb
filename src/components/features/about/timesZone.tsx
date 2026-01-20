@@ -12,8 +12,10 @@ const TimesZone = () => {
         locations.forEach((loc) => {
             const selector = `.loc-${loc.id}`;
             
-            // Base (mobile)
-            cssRules.push(`${selector} { --top: ${loc.top}; --left: ${loc.left}; }`);
+            // Base (mobile) - use mobile-specific positions if available
+            const mobileTop = loc.topMobile || loc.top;
+            const mobileLeft = loc.leftMobile || loc.left;
+            cssRules.push(`${selector} { --top: ${mobileTop}; --left: ${mobileLeft}; }`);
             
             // Small screens (640px+)
             if (loc.topSm || loc.leftSm) {
@@ -42,7 +44,30 @@ const TimesZone = () => {
         });
         
         cssRules.push('.map-marker { top: var(--top); left: var(--left); }');
-        cssRules.push('@media (max-width: 1199px) { .map-icon { width: 1rem; height: 1.25rem !important; } .map-icon-ping { width: 1rem; height: 1.25rem !important; } .map-text { font-size: 0.625rem !important; padding: 0.125rem 0.375rem !important; } }');
+        
+        // Mobile-specific adjustments to prevent overlapping - generated from data file
+        const mobileOverrides: string[] = [];
+        locations.forEach((loc) => {
+            if (loc.topMobile || loc.leftMobile) {
+                const mobileTop = loc.topMobile || loc.top;
+                const mobileLeft = loc.leftMobile || loc.left;
+                mobileOverrides.push(`.loc-${loc.id} { --top: ${mobileTop} !important; --left: ${mobileLeft} !important; }`);
+            }
+        });
+        
+        cssRules.push(`
+            @media (max-width: 639px) {
+                .map-icon { width: 0.875rem !important; height: 1.125rem !important; }
+                .map-icon-ping { width: 0.875rem !important; height: 1.125rem !important; }
+                .map-text { font-size: 0.5rem !important; padding: 0.125rem 0.25rem !important; line-height: 1 !important; }
+                .map-marker { gap: 0.5rem !important; }
+                
+                /* Adjust overlapping markers on mobile with maximum spacing */
+                ${mobileOverrides.join('\n                ')}
+            }
+        `);
+        
+        cssRules.push('@media (min-width: 640px) and (max-width: 1199px) { .map-icon { width: 1rem; height: 1.25rem !important; } .map-icon-ping { width: 1rem; height: 1.25rem !important; } .map-text { font-size: 0.625rem !important; padding: 0.125rem 0.375rem !important; } }');
         return cssRules.join('\n');
     };
 
@@ -50,10 +75,10 @@ const TimesZone = () => {
         <section className="relative w-full overflow-hidden bg-white">
             <style dangerouslySetInnerHTML={{ __html: generateResponsiveCSS() }} />
             
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-8">
                 <div className="relative mx-auto w-full max-w-[1400px]">
                     {/* Map */}
-                    <div className="relative aspect-[1.8/1] w-full">
+                    <div className="relative aspect-[1.4/1] sm:aspect-[1.6/1] md:aspect-[1.8/1] w-full min-h-[350px] sm:min-h-[500px] md:min-h-0">
                         <Image
                             src="/assets/images/about/Map.png"
                             alt="World Map connecting global clients"

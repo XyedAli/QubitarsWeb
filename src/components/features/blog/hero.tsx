@@ -1,23 +1,28 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
-import { aboutImages } from "@/lib/assets/images";
 
-const AboutHero = () => {
+export default function BlogHero() {
   return (
     <HeroSection
-      title="Fresh Perspective for a Changing World"
+      variant="blog"
+      title={
+        <>
+          Insights That Move{" "}
+          <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
+            Businesses
+          </span>
+        </>
+      }
       descriptions={[
-        "We don’t just build products — we build trust. Our case studies share the journeys of businesses that embraced change, reimagined their processes, and achieved game-changing results.",
-        "Whether it’s improving operations, cutting costs, or creating entirely new experiences, these stories prove what’s possible with the right team by your side.",
+        "Lessons, trends, and strategies from the tech frontlines.",
       ]}
       backgroundType="image"
-      backgroundImage={aboutImages.heroBg}
-      textColor="blue"
-      objectPosition="right"
+      backgroundImage="/assets/images/blogs/blogbg.png"
+      overlayTag="BLOGS"
+      overlayTitle="Knowledge Built For Growth"
+      overlayDescription="Breaking down complex technology into practical business value."
+      buttonText="Book a Consultation - it's free"
     />
   );
-};
-
-export default AboutHero;
-
+}

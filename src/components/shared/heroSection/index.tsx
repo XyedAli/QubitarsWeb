@@ -2,8 +2,10 @@
 
 import { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
-import { MoveUpRight } from "lucide-react";
+import Link from "next/link";
+import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
+import { Button } from "@/components/shared/ui";
 
 interface Award {
   src: any;
@@ -14,13 +16,14 @@ interface Award {
 }
 
 interface HeroSectionProps {
+  variant?: "default" | "blog";
   title: string | ReactNode;
   descriptions: string[];
   subtitle?: string;
   buttonText?: string;
-  backgroundType: "image" | "color" | "pattern" | "video"; // video added
+  backgroundType: "image" | "color" | "pattern" | "video";
   backgroundImage?: any;
-  backgroundVideo?: any; // new prop
+  backgroundVideo?: any;
   backgroundColor?: string;
   patternImages?: {
     mobile?: any;
@@ -35,9 +38,18 @@ interface HeroSectionProps {
   };
   objectPosition?: string;
   titleUppercase?: boolean;
+  // Blog-specific props
+  overlayTag?: string;
+  overlayTitle?: string;
+  overlayDescription?: string;
+  customHeightClass?: {
+    mac?: string;
+    nonMac?: string;
+  };
 }
 
 const HeroSection = ({
+  variant = "default",
   title,
   descriptions,
   subtitle,
@@ -51,20 +63,46 @@ const HeroSection = ({
   awardsSection,
   objectPosition = "right",
   titleUppercase = false,
+  overlayTag,
+  overlayTitle,
+  overlayDescription,
+  customHeightClass,
 }: HeroSectionProps) => {
   const [isMac, setIsMac] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userAgent = window.navigator.userAgent.toLowerCase();
       const platform = window.navigator.platform.toLowerCase();
       setIsMac(/macintosh|mac os x|macintel/.test(userAgent) || /mac/.test(platform));
+
+      // Check initial screen size
+      const checkScreenSize = () => {
+        setIsLargeScreen(window.innerWidth >= 768); // lg breakpoint is 1024px, so only lg and above get lg button
+      };
+
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+
+      return () => window.removeEventListener("resize", checkScreenSize);
     }
   }, []);
 
-  const heightClass = isMac
+  const defaultHeightClass = isMac
     ? "h-[65vh] md:h-[calc(100vh-175px)] 2xl:h-[calc(100vh-192px)] [1920px]:h-[calc(100vh-190px)]"
     : "h-[67vh] md:h-[calc(100vh-158px)] 2xl:h-[calc(100vh-165px)] [1920px]:h-[calc(100vh-170px)] 3xl:h-[calc(100vh-174px)]";
+
+  // Blog variant height classes - defined directly in heroSection
+  const blogHeightClass = customHeightClass
+    ? isMac
+      ? customHeightClass.mac || defaultHeightClass
+      : customHeightClass.nonMac || defaultHeightClass
+    : isMac
+    ? "h-[64vh] md:h-[calc(100vh-270px)] lg:h-[calc(100vh-280px)] 2xl:h-[calc(100vh-292px)] [1920px]:h-[calc(100vh-240px)]"
+    : "h-[65vh] md:h-[calc(100vh-255px)] lg:h-[calc(100vh-260px)] 2xl:h-[calc(100vh-278px)] [1920px]:h-[calc(100vh-290px)]";
+
+  const heightClass = variant === "blog" ? blogHeightClass : defaultHeightClass;
 
   const h1FontClass = isMac
     ? "text[30px] md:text-[28px] lg:text-[34px] xl:text-[46px] [1440px]:text-[48px] 2xl:text-[48px] [1920px]:text-[50px] 3xl:text-[52px]"
@@ -110,6 +148,83 @@ const HeroSection = ({
   const textColorClass = textColor === "white" ? "text-white" : "text-blue";
   const textOpacityClass = textColor === "white" ? "text-white/90" : "text-blue";
 
+  // Blog variant layout
+  if (variant === "blog") {
+    return (
+      <section className={`${styles.sectionPadding} relative`}>
+        <div className={`${marginTopClass}`}>
+          {/* Heading */}
+          <div className={`mb-6 md:mb-8`}>
+            <h1 className={`${styles.h1} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
+              {title}
+            </h1>
+            {descriptions.map((description, index) => (
+              <p
+                key={index}
+                className={`${styles.p3} text-gray-600 font-inter max-w-2xl`}
+              >
+                {description}
+              </p>
+            ))}
+          </div>
+
+          {/* Hero Image */}
+          <div className={`relative rounded-2xl overflow-hidden`}>
+            <div className={`relative w-full ${heightClass} overflow-hidden`}>
+              {backgroundImage && (
+                <Image
+                  src={backgroundImage}
+                  alt="Blog Hero"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
+            </div>
+
+            {/* Overlay Card */}
+            {(overlayTag || overlayTitle || overlayDescription) && (
+              <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl p-4 lg:p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  {/* Left Content */}
+                  <div className="relative">
+                    {overlayTag && (
+                      <span className="absolute -top-9 lg:-top-11 left-0 px-5 py-2 text-sm lg:text-base font-semibold bg-white text-gray-900 rounded-full">
+                        {overlayTag}
+                      </span>
+                    )}
+                    {overlayTitle && (
+                      <h3 className={`text-white font-semibold ${styles.p3}`}>
+                        {overlayTitle}
+                      </h3>
+                    )}
+                    {overlayDescription && (
+                      <p className="text-white/80 text-sm mt-1">
+                        {overlayDescription}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="flex-shrink-0">
+                    <Button variant="accent" size={isLargeScreen ? "lg" : "md"} className="whitespace-nowrap">
+                      <Link href="/contact" className="whitespace-nowrap">{buttonText}</Link>
+                      <div className="relative flex-shrink-0">
+                        <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+                        <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      </div>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Default variant layout (home page)
   return (
     <div className={`${styles.sectionPadding} relative`}>
       <div className={`relative w-full overflow-hidden flex items-center ${marginTopClass} rounded-xl`}>
@@ -289,3 +404,4 @@ const HeroSection = ({
 };
 
 export default HeroSection;
+
