@@ -5,13 +5,13 @@ import { styles } from "@/styles/style";
 import { aboutImages } from "@/lib/assets/images";
 const MissionVision = () => {
   return (
-    <section className={`${styles.sectionPadding} bg-[#F5F6FB] py-12 md:py-16 lg:py-20 xl:py-24`}>
+    <section className={`${styles.sectionPadding} bg-[#F5F6FB] py-12 md:py-16`}>
       <div className={styles.sectionPadding}>
         {/* Our Mission Section */}
         <div className="mb-8 md:mb-11 lg:mb-14 xl:mb-16 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-12 xl:gap-18 items-center">
             {/* Image - Left Side */}
-            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[400px] rounded-lg overflow-hidden order-1 lg:order-1">
+            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[370px] rounded-lg overflow-hidden order-1 lg:order-1">
               <Image
                 src={aboutImages.mission}
                 alt="Our Mission - Team meeting"
@@ -23,7 +23,7 @@ const MissionVision = () => {
 
             {/* Content - Right Side */}
             <div className="order-2 md:order-2">
-              <h2 className={`${styles.h1} font-semibold text-blue mb-4 lg:mb-6 xl:mb-8 font-outfit leading-tight`}>
+              <h2 className={`${styles.h1} font-semibold text-blue mb-4 lg:mb-6  font-outfit leading-tight`}>
                 Our Impactful <span className="text-accent">Mission</span>
               </h2>
               <p className={`${styles.p3} text-gray-700 leading-relaxed font-inter mb-3`}>
@@ -41,7 +41,7 @@ const MissionVision = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 lg:gap-12 xl:gap-16 items-center">
             {/* Content - Left Side */}
             <div className="order-2 md:order-1">
-              <h2 className={`${styles.h1} font-semibold text-blue mb-3 lg:mb-6 xl:mb-8 font-outfit leading-tight`}>
+              <h2 className={`${styles.h1} font-semibold text-blue mb-3 lg:mb-6 font-outfit leading-tight`}>
                 Our Inspiring <span className="text-accent">Vision</span>
               </h2>
               <p className={`${styles.p3} text-gray-700 leading-relaxed font-inter mb-2 xl:mb-3`}>
@@ -53,7 +53,7 @@ const MissionVision = () => {
             </div>
 
             {/* Image - Right Side */}
-            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2">
+            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[370px] rounded-lg overflow-hidden order-1 lg:order-2">
               <Image
                 src={aboutImages.vision}
                 alt="Our Vision - Team collaboration"

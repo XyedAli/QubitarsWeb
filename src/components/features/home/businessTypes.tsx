@@ -22,7 +22,6 @@ const BusinessTypes = () => {
       }
     };
 
-    // Set initial value
     handleResize();
 
     // Add event listener

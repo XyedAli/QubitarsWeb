@@ -28,13 +28,18 @@ const CoreValues = () => {
             return (
               <div
                 key={index}
-                className={`group relative bg-[#FAFAFA] rounded-2xl transition-all duration-300 border-2 h-full flex flex-col cursor-pointer ${isActive
+                className={`group relative bg-[#FAFAFA] rounded-2xl transition-all duration-300 border-1 h-full flex flex-col cursor-pointer ${isActive
                   ? "border-[#F05C22] "
                   : "border-gray-200 hover:border-gray-300"
                   }`}
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setActiveIndex(index)}
               >
+                {/* Orange Gradient Overlay from Bottom */}
+                <div className={`absolute inset-0 ${isActive ? 'opacity-100' : 'opacity-0'} transition-opacity pointer-events-none rounded-2xl overflow-hidden`}>
+                  <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white"></div>
+                </div>
+
                 {/* Content */}
                 <div className="relative z-10 flex flex-col flex-1 p-3 md:p-5 lg:p-7 xl:p-9">
                   {/* Icon Box - Before Title */}
@@ -51,7 +56,7 @@ const CoreValues = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-[17px] md:text-[22px] lg:text-[28px] font-bold mb-3 lg:mb-4 font-outfit leading-tight ${isActive ? "text-[#F05C22]" : "text-gray-900"
+                  <h3 className={`text-[17px] md:text-[22px] lg:text-[28px] text-blue font-bold mb-3 lg:mb-4 font-outfit leading-tight"
                     }`}>
                     {value.title}
                   </h3>
