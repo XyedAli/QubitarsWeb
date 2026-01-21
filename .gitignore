@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# realstate (exclude from git)
+/src/app/realstate/
+/src/components/features/realstate/
+/src/data/realstate/
+/src/lib/metadata/realstate.ts
+/src/components/shared/ScrollReveal.tsx

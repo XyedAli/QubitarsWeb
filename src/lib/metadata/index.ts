@@ -5,4 +5,5 @@ export { servicesMetadata } from "./services";
 export { blogsMetadata } from "./blogs";
 export { contactMetadata } from "./contact";
 export { caseStudiesMetadata } from "./case-studies";
+export { realstateMetadata } from "./realstate";
 export { baseMetadata, defaultOpenGraph, defaultTwitter } from "./base";
