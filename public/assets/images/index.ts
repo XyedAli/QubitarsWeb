@@ -177,6 +177,15 @@ export const aboutImages = {
   Aimg20: "/assets/images/about/Aimg20.svg",
   Aimg21: "/assets/images/about/Aimg21.svg",
 };
+
+// Real Estate Page Images
+export const realstateImages = {
+  Aimg: "/assets/images/realestate/realstate-one.svg",
+  Aimg1: "/assets/images/realestate/realstate-two.svg",
+  Aimg2: "/assets/images/realestate/realstate-three.svg",
+  Aimg3: "/assets/images/realestate/realstate-four.svg",
+};
+
 // Unused exports (empty objects to prevent errors)
 export const capabilitiesImages = {};
 export const logoImages = {};
