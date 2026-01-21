@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BriefcaseBusiness, Building2, Lightbulb } from "lucide-react";
 import { capabilitiesData, additionalServices, industries as industriesData, companyData, engagementData } from "@/data";
 import { styles, combine } from "@/styles/style";
@@ -117,7 +118,14 @@ export const MobileDropdownContent = ({ dropdownId }: MobileDropdownContentProps
               </div>
               <ul className="space-y-1 pl-6 text-[14px] font-medium text-blackish/80">
                 {section.items.map((item) => (
-                  <li key={item.id}>{item.label}</li>
+                  <li key={item.id}>
+                    <Link 
+                      href={item.href || "#"} 
+                      className="hover:text-accent transition-colors duration-200 block"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>

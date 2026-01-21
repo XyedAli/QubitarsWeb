@@ -1,23 +1,28 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
-import { aboutImages } from "@/lib/assets/images";
 
-const AboutHero = () => {
+export default function AboutHero() {
   return (
     <HeroSection
-      title="Fresh Perspective for a Changing World"
+      variant="blog"
+      title={
+        <>
+          Bold Solutions, tangible{" "}
+          <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
+            Results
+          </span>
+        </>
+      }
       descriptions={[
-        "We don’t just build products — we build trust. Our case studies share the journeys of businesses that embraced change, reimagined their processes, and achieved game-changing results.",
-        "Whether it’s improving operations, cutting costs, or creating entirely new experiences, these stories prove what’s possible with the right team by your side.",
+        "Qubitars exists to help businesses turn bold ideas into enduring digital value.",
       ]}
       backgroundType="image"
-      backgroundImage={aboutImages.heroBg}
-      textColor="blue"
-      objectPosition="right"
+      backgroundImage="/assets/images/about/herobg.png"
+      overlayTag="ABOUT US"
+      overlayTitle="Building Tomorrow’s Digital Foundations"
+      overlayDescription="At Qubitars, strategy, design, and engineering work as one to turn ambitious ideas into reliable, future-ready solutions."
+      buttonText="Book a Consultation - it's free"
     />
   );
-};
-
-export default AboutHero;
-
+}

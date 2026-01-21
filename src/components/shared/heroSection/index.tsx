@@ -154,14 +154,14 @@ const HeroSection = ({
       <section className={`${styles.sectionPadding} relative`}>
         <div className={`${marginTopClass}`}>
           {/* Heading */}
-          <div className={`mb-5 md:mb-6 mt-6`}>
+          <div className={`mb-5 md:mb-6 mt-2 md:mt-6`}>
             <h1 className={`${styles.h2} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
               {title}
             </h1>
             {descriptions.map((description, index) => (
               <p
                 key={index}
-                className={`${styles.p3} text-gray-600 font-inter max-w-2xl`}
+                className={`${styles.p3} text-gray-600 font-inter max-w-3xl`}
               >
                 {description}
               </p>
@@ -184,7 +184,7 @@ const HeroSection = ({
 
             {/* Overlay Card */}
             {(overlayTag || overlayTitle || overlayDescription) && (
-              <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
+              <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 lg:left-8 lg:right-8 xl:left-10 xl:right-10">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl p-4 lg:p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   {/* Left Content */}
                   <div className="relative">
@@ -199,7 +199,7 @@ const HeroSection = ({
                       </h3>
                     )}
                     {overlayDescription && (
-                      <p className="text-white/80 text-sm mt-1">
+                      <p className="text-white text-sm mt-1">
                         {overlayDescription}
                       </p>
                     )}

@@ -1,22 +1,28 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
-import { aboutVideos } from "@/lib/assets/videos";
 
-const CaseStudies = () => {
+export default function CaseStudies() {
   return (
     <HeroSection
-      title="Bold Solutions, Tangible Results"
+      variant="blog"
+      title={
+        <>
+          Ideas Turned Into {" "}
+          <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
+            Outcomes
+          </span>
+        </>
+      }
       descriptions={[
-        "We don't just build products — we build trust. Our case studies share the journeys of businesses that embraced change, reimagined their processes, and achieved game-changing results.",
-        "Whether it's improving operations, cutting costs, or creating entirely new experiences, these stories prove what's possible with the right team by your side.",
+        "Proven results delivered through strategy-led digital execution.",
       ]}
       backgroundType="image"
-      backgroundImage={"/assets/images/about/herobg.png"}
-      textColor="blue"
-      objectPosition="right"
+      backgroundImage="/assets/images/caseStudies/herobg.png"
+      overlayTag="CASE STUDIES"
+      overlayTitle="Ideas Turned Into Outcomes"
+      overlayDescription="These success stories demonstrate our commitment to building solutions that scale, perform, and deliver ROI."
+      buttonText="Book a Consultation - it's free"
     />
   );
-};
-
-export default CaseStudies;
+}
