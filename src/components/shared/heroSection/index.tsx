@@ -155,7 +155,7 @@ const HeroSection = ({
         <div className={`${marginTopClass}`}>
           {/* Heading */}
           <div className={`mb-5 md:mb-6 mt-2 md:mt-6`}>
-            <h1 className={`${styles.h2} font-bold text-blue uppercase font-outfit leading-tight mb-2`}>
+            <h1 className={`${styles.h2} font-bold text-blue capitalize font-outfit leading-tight mb-2`}>
               {title}
             </h1>
             {descriptions.map((description, index) => (

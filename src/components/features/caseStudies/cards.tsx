@@ -1,115 +1,97 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { styles } from "@/styles/style";
+import { SectionHeading } from "@/components/shared/headings";
+import { Button } from "@/components/shared/ui";
+import { MoveUpRight } from "lucide-react";
+import { caseStudies } from "@/data";
 
-const caseStudies = [
-  {
-    image: "/assets/images/CaseStudies/csimage1.svg",
-    logo: "/assets/images/Industries/clogo1.svg",
-    tag: "Real Estate",
-    title: "The #1 AI Platform for Streamlining Slow Flip and Rental Properties.",
-    desc:
-      "Cashflow Innovator provides an AI-driven platform that simplifies slow-flip and rental property investments for diverse stakeholders."
-  },
-  {
-    image: "/assets/images/CaseStudies/csimage2.svg",
-    logo: "/assets/images/Industries/clogo2.svg",
-    tag: "Startup",
-    title: "AI-Human Solution Creation Platform. Build Your Network, Share Your Value",
-    desc:
-      "Charta is a premium mobility service reshaping transportation in Africa, operating in Lagos, Abuja, Accra, and Lomé."
-  },
-  {
-    image: "/assets/images/CaseStudies/csimage3.svg",
-    logo: "/assets/images/Industries/clogo5.svg",
-    tag: "Healthcare",
-    title: "The greatest investment you can make is in yourself.",
-    desc:
-      "SolveMyAllergies blends AI, mindfulness, and user-centric design to help individuals heal respiratory allergies."
-  },
-  {
-    image: "/assets/images/CaseStudies/csimage4.svg",
-    logo: "/assets/images/Industries/clogo12.svg",
-    tag: "Healthcare",
-    title: "Technology-Driven Healthcare for Africa",
-    desc:
-      "Africa Health Initiative delivers accessible healthcare solutions using modern digital infrastructure."
-  },
-  {
-    image: "/assets/images/CaseStudies/csimage5.svg",
-    logo: "/assets/images/Industries/clogo17.svg",
-    tag: "Healthcare",
-    title: "Technology-Driven Healthcare for Africa",
-    desc:
-      "Africa Health Initiative delivers accessible healthcare solutions using modern digital infrastructure."
-  }
-];
+interface CaseCardProps {
+  image: string;
+  logo: string;
+  tag: string;
+  title: string;
+  desc: string;
+  reversed?: boolean;
+}
 
-const CaseCard = ({ image, logo, tag, title, desc }: any) => {
+const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardProps) => {
   return (
-    <div className=" overflow-hidden bg-white transition">
+    <article className="group bg-white overflow-hidden">
+      <div className={`grid grid-cols-1 ${reversed ? "md:grid-cols-[1fr_1fr]" : "md:grid-cols-[1fr_1fr]"} ${reversed ? "md:grid-flow-col-dense" : ""} gap-6 md:gap-8 lg:gap-22`}>
+        {/* Content Section */}
+        <div className={`flex-1 flex flex-col justify-center ${reversed ? "md:col-start-2" : "md:col-start-1"}`}>
+          {/* Logo */}
+          <div className="mb-4 md:mb-6">
+            <div className="relative h-8 md:h-10 lg:h-12 w-auto">
+              <Image 
+                src={logo} 
+                alt={`${title} logo`} 
+                width={180} 
+                height={64} 
+                className="object-contain h-full w-auto" 
+              />
+            </div>
+          </div>
+          {/* Title */}
+          <h3 className={`${styles.h4} font-bold text-blue leading-tight mb-4 md:mb-6`}>
+            {title}
+          </h3>
 
-      {/* Image */}
-      <div className="relative w-full h-[330px]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover rounded-2xl"
-          priority
-        />
-      </div>
+          {/* Description */}
+          <p className={`${styles.p2} text-gray-600 leading-relaxed mb-6 md:mb-8`}>
+            {desc}
+          </p>
 
-      {/* Content */}
-      <div className="mt-4">
-        <div className="flex items-center justify-between mb-5">
-          <Image src={logo} alt="" width={22} height={22} className="object-contain w-40 h-10" />
-          <span className="text-base px-4 py-2 rounded-lg border-2 border-slate-400 text-slate-600 font-medium">
-            {tag}
-          </span>
+          {/* CTA Button */}
+          <div>
+            <Button variant="accent" size="lg" className="group/btn">
+              <Link href="#" className="flex items-center gap-2">
+              {tag}
+                <MoveUpRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
 
-        <h3 className="text-[28px] font-semibold text-slate-900 leading-snug">
-          {title}
-        </h3>
-
-        <p className="mt-2 text-lg text-slate-600 leading-relaxed">
-          {desc}
-        </p>
+        {/* Image Section */}
+        <div className={`relative w-full h-[300px] md:h-[500px] lg:h-[400px] overflow-hidden bg-gray-50 ${reversed ? "md:col-start-1 md:row-start-1" : "md:col-start-2"}`}>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            priority
+          />
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 
 export default function CaseStudiesSection() {
   return (
-    <section className="max-w-6xl mx-auto px-6 lg:px-10 py-24">
-
+    <section className={`${styles.sectionPadding} pb-12 md:pb-16 lg:pb-20`}>
       {/* Section Heading */}
-      <div className="mb-16">
-        <span className="text-sm font-semibold text-orange-500 uppercase">
-          Case Studies
-        </span>
-        <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
-          Real Products. Real Impact.
-        </h2>
+      <div className="mx-15">
+        <SectionHeading
+          subtitle="Case Studies"
+          title="Real Products. Real Impact."
+        />
+  
+
+      {/* Case Studies - Grid Layout */}
+      <div className="grid grid-cols-1 gap-8 md:gap-12 lg:gap-16">
+        {caseStudies.map((study, index) => (
+          <CaseCard 
+            key={study.id} 
+            {...study} 
+            reversed={index % 2 !== 0} 
+          />
+        ))}
       </div>
-
-      {/* Staggered Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-20">
-
-        {/* Left Column */}
-        <div className="space-y-20">
-          <CaseCard {...caseStudies[0]} />
-          <CaseCard {...caseStudies[2]} />
-        </div>
-
-        {/* Right Column (Offset like Figma) */}
-        <div className="space-y-20 md:pt-24">
-          <CaseCard {...caseStudies[1]} />
-          <CaseCard {...caseStudies[3]} />
-        </div>
-
       </div>
     </section>
   );

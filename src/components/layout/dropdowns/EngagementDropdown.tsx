@@ -7,6 +7,7 @@ import { engagementData } from "@/data";
 import { styles, combine } from "@/styles/style";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";
+import Link from "next/link";
 
 // Engagement dropdown component
 export const EngagementDropdown = () => {
@@ -52,7 +53,9 @@ export const EngagementDropdown = () => {
                                 );
                             })}
                             <Button variant="accent" size="md" className="mt-4">
+                             <Link href="/engagement-models">
                                 Discover More
+                                </Link>
                             </Button>
                         </div>
 
