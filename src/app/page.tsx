@@ -1,17 +1,12 @@
-import { Hero, BusinessTypes, Services } from "@/components/features/home";
+import { Hero, BusinessTypes, Services, OurClient, DigitalServices, TriScroll, RealEstatePartner, OurTechStack, IndustriesCards } from "@/components/features/home";
 import { DualRowSlider } from "@/components/shared/ui";
 import { industriesImages } from "@/lib/assets/images";
-import OurClient from "@/components/features/home/ourClient";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
-import DigitalServices from "@/components/features/home/digitalServices";
 import { styles } from "@/styles/style";
 import Banner1 from "@/components/layout/banners/banner1";
 import Banner2 from "@/components/layout/banners/banner2";
 import Banner3 from "@/components/layout/banners/banner3";
 import Banner4 from "@/components/layout/banners/banner4";
-import TriScroll from "@/components/features/home/triScroll";
-import RealEstatePartner from "@/components/features/home/realEstatepatner";
-import OurTechStack from "@/components/features/home/our-tech-stack";
 import { homeMetadata } from "@/lib/metadata";
 
 export const metadata = homeMetadata;
@@ -49,6 +44,7 @@ export default function Home() {
       <BusinessTypes />
       <Services />
       <RealEstatePartner />
+      <IndustriesCards />
       <DigitalServices />
       {/* <Banner1 /> */}
       {/* <Banner2 /> */}
