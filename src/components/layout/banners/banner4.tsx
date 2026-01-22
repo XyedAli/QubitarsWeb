@@ -34,7 +34,7 @@ import Link from "next/link";
               alt="Qubitars Technologies"
                width={90}
                height={90}
-               className="w-[90px] h-auto md:w-[150px]"
+               className="w-[90px] h-auto md:w-[150px] hidden sm:block"
             />
           </div>
 

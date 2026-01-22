@@ -146,7 +146,7 @@ const Footer = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 md:gap-6 relative z-10">
             <div className="flex flex-row md:flex-col items-center md:items-start gap-0.3 text-white/50 text-sm text-center md:text-left order-2 md:order-1 self-center md:self-auto">
-              <span>© 2023 Qubitars Technologies</span>
+              <span>© {new Date().getFullYear()} Qubitars Technologies</span>
               <span>All Rights Reserved</span>
             </div>
 
