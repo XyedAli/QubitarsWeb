@@ -116,7 +116,7 @@ const TriScroll = () => {
 
             {/* ROW 2 */}
             <div className="slider-row">
-              <div ref={row2Ref} className="slider-track">
+              <div ref={row2Ref} className="slider-track my-4">
                 {duplicatedRow2.map((item, index) => (
                   <div key={index} className="slider-item">
                     <Image {...item} unoptimized />
