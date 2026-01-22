@@ -35,13 +35,13 @@ export default function CareerValuesSection() {
   const rotations = ["8deg", "0deg", "-8deg", "-8deg", "0deg", "8deg"];
 
   return (
-    <section className="bg-gray-50 py-12 md:py-16 lg:py-20 xl:py-24">
+    <section className="bg-black py-12 md:py-16 lg:py-20 xl:py-24">
       <div className={`${styles.sectionPadding}`}>
         {/* Section Heading */}
         <div className="mb-10 md:mb-16">
           <SectionHeading
-            subtitle="Industries we serve"
-            title="Transforming Businesses Across Sectors"
+            subtitle="Industries we serve" subtitleColor="#FFFFFF"
+            title="Transforming Businesses Across Sectors" titleColor="#FFFFFF"
           />
         </div>
 

@@ -57,7 +57,6 @@ export default function Home() {
       <TriScroll />
       <OurTechStack />
       <OurClient testimonials={testimonialsWithImages} />
-      
     </>
   );
 }
