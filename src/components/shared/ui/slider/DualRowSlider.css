@@ -25,8 +25,8 @@
 
 @media (min-width: 1441px) {
   .dual-row-slider .slider-item {
-    width: calc(100vw / 11);
-    min-width: calc(100vw / 11);
+    width: calc(100vw / 10);
+    min-width: calc(100vw / 10);
   }
 }
 

@@ -33,7 +33,7 @@
 }
 
 .tri-scroll-slider.is-windows .slider-row-top .slider-track {
-  gap: 13px !important;
+  gap: 15px !important;
 }
 
 .tri-scroll-slider.is-mac .slider-row-top .slider-track {
@@ -45,7 +45,7 @@
 }
 
 .tri-scroll-slider.is-windows .slider-row-bottom .slider-track {
-  gap: 13px !important;
+  gap: 15px !important;
 }
 
 .tri-scroll-slider.is-mac .slider-row-bottom .slider-track {
@@ -110,7 +110,7 @@
 
 @media (min-width: 1200px) and (max-width: 1299px) {
   .tri-scroll-slider.is-windows .slider-row-top .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-top .slider-track {
@@ -122,7 +122,7 @@
   }
   
   .tri-scroll-slider.is-windows .slider-row-bottom .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-bottom .slider-track {
@@ -132,7 +132,7 @@
 
 @media (min-width: 1300px) and (max-width: 1399px) {
   .tri-scroll-slider.is-windows .slider-row-top .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-top .slider-track {
@@ -144,7 +144,7 @@
   }
   
   .tri-scroll-slider.is-windows .slider-row-bottom .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-bottom .slider-track {
@@ -154,7 +154,7 @@
 
 @media (min-width: 1400px) and (max-width: 1499px) {
   .tri-scroll-slider.is-windows .slider-row-top .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-top .slider-track {
@@ -166,7 +166,7 @@
   }
   
   .tri-scroll-slider.is-windows .slider-row-bottom .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-bottom .slider-track {
@@ -198,7 +198,7 @@
 
 @media (min-width: 1640px) {
   .tri-scroll-slider.is-windows .slider-row-top .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-top .slider-track {
@@ -210,7 +210,7 @@
   }
   
   .tri-scroll-slider.is-windows .slider-row-bottom .slider-track {
-    gap: 13px !important;
+    gap: 15px !important;
   }
   
   .tri-scroll-slider.is-mac .slider-row-bottom .slider-track {
