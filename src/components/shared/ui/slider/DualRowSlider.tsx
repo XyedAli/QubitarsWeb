@@ -25,7 +25,7 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
       <div className="slider-row">
         <div className="slider-track slider-track-row1">
           {duplicatedFirstItems.map((item, index) => (
-            <div key={index} className="slider-item">
+            <div key={index} className="slider-item mx-0 xl:mx-3">
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -42,7 +42,7 @@ const DualRowSlider = ({ firstRowItems, secondRowItems }: DualRowSliderProps) =>
       <div className="slider-row">
         <div className="slider-track slider-track-row2">
           {duplicatedSecondItems.map((item, index) => (
-            <div key={index} className="slider-item">
+            <div key={index} className="slider-item mx-0 xl:mx-3">
               <Image
                 src={item.src}
                 alt={item.alt}

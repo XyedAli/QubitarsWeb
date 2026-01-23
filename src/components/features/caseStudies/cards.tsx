@@ -20,12 +20,12 @@ interface CaseCardProps {
 const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardProps) => {
   return (
     <article className="group bg-white overflow-hidden">
-      <div className={`grid grid-cols-1 ${reversed ? "md:grid-cols-[1fr_1fr]" : "md:grid-cols-[1fr_1fr]"} ${reversed ? "md:grid-flow-col-dense" : ""} gap-6 md:gap-8 lg:gap-22`}>
+      <div className={`grid grid-cols-1 ${reversed ? "md:grid-cols-[1fr_1fr]" : "md:grid-cols-[1fr_1fr]"} ${reversed ? "md:grid-flow-col-dense" : ""} gap-6 md:gap-8 lg:gap-15 xl:gap-22`}>
         {/* Content Section */}
         <div className={`flex-1 flex flex-col justify-center ${reversed ? "md:col-start-2" : "md:col-start-1"}`}>
           {/* Logo */}
           <div className="mb-4 md:mb-6">
-            <div className="relative h-8 md:h-10 lg:h-12 w-auto">
+            <div className="relative h-8 lg:h-10 xl:h-12 w-auto">
               <Image 
                 src={logo} 
                 alt={`${title} logo`} 
@@ -41,7 +41,7 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
           </h3>
 
           {/* Description */}
-          <p className={`${styles.p2} text-gray-600 leading-relaxed mb-6 md:mb-8`}>
+          <p className={`${styles.p2} text-gray-600 leading-relaxed mb-7 xl:mb-8`}>
             {desc}
           </p>
 
@@ -57,7 +57,7 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
         </div>
 
         {/* Image Section */}
-        <div className={`relative w-full h-[300px] md:h-[500px] lg:h-[400px] overflow-hidden bg-gray-50 ${reversed ? "md:col-start-1 md:row-start-1" : "md:col-start-2"}`}>
+        <div className={`relative w-full h-[280px] md:h-[350px] lg:h-[380px] xl:h-[400px] overflow-hidden bg-gray-50 ${reversed ? "md:col-start-1 md:row-start-1" : "md:col-start-2"}`}>
           <Image
             src={image}
             alt={title}
@@ -75,7 +75,7 @@ export default function CaseStudiesSection() {
   return (
     <section className={`${styles.sectionPadding} pb-12 md:pb-16 lg:pb-20`}>
       {/* Section Heading */}
-      <div className="mx-15">
+      <div className="xl:mx-22">
         <SectionHeading
           subtitle="Case Studies"
           title="Real Products. Real Impact."
@@ -83,7 +83,7 @@ export default function CaseStudiesSection() {
   
 
       {/* Case Studies - Grid Layout */}
-      <div className="grid grid-cols-1 gap-8 md:gap-12 lg:gap-16">
+      <div className="grid grid-cols-1 gap-8 md:gap-12 xl:gap-16">
         {caseStudies.map((study, index) => (
           <CaseCard 
             key={study.id} 

@@ -79,6 +79,8 @@
   width: auto;
   height: 65px;
   max-width: 120px;
+  /* margin-right: 20px;
+margin-left: 20px; */
   object-fit: contain;
 }
 
