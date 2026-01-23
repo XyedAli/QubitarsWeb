@@ -76,6 +76,8 @@ export default function RootLayout({
         {/* Preconnect to external domains for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
       <body
         className={`${dmSans.variable} ${poppins.variable} ${satoshi.variable} ${fjallaOne.variable} ${outfit.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}

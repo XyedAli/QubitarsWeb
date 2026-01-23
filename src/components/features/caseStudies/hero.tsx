@@ -1,8 +1,12 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
+import { getCaseStudiesCloudinaryImages } from "@/lib/assets/images";
 
 export default function CaseStudies() {
+  const caseStudiesImages = getCaseStudiesCloudinaryImages();
+  const backgroundImage = caseStudiesImages.caseStudiesBg;
+
   return (
     <HeroSection
       variant="blog"
@@ -18,7 +22,7 @@ export default function CaseStudies() {
         "Proven results delivered through strategy-led digital execution.",
       ]}
       backgroundType="image"
-      backgroundImage="/assets/images/caseStudies/herobg.png"
+      backgroundImage={backgroundImage}
       overlayTag="CASE STUDIES"
       overlayTitle="Ideas Turned Into Outcomes"
       overlayDescription="These success stories demonstrate our commitment to building solutions that scale, perform, and deliver ROI."

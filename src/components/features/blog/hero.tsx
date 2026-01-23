@@ -1,8 +1,12 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
+import { getBlogCloudinaryImages } from "@/lib/assets/images";
 
 export default function BlogHero() {
+  const blogImages = getBlogCloudinaryImages();
+  const backgroundImage = blogImages.blogBg;
+
   return (
     <HeroSection
       variant="blog"
@@ -18,7 +22,7 @@ export default function BlogHero() {
         "Lessons, trends, and strategies from the tech frontlines.",
       ]}
       backgroundType="image"
-      backgroundImage="/assets/images/blogs/blogbg.png"
+      backgroundImage={backgroundImage}
       overlayTag="BLOGS"
       overlayTitle="Knowledge Built For Growth"
       overlayDescription="Breaking down complex technology into practical business value."

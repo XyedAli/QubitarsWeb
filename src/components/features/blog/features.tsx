@@ -30,6 +30,9 @@ const BlogFeatures = () => {
                   alt={blog.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={85}
+                  loading="lazy"
                   onError={(e) => {
                     // Hide image if it fails to load, showing grey placeholder
                     const target = e.target as HTMLImageElement;

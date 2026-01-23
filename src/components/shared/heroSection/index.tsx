@@ -178,6 +178,8 @@ const HeroSection = ({
                   fill
                   className="object-cover"
                   priority
+                  sizes="100vw"
+                  quality={90}
                 />
               )}
             </div>
@@ -272,7 +274,8 @@ const HeroSection = ({
               className="object-cover z-0"
               style={{ objectPosition }}
               priority
-              unoptimized
+              sizes="100vw"
+              quality={90}
             />
           )}
 

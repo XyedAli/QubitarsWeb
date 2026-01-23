@@ -84,6 +84,17 @@ margin-left: 20px; */
   object-fit: contain;
 }
 
+/* HD Quality Rendering for Logos */
+.hd-logo-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
 @media (max-width: 1024px) {
   .dual-row-slider .slider-item img {
     height: 55px;

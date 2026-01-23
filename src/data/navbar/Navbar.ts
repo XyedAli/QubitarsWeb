@@ -2,6 +2,7 @@ import React from "react";
 import Icons from "@/lib/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
 import { navbarImages, industriesImages, companyImages } from "@/lib/assets/images";
+import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import { CapabilitiesDropdown } from "@/components/layout/dropdowns/CapabilitiesDropdown";
 import { IndustriesDropdown } from "@/components/layout/dropdowns/IndustriesDropdown";
 import { CompanyDropdown } from "@/components/layout/dropdowns/CompanyDropdown";
@@ -121,6 +122,9 @@ interface Industry {
     hasSpecialContent?: boolean;
 }
 
+// Get Cloudinary icons for company logos
+const industryIcons = getIndustryCloudinaryIcons();
+
 // Industries dropdown data - industries we serve
 export const industries: Industry[] = [
   {
@@ -131,23 +135,23 @@ export const industries: Industry[] = [
     title: "Real Estate Solutions",
     hasSpecialContent: true,
     companies: [
-      { id: "1", name: "Deal Closer", image: industriesImages.clogo1, alt: "Deal Closer" },
-      { id: "2", name: "Cash Flow", image: industriesImages.clogo2, alt: "Cash Flow" },
-      { id: "3", name: "Republic", image: industriesImages.clogo3, alt: "Republic" },
-      { id: "4", name: "Roofing", image: industriesImages.clogo4, alt: "Roofing" },
-      { id: "6", name: "Qubitarsweb", image: industriesImages.clogo6, alt: "Qubitarsweb" },
-      { id: "7", name: "Qubitarsweb", image: industriesImages.clogo7, alt: "Qubitarsweb" },
-      { id: "8", name: "Qubitarsweb", image: industriesImages.clogo8, alt: "Qubitarsweb" },
-      { id: "9", name: "Qubitarsweb", image: industriesImages.clogo9, alt: "Qubitarsweb" },
-      { id: "10", name: "Qubitarsweb", image: industriesImages.clogo10, alt: "Qubitarsweb" },
-      { id: "11", name: "Qubitarsweb", image: industriesImages.clogo11, alt: "Qubitarsweb" },
-      { id: "12", name: "Qubitarsweb", image: industriesImages.clogo12, alt: "Qubitarsweb" },
-      { id: "13", name: "Qubitarsweb", image: industriesImages.clogo13, alt: "Qubitarsweb" },
-      { id: "14", name: "Qubitarsweb", image: industriesImages.clogo14, alt: "Qubitarsweb" },
-      { id: "15", name: "Qubitarsweb", image: industriesImages.clogo15, alt: "Qubitarsweb" },
-      { id: "16", name: "Qubitarsweb", image: industriesImages.clogo16, alt: "Qubitarsweb" },
-      { id: "17", name: "Qubitarsweb", image: industriesImages.clogo17, alt: "Qubitarsweb" },
-      { id: "18", name: "Qubitarsweb", image: industriesImages.clogo18, alt: "Qubitarsweb" },
+      { id: "1", name: "Deal Closer", image: industryIcons.clogo1, alt: "Deal Closer" },
+      { id: "2", name: "Cash Flow", image: industryIcons.clogo2, alt: "Cash Flow" },
+      { id: "3", name: "Republic", image: industryIcons.clogo3, alt: "Republic" },
+      { id: "4", name: "Roofing", image: industryIcons.clogo4, alt: "Roofing" },
+      { id: "6", name: "Qubitarsweb", image: industryIcons.clogo6, alt: "Qubitarsweb" },
+      { id: "7", name: "Qubitarsweb", image: industryIcons.clogo7, alt: "Qubitarsweb" },
+      { id: "8", name: "Qubitarsweb", image: industryIcons.clogo8, alt: "Qubitarsweb" },
+      { id: "9", name: "Qubitarsweb", image: industryIcons.clogo9, alt: "Qubitarsweb" },
+      { id: "10", name: "Qubitarsweb", image: industryIcons.clogo10, alt: "Qubitarsweb" },
+      { id: "11", name: "Qubitarsweb", image: industryIcons.clogo11, alt: "Qubitarsweb" },
+      { id: "12", name: "Qubitarsweb", image: industryIcons.clogo12, alt: "Qubitarsweb" },
+      { id: "13", name: "Qubitarsweb", image: industryIcons.clogo13, alt: "Qubitarsweb" },
+      { id: "14", name: "Qubitarsweb", image: industryIcons.clogo14, alt: "Qubitarsweb" },
+      { id: "15", name: "Qubitarsweb", image: industryIcons.clogo15, alt: "Qubitarsweb" },
+      { id: "16", name: "Qubitarsweb", image: industryIcons.clogo16, alt: "Qubitarsweb" },
+      { id: "17", name: "Qubitarsweb", image: industryIcons.clogo17, alt: "Qubitarsweb" },
+      { id: "18", name: "Qubitarsweb", image: industryIcons.clogo18, alt: "Qubitarsweb" },
     ],
     testimonials: [
       {
