@@ -31,6 +31,11 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
     const [isMobile, setIsMobile] = useState(false);
     const sliderRef = useRef<Slider>(null);
 
+    // Helper to check if image is SVG
+    const isSvg = (url: string): boolean => {
+        return typeof url === 'string' && url.includes('.svg');
+    };
+
     // Detect mobile viewport
     useEffect(() => {
         const checkMobile = () => {
@@ -96,14 +101,26 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                         >
                             {/* Client avatar */}
                             {item.image3 && (
-                                <Image
-                                    src={item.image3}
-                                    alt={item.author}
-                                    width={240}
-                                    height={240}
-                                    priority
-                                    className="absolute -top-9 lg:-top-12 xl:-top-14 left-8 w-[70px] lg:w-[90px] xl:w-[105px] h-[70px] lg:h-[90px] xl:h-[105px] rounded-full z-20"
-                                />
+                                isSvg(item.image3) ? (
+                                    <img
+                                        src={item.image3}
+                                        alt={item.author}
+                                        width={240}
+                                        height={240}
+                                        loading="eager"
+                                        className="absolute -top-9 lg:-top-12 xl:-top-14 left-8 w-[70px] lg:w-[90px] xl:w-[105px] h-[70px] lg:h-[90px] xl:h-[105px] rounded-full z-20 object-cover"
+                                    />
+                                ) : (
+                                    <Image
+                                        src={item.image3}
+                                        alt={item.author}
+                                        width={240}
+                                        height={240}
+                                        priority
+                                        className="absolute -top-9 lg:-top-12 xl:-top-14 left-8 w-[70px] lg:w-[90px] xl:w-[105px] h-[70px] lg:h-[90px] xl:h-[105px] rounded-full z-20"
+                                        unoptimized
+                                    />
+                                )
                             )}
                             <div className="bg-white border border-[#E5E5E5] rounded-tl-3xl rounded-br-3xl shadow-lg flex flex-col justify-between h-[230px] md:h-[250px] lg:h-[340px] xl:h-[350px] max-w-7xl w-full pt-6 lg:pt-8 xl:pt-12">
                                 <div className="flex flex-col flex-1">
@@ -126,7 +143,7 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                                                         {item.desp.split(' ').length > 25 && (
                                                             <span className="text-zinc-600 underline text-[12px] font-medium hover:text-[#D6AB61] cursor-pointer ml-1" onClick={(e) => toggleReadMore(item.id, e)}>
                                                                 Read More
-                                                            </span>
+                                                            </span> 
                                                         )}
                                                     </>
                                                 ) : (
@@ -173,7 +190,12 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                                         )}
                                     </div>
                                     {item.logo && (
-                                        <img src={item.logo} alt="Company Logo" className="h-6 md:h-7 lg:h-9 w-auto" />
+                                        <img 
+                                            src={item.logo} 
+                                            alt="Company Logo" 
+                                            className="h-6 md:h-7 lg:h-9 w-auto object-contain" 
+                                            loading="lazy"
+                                        />
                                     )}
                                 </div>
                             </div>

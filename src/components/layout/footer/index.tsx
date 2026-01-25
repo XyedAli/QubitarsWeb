@@ -5,13 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { US, PK } from "country-flag-icons/react/3x2";
-import { rootImages } from "@/lib/assets/images";
+import { getFooterCloudinaryLogo, getHomeCloudinaryImages } from "@/lib/assets/images";
 import Icons from "@/lib/assets/icons";
 import { styles, combine } from "@/styles/style";
 import { companyLinks, servicesLinks, industriesLinks, partnerBadges } from "@/data";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+
+  // Get Cloudinary footer logo and images
+  const footerLogo = getFooterCloudinaryLogo();
+  const homeCloudinaryImages = getHomeCloudinaryImages();
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +29,7 @@ const Footer = () => {
       <div className={`relative z-10 pt-16 pb-7 ${styles.sectionPadding}`}>
       <div className="flex flex-col md:flex-row md:items-start justify-center md:justify-between gap-6 mb-6 lg:mb-7">
                 <Image
-                  src={rootImages.logo2}
+                  src={footerLogo}
                   alt="Qubitars Technologies Logo"
                   width={200}
                   height={50}
@@ -52,7 +56,7 @@ const Footer = () => {
           <div className="lg:col-span-6 relative pr-5 md:mr-1 lg:mr-8 xl:mr-10">
             <div className="absolute right-0 top-0 h-full w-[1px] z-10" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.05) 100%)' }}></div>
             <Image
-              src="/assets/images/home/footerbg.png"
+              src={homeCloudinaryImages.footerbg}
               alt=""
               fill
               className="absolute top-0 h-full w-full object-contain object-left opacity-100 z-0"

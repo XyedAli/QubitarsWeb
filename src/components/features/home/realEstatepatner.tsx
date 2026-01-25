@@ -6,8 +6,12 @@ import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import Link from "next/link";
+import { getHomeCloudinaryImages } from "@/lib/assets/images";
 
 const RealEstatePartner = () => {
+  // Get Cloudinary home images
+  const homeCloudinaryImages = getHomeCloudinaryImages();
+  
   const industries = [
     "Real Estate",
     "Travel & Hospitality",
@@ -32,7 +36,7 @@ const RealEstatePartner = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-no-repeat bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/assets/images/home/himg15.png')" }}
+        style={{ backgroundImage: `url('${homeCloudinaryImages.himg15}')` }}
       />
       
       {/* Light overlay - keeps bg visible */}

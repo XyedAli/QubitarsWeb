@@ -2,19 +2,23 @@
 
 import Image from "next/image";
 import { styles } from "@/styles/style";
-import { aboutImages, navbarImages } from "@/lib/assets/images";
+ import { getAboutCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
 import { MoveUpRight } from "lucide-react";
 
 const InstaFeed = () => {
+  // Get Cloudinary images
+  const aboutCloudinaryImages = getAboutCloudinaryImages();
+  const navbarCloudinaryImages = getNavbarCloudinaryImages();
+  
   const instaImages = [
-    aboutImages.Aimg9,
-    aboutImages.Aimg10,
-    aboutImages.Aimg11,
-    aboutImages.Aimg12,
-    aboutImages.Aimg13,
-    aboutImages.Aimg14,
-    aboutImages.Aimg15,
-    aboutImages.Aimg16,
+    aboutCloudinaryImages.Aimg9,
+    aboutCloudinaryImages.Aimg10,
+    aboutCloudinaryImages.Aimg11,
+    aboutCloudinaryImages.Aimg12,
+    aboutCloudinaryImages.Aimg13,
+    aboutCloudinaryImages.Aimg14,
+    aboutCloudinaryImages.Aimg15,
+    aboutCloudinaryImages.Aimg16,
   ];
 
   return (
@@ -26,11 +30,14 @@ const InstaFeed = () => {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center overflow-hidden">
               <Image
-                src={navbarImages.logoSvg}
+                src={navbarCloudinaryImages.logoSvg}
                 alt="Qubitars Logo"
                 width={40}
                 height={40}
                 className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+                priority
+                loading="eager"
+                fetchPriority="high"
                 unoptimized
               />
             </div>
@@ -71,6 +78,9 @@ const InstaFeed = () => {
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 34vw, 25vw"
+                priority={index < 4}
+                loading={index < 4 ? "eager" : "lazy"}
+                fetchPriority={index < 4 ? "high" : "auto"}
                 unoptimized
               />
               {/* Overlay on hover */}

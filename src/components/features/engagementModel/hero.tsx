@@ -1,8 +1,12 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
+import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 
 export default function EngModalHero() {
+    // Get Cloudinary engagement model images
+    const engagementModelImages = getEngagementModelCloudinaryImages();
+
     return (
         <HeroSection
             variant="blog"
@@ -18,7 +22,7 @@ export default function EngModalHero() {
                 "Start lean, scale confidently, and adjust seamlessly.",
             ]}
             backgroundType="image"
-            backgroundImage="/assets/images/engModel/modelbg1.png"
+            backgroundImage={engagementModelImages.modelBg}
             overlayTag="ENGAGEMENT MODEL"
             overlayTitle="Engage Smarter, Build Faster"
             overlayDescription="Choose an engagement structure that fits your business today, while leaving room for where you’re headed next."

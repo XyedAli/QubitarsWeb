@@ -1,4 +1,4 @@
-import { aboutImages } from "@/lib/assets/images";
+import { getAboutCloudinaryImages } from "@/lib/assets/images";
 
 // FAQ Interface and Data
 export interface FAQItem {
@@ -59,34 +59,36 @@ export interface CoreValue {
   description: string;
 }
 
+const aboutCloudinaryImages = getAboutCloudinaryImages();
+
 export const coreValues: CoreValue[] = [
   {
-    icon: aboutImages.Aimg3,
+    icon: aboutCloudinaryImages.Aimg3,
     title: "Innovation",
     description: "We leverage emerging technologies to build future-ready solutions globally.",
   },
   {
-    icon: aboutImages.Aimg4,
+    icon: aboutCloudinaryImages.Aimg4,
     title: "Strive for Better",
     description: "Continuous improvement guides everything we create and deliver daily.",
   },
   {
-    icon: aboutImages.Aimg5,
+    icon: aboutCloudinaryImages.Aimg5,
     title: "Transparency",
     description: "Open and honest communication builds trust with clients always.",
   },
   {
-    icon: aboutImages.Aimg6,
+    icon: aboutCloudinaryImages.Aimg6,
     title: "Respect & Equality",
     description: "We value every voice and encourage collaboration across teams.",
   },
   {
-    icon: aboutImages.Aimg7,
+    icon: aboutCloudinaryImages.Aimg7,
     title: "Integrity",
     description: "We uphold ethical practices and keep our promises, always.",
   },
   {
-    icon: aboutImages.Aimg8,
+    icon: aboutCloudinaryImages.Aimg8,
     title: "Client Focus",
     description: "We solve real client challenges with measurable business results.",
   },

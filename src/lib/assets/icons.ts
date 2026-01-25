@@ -19,7 +19,14 @@ export { Icons } from "./icons/index";
 
 import { optimizeIconImage } from "@/lib/utils/cloudinary";
 
-const CLOUDINARY_BASE_URL = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || "";
+// Cloudinary base URL from environment (should end with /upload/)
+const CLOUDINARY_BASE_URL = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || "https://res.cloudinary.com/drugkop7t/image/upload/";
+
+// Helper function to build full Cloudinary URL from endpoint
+const buildCloudinaryUrl = (endpoint: string): string => {
+  const baseUrl = CLOUDINARY_BASE_URL.endsWith('/') ? CLOUDINARY_BASE_URL : `${CLOUDINARY_BASE_URL}/`;
+  return `${baseUrl}${endpoint}`;
+};
 
 /**
  * Industry/Client Logo Cloudinary Icons
@@ -27,8 +34,8 @@ const CLOUDINARY_BASE_URL = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || "";
  * Used in DualRowSlider, Navbar, and other components
  */
 export const getIndustryCloudinaryIcons = () => {
-  // Cloudinary image paths (version/public_id)
-  const iconPaths = {
+  // Cloudinary icon endpoints (version/public_id)
+  const iconEndpoints = {
     clogo1: "v1769160537/clogo1_vsxou4.svg",
     clogo2: "v1769160575/clogo2_qjxjnr.svg",
     clogo3: "v1769161596/clogo3_dotzko.svg",
@@ -52,13 +59,18 @@ export const getIndustryCloudinaryIcons = () => {
   // Build full URLs and optimize them
   const icons: Record<string, string> = {};
   
-  Object.entries(iconPaths).forEach(([key, path]) => {
-    const fullUrl = `${CLOUDINARY_BASE_URL}/${path}`;
+  Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
     // Use optimizeIconImage for maximum HD quality
     // For SVGs, this preserves vector format (no transformations)
     // For other formats, uses 4K width for maximum clarity
     icons[key] = optimizeIconImage(fullUrl, 4000); // 4K width for maximum HD quality
   });
+
+  // Add man image (avatar/profile image)
+  const manEndpoint = "v1769168623/profileIcon_cmft7q.svg"; // Using profileIcon endpoint - update if different
+  const manUrl = buildCloudinaryUrl(manEndpoint);
+  icons.man = optimizeIconImage(manUrl);
 
   return icons as {
     clogo1: string;
@@ -79,6 +91,7 @@ export const getIndustryCloudinaryIcons = () => {
     clogo16: string;
     clogo17: string;
     clogo18: string;
+    man: string;
   };
 };
 

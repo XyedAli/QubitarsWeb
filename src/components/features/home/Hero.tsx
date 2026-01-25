@@ -1,9 +1,13 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
-import { homeImages } from "@/lib/assets/images";
+import { getHomeHeroCloudinaryImages, getHomeCloudinaryImages } from "@/lib/assets/images";
 
 const Hero = () => {
+  // Get Cloudinary home hero images
+  const homeHeroImages = getHomeHeroCloudinaryImages();
+  const homeCloudinaryImages = getHomeCloudinaryImages();
+
   return (
     <HeroSection
       subtitle="Next-Gen Innovation"
@@ -17,8 +21,8 @@ const Hero = () => {
       ]}
       backgroundType="pattern"
       patternImages={{
-        mobile: homeImages.bgLines1,
-        desktop: homeImages.bgLines,
+        mobile: homeCloudinaryImages.bgLines1,
+        desktop: homeCloudinaryImages.bgLines,
       }}
       textColor="white"
       titleUppercase={true}
@@ -26,28 +30,28 @@ const Hero = () => {
         label: "Awards & Certifications",
         awards: [
           {
-            src: homeImages.himg1,
+            src: homeHeroImages.himg1,
             alt: "Award Logo 1",
             width: 160,
             height: 50,
             className: "h-[6vw] md:h-4 lg:h-4 xl:h-5 [1440px]:h-5 2xl:h-6 [1920px]:h-8 w-auto",
           },
           {
-            src: homeImages.himg2,
+            src: homeHeroImages.himg2,
             alt: "Award Logo 2",
             width: 120,
             height: 40,
             className: "h-[8vw] md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto",
           },
           {
-            src: homeImages.himg3,
+            src: homeHeroImages.himg3,
             alt: "Award Logo 3",
             width: 120,
             height: 40,
             className: "h-[8vw] md:h-6 lg:h-7 xl:h-9 [1440px]:h-10 2xl:h-10 [1920px]:h-11 w-auto",
           },
           {
-            src: homeImages.himg4,
+            src: homeHeroImages.himg4,
             alt: "Award Logo 4",
             width: 120,
             height: 40,

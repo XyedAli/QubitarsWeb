@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { locations } from "@/data";
+import { getAboutCloudinaryImages } from "@/lib/assets/images";
 
 const TimesZone = () => {
+    const aboutCloudinaryImages = getAboutCloudinaryImages();
+    
     // Generate responsive CSS with proper breakpoints
     const generateResponsiveCSS = () => {
         const cssRules: string[] = [];
@@ -80,7 +83,7 @@ const TimesZone = () => {
                     {/* Map */}
                     <div className="relative aspect-[1.4/1] sm:aspect-[1.6/1] md:aspect-[1.8/1] w-full min-h-[350px] sm:min-h-[500px] md:min-h-0">
                         <Image
-                            src="/assets/images/about/Map.png"
+                            src={aboutCloudinaryImages.Map}
                             alt="World Map connecting global clients"
                             fill
                             className="object-contain opacity-90"

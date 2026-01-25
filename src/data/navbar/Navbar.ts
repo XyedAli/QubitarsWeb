@@ -1,7 +1,7 @@
 import React from "react";
 import Icons from "@/lib/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
-import { navbarImages, industriesImages, companyImages } from "@/lib/assets/images";
+import { industriesImages, companyImages, getProfileCloudinaryImages, getCompanyCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
 import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import { CapabilitiesDropdown } from "@/components/layout/dropdowns/CapabilitiesDropdown";
 import { IndustriesDropdown } from "@/components/layout/dropdowns/IndustriesDropdown";
@@ -9,12 +9,24 @@ import { CompanyDropdown } from "@/components/layout/dropdowns/CompanyDropdown";
 import { EngagementDropdown } from "@/components/layout/dropdowns/EngagementDropdown";
 import { NavItem } from "@/lib/types";
 
+// Get Cloudinary icons for company logos
+const industryIcons = getIndustryCloudinaryIcons();
+
+// Get Cloudinary profile/avatar images
+const profileImages = getProfileCloudinaryImages();
+
+// Get Cloudinary company images
+const companyCloudinaryImages = getCompanyCloudinaryImages();
+
+// Get Cloudinary navbar images
+const navbarCloudinaryImages = getNavbarCloudinaryImages();
+
 // Capabilities dropdown data - services and solutions offered
 export const capabilitiesData = [
   {
     id: "ai-ml",
     title: "AI & ML Development",
-    image: navbarImages.top,
+    image: navbarCloudinaryImages.top,
     items: [
       {
         id: "ai-consultation",
@@ -122,9 +134,6 @@ interface Industry {
     hasSpecialContent?: boolean;
 }
 
-// Get Cloudinary icons for company logos
-const industryIcons = getIndustryCloudinaryIcons();
-
 // Industries dropdown data - industries we serve
 export const industries: Industry[] = [
   {
@@ -160,7 +169,7 @@ export const industries: Industry[] = [
         author: "Jake Peters",
         position: "CEO & CO-Founder",
         company: "PayPerks",
-        avatar: industriesImages.man,
+        avatar: profileImages.profileIcon,
       },
     ],
   },
@@ -286,7 +295,7 @@ export const engagementData: EngagementDataItem[] = [
     type: "testimonial",
     id: "testimonial-1",
     quote: "Qubitars Technologies partnered with Travelliance (TVA) to develop Accounting, Reporting, & Operations solutions. We helped cut downtime to zero, providing 24/7 support, and making sure their database of 7 millionusers functions smoothly.",
-    clientAvatar: companyImages.jake,
+    clientAvatar: companyCloudinaryImages.jake,
     clientName: "Dori Hotoran",
     clientTitle: "Director Global Operations - Travelliance",
   },
@@ -294,7 +303,7 @@ export const engagementData: EngagementDataItem[] = [
     type: "testimonial",
     id: "testimonial-2",
     quote: "Qubitars has been instrumental in our digital transformation journey. Their expertise and dedication to our success is unmatched.",
-    clientAvatar: companyImages.jake,
+    clientAvatar: companyCloudinaryImages.jake,
     clientName: "Sarah Mitchell",
     clientTitle: "CTO - TechCorp Solutions",
   },
@@ -302,7 +311,7 @@ export const engagementData: EngagementDataItem[] = [
     type: "testimonial",
     id: "testimonial-3",
     quote: "Working with Qubitars transformed our business operations. They delivered beyond our expectations and became a true partner in our growth.",
-    clientAvatar: companyImages.jake,
+    clientAvatar: companyCloudinaryImages.jake,
     clientName: "Michael Chen",
     clientTitle: "VP of Technology - InnovateNow",
   },

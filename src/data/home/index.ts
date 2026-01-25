@@ -1,7 +1,8 @@
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
-import { AwardsImages } from "@/lib/assets/images";
+import { AwardsImages, getTriScrollCloudinaryLogos, getAwardsCloudinaryImages, getCompanyCloudinaryImages, getHomeCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
+import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import {
   TriScrollImages,
   homeImages,
@@ -31,36 +32,39 @@ export const businessTypes = [
   },
 ];
 
+// Get Cloudinary awards images
+const awardsCloudinaryImages = getAwardsCloudinaryImages();
+
 export const awards = [
   {
     id: 1,
     name: "Clutch",
-    image: AwardsImages.caward1,
+    image: awardsCloudinaryImages.caward1,
   },
   {
     id: 2,
     name: "TopDevelopers",
-    image: AwardsImages.caward2,
+    image: awardsCloudinaryImages.caward2,
   },
   {
     id: 3,
     name: "DesignRush",
-    image: AwardsImages.caward3,
+    image: awardsCloudinaryImages.caward3,
   },
   {
     id: 4,
     name: "GoodFirms",
-    image: AwardsImages.caward4,
+    image: awardsCloudinaryImages.caward4,
   },
   {
     id: 5,
     name: "Trustpilot",
-    image: AwardsImages.caward5,
+    image: awardsCloudinaryImages.caward5,
   },
   {
     id: 6,
     name: "DesignFirms",
-    image: AwardsImages.caward6,
+    image: awardsCloudinaryImages.caward6,
   },
 ];
 
@@ -71,19 +75,25 @@ export interface TriScrollLogo {
   height: number;
 }
 
+// Get Cloudinary tri-scroll logos
+const triScrollCloudinaryLogos = getTriScrollCloudinaryLogos();
+
+// Get Cloudinary home images
+const homeCloudinaryImages = getHomeCloudinaryImages();
+
 export const triScrollLogos: TriScrollLogo[] = [
-  { src: TriScrollImages.tsimg1, alt: "Logo 1", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg2, alt: "Logo 2", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg3, alt: "Logo 3", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg4, alt: "Logo 4", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg5, alt: "Logo 5", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg6, alt: "Logo 6", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg7, alt: "Logo 7", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg8, alt: "Logo 8", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg9, alt: "Logo 9", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg10, alt: "Logo 10", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg11, alt: "Logo 11", width: 220, height: 90 },
-  { src: TriScrollImages.tsimg12, alt: "Logo 12", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg1, alt: "Logo 1", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg2, alt: "Logo 2", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg3, alt: "Logo 3", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg4, alt: "Logo 4", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg5, alt: "Logo 5", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg6, alt: "Logo 6", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg7, alt: "Logo 7", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg8, alt: "Logo 8", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg9, alt: "Logo 9", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg10, alt: "Logo 10", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg11, alt: "Logo 11", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg12, alt: "Logo 12", width: 220, height: 90 },
 ];
 
 export interface ServiceData {
@@ -143,7 +153,7 @@ export const servicesData: ServiceData[] = [
   {
     title: "Digital Transformation",
     description: "Transform your business with modern digital solutions that streamline operations, enhance efficiency, and accelerate growth.",
-    image: homeImages.himg9,
+    image: homeCloudinaryImages.himg9,
     modalDescription: [
       "Say goodbye to complex tech stacks and long timelines. We help you achieve digital transformation through tools that are simple, powerful, and built for growth.",
       "We eliminate development roadblocks so your team can focus on creating value and scaling your business with ease."
@@ -189,7 +199,7 @@ export const servicesData: ServiceData[] = [
   {
     title: "Quality Assurance",
     description: "Ensure flawless performance with comprehensive testing and quality assurance that delivers reliable, bug-free software solutions.",
-    image: homeImages.himg13,
+    image: homeCloudinaryImages.himg13,
     modalImage: serviceModalImages.mimg2,
     modalDescription: [
       "Software isn’t complete until it’s tested. Our QA team ensures your product is flawless, reliable, and future-proof.",
@@ -229,7 +239,7 @@ export const servicesData: ServiceData[] = [
   {
     title: "Staff Augmentation",
     description: "Scale your team with vetted developers, designers, and AI experts—ready to plug in, deliver results, and adapt to your workflow.",
-    image: homeImages.himg11,
+    image: homeCloudinaryImages.himg11,
     modalImage: serviceModalImages.mimg4,
     modalDescription: [
       "We bring speed, security, and scalability to your software lifecycle. Speed, scalability, and security—that’s the promise of our DevOps approach.",
@@ -255,25 +265,34 @@ export interface TestimonialImageConfig {
   logo: string;
 }
 
+// Get Cloudinary icons for testimonials
+const industryIcons = getIndustryCloudinaryIcons();
+
+// Get Cloudinary company images
+const companyCloudinaryImages = getCompanyCloudinaryImages();
+
+// Get Cloudinary navbar images
+const navbarCloudinaryImages = getNavbarCloudinaryImages();
+
 // Centralized testimonial image configuration per id
 export const testimonialImagesById: Record<string, TestimonialImageConfig> = {
   "1": {
-    image1: navbarImages.logoSvg,
-    image2: industriesImages.clogo1,
-    image3: homeImages.himg14,
-    logo: homeImages.himg16,
+    image1: navbarCloudinaryImages.logoSvg,
+    image2: industryIcons.clogo1,
+    image3: homeCloudinaryImages.himg14,
+    logo: homeCloudinaryImages.himg16,
   },
   "2": {
-    image1: navbarImages.logoSvg,
-    image2: industriesImages.clogo2,
-    image3: companyImages.jake,
-    logo: homeImages.himg16,
+    image1: navbarCloudinaryImages.logoSvg,
+    image2: industryIcons.clogo2,
+    image3: companyCloudinaryImages.jake,
+    logo: homeCloudinaryImages.himg16,
   },
   "3": {
-    image1: navbarImages.logoSvg,
-    image2: industriesImages.clogo3,
-    image3: industriesImages.man,
-    logo: homeImages.himg16,
+    image1: navbarCloudinaryImages.logoSvg,
+    image2: industryIcons.clogo3,
+    image3: industryIcons.man,
+    logo: homeCloudinaryImages.himg16,
   },
 };
 

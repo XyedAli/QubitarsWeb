@@ -366,18 +366,42 @@ const HeroSection = ({
                   {awardsSection.label}
                 </p>
                 <div className={`${styles.flexCenter} gap-6 md:gap-2 lg:gap-3 xl:gap-5`}>
-                  {awardsSection.awards.map((award, index) => (
-                    <Image
-                      key={index}
-                      src={award.src}
-                      alt={award.alt}
-                      width={award.width}
-                      height={award.height}
-                      sizes="(max-width: 640px) 20vw, (max-width: 1024px) 120px, 160px"
-                      className={`object-contain opacity-90 hover:opacity-100 transition-opacity ${award.className}`}
-                      unoptimized
-                    />
-                  ))}
+                  {awardsSection.awards.map((award, index) => {
+                    const isSvg = typeof award.src === 'string' && award.src.includes('.svg');
+                    // Hero awards are always priority (above the fold)
+                    const isPriority = true;
+                    
+                    if (isSvg) {
+                      return (
+                        <img
+                          key={index}
+                          src={award.src}
+                          alt={award.alt}
+                          width={award.width}
+                          height={award.height}
+                          className={`object-contain opacity-90 hover:opacity-100 transition-opacity ${award.className}`}
+                          loading="eager"
+                          fetchPriority="high"
+                        />
+                      );
+                    }
+                    
+                    return (
+                      <Image
+                        key={index}
+                        src={award.src}
+                        alt={award.alt}
+                        width={award.width}
+                        height={award.height}
+                        sizes="(max-width: 640px) 20vw, (max-width: 1024px) 120px, 160px"
+                        className={`object-contain opacity-90 hover:opacity-100 transition-opacity ${award.className}`}
+                        priority={isPriority}
+                        loading="eager"
+                        fetchPriority="high"
+                        unoptimized
+                      />
+                    );
+                  })}
                   {(awardsSection.ministryText || awardsSection.governmentText) && (
                     <div>
                       {awardsSection.ministryText && (

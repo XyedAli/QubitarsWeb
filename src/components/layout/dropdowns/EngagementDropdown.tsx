@@ -8,10 +8,14 @@ import { styles, combine } from "@/styles/style";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";
 import Link from "next/link";
+import { getCompanyCloudinaryImages } from "@/lib/assets/images";
 
 // Engagement dropdown component
 export const EngagementDropdown = () => {
     const sliderRef = useRef<Slider | null>(null);
+    
+    // Get Cloudinary company images
+    const companyCloudinaryImages = getCompanyCloudinaryImages();
 
     // Slider config for testimonials carousel
     const sliderSettings = {
@@ -98,7 +102,7 @@ export const EngagementDropdown = () => {
                                             {/* Profile Content */}
                                             <div className={combine(styles.flexitems, "gap-3 mt-4")}>
                                                 <Image
-                                                    src={testimonial.clientAvatar!}
+                                                    src={companyCloudinaryImages.jake}
                                                     alt={testimonial.clientName!}
                                                     width={60}
                                                     height={60}

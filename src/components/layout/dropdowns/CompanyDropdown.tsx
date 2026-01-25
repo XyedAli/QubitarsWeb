@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { companyImages } from "@/lib/assets/images";
+import { getCompanyCloudinaryImages } from "@/lib/assets/images";
 import Link from "next/link";
 import {Building2, Lightbulb, BriefcaseBusiness} from "lucide-react";
 import { CustomSlider } from "@/components/shared/ui";
@@ -9,6 +9,8 @@ import { styles, combine } from "@/styles/style";
 
 // Company dropdown component
 export const CompanyDropdown = () => {
+  // Get Cloudinary company images
+  const companyCloudinaryImages = getCompanyCloudinaryImages();
 
   const sliderSettings = {
     fade: true,
@@ -49,7 +51,7 @@ export const CompanyDropdown = () => {
                   &ldquo;Qubitars is an integral part of our team and we probably wouldn&apos;t be here today without them, Some of their team has worked with us for 5-8 years and we&apos;ve built a trusted business relationship.&rdquo;
                 </p>
                 <div className={combine(styles.flexitems, "gap-3 mt-3")}>
-                  <Image src={companyImages.jake} alt="Logo PayPerks" width={60} height={30} className="rounded-sm hover:opacity-90 transition-opacity" />
+                  <Image src={companyCloudinaryImages.jake} alt="Logo PayPerks" width={60} height={30} className="rounded-sm hover:opacity-90 transition-opacity" />
                   <span className="text-accent font-bold text-md">
                     Jake Peters <span className="text-black font-semibold text-sm">/ CEO & CO-Founder, PayPerks</span>
                   </span>

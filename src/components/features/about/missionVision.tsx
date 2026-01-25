@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { styles } from "@/styles/style";
-import { aboutImages } from "@/lib/assets/images";
+import { getAboutCloudinaryImages } from "@/lib/assets/images";
+
 const MissionVision = () => {
+  const aboutCloudinaryImages = getAboutCloudinaryImages();
   return (
     <section className={`${styles.sectionPadding} bg-[#F5F6FB] py-12 md:py-16`}>
       <div className={styles.sectionPadding}>
@@ -13,7 +15,7 @@ const MissionVision = () => {
             {/* Image - Left Side */}
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[370px] rounded-lg overflow-hidden order-1 lg:order-1">
               <Image
-                src={aboutImages.mission}
+                src={aboutCloudinaryImages.mission}
                 alt="Our Mission - Team meeting"
                 fill
                 className="object-cover"
@@ -55,7 +57,7 @@ const MissionVision = () => {
             {/* Image - Right Side */}
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[370px] rounded-lg overflow-hidden order-1 lg:order-2">
               <Image
-                src={aboutImages.vision}
+                src={aboutCloudinaryImages.vision}
                 alt="Our Vision - Team collaboration"
                 fill
                 className="object-cover"

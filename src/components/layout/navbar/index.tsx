@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { navbarImages, homeImages } from "@/lib/assets/images";
+import { getHomeCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
 import { ChevronDown, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
 import TopNav from "@/components/layout/topNav";
@@ -24,6 +24,11 @@ const Navbar = () => {
     closeMenu,             // Close mobile menu handler
   } = useNavbar();
 
+  // Get Cloudinary home images
+  const homeCloudinaryImages = getHomeCloudinaryImages();
+  
+  // Get Cloudinary navbar images
+  const navbarCloudinaryImages = getNavbarCloudinaryImages();
 
   return (
     <main className="w-full sticky top-0 z-50 bg-white shadow-sm">
@@ -35,7 +40,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/">
             <Image
-              src="/assets/images/home/logo3.png"
+              src={homeCloudinaryImages.logo3}
               alt="Qubitars Technology Logo"
               width={450}
               height={120}
@@ -110,7 +115,7 @@ const Navbar = () => {
             <div
                 className={`pointer-events-none absolute inset-y-0 right-0 w-[39%] bg-no-repeat top-25 z-10 transition-opacity duration-300 ${mobileDropdown === "capabilities" ? "opacity-0" : "opacity-100"}`}
                 style={{
-                  backgroundImage: `url('${navbarImages.bg6}')`,
+                  backgroundImage: `url('${navbarCloudinaryImages.bg6}')`,
                   backgroundSize: "103% 102%",
                 }}
               />
@@ -127,7 +132,7 @@ const Navbar = () => {
               <div className={combine(styles.flexBetween, "px-4 py-4 mb-6 flex-shrink-0")}>
               <Link href="/">
                 <Image
-                  src="/assets/images/home/logo3.png"
+                  src={homeCloudinaryImages.logo3}
                   alt="Qubitars Technology Logo"
                   width={150}
                   height={35}

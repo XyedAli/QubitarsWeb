@@ -12,6 +12,9 @@ export const IndustriesDropdown = () => {
   const [activeIndustry, setActiveIndustry] = useState("real-estate");
   const router = useRouter();
   
+  // Helper function to check if URL is an SVG
+  const isSvg = (src: string) => src.includes('.svg');
+  
   // Slider config for company logos carousel
   const sliderSettings = {
     speed: 2000,
@@ -111,13 +114,24 @@ export const IndustriesDropdown = () => {
                                   &ldquo;{testimonial.quote}&rdquo;
                                 </p>
                                 <div className={combine(styles.flexitems, "gap-3 mt-3")}>
-                                  <Image
-                                    src={testimonial.avatar}
-                                    alt={testimonial.author}
-                                    width={50}
-                                    height={50}
-                                    className="hover:opacity-90 transition-opacity"
-                                  />
+                                  {isSvg(testimonial.avatar) ? (
+                                    <img
+                                      src={testimonial.avatar}
+                                      alt={testimonial.author}
+                                      width={50}
+                                      height={50}
+                                      className="hover:opacity-90 transition-opacity"
+                                      loading="lazy"
+                                    />
+                                  ) : (
+                                    <Image
+                                      src={testimonial.avatar}
+                                      alt={testimonial.author}
+                                      width={50}
+                                      height={50}
+                                      className="hover:opacity-90 transition-opacity"
+                                    />
+                                  )}
                                   <span className="text-accent font-bold text-md">
                                     {testimonial.author}
                                     <span className="text-[#1A1A1A] font-semibold text-sm">

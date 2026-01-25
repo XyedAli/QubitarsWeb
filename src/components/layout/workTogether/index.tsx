@@ -4,8 +4,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { styles } from "@/styles/style";
 import Link from "next/link";
+import { getHomeCloudinaryImages } from "@/lib/assets/images";
 const WorkTogether = () => {
   const pathname = usePathname();
+  
+  // Get Cloudinary home images
+  const homeCloudinaryImages = getHomeCloudinaryImages();
   
   // Hide this section on contact page
   if (pathname === "/contact") {
@@ -29,7 +33,7 @@ const WorkTogether = () => {
             </h2>
             <div className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110 group-active:translate-x-1 group-active:scale-105">
                 <Image 
-                    src="/assets/images/home/emailicon.svg" 
+                    src={homeCloudinaryImages.emailicon} 
                     alt="call to action" 
                     width={80}
                     height={80}

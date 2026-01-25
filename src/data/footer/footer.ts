@@ -1,4 +1,4 @@
-import { homeImages } from "@/lib/assets/images";
+import { homeImages, getHomeHeroCloudinaryImages } from "@/lib/assets/images";
 
 export const companyLinks = [
   { name: "About Us", href: "/about-us" },
@@ -27,9 +27,12 @@ export const industriesLinks = [
   { name: "Startups", href: "/industries/startups" },
 ];
 
+// Get Cloudinary home hero images
+const homeHeroImages = getHomeHeroCloudinaryImages();
+
 export const partnerBadges = [
   { name: "Trustpilot", src: homeImages.himg7 },
   { name: "Goodfirms", src: homeImages.himg6 },
-  { name: "Clutch", src: homeImages.himg1 },
+  { name: "Clutch", src: homeHeroImages.himg1 },
 ];
 
