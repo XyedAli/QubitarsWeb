@@ -1,15 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { MoveUpRight } from "lucide-react";
+import { MoveUpRight, Mail } from "lucide-react";
 import { styles, combine } from "@/styles/style";
 
-const Banner2 = () => {
+interface Banner2Props {
+    title?: string;
+    description?: string;
+    email?: string;
+    buttonText?: string;
+    backgroundImage?: string;
+}
+
+const Banner2 = ({ 
+    title = "Build Faster. Scale Smarter. Win Bigger.",
+    description,
+    email,
+    buttonText = "Let's Discuss",
+    backgroundImage = "/assets/images/generals/banners/bannerbg2.png"
+}: Banner2Props) => {
+    // Split title into parts for display
+    const titleParts = title.split('. ').filter(part => part.trim());
+    
     return (
         <section className="relative overflow-hidden min-h-[53vh] md:min-h-[57vh] lg:min-h-[63vh] flex items-center mx-5">
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/assets/images/generals/banners/bannerbg2.png"
+                    src={backgroundImage}
                     alt=""
                     fill
                     className="object-cover"
@@ -18,22 +35,44 @@ const Banner2 = () => {
             </div>
             <div className={combine("relative z-10 w-full", styles.sectionPadding)}>
                 <div className="flex flex-col md:flex-row flex-nowrap justify-center md:justify-between items-center w-full gap-6 md:gap-0">
-                    <h2 className={combine("text-[30px] md:text-[37px] lg:text-[44px] xl:text-[50px] text-white font-bold leading-tight font-outfit text-center md:text-left")}>
-                        <span className="md:hidden">
-                            <span className="whitespace-nowrap">Build Faster. Scale Smarter.</span><br />
-                            Win Bigger.
-                        </span>
-                        <span className="hidden md:inline">
-                            Build Faster.<br />
-                            Scale Smarter.<br />
-                            Win Bigger.
-                        </span>
-                    </h2>
+                    <div className="flex-1 flex flex-col gap-4 md:gap-5 text-center md:text-left">
+                        <h2 className={combine("text-[30px] md:text-[37px] lg:text-[44px] xl:text-[50px] max-w-lg text-white font-bold leading-tight font-outfit")}>
+                            <span className="md:hidden">
+                                {titleParts.length > 0 && (
+                                    <>
+                                        <span className="whitespace-nowrap">{titleParts[0]}{titleParts.length > 1 ? '. ' + titleParts[1] : ''}</span>
+                                        {titleParts.length > 2 && <><br />{titleParts.slice(2).join('. ')}</>}
+                                    </>
+                                )}
+                            </span>
+                            <span className="hidden md:inline">
+                                {titleParts.map((part, index) => (
+                                    <span key={index}>
+                                        {part}.
+                                        {index < titleParts.length - 1 && <br />}
+                                    </span>
+                                ))}
+                            </span>
+                        </h2>
+                        {(description || email) && (
+                            <p className="text-white text-base md:text-lg lg:text-xl font-inter flex flex-col sm:flex-row items-center gap-2">
+                                {description && <span>{description}</span>}
+                                {email && (
+                                    <a 
+                                        href={`mailto:${email}`} 
+                                        className="underline hover:text-[#00D4FF] font-semibold transition-colors duration-300 flex items-center gap-1"
+                                    >
+                                        {email}
+                                    </a>
+                                )}
+                            </p>
+                        )}
+                    </div>
                     <button className="group inline-flex items-center gap-2 px-5 md:px-6 lg:px-8 py-2 lg:py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0">
-                        <span>Let&apos;s Discuss</span>
+                        <span>{buttonText}</span>
                         <MoveUpRight className="w-7 h-7 rounded-full bg-white p-1 text-black" />
                     </button>
-                </div>
+                </div>  
             </div>
         </section>
     );

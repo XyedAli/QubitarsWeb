@@ -100,7 +100,7 @@ const BusinessTypes = () => {
             size="lg"
           >
             <Link href="/contact">
-              lets Talk Business
+              Let's Talk Business
             </Link>
             <div className="relative">
               <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />

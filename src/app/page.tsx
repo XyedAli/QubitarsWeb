@@ -4,7 +4,6 @@ import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { styles } from "@/styles/style";
 import Banner1 from "@/components/layout/banners/banner1";
-import Banner2 from "@/components/layout/banners/banner2";
 import Banner3 from "@/components/layout/banners/banner3";
 import Banner4 from "@/components/layout/banners/banner4";
 import { homeMetadata } from "@/lib/metadata";
@@ -18,9 +17,9 @@ export default function Home() {
   const logoKeys = ['clogo1', 'clogo2', 'clogo3', 'clogo4', 'clogo5', 'clogo6', 'clogo7', 'clogo8', 'clogo9', 'clogo10', 'clogo11', 'clogo12', 'clogo13', 'clogo14', 'clogo15', 'clogo16', 'clogo17', 'clogo18'] as const;
   
   const logoEntries = logoKeys
-    .filter((key): key is keyof typeof industryIcons => key in industryIcons)
+    .filter((key) => key in industryIcons)
     .map((key, index) => ({
-      src: industryIcons[key],
+      src: industryIcons[key as keyof typeof industryIcons],
       alt: `Client Logo ${index + 1}`,
       width: 120,
       height: 60,
@@ -52,7 +51,6 @@ export default function Home() {
       <IndustriesCards />
       <DigitalServices />
       {/* <Banner1 /> */}
-      {/* <Banner2 /> */}
       {/* <Banner3 /> */}
       <Banner4 />
       <TriScroll />

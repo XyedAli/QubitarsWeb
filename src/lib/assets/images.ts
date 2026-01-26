@@ -380,6 +380,107 @@ export const getHomeCloudinaryImages = () => {
 };
 
 /**
+ * Service Modal Images Cloudinary
+ * Returns optimized Cloudinary URLs for service modal images (mimg1-4)
+ * Used in services cards/modals on home page
+ */
+export const getServiceModalCloudinaryImages = () => {
+  const modalEndpoints = {
+    mimg1: "v1769369126/mimg1_pwxhsb.webp",
+    mimg2: "v1769369129/mimg2_v7stc0.webp",
+    mimg3: "v1769369121/mimg3_rse4fd.webp",
+    mimg4: "v1769369122/mimg4_uvbajw.webp",
+  };
+
+  const modalImages: Record<string, string> = {};
+  
+  Object.entries(modalEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    modalImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+  });
+
+  return modalImages as {
+    mimg1: string;
+    mimg2: string;
+    mimg3: string;
+    mimg4: string;
+  };
+};
+
+/**
+ * Technology Icons Cloudinary
+ * Returns optimized Cloudinary URLs for technology icons (micon1-10)
+ * Used in services/technologies sections
+ */
+export const getTechnologyIconCloudinaryImages = () => {
+  const iconEndpoints = {
+    micon1: "v1769369146/micon1_bvnj60.webp",
+    micon2: "v1769369149/micon2_tvspgy.webp",
+    micon3: "v1769369151/micon3_ppu03e.webp",
+    micon4: "v1769369144/micon4_hm5ivu.webp",
+    micon5: "v1769369139/micon5_xbrinb.webp",
+    micon6: "v1769369141/micon6_p3dvdc.webp",
+    micon7: "v1769369136/micon7_uqpmug.webp",
+    micon8: "v1769369134/micon8_jxdbtq.webp",
+    micon9: "v1769369131/micon9_y23gvd.webp",
+    micon10: "v1769369124/micon10_b1qi2b.webp",
+  };
+
+  const iconImages: Record<string, string> = {};
+  
+  Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    iconImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+  });
+
+  return iconImages as {
+    micon1: string;
+    micon2: string;
+    micon3: string;
+    micon4: string;
+    micon5: string;
+    micon6: string;
+    micon7: string;
+    micon8: string;
+    micon9: string;
+    micon10: string;
+  };
+};
+
+/**
+ * Career Icons Cloudinary Images
+ * Returns optimized Cloudinary URLs for career/benefits icons (careerIcon1-6)
+ * Used in careers benefits section
+ */
+export const getCareerCloudinaryIcons = () => {
+  const iconEndpoints = {
+    careerIcon1: "v1769421558/careerIcon1_qalkdt.svg",
+    careerIcon2: "v1769421558/careerIcon2_wjrfnr.svg",
+    careerIcon3: "v1769421558/careerIcon3_jndxwr.svg",
+    careerIcon4: "v1769421558/careerIcon4_nfylsd.svg",
+    careerIcon5: "v1769421558/careerIcon5_lxsw14.svg",
+    careerIcon6: "v1769421558/careerIcon6_msvcoy.svg",
+  };
+
+  const iconImages: Record<string, string> = {};
+  
+  Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    // For SVGs, use optimizeIconImage which preserves vector quality
+    iconImages[key] = optimizeIconImage(fullUrl);
+  });
+
+  return iconImages as {
+    careerIcon1: string;
+    careerIcon2: string;
+    careerIcon3: string;
+    careerIcon4: string;
+    careerIcon5: string;
+    careerIcon6: string;
+  };
+};
+
+/**
  * Tri-Scroll Logos Cloudinary Images
  * Returns optimized Cloudinary URLs for tri-scroll logo carousel
  * Used in home page tri-scroll component

@@ -101,7 +101,7 @@ const Services = () => {
     <section className="bg-blue-50">
       <div className={`${styles.sectionPadding} ${styles.sectionPaddingY}`}>
         <SectionHeading
-          subtitle="OUR SERVICES"
+          subtitle="Our Services"
           title="Growth-Focused Digital Services"
         />
 
@@ -127,13 +127,6 @@ const Services = () => {
                 isActive = activeCardRow3 === index;
               }
             }
-
-            // Width calculation to ensure exactly 3 cards per row
-            // Active card: 50%, Inactive cards: 25% each
-            // For 3 cards with 2 gaps: subtract gap proportionally
-            // gap-6 (1.5rem): Active subtracts 1.5rem, Inactive subtracts 0.75rem each
-            // gap-4 (1rem): Active subtracts 1rem, Inactive subtracts 0.5rem each
-            // gap-8 (2rem): Active subtracts 2rem, Inactive subtracts 1rem each
             let cardWidth = "w-full"; // mobile: full width
             if (!isMobileScreen && !isLgScreen) {
               // Medium screens: gap-6 = 1.5rem

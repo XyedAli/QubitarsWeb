@@ -84,7 +84,7 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
     return (
         <div className={combine(styles.sectionPadding, styles.sectionPaddingY)}>
             <SectionHeading
-                subtitle="OUR CLIENTS"
+                subtitle="Our Clients"
                 title="Making Hundreds Of Businesses Better, Big Or Small!"
             />
 

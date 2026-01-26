@@ -75,13 +75,11 @@ export default function CaseStudiesSection() {
   return (
     <section className={`${styles.sectionPadding} pb-12 md:pb-16 lg:pb-20`}>
       {/* Section Heading */}
-      <div className="xl:mx-22">
-        <SectionHeading
+      <SectionHeading
           subtitle="Case Studies"
           title="Real Products. Real Impact."
         />
-  
-
+      <div className="xl:mx-22">
       {/* Case Studies - Grid Layout */}
       <div className="grid grid-cols-1 gap-8 md:gap-12 xl:gap-16">
         {caseStudies.map((study, index) => (

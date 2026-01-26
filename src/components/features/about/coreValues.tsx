@@ -3,23 +3,21 @@
 import { useState } from "react";
 import Image from "next/image";
 import { styles } from "@/styles/style";
+import { SectionHeading } from "@/components/shared/headings";
 import { coreValues } from "@/data";
 
 const CoreValues = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <section className="bg-white relative overflow-hidden max-w-6xl mx-auto">
-      <div className={`${styles.sectionPadding} pt-12 md:pt-16 lg:pt-20 xl:pt-10 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
+    <section className={`bg-white relative overflow-hidden ${styles.sectionPadding}`}>
+          <SectionHeading
+            subtitle="What Drives Us"
+            title="Values Powering Our Vision"
+          />
+      <div className={`max-w-5xl mx-auto pt-12 md:pt-16 lg:pt-20 xl:pt-10 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
         {/* Heading */}
-        <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-14 text-center">
-          <h2 className={`${styles.h1} font-bold font-outfit leading-tight`}>
-            <span className="text-blue">Values </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-              Powering Our Vision
-            </span>
-          </h2>
-        </div>
+      
 
         {/* Cards Grid: 2 rows of 3 cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">

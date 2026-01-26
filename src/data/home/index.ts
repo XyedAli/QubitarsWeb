@@ -1,17 +1,10 @@
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
-import { AwardsImages, getTriScrollCloudinaryLogos, getAwardsCloudinaryImages, getCompanyCloudinaryImages, getHomeCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
+import { getTriScrollCloudinaryLogos, getAwardsCloudinaryImages, getCompanyCloudinaryImages, getHomeCloudinaryImages, getNavbarCloudinaryImages, getServiceModalCloudinaryImages, getTechnologyIconCloudinaryImages } from "@/lib/assets/images";
 import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import {
-  TriScrollImages,
-  homeImages,
-  serviceModalImages,
-  technologyIconImages,
   techStackIcons,
-  navbarImages,
-  companyImages,
-  industriesImages,
 } from "../../../public/assets/images";
 
 export const businessTypes = [
@@ -34,6 +27,12 @@ export const businessTypes = [
 
 // Get Cloudinary awards images
 const awardsCloudinaryImages = getAwardsCloudinaryImages();
+
+// Get Cloudinary service modal images
+const serviceModalCloudinaryImages = getServiceModalCloudinaryImages();
+
+// Get Cloudinary technology icon images
+const technologyIconCloudinaryImages = getTechnologyIconCloudinaryImages();
 
 export const awards = [
   {
@@ -108,24 +107,24 @@ export interface ServiceData {
 }
 
 const serviceModalIcons: { name: string; icon: string }[] = [
-  { name: "Python", icon: technologyIconImages.micon1 },
-  { name: "TensorFlow", icon: technologyIconImages.micon2 },
-  { name: "PyTorch", icon: technologyIconImages.micon3 },
-  { name: "Docker", icon: technologyIconImages.micon4 },
-  { name: "Kubernetes", icon: technologyIconImages.micon5 },
-  { name: "AWS", icon: technologyIconImages.micon6 },
-  { name: "Azure", icon: technologyIconImages.micon7 },
-  { name: "GCP", icon: technologyIconImages.micon8 },
-  { name: "Technology 9", icon: technologyIconImages.micon9 },
-  { name: "Technology 10", icon: technologyIconImages.micon10 },
+  { name: "Python", icon: technologyIconCloudinaryImages.micon1 },
+  { name: "TensorFlow", icon: technologyIconCloudinaryImages.micon2 },
+  { name: "PyTorch", icon: technologyIconCloudinaryImages.micon3 },
+  { name: "Docker", icon: technologyIconCloudinaryImages.micon4 },
+  { name: "Kubernetes", icon: technologyIconCloudinaryImages.micon5 },
+  { name: "AWS", icon: technologyIconCloudinaryImages.micon6 },
+  { name: "Azure", icon: technologyIconCloudinaryImages.micon7 },
+  { name: "GCP", icon: technologyIconCloudinaryImages.micon8 },
+  { name: "Technology 9", icon: technologyIconCloudinaryImages.micon9 },
+  { name: "Technology 10", icon: technologyIconCloudinaryImages.micon10 },
 ];
 
 export const servicesData: ServiceData[] = [
   {
     title: "AI & ML Development",
     description: "Unlock the power of artificial intelligence and machine learning to automate processes, gain insights, and drive innovation.",
-    image: homeImages.himg10,
-    modalImage: serviceModalImages.mimg1,
+    image: homeCloudinaryImages.himg10,
+    modalImage: serviceModalCloudinaryImages.mimg1,
     modalDescription: [
       "Unlock intelligent automation and data-driven insights with AI/ML solutions designed to solve real problems and create competitive advantage.",
       "Launch faster, smarter. We build lean, scalable MVPs that validate your idea, attract users, and prepare you for full product rollout."
@@ -181,7 +180,7 @@ export const servicesData: ServiceData[] = [
   {
     title: "Product Design",
     description: "We craft intuitive, user-first digital experiences that look stunning and function flawlessly—turning complex ideas into designs users love.",
-    image: homeImages.himg8,
+    image: homeCloudinaryImages.himg8,
     modalDescription: [
       "We craft intuitive, user-first digital experiences that look stunning and function flawlessly—turning complex ideas into designs users love. Great design goes beyond aesthetics—it’s about creating experiences that feel natural and memorable.",
       "Every screen, interaction, and flow is optimized to drive engagement, retention, and business success. With a balance of bold creativity and technical precision, we ensure your product not only looks great but also delivers measurable impact."
@@ -200,7 +199,7 @@ export const servicesData: ServiceData[] = [
     title: "Quality Assurance",
     description: "Ensure flawless performance with comprehensive testing and quality assurance that delivers reliable, bug-free software solutions.",
     image: homeCloudinaryImages.himg13,
-    modalImage: serviceModalImages.mimg2,
+    modalImage: serviceModalCloudinaryImages.mimg2,
     modalDescription: [
       "Software isn’t complete until it’s tested. Our QA team ensures your product is flawless, reliable, and future-proof.",
       "We combine the power of manual testing and advanced automation frameworks to catch issues before your users do.",
@@ -219,8 +218,8 @@ export const servicesData: ServiceData[] = [
   {
     title: "DevOps",
     description: "Accelerate deployment and improve reliability with automated CI/CD pipelines, infrastructure management, and cloud solutions.",
-    image: homeImages.himg12,
-    modalImage: serviceModalImages.mimg3,
+    image: homeCloudinaryImages.himg12,
+    modalImage: serviceModalCloudinaryImages.mimg3,
     modalDescription: [
       "We bring speed, security, and scalability to your software lifecycle. Speed, scalability, and security—that’s the promise of our DevOps approach.",
       "We streamline the entire software delivery pipeline using CI/CD, cloud-native deployment, and real-time monitoring to ensure faster releases and reduced downtime.",
@@ -240,7 +239,7 @@ export const servicesData: ServiceData[] = [
     title: "Staff Augmentation",
     description: "Scale your team with vetted developers, designers, and AI experts—ready to plug in, deliver results, and adapt to your workflow.",
     image: homeCloudinaryImages.himg11,
-    modalImage: serviceModalImages.mimg4,
+    modalImage: serviceModalCloudinaryImages.mimg4,
     modalDescription: [
       "We bring speed, security, and scalability to your software lifecycle. Speed, scalability, and security—that’s the promise of our DevOps approach.",
       "We streamline the entire software delivery pipeline using CI/CD, cloud-native deployment, and real-time monitoring to ensure faster releases and reduced downtime.",
