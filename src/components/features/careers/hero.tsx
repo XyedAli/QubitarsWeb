@@ -18,7 +18,7 @@ export default function CareersHero() {
                 "Turn your curiosity into expertise and your skills into real-world impact.",
             ]}
             backgroundType="image"
-            backgroundImage="/assets/images/engModel/modelbg1.png"
+            backgroundImage="https://res.cloudinary.com/drugkop7t/image/upload/v1769435309/modelbg_ipley9.webp"
             overlayTag="ENGAGEMENT MODEL"
             overlayTitle="Empowering Talent. Building the Future."
             overlayDescription="Join a team where innovation, collaboration, and growth are part of everyday life."
