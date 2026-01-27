@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { styles } from "@/styles/style";
 import { MoveUpRight } from "lucide-react";
+import Link from "next/link";
 import { SectionHeading } from "@/components/shared/headings";
 
 interface JobPosition {
@@ -171,6 +172,7 @@ const OpenPositions = () => {
                                                     On Site
                                                 </span>
                                             )}
+                                            <Link href="/careers/apply-now">
                                             <button
                                                 onClick={(e) => handleApplyNow(e, job.id)}
                                                 className="px-3 lg:px-4 lg:py-2 py-1.5 border-2 border-accent cursor-pointer bg-white text-accent rounded-lg text-sm lg:text-base font-semibold font-inter hover:bg-[#F05C22] hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap group"
@@ -178,6 +180,7 @@ const OpenPositions = () => {
                                                 Apply Now
                                                 <MoveUpRight className="w-4 h-4 text-[#F05C22] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                                             </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

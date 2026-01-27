@@ -214,7 +214,7 @@ const ApplyNow = () => {
         <form onSubmit={handleSubmit} className="space-y-8 md:space-y-3">
           {/* Resume Upload Section */}
           <div className="space-y-3">
-            <h2 className={`${styles.h5} font-semibold text-blue font-outfit`}>
+            <h2 className={`${styles.h5z} font-semibold text-blue font-outfit`}>
               Upload your resume/cv in seconds
             </h2>
             <div

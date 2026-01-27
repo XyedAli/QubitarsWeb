@@ -36,10 +36,12 @@ const buildCloudinaryUrl = (endpoint: string): string => {
  * Returns optimized Cloudinary URLs for blog page
  */
 export const getBlogCloudinaryImages = () => {
-  const blogBg = process.env.NEXT_PUBLIC_BLOG_BG_IMAGE || "";
+  // Cloudinary blog background endpoint (WebP format for optimal quality)
+  const blogBgEndpoint = "v1769160189/blogbg_dnvnad.webp";
+  const blogBgUrl = buildCloudinaryUrl(blogBgEndpoint);
   
   return {
-    blogBg: blogBg ? optimizeHeroImage(`${CLOUDINARY_BASE_URL}/${blogBg}`) : "",
+    blogBg: optimizeHeroImage(blogBgUrl), // Use optimizeHeroImage for background images
   };
 };
 

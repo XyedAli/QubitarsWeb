@@ -110,7 +110,9 @@ export const CompanyDropdown = () => {
                 <div className="p-1 rounded-lg group-hover/item:bg-blue-100 transition-colors duration-300">
                   <BriefcaseBusiness width={20} height={20} className="text-[#1E274F]" />
                 </div>
-                <h4 className="font-bold text-base lg:text-lg text-accent">Careers</h4>
+                <Link href="/careers">
+                <h4 className="font-bold text-base lg:text-lg text-accent hover:underline cursor-pointer">Careers</h4>
+                </Link>
               </div>
               <div className={combine(styles.flexCol, "space-y-3 border-b border-[#CCCCCC] pb-6 mr-4 lg:mr-2 xl:mr-0")}>
                 {companyData.filter(item => item.type === "careersLink").map((link) => (
@@ -127,7 +129,7 @@ export const CompanyDropdown = () => {
                 <div className={combine(styles.flexCol, "space-y-3")}>
                   {companyData.filter(item => item.type === "blogPost").map((blog) => (
                     <div key={blog.id} className={combine(styles.flexitems, "gap-2 hover:bg-gray-100 rounded-lg p-1 transition-colors cursor-pointer")}>
-                      <Image src={blog.image!} alt={blog.alt!} width={80} height={80} className="rounded w-18 h-14 lg:w-26 lg:h-17 object-cover flex-shrink-0" />
+                      <Image src={blog.image!} alt={blog.alt!} width={80} height={80} className="rounded w-18 h-14 lg:w-26 lg:h-17 object-cover flex-shrink-0" unoptimized />
                       <p className="text-xs xl:text-sm text-black font-medium">{blog.title}</p>
                     </div>
                   ))}
