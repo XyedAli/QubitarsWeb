@@ -50,10 +50,12 @@ export const getBlogCloudinaryImages = () => {
  * Returns optimized Cloudinary URLs for case studies page
  */
 export const getCaseStudiesCloudinaryImages = () => {
-  const caseStudiesBg = process.env.NEXT_PUBLIC_CASE_STUDIES_BG_IMAGE || "";
+  // Cloudinary case studies background endpoint (WebP format for optimal quality)
+  const caseStudiesBgEndpoint = "v1769159269/caseStudiesbg_piw2gw.webp";
+  const caseStudiesBgUrl = buildCloudinaryUrl(caseStudiesBgEndpoint);
   
   return {
-    caseStudiesBg: caseStudiesBg ? optimizeHeroImage(`${CLOUDINARY_BASE_URL}/${caseStudiesBg}`) : "",
+    caseStudiesBg: optimizeHeroImage(caseStudiesBgUrl), // Use optimizeHeroImage for background images
   };
 };
 
@@ -273,7 +275,7 @@ export const getCompanyCloudinaryImages = () => {
  */
 export const getEngagementModelCloudinaryImages = () => {
   // Cloudinary engagement model background endpoint (WebP format for optimal quality)
-  const modelBgEndpoint = "v1769172650/modelbg1_nt59xm.webp";
+  const modelBgEndpoint = "v1769540140/modelbg_pyfp12.webp";
   const modelBgUrl = buildCloudinaryUrl(modelBgEndpoint);
   
   return {

@@ -234,9 +234,9 @@ interface CompanyDataItem {
 
 // Company dropdown data - testimonials, stats, links, blogs, social media
 export const companyData: CompanyDataItem[] = [
-  { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
-  { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
-  { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: "/assets/images/navbar/lorem.svg", logoAlt: "Logo Qubitars" },
+  { type: "testimonialSlide", id: "slide-1", title: "A Technology Partnership That Goes Beyond Code", logo: navbarCloudinaryImages.lorem, logoAlt: "Logo Qubitars" },
+  { type: "testimonialSlide", id: "slide-2", title: "Innovation Through Collaboration", logo: navbarCloudinaryImages.lorem, logoAlt: "Logo Qubitars" },
+  { type: "testimonialSlide", id: "slide-3", title: "Building Trust Through Excellence", logo: navbarCloudinaryImages.lorem, logoAlt: "Logo Qubitars" },
   { type: "statistic", id: "client-retention", icon: Users, value: "95%", label: "Client Retention" },
   { type: "statistic", id: "automation-efficiency", icon: LandPlot, value: "90%", label: "Automation Efficiency" },
   { type: "statistic", id: "users-impacted", icon: Handshake, value: "100+", label: "Users Impacted" },

@@ -57,26 +57,46 @@ const CustomersNeeds = () => {
       </div>
 
       {/* Feature Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-        {featureCards.map((card, index) => (
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-0">
+        {/* Full-height vertical divider after first column (only on lg+ screens) */}
+        <div className="hidden lg:block absolute left-[33.333%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
+        <div className="hidden lg:block absolute left-[66.666%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
+
+        {/* Full-width horizontal dividers above second row - one for each column (only on lg+ screens) */}
+        <div className="hidden lg:block absolute top-[50%] left-0 w-[100%] h-[2px] bg-gradient-to-r from-transparent via-[#FCB477] to-transparent pointer-events-none" />
+        {/* <div className="hidden lg:block absolute top-[50%] left-[33.333%] w-[33.333%] h-[1px] bg-gradient-to-r from-transparent via-[#F05C22]/20 to-transparent pointer-events-none" /> */}
+        {/* <div className="hidden lg:block absolute top-[50%] right-0 w-[33.333%] h-[1px] bg-gradient-to-r from-transparent via-[#F05C22]/20 to-transparent pointer-events-none" /> */}
+        
+        {featureCards.map((card, index) => {
+          const paddingClasses = ["lg:px-8"];
+          
+          // Top row cards (0, 1, 2) need bottom padding on lg screens
+          if (index < 3) {
+            paddingClasses.push("lg:pb-8");
+          }
+          
+          // Bottom row cards (3, 4, 5) need top padding on lg screens
+          if (index >= 3) {
+            paddingClasses.push("lg:pt-8");
+          }
+          
+          return (
           <div
             key={index}
-            className="flex flex-col"
+            className={`flex flex-col ${paddingClasses.join(" ")}`}
           >
-            {/* Top Divider Line */}
-            <div className="h-[1px] bg-gradient-to-r from-transparent via-[#F05C22]/30 to-transparent mb-4 md:mb-5 lg:mb-6" />
-            
             {/* Card Content */}
             <div className="flex flex-col flex-1">
               {/* Icon */}
-              <div className="mb-3 md:mb-4">
-                <FileCheck className="w-5 h-5 md:w-6 md:h-6 text-[#F05C22]" strokeWidth={2} />
-              </div>
+              <div className="flex items-start mb-3 md:mb-4 gap-2">
+                {/* <FileCheck className="w-5 h-5 md:w-6 md:h-6 text-[#F05C22]" strokeWidth={2} /> */}
+             <img src="/assets/images/engModel/modelicon1.png" alt="" className="w-5 h-5 md:w-8 md:h-8" />
               
               {/* Title */}
-              <h3 className={`${styles.h4} font-bold text-blue mb-3 md:mb-4 leading-tight font-outfit`}>
+              <h3 className={`${styles.h5} font-bold text-blue mb-3 md:mb-4 leading-tight font-outfit`}>
                 {card.title}
               </h3>
+              </div>
               
               {/* Description */}
               <p className={`${styles.p2} text-gray-600 leading-relaxed font-inter`}>
@@ -84,7 +104,8 @@ const CustomersNeeds = () => {
               </p>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
