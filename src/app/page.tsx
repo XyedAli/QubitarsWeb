@@ -8,9 +8,7 @@ import Banner4 from "@/components/layout/banners/banner4";
 import { homeMetadata } from "@/lib/metadata";
 
 export const metadata = homeMetadata;
-
 export default function Home() {
-
   // Merge testimonials data with images
   const testimonialsWithImages = testimonialsData.map((testimonial) => {
     const images = testimonialImagesById[testimonial.id];

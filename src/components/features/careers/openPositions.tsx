@@ -122,15 +122,15 @@ const OpenPositions = () => {
                             >
                                 {/* Card Header - Clickable */}
                                 <div
-                                    className="p-4 md:p-5 lg:p-6 cursor-pointer"
+                                    className="p-4 lg:p-6 cursor-pointer"
                                     onClick={() => toggleExpand(job.id)}
                                 >
                                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                                         {/* Left Side - Job Info */}
-                                        <div className="flex-1 flex gap-4 md:gap-24">
+                                        <div className="flex-1 flex gap-4 lg:gap-9 xl:gap-24">
                                             {/* Number Identifier */}
-                                            <div className="flex-shrink-0">
-                                                <span className="text-[32px] md:text-[36px] lg:text-[40px] font-semibold text-blue font-outfit">
+                                            <div className="flex-shrink-0 -mt-2">
+                                                <span className={`${styles.h2} font-semibold text-blue font-outfit`}>
                                                     {String(job.id).padStart(2, "0")}.
                                                 </span>
                                             </div>
@@ -138,12 +138,12 @@ const OpenPositions = () => {
                                             {/* Job Details */}
                                             <div className="flex-1 flex flex-col gap-3">
                                                 {/* Job Title */}
-                                                <h3 className={`${styles.h3} font-bold text-blue font-outfit leading-tight`}>
+                                                <h3 className={`${styles.h4} font-bold text-blue font-outfit leading-tight`}>
                                                     {job.title}
                                                 </h3>
 
                                                 {/* Key Attributes */}
-                                                <div className="flex flex-wrap items-center gap-2 text-gray-600 text-sm md:text-base font-inter">
+                                                <div className="flex flex-wrap items-center gap-2 text-gray-600 text-sm lg:text-base font-inter">
                                                     <span><span className="text-accent">•</span> {job.experience}</span>
                                                     <span><span className="text-accent">•</span> {job.type}</span>
                                                     <span><span className="text-accent">•</span> {job.education}</span>
@@ -151,11 +151,11 @@ const OpenPositions = () => {
                                                 </div>
 
                                                 {/* Technology Tags */}
-                                                <div className="flex flex-wrap gap-2 mt-2 max-w-2xl">
+                                                <div className="flex flex-wrap gap-1 lg:gap-2 mt-2 max-w-2xl">
                                                     {job.technologies.map((tech, index) => (
                                                         <span
                                                             key={index}
-                                                            className="px-3 py-1.5 bg-white rounded-full text-sm md:text-base font-inter text-gray-700 border-2 border-gray-300 font-medium"
+                                                            className="px-3 py-1 lg:py-1.5 bg-white rounded-full text-[9px] md:text-[11px] lg:text-base font-inter text-gray-700 border-2 border-gray-300 font-medium"
                                                         >
                                                             {tech}
                                                         </span>
@@ -165,15 +165,15 @@ const OpenPositions = () => {
                                         </div>
 
                                         {/* Right Side - Action Buttons */}
-                                        <div className="flex items-start gap-3 flex-shrink-0">
+                                        <div className="flex items-start gap-2 lg:gap-3 flex-shrink-0">
                                             {job.isOnSite && (
-                                                <span className="px-4 py-2 bg-blue text-white rounded-full text-sm md:text-base font-semibold font-inter whitespace-nowrap">
+                                                <span className="px-4 lg:py-2 py-1.5 bg-blue text-white rounded-full text-sm lg:text-base font-semibold font-inter whitespace-nowrap">
                                                     On Site
                                                 </span>
                                             )}
                                             <button
                                                 onClick={(e) => handleApplyNow(e, job.id)}
-                                                className="px-4 py-2 border-2 border-accent cursor-pointer bg-white text-accent rounded-lg text-sm md:text-base font-semibold font-inter hover:bg-[#F05C22] hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap group"
+                                                className="px-3 lg:px-4 lg:py-2 py-1.5 border-2 border-accent cursor-pointer bg-white text-accent rounded-lg text-sm lg:text-base font-semibold font-inter hover:bg-[#F05C22] hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap group"
                                             >
                                                 Apply Now
                                                 <MoveUpRight className="w-4 h-4 text-[#F05C22] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />

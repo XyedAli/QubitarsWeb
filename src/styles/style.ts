@@ -23,7 +23,7 @@
  containerLarge : "max-w-[78.2rem] mx-auto",
  containerXl : "max-w-2xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl leading-relaxed",
  sectionPadding : "mx-4 lg:mx-8 xl:mx-16 mx-1700-260",
- sectionPaddingY : "py-16 md:py-20 lg:py-24",
+ sectionPaddingY : "py-14 md:py-18 lg:py-21 xl:py-24",
 
 // Flex utilities
  flexCenter : "flex items-center justify-center",
@@ -37,7 +37,7 @@
  topNavText : "text-black text-[11px] md:text-[13px] font-bold group-hover:text-accent transition-colors",
 
 // Contact Form styles
- inputBase: "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent font-inter placeholder:text-gray-400",
+ inputBase: "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent font-inter placeholder:text-gray-400 text-blue",
  inputError: "border-red-500",
  inputNormal: "border-gray-300",
  labelBase: "text-black font-semibold mb-2 block font-inter",

@@ -4,7 +4,7 @@ import InstaFeed from "../about/instaFeed";
 
 const LookingFor = () => {
     return (
-        <section>
+        <section className="pb-14 md:pb-18 lg:pb-21 xl:pb-24">
             <div className={`relative overflow-hidden ${styles.sectionPaddingY } `}>
                 <Banner2
                     title="Didn’t Find What You Are Looking For?"

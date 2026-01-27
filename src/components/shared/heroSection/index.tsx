@@ -187,21 +187,21 @@ const HeroSection = ({
             {/* Overlay Card */}
             {(overlayTag || overlayTitle || overlayDescription) && (
               <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 lg:left-8 lg:right-8 xl:left-10 xl:right-10">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl p-4 lg:p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   {/* Left Content */}
                   <div className="relative">
                     {overlayTag && (
-                      <span className="absolute -top-9 lg:-top-11 left-0 px-5 py-2 text-sm lg:text-base font-semibold bg-white text-gray-900 rounded-full">
+                      <span className="absolute -top-9 lg:-top-11 left-0 px-5 py-2 text-xs md:text-sm lg:text-base font-semibold bg-white text-gray-900 rounded-full">
                         {overlayTag}
                       </span>
                     )}
                     {overlayTitle && (
-                      <h3 className={`text-white font-semibold ${styles.p3}`}>
+                      <h3 className={`text-white font-semibold text-[16px] md:text-[18px] lg:text-[20px] mt-2 xl:mt-0`}>
                         {overlayTitle}
                       </h3>
                     )}
                     {overlayDescription && (
-                      <p className="text-white text-sm mt-1">
+                      <p className="text-white text-xs md:text-sm mt-1">
                         {overlayDescription}
                       </p>
                     )}

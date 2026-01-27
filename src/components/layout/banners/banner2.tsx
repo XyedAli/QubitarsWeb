@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { MoveUpRight, Mail } from "lucide-react";
+import Link from "next/link";
 import { styles, combine } from "@/styles/style";
 
 interface Banner2Props {
@@ -36,14 +37,9 @@ const Banner2 = ({
             <div className={combine("relative z-10 w-full", styles.sectionPadding)}>
                 <div className="flex flex-col md:flex-row flex-nowrap justify-center md:justify-between items-center w-full gap-6 md:gap-0">
                     <div className="flex-1 flex flex-col gap-4 md:gap-5 text-center md:text-left">
-                        <h2 className={combine("text-[30px] md:text-[37px] lg:text-[44px] xl:text-[50px] max-w-lg text-white font-bold leading-tight font-outfit")}>
+                        <h2 className={combine(`${styles.h1} max-w-sm md:max-w-lg text-white font-bold leading-tight font-outfit`, "mx-auto md:mx-0")}>
                             <span className="md:hidden">
-                                {titleParts.length > 0 && (
-                                    <>
-                                        <span className="whitespace-nowrap">{titleParts[0]}{titleParts.length > 1 ? '. ' + titleParts[1] : ''}</span>
-                                        {titleParts.length > 2 && <><br />{titleParts.slice(2).join('. ')}</>}
-                                    </>
-                                )}
+                                {title}
                             </span>
                             <span className="hidden md:inline">
                                 {titleParts.map((part, index) => (
@@ -55,12 +51,12 @@ const Banner2 = ({
                             </span>
                         </h2>
                         {(description || email) && (
-                            <p className="text-white text-base md:text-lg lg:text-xl font-inter flex flex-col sm:flex-row items-center gap-2">
+                            <p className="text-white text-base md:text-lg lg:text-xl font-inter flex justify-center md:justify-start items-center gap-2">
                                 {description && <span>{description}</span>}
                                 {email && (
                                     <a 
                                         href={`mailto:${email}`} 
-                                        className="underline hover:text-[#00D4FF] font-semibold transition-colors duration-300 flex items-center gap-1"
+                                        className="underline hover:text-accent font-semibold transition-colors duration-300 flex items-center gap-1"
                                     >
                                         {email}
                                     </a>
@@ -68,10 +64,12 @@ const Banner2 = ({
                             </p>
                         )}
                     </div>
-                    <button className="group inline-flex items-center gap-2 px-5 md:px-6 lg:px-8 py-2 lg:py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0">
+                    <Link href="/apply-now">
+                    <button className="group inline-flex items-center gap-2 px-4 md:px-5 lg:px-8 py-2 lg:py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex-shrink-0 cursor-pointer">
                         <span>{buttonText}</span>
                         <MoveUpRight className="w-7 h-7 rounded-full bg-white p-1 text-black" />
                     </button>
+                    </Link>
                 </div>  
             </div>
         </section>

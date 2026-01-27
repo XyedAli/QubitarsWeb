@@ -1,8 +1,11 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
+import { getCareerHeroBackground } from "@/lib/assets/images";
 
 export default function CareersHero() {
+    const heroBackground = getCareerHeroBackground();
+    
     return (
         <HeroSection
             variant="blog"
@@ -18,7 +21,7 @@ export default function CareersHero() {
                 "Turn your curiosity into expertise and your skills into real-world impact.",
             ]}
             backgroundType="image"
-            backgroundImage="https://res.cloudinary.com/drugkop7t/image/upload/v1769435309/modelbg_ipley9.webp"
+            backgroundImage={heroBackground}
             overlayTag="ENGAGEMENT MODEL"
             overlayTitle="Empowering Talent. Building the Future."
             overlayDescription="Join a team where innovation, collaboration, and growth are part of everyday life."

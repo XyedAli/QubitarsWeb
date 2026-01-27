@@ -481,6 +481,19 @@ export const getCareerCloudinaryIcons = () => {
 };
 
 /**
+ * Career Hero Background Cloudinary Image
+ * Returns optimized HD Cloudinary URL for career hero background
+ * Used in careers hero section
+ */
+export const getCareerHeroBackground = () => {
+  const heroBgEndpoint = "v1769435309/modelbg_ipley9.webp";
+  const heroBgUrl = buildCloudinaryUrl(heroBgEndpoint);
+  
+  // Use optimizeIconImage with 4K width for maximum HD quality
+  return optimizeIconImage(heroBgUrl, 4000); // 4K width for maximum HD quality
+};
+
+/**
  * Tri-Scroll Logos Cloudinary Images
  * Returns optimized Cloudinary URLs for tri-scroll logo carousel
  * Used in home page tri-scroll component
