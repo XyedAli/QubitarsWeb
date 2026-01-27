@@ -126,7 +126,7 @@ const Benefits = () => {
 
   return (
     <section className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20">
-      <div className="w-full px-4 md:px-6 lg:px-8 xl:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
+      <div className="w-full px-4 md:px-6 lg:px-8 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
         {/* Left Side - Content */}
         <div className="flex flex-col justify-center col-span-12 lg:col-span-4 xl:col-span-5">
           <div>

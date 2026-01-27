@@ -214,7 +214,7 @@ const ApplyNow = () => {
         <form onSubmit={handleSubmit} className="space-y-8 md:space-y-3">
           {/* Resume Upload Section */}
           <div className="space-y-3">
-            <h2 className={`${styles.h4} font-semibold text-blue font-outfit`}>
+            <h2 className={`${styles.h5} font-semibold text-blue font-outfit`}>
               Upload your resume/cv in seconds
             </h2>
             <div
@@ -257,7 +257,7 @@ const ApplyNow = () => {
                       onChange={handleFileSelect}
                       className="hidden"
                     />
-                    <span className="px-6 py-2 bg-accent text-white rounded-lg cursor-pointer hover:opacity-90 transition-opacity font-inter">
+                    <span className="px-6 py-3 bg-accent text-white rounded-lg cursor-pointer hover:opacity-90 transition-opacity font-inter">
                       Choose File
                     </span>
                   </label>
@@ -293,17 +293,19 @@ const ApplyNow = () => {
                 <label className={`${styles.labelBase} ${styles.p4} text-blue`}>
                   Title
                 </label>
-                <select
-                  value={formData.title}
-                  onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
-                  className={`${styles.inputBase} ${styles.inputNormal} ${styles.p4}`}
-                >
-                  <option value="">-None-</option>
-                  <option value="Mr">Mr</option>
-                  <option value="Mrs">Mrs</option>
-                  <option value="Ms">Ms</option>
-                  <option value="Dr">Dr</option>
-                </select>
+                <div className="select-right-arrow relative">
+                  <select
+                    value={formData.title}
+                    onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                    className={`${styles.inputBase} ${styles.inputNormal} ${styles.p4}`}
+                  >
+                    <option value="">-None-</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Dr">Dr</option>
+                  </select>
+                </div>
               </div>
               <div>
                 <label className={`${styles.labelBase} ${styles.p4}`}>
@@ -444,7 +446,7 @@ const ApplyNow = () => {
               </button>
             </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-b-2 border-gray-300 pb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-b-1 border-gray-300 pb-6">
               <div>
                 <label className={`${styles.labelBase} ${styles.p4}`}>Skill Set</label>
                 <div className="flex gap-2 mb-2">
@@ -595,18 +597,20 @@ const ApplyNow = () => {
                       <label className={`${styles.labelBase} ${styles.p4}`}>
                         Preferred Work Locations<span className="text-red-500">*</span>
                       </label>
-                      <select
-                        value={item.preferredWorkLocation}
-                        onChange={(e) => updateAdditionalInfo(item.id, "preferredWorkLocation", e.target.value)}
-                        className={`${styles.inputBase} ${styles.inputNormal} ${styles.p4}`}
-                      >
-                        <option value="">None</option>
-                        <option value="LHR">LHR</option>
-                        <option value="BWP">BWP</option>
-                        <option value="ISB">ISB</option>
-                        <option value="KHI">KHI</option>
-                        <option value="Remote">Remote</option>
-                      </select>
+                      <div className="select-left-arrow relative">
+                        <select
+                          value={item.preferredWorkLocation}
+                          onChange={(e) => updateAdditionalInfo(item.id, "preferredWorkLocation", e.target.value)}
+                          className={`${styles.inputBase} ${styles.inputNormal} ${styles.p4}`}
+                        >
+                          <option value="">None</option>
+                          <option value="LHR">LHR</option>
+                          <option value="BWP">BWP</option>
+                          <option value="ISB">ISB</option>
+                          <option value="KHI">KHI</option>
+                          <option value="Remote">Remote</option>
+                        </select>
+                      </div>
                     </div>
                     
                     <div>
