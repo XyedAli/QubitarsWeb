@@ -1,28 +1,7 @@
-// Re-export images from public folder
 export * from "../../../public/assets/images";
-
-/**
- * Cloudinary Images Configuration
- * 
- * Best Practice: Store Cloudinary images in src/lib/assets/images.ts (not in public folder)
- * because:
- * 1. They use environment variables (runtime values)
- * 2. They need optimization logic
- * 3. They're external URLs, not local files
- * 
- * Usage:
- * import { cloudinaryImages, getCloudinaryImages } from "@/lib/assets/images";
- * import { optimizeHeroImage } from "@/lib/utils/cloudinary";
- * 
- * const bgImage = optimizeHeroImage(cloudinaryImages.blogBg);
- */
-
-// Cloudinary Images - Organized by Page/Section
-// Each page has its own function for better organization and maintainability
 
 import { optimizeHeroImage, optimizeIconImage } from "@/lib/utils/cloudinary";
 
-// Cloudinary base URL from environment (should end with /upload/)
 const CLOUDINARY_BASE_URL = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || "https://res.cloudinary.com/drugkop7t/image/upload/";
 
 // Helper function to build full Cloudinary URL from endpoint
@@ -31,39 +10,25 @@ const buildCloudinaryUrl = (endpoint: string): string => {
   return `${baseUrl}${endpoint}`;
 };
 
-/**
- * Blog Page Cloudinary Images
- * Returns optimized Cloudinary URLs for blog page
- */
+// Blog Page Images
 export const getBlogCloudinaryImages = () => {
-  // Cloudinary blog background endpoint (WebP format for optimal quality)
   const blogBgEndpoint = "v1769160189/blogbg_dnvnad.webp";
   const blogBgUrl = buildCloudinaryUrl(blogBgEndpoint);
-  
   return {
-    blogBg: optimizeHeroImage(blogBgUrl), // Use optimizeHeroImage for background images
+    blogBg: optimizeHeroImage(blogBgUrl),
   };
 };
 
-/**
- * Case Studies Page Cloudinary Images
- * Returns optimized Cloudinary URLs for case studies page
- */
+// Case Studies Page Images
 export const getCaseStudiesCloudinaryImages = () => {
-  // Cloudinary case studies background endpoint (WebP format for optimal quality)
   const caseStudiesBgEndpoint = "v1769159269/caseStudiesbg_piw2gw.webp";
   const caseStudiesBgUrl = buildCloudinaryUrl(caseStudiesBgEndpoint);
-  
   return {
-    caseStudiesBg: optimizeHeroImage(caseStudiesBgUrl), // Use optimizeHeroImage for background images
+    caseStudiesBg: optimizeHeroImage(caseStudiesBgUrl),
   };
 };
 
-/**
- * About Page Cloudinary Images
- * Returns optimized Cloudinary URLs for about page
- * Includes: herobg, mission, vision, aboutimg2, Aimg3-21, Map
- */
+// About Page Images
 export const getAboutCloudinaryImages = () => {
   const aboutEndpoints = {
     herobg: "v1769366420/herobg_pqhs8m.webp",
@@ -93,16 +58,15 @@ export const getAboutCloudinaryImages = () => {
   };
 
   const aboutImages: Record<string, string> = {};
-  
   Object.entries(aboutEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
     if (endpoint.includes('.svg')) {
       aboutImages[key] = optimizeIconImage(fullUrl);
     } else {
-      aboutImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+      aboutImages[key] = optimizeIconImage(fullUrl, 4000);
     }
   });
-
+// About Page Images Return Object
   return aboutImages as {
     herobg: string;
     mission: string;
@@ -130,40 +94,19 @@ export const getAboutCloudinaryImages = () => {
     Map: string;
   };
 };
-
-/**
- * Contact Page Cloudinary Images
- * Add your contact page images here when needed
- */
+  // Contact Page Images
 export const getContactCloudinaryImages = () => {
-  // Add contact page Cloudinary images here
-  
-  return {
-    // contactBg: contactBg ? optimizeHeroImage(`${CLOUDINARY_BASE_URL}/${contactBg}`) : "",
-  };
+  return {};
 };
 
-/**
- * Profile/Avatar Cloudinary Images
- * Returns optimized Cloudinary URLs for profile/avatar images
- * Used in testimonials, user profiles, etc.
- */
 export const getProfileCloudinaryImages = () => {
-  // Profile icon endpoint (SVG format - preserves vector quality)
   const profileIconEndpoint = "v1769168623/profileIcon_cmft7q.svg";
-  
   return {
-    profileIcon: optimizeIconImage(buildCloudinaryUrl(profileIconEndpoint)), // For SVGs, this returns the original URL
+    profileIcon: optimizeIconImage(buildCloudinaryUrl(profileIconEndpoint)),
   };
 };
-
-/**
- * Awards Cloudinary Images
- * Returns optimized Cloudinary URLs for award/certification logos
- * Used in awards section and hero section
- */
+// Awards Page Images
 export const getAwardsCloudinaryImages = () => {
-  // Cloudinary award endpoints (SVG format - preserves vector quality)
   const awardEndpoints = {
     caward1: "v1769171094/caward1_ztjtyk.svg",
     caward2: "v1769171099/caward2_cehhvo.svg",
@@ -173,12 +116,9 @@ export const getAwardsCloudinaryImages = () => {
     caward6: "v1769171125/caward6_gz4r0y.svg",
   };
 
-  // Build optimized URLs - for SVGs, this preserves vector format
   const awards: Record<string, string> = {};
-  
   Object.entries(awardEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for SVGs - preserves original URL for maximum quality
     awards[key] = optimizeIconImage(fullUrl);
   });
 
@@ -191,14 +131,8 @@ export const getAwardsCloudinaryImages = () => {
     caward6: string;
   };
 };
-
-/**
- * Home Images Cloudinary (Hero Awards Section)
- * Returns optimized Cloudinary URLs for home page hero section award logos
- * Used in hero section awards display
- */
+// Home Page Images
 export const getHomeHeroCloudinaryImages = () => {
-  // Cloudinary home hero endpoints (SVG format - preserves vector quality)
   const heroEndpoints = {
     himg1: "v1769171131/himg1_dkeyt6.svg",
     himg2: "v1769171138/himg2_esbgst.svg",
@@ -206,12 +140,9 @@ export const getHomeHeroCloudinaryImages = () => {
     himg4: "v1769171151/himg4_visdre.svg",
   };
 
-  // Build optimized URLs - for SVGs, this preserves vector format
   const heroImages: Record<string, string> = {};
-  
   Object.entries(heroEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for SVGs - preserves original URL for maximum quality
     heroImages[key] = optimizeIconImage(fullUrl);
   });
 
@@ -222,28 +153,14 @@ export const getHomeHeroCloudinaryImages = () => {
     himg4: string;
   };
 };
-
-/**
- * Awards Section Map Cloudinary Image
- * Returns optimized Cloudinary URL for awards section background map
- * Used in awards component background
- */
+// Awards Page Images
 export const getAwardsMapCloudinaryImage = () => {
-  // Cloudinary map endpoint (WebP format for optimal quality)
   const mapEndpoint = "v1769171864/map_m0zhp9.webp";
   const mapUrl = buildCloudinaryUrl(mapEndpoint);
-  
-  // Use optimizeIconImage for maximum HD quality (4K width for WebP)
-  return optimizeIconImage(mapUrl, 4000); // 4K width for maximum HD quality
+  return optimizeIconImage(mapUrl, 4000);
 };
 
-/**
- * Company Cloudinary Images
- * Returns optimized Cloudinary URLs for company images (blogs, testimonials)
- * Used in Company dropdown, Navbar, and other components
- */
 export const getCompanyCloudinaryImages = () => {
-  // Cloudinary company image endpoints (WebP format for optimal quality)
   const companyEndpoints = {
     jake: "v1769172398/Jake_hkkcaa.webp",
     blog1: "v1769172382/blog1_yveuxp.webp",
@@ -251,13 +168,10 @@ export const getCompanyCloudinaryImages = () => {
     blog3: "v1769172405/blog3_bjfdyh.webp",
   };
 
-  // Build optimized URLs for maximum HD quality
   const companyImages: Record<string, string> = {};
-  
   Object.entries(companyEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for maximum HD quality (4K width for WebP)
-    companyImages[key] = optimizeIconImage(fullUrl, 4000); // 4K width for maximum HD quality
+    companyImages[key] = optimizeIconImage(fullUrl, 4000);
   });
 
   return companyImages as {
@@ -267,39 +181,30 @@ export const getCompanyCloudinaryImages = () => {
     blog3: string;
   };
 };
-
-/**
- * Engagement Model Cloudinary Images
- * Returns optimized Cloudinary URLs for engagement model page
- * Used in engagement model hero section
- */
+// Engagement Model Page Images
 export const getEngagementModelCloudinaryImages = () => {
-  // Cloudinary engagement model background endpoint (WebP format for optimal quality)
   const modelBgEndpoint = "v1769540140/modelbg_pyfp12.webp";
   const modelBgUrl = buildCloudinaryUrl(modelBgEndpoint);
-  
+  const engagementIcons = {
+    icon1: optimizeIconImage(buildCloudinaryUrl("v1769586921/engIcon1_fvm3et.svg")),
+    icon2: optimizeIconImage(buildCloudinaryUrl("v1769586918/engIcon2_qhbzxb.svg")),
+    icon3: optimizeIconImage(buildCloudinaryUrl("v1769586915/engIcon3_xeefwe.svg")),
+    icon4: optimizeIconImage(buildCloudinaryUrl("v1769586912/engIcon4_d3owr7.svg")),
+    icon5: optimizeIconImage(buildCloudinaryUrl("v1769586911/engIcon5_mmomoj.svg")),
+    icon6: optimizeIconImage(buildCloudinaryUrl("v1769586910/engIcon6_fe8igy.svg")),
+  };
   return {
-    modelBg: optimizeHeroImage(modelBgUrl), // Use optimizeHeroImage for background images
+    modelBg: optimizeHeroImage(modelBgUrl),
+    ...engagementIcons,
   };
 };
 
-/**
- * Footer Logo Cloudinary Image
- * Returns optimized Cloudinary URL for footer logo
- * Used in footer component
- */
 export const getFooterCloudinaryLogo = () => {
   const logoEndpoint = "v1769171158/Logo2_jgcsna.svg";
   return optimizeIconImage(buildCloudinaryUrl(logoEndpoint));
 };
-
-/**
- * Navbar Cloudinary Images
- * Returns optimized Cloudinary URLs for navbar images
- * Used in navbar component and dropdowns
- */
+// Navbar Page Images
 export const getNavbarCloudinaryImages = () => {
-  // Cloudinary navbar image endpoints
   const navbarEndpoints = {
     bg6: "v1769365318/bg6_lu0uwr.webp",
     top: "v1769365304/top_sf3ykp.svg",
@@ -307,16 +212,13 @@ export const getNavbarCloudinaryImages = () => {
     logoSvg: "v1769365301/logo_jbeih2.svg",
   };
 
-  // Build optimized URLs
   const navbarImages: Record<string, string> = {};
-  
   Object.entries(navbarEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for SVGs, optimizeIconImage with 4K for WebP
     if (endpoint.includes('.svg')) {
       navbarImages[key] = optimizeIconImage(fullUrl);
     } else {
-      navbarImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+      navbarImages[key] = optimizeIconImage(fullUrl, 4000);
     }
   });
 
@@ -327,14 +229,8 @@ export const getNavbarCloudinaryImages = () => {
     logoSvg: string;
   };
 };
-
-/**
- * Home Page Cloudinary Images
- * Returns optimized Cloudinary URLs for home page images
- * Includes: himg8-16, footerbg, emailicon, bgLines, bgLines1, logo3
- */
+// Home Page Images
 export const getHomeCloudinaryImages = () => {
-  // Cloudinary home image endpoints
   const homeEndpoints = {
     footerbg: "v1769175108/footerbg_qvsfmh.webp",
     himg8: "v1769175115/himg8_et4dcc.webp",
@@ -352,16 +248,13 @@ export const getHomeCloudinaryImages = () => {
     logo3: "v1769175206/logo3_gfsr9m.svg",
   };
 
-  // Build optimized URLs
   const homeImages: Record<string, string> = {};
-  
   Object.entries(homeEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for SVGs, optimizeContentImage for WebP/PNG
     if (endpoint.includes('.svg')) {
       homeImages[key] = optimizeIconImage(fullUrl);
     } else {
-      homeImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+      homeImages[key] = optimizeIconImage(fullUrl, 4000);
     }
   });
 
@@ -383,11 +276,6 @@ export const getHomeCloudinaryImages = () => {
   };
 };
 
-/**
- * Service Modal Images Cloudinary
- * Returns optimized Cloudinary URLs for service modal images (mimg1-4)
- * Used in services cards/modals on home page
- */
 export const getServiceModalCloudinaryImages = () => {
   const modalEndpoints = {
     mimg1: "v1769369126/mimg1_pwxhsb.webp",
@@ -397,10 +285,9 @@ export const getServiceModalCloudinaryImages = () => {
   };
 
   const modalImages: Record<string, string> = {};
-  
   Object.entries(modalEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    modalImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+    modalImages[key] = optimizeIconImage(fullUrl, 4000);
   });
 
   return modalImages as {
@@ -410,12 +297,7 @@ export const getServiceModalCloudinaryImages = () => {
     mimg4: string;
   };
 };
-
-/**
- * Technology Icons Cloudinary
- * Returns optimized Cloudinary URLs for technology icons (micon1-10)
- * Used in services/technologies sections
- */
+// Technology Page Images
 export const getTechnologyIconCloudinaryImages = () => {
   const iconEndpoints = {
     micon1: "v1769369146/micon1_bvnj60.webp",
@@ -431,10 +313,9 @@ export const getTechnologyIconCloudinaryImages = () => {
   };
 
   const iconImages: Record<string, string> = {};
-  
   Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    iconImages[key] = optimizeIconImage(fullUrl, 4000); // 4K for maximum quality
+    iconImages[key] = optimizeIconImage(fullUrl, 4000);
   });
 
   return iconImages as {
@@ -450,12 +331,7 @@ export const getTechnologyIconCloudinaryImages = () => {
     micon10: string;
   };
 };
-
-/**
- * Career Icons Cloudinary Images
- * Returns optimized Cloudinary URLs for career/benefits icons (careerIcon1-6)
- * Used in careers benefits section
- */
+// Career Page Images
 export const getCareerCloudinaryIcons = () => {
   const iconEndpoints = {
     careerIcon1: "v1769421558/careerIcon1_qalkdt.svg",
@@ -467,10 +343,8 @@ export const getCareerCloudinaryIcons = () => {
   };
 
   const iconImages: Record<string, string> = {};
-  
   Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // For SVGs, use optimizeIconImage which preserves vector quality
     iconImages[key] = optimizeIconImage(fullUrl);
   });
 
@@ -483,27 +357,14 @@ export const getCareerCloudinaryIcons = () => {
     careerIcon6: string;
   };
 };
-
-/**
- * Career Hero Background Cloudinary Image
- * Returns optimized HD Cloudinary URL for career hero background
- * Used in careers hero section
- */
+// Career Page Images
 export const getCareerHeroBackground = () => {
   const heroBgEndpoint = "v1769435309/modelbg_ipley9.webp";
   const heroBgUrl = buildCloudinaryUrl(heroBgEndpoint);
-  
-  // Use optimizeIconImage with 4K width for maximum HD quality
-  return optimizeIconImage(heroBgUrl, 4000); // 4K width for maximum HD quality
+  return optimizeIconImage(heroBgUrl, 4000);
 };
-
-/**
- * Tri-Scroll Logos Cloudinary Images
- * Returns optimized Cloudinary URLs for tri-scroll logo carousel
- * Used in home page tri-scroll component
- */
+// Home Page Images slider logos
 export const getTriScrollCloudinaryLogos = () => {
-  // Cloudinary logo endpoints (WebP format for optimal quality)
   const logoEndpoints = {
     tsimg1: "v1769170492/Logo1_chzc74.webp",
     tsimg2: "v1769170479/Logo2_zqreue.webp",
@@ -519,13 +380,10 @@ export const getTriScrollCloudinaryLogos = () => {
     tsimg12: "v1769170424/Logo12_wfpjbo.webp",
   };
 
-  // Build optimized URLs for maximum HD quality
   const logos: Record<string, string> = {};
-  
   Object.entries(logoEndpoints).forEach(([key, endpoint]) => {
     const fullUrl = buildCloudinaryUrl(endpoint);
-    // Use optimizeIconImage for maximum HD quality (4K width for WebP)
-    logos[key] = optimizeIconImage(fullUrl, 4000); // 4K width for maximum HD quality
+    logos[key] = optimizeIconImage(fullUrl, 4000);
   });
 
   return logos as {
@@ -544,10 +402,6 @@ export const getTriScrollCloudinaryLogos = () => {
   };
 };
 
-/**
- * All Cloudinary Images - Combined export
- * Use this if you need all images at once
- */
 export const getAllCloudinaryImages = () => {
   return {
     blog: getBlogCloudinaryImages(),
@@ -557,10 +411,7 @@ export const getAllCloudinaryImages = () => {
   };
 };
 
-// Legacy export for backward compatibility
-// Use individual functions for better organization
 export const cloudinaryImages = {
   blogBg: getBlogCloudinaryImages().blogBg,
   caseStudiesBg: getCaseStudiesCloudinaryImages().caseStudiesBg,
 };
-

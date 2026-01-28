@@ -3,7 +3,7 @@
 import { FAQSection } from "@/components/shared/faq";
 import { faqData } from "@/data";
 
-const FAQ = () => (
+const EngModelFAQs = () => (
   <FAQSection
     data={faqData}
     subtitle="Got Questions?"
@@ -11,4 +11,4 @@ const FAQ = () => (
   />
 );
 
-export default FAQ;
+export default EngModelFAQs;

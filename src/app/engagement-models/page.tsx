@@ -1,13 +1,17 @@
 import { Fragment } from "react";
-import {EngModalHero, CustomersNeeds } from "@/components/features/engagementModel";
-
+import { EngModalHero, CustomersNeeds, Advantage, Models, NumericBanner, Process, EngModelFAQs } from "@/components/features/engagementModel";
 
 export default function EngagementModelsPage() {
   return (
-  <Fragment>
-    <EngModalHero />
-    <CustomersNeeds />
-  </Fragment>
+    <Fragment>
+      <EngModalHero />
+      <CustomersNeeds />
+      <Advantage />
+      <Models />
+      <NumericBanner />
+      <Process />
+      <EngModelFAQs />
+    </Fragment>
   );
 }
 

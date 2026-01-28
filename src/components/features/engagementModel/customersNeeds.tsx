@@ -1,37 +1,48 @@
 "use client";
 
 import { styles } from "@/styles/style";
-import { FileCheck } from "lucide-react";
+import Image from "next/image";
+import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+
+// Get engagement model icons
+const engagementModelImages = getEngagementModelCloudinaryImages();
 
 interface FeatureCard {
   title: string;
   description: string;
+  icon: string;
 }
 
 const featureCards: FeatureCard[] = [
   {
     title: "High Quality",
     description: "Quality is built into every stage of delivery. Engagement models designed around your specific goals, timelines, and operational requirements.",
+    icon: engagementModelImages.icon1,
   },
   {
     title: "Fast Delivery",
     description: "Efficient resource planning reduces overhead while maximizing value. Streamlined execution and agile workflows help you launch faster without sacrificing quality.",
+    icon: engagementModelImages.icon2,
   },
   {
     title: "Low Cost",
     description: "We optimize costs by aligning resources precisely with your needs. Efficient resource planning reduces overhead while maximizing value.",
+    icon: engagementModelImages.icon3,
   },
   {
     title: "Flexible Resource Allocation",
     description: "Scale resources up or down based on project demands. Predictable delivery and reduced rework contribute directly to higher project returns.",
+    icon: engagementModelImages.icon4,
   },
   {
     title: "Handling Future Needs",
     description: "Scale resources up or down based on project demands. Easily scale teams up or down to match changing project demands and priorities.",
+    icon: engagementModelImages.icon5,
   },
   {
     title: "Growth-First Partnership",
     description: "Beyond immediate delivery, our engagement models are structured to support continuous improvement, innovation, and sustained collaboration as your business grows.",
+    icon: engagementModelImages.icon6,
   },
 ];
 
@@ -89,8 +100,14 @@ const CustomersNeeds = () => {
             <div className="flex flex-col flex-1">
               {/* Icon */}
               <div className="flex items-start mb-3 md:mb-4 gap-2">
-                {/* <FileCheck className="w-5 h-5 md:w-6 md:h-6 text-[#F05C22]" strokeWidth={2} /> */}
-             <img src="/assets/images/engModel/modelicon1.png" alt="" className="w-5 h-5 md:w-8 md:h-8" />
+                <Image 
+                  src={card.icon} 
+                  alt={card.title} 
+                  width={32} 
+                  height={32} 
+                  className="w-5 h-5 md:w-8 md:h-8 flex-shrink-0"
+                  unoptimized
+                />
               
               {/* Title */}
               <h3 className={`${styles.h5} font-bold text-blue mb-3 md:mb-4 leading-tight font-outfit`}>
