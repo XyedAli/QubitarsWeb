@@ -1,26 +1,24 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { styles } from "@/styles/style";
+import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+
+const engagementIcons = getEngagementModelCloudinaryImages();
 
 interface AnimatedStat {
   end: number;
   suffix: string;
   label: string;
+  icon: string;
 }
-
-interface StaticStat {
-  display: string;
-  label: string;
-}
-
 const animatedStats: AnimatedStat[] = [
-  { end: 50, suffix: "+", label: "Projects Delivered" },
-  { end: 10, suffix: "+", label: "Years Experience" },
-  { end: 100, suffix: "+", label: "Happy Clients" },
+  { icon: engagementIcons.icon10, end: 150, suffix: "+", label: "Leading Companies" },
+  { icon: engagementIcons.icon11, end: 300, suffix: "+", label: "Industries Growth Strategies" },
+  { icon: engagementIcons.icon12, end: 8, suffix: "M+", label: "Revenue Boosted" },
+  { icon: engagementIcons.icon13, end: 400, suffix: "+", label: "Projects Successfully Delivered" },
 ];
-
-const staticStats: StaticStat[] = [{ display: "24/7", label: "Support" }];
 
 const DURATION_MS = 2000;
 const TICK_MS = 16; // ~60fps
@@ -49,7 +47,7 @@ function AnimatedNumber({ stat, start }: { stat: AnimatedStat; start: boolean })
   const count = useCountUp(stat.end, start);
   return (
     <span
-      className={`${styles.h1} font-bold font-outfit bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] leading-tight block mb-2`}
+      className={`text-[48px] font-bold font-outfit text-white leading-tight block mb-2 text-left`}
     >
       {count}
       {stat.suffix}
@@ -77,43 +75,35 @@ const NumericBanner = () => {
   return (
     <section
       ref={sectionRef}
-      className={`${styles.sectionPadding} py-10 md:py-12 lg:py-14 xl:py-16`}
-      style={{ backgroundColor: "#FDFDFD" }}
-    >
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
+      className={`${styles.sectionPadding} py-10 md:py-12 lg:py-14 xl:py-16 bg-blue rounded-xl`}
+>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 ps-17 pe-10">
         {animatedStats.map((stat, index) => (
           <div
             key={index}
-            className="relative flex flex-col items-center text-center"
+            className="relative flex  gap-5"
           >
-            {index > 0 && (
-              <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-14 bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
-            )}
+            {/* Icon – medal, chart, briefcase, checklist per Figma */}
+            <div className="flex items-center w-12 h-12 md:w-14 md:h-14">
+              <Image
+                src={stat.icon}
+                alt=""
+                width={56}
+                height={56}
+                className="w-full h-full object-contain"
+                unoptimized={stat.icon.includes("cloudinary.com")}
+              />
+            </div>
+            <div className="flex flex-col text-left">
             <AnimatedNumber stat={stat} start={hasStarted} />
             <span
-              className={`${styles.p2} text-gray-600 font-inter font-medium`}
+              className={`${styles.p2} text-white font-inter font-medium`}
             >
               {stat.label}
             </span>
           </div>
-        ))}
-        {staticStats.map((stat, index) => (
-          <div
-            key={`static-${index}`}
-            className="relative flex flex-col items-center text-center"
-          >
-            <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-14 bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
-            <span
-              className={`${styles.h1} font-bold font-outfit bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] leading-tight block mb-2`}
-            >
-              {stat.display}
-            </span>
-            <span
-              className={`${styles.p2} text-gray-600 font-inter font-medium`}
-            >
-              {stat.label}
-            </span>
           </div>
+          
         ))}
       </div>
     </section>

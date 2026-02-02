@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+
+display: string;
+  label: string;
+}

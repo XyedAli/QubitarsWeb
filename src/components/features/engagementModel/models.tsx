@@ -1,249 +1,208 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { styles } from "@/styles/style";
-import { CheckCircle2, Clock, Users, TrendingUp, ArrowRight } from "lucide-react";
+import { Button } from "@/components/shared/ui";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-interface EngagementModel {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  bestFor: string;
-  icon: React.ReactNode;
+interface ServiceTab {
+    id: string;
+    title: string;
+    tagline: string;
+    description: string;
+    whatThisIncludes: string[];
+    bestSuitedFor: string[];
 }
 
 const Models = () => {
-  const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
 
-  const engagementModels: EngagementModel[] = [
-    {
-      id: "fixed-price",
-      title: "Fixed Price",
-      subtitle: "Predictable Budget",
-      description: "Perfect for well-defined projects with clear requirements. You pay a fixed amount for a complete deliverable, giving you budget certainty and scope clarity.",
-      features: [
-        "Fixed budget and timeline",
-        "Clear scope and deliverables",
-        "No hidden costs",
-        "Ideal for MVP and defined projects",
-        "Risk-free for clients",
-      ],
-      bestFor: "Projects with clear requirements and fixed scope",
-      icon: <CheckCircle2 className="w-6 h-6" />,
-    },
-    {
-      id: "time-material",
-      title: "Time & Material",
-      subtitle: "Flexible & Agile",
-      description: "Pay for actual time and resources used. Perfect for evolving projects where requirements may change or when you need maximum flexibility.",
-      features: [
-        "Pay only for work done",
-        "Maximum flexibility",
-        "Easy to scale up or down",
-        "Ideal for evolving requirements",
-        "Transparent billing",
-      ],
-      bestFor: "Projects with evolving scope or ongoing development",
-      icon: <Clock className="w-6 h-6" />,
-    },
-    {
-      id: "dedicated-team",
-      title: "Dedicated Team",
-      subtitle: "Extended Workforce",
-      description: "Get a dedicated team that works exclusively on your project. Like having an in-house team without the overhead, perfect for long-term partnerships.",
-      features: [
-        "Dedicated resources",
-        "Full team integration",
-        "Long-term partnership",
-        "Scalable team size",
-        "Deep domain knowledge",
-      ],
-      bestFor: "Long-term projects requiring continuous development",
-      icon: <Users className="w-6 h-6" />,
-    },
-    {
-      id: "hybrid",
-      title: "Hybrid Model",
-      subtitle: "Best of Both Worlds",
-      description: "Combine fixed-price milestones with time & material flexibility. Get the predictability you need with the agility to adapt as you learn.",
-      features: [
-        "Fixed milestones",
-        "Flexible iterations",
-        "Balanced risk",
-        "Adaptive planning",
-        "Cost optimization",
-      ],
-      bestFor: "Complex projects needing both structure and flexibility",
-      icon: <TrendingUp className="w-6 h-6" />,
-    },
-  ];
+    const tabs: ServiceTab[] = [
+        {
+            id: "product-development",
+            title: "Product Development",
+            tagline: "End-to-end execution, built for scale",
+            description:
+                "We collaborate with you to build digital products that deliver real business outcomes. From discovery to launch and beyond, we focus on continuous improvement, speed, and quality aligned to your goals.",
+            whatThisIncludes: [
+                "Product discovery, research, and requirement validation",
+                "UX/UI design focused on usability and conversion",
+                "Scalable architecture and clean, production-ready development",
+                "Continuous testing, optimization, and iteration",
+            ],
+            bestSuitedFor: [
+                "Startups building MVPs or new platforms",
+                "Businesses launching new digital products",
+                "Companies modernizing or scaling existing solutions",
+            ],
+        },
+        {
+            id: "team-augmentation",
+            title: "Team Augmentation",
+            tagline: "Extend your team with the right skills",
+            description:
+                "Add senior engineers, designers, or specialists to your existing team. We integrate with your workflows and tools so you can scale capacity without the overhead of hiring.",
+            whatThisIncludes: [
+                "Dedicated resources that work as part of your team",
+                "Flexible engagement length and hours",
+                "Alignment with your stack, processes, and culture",
+                "Clear communication and delivery expectations",
+            ],
+            bestSuitedFor: [
+                "Teams with a capacity gap or tight deadlines",
+                "Companies needing specialized skills short-term",
+                "Organizations scaling engineering or design capacity",
+            ],
+        },
+        {
+            id: "consultation",
+            title: "Consultation",
+            tagline: "Strategy and guidance when you need it",
+            description:
+                "Get expert advice on architecture, technology choices, product strategy, or delivery practices. We help you make informed decisions and set up for long-term success.",
+            whatThisIncludes: [
+                "Technical and product strategy reviews",
+                "Architecture and stack recommendations",
+                "Process and team structure guidance",
+                "Workshops and knowledge transfer",
+            ],
+            bestSuitedFor: [
+                "Leaders planning a new product or major change",
+                "Teams evaluating build vs buy or tech stack",
+                "Organizations preparing for scale or modernization",
+            ],
+        },
+    ];
 
-  return (
-    <section
-      className={`${styles.sectionPadding} py-16 md:py-20 lg:py-24 xl:py-28`}
-      style={{ backgroundColor: "#FFFFFF" }}
-    >
-      {/* Section Header */}
-      <div className="text-center mb-12 md:mb-14 lg:mb-16">
-        <span className={`${styles.h6} font-bold uppercase tracking-[0.15em] inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] mb-4`}>
-          Engagement Models
-        </span>
-        <h2 className={`${styles.h1} font-semibold text-[#1E274F] leading-tight font-outfit max-w-3xl mx-auto`}>
-          Choose The Right{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-            Model
-          </span>{" "}
-          For Your Needs
-        </h2>
-        <p className={`${styles.p2} text-gray-600 mt-4 max-w-2xl mx-auto font-inter`}>
-          Each engagement model is designed to fit different project types, timelines, and business goals
-        </p>
-      </div>
-
-      {/* Tab Navigation */}
-      <div className="mb-8 md:mb-10 lg:mb-12">
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-5">
-          {engagementModels.map((model, index) => (
-            <button
-              key={model.id}
-              onClick={() => setActiveTab(index)}
-              className={`relative px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold font-outfit transition-all duration-300 ${
-                activeTab === index
-                  ? "text-white shadow-lg scale-105"
-                  : "text-gray-700 bg-gray-50 hover:bg-gray-100 hover:text-[#1E274F]"
-              }`}
-              style={
-                activeTab === index
-                  ? {
-                      background: "linear-gradient(135deg, #F05C22, #F58220, #EA4D24)",
-                      boxShadow: "0 8px 24px rgba(240, 92, 34, 0.3)",
-                    }
-                  : {}
-              }
-            >
-              <span className={`${styles.p2} relative z-10 flex items-center gap-2`}>
-                <span className="hidden sm:inline">{model.icon}</span>
-                {model.title}
-              </span>
-              {activeTab === index && (
-                <div
-                  className="absolute inset-0 rounded-xl opacity-0 animate-pulse"
-                  style={{
-                    background: "linear-gradient(135deg, #F05C22, #F58220, #EA4D24)",
-                  }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tab Content */}
-      <div className="relative">
-        {engagementModels.map((model, index) => (
-          <div
-            key={model.id}
-            className={`transition-all duration-500 ${
-              activeTab === index
-                ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 translate-y-4 pointer-events-none absolute inset-0"
-            }`}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
-              {/* Left: Content */}
-              <div className="space-y-6">
-                {/* Subtitle */}
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(240, 92, 34, 0.1), rgba(245, 130, 32, 0.1))",
-                      color: "#F05C22",
-                    }}
-                  >
-                    {model.icon}
-                  </div>
-                  <span className={`${styles.p3} font-semibold text-[#F05C22] font-inter uppercase tracking-wide`}>
-                    {model.subtitle}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className={`${styles.h2} font-bold text-[#1E274F] font-outfit leading-tight`}>
-                  {model.title}
-                </h3>
-
-                {/* Description */}
-                <p className={`${styles.p2} text-gray-600 font-inter leading-relaxed`}>
-                  {model.description}
-                </p>
-
-                {/* Best For */}
-                <div className="bg-[#FFF9F6] border-l-4 border-[#F05C22] rounded-r-lg p-4 md:p-5">
-                  <p className={`${styles.p3} font-semibold text-[#1E274F] font-inter mb-1`}>
-                    Best For:
-                  </p>
-                  <p className={`${styles.p4} text-gray-700 font-inter`}>{model.bestFor}</p>
-                </div>
-              </div>
-
-              {/* Right: Features List */}
-              <div className="bg-gradient-to-br from-[#FFF9F6] to-white rounded-2xl border border-gray-100 p-6 md:p-8 shadow-lg">
-                <h4 className={`${styles.h5} font-bold text-[#1E274F] font-outfit mb-6`}>
-                  Key Features
-                </h4>
-                <ul className="space-y-4">
-                  {model.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <div
-                        className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                        style={{
-                          background: "linear-gradient(135deg, #F05C22, #F58220)",
-                        }}
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-white" />
-                      </div>
-                      <span className={`${styles.p3} text-gray-700 font-inter leading-relaxed`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  className="mt-8 w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold font-inter text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
-                  style={{
-                    background: "linear-gradient(135deg, #F05C22, #F58220, #EA4D24)",
-                    boxShadow: "0 4px 16px rgba(240, 92, 34, 0.3)",
-                  }}
-                >
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+    return (
+        <section
+            className={`${styles.sectionPadding} py-14 md:py-18 lg:py-22 xl:py-24`}
+            style={{ backgroundColor: "#FFFFFF" }}
+        >
+            {/* Section title – matches Figma */}
+            <div className="mb-6 text-center">
+                <h2 className={`${styles.h1} font-semibold text-[#1E274F] leading-tight font-outfit`}>
+                    Growth-Focused
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
+                        Digital Services
+                    </span>
+                </h2>
             </div>
-          </div>
-        ))}
-      </div>
 
-      {/* Bottom Note */}
-      <div className="mt-12 md:mt-14 lg:mt-16 text-center">
-        <p className={`${styles.p3} text-gray-600 font-inter max-w-2xl mx-auto`}>
-          Not sure which model fits your project?{" "}
-          <button
-            className="font-semibold text-[#F05C22] hover:text-[#EA4D24] transition-colors underline"
-            onClick={() => {
-              // Scroll to contact form or open consultation modal
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Let's discuss your needs
-          </button>
-        </p>
-      </div>
-    </section>
-  );
+            {/* Tab navigation – orange underline for active */}
+            <div className="mb-8 md:mb-10">
+                <div className="flex flex-wrap gap-1 md:gap-2 justify-center">
+                    {tabs.map((tab, index) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(index)}
+                            className={`relative px-4 py-3 md:px-6 md:py-4 font-semibold font-outfit transition-all duration-300 ${activeTab === index
+                                    ? "text-[#F05C22]"
+                                    : "text-gray-600 hover:text-[#1E274F]"
+                                }`}
+                        >
+                            <span className={`${styles.h6}`}>{tab.title}</span>
+                            {activeTab === index && (
+                                <span
+                                    className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
+                                    style={{
+                                        background: "linear-gradient(90deg, #F05C22, #F58220)",
+                                    }}
+                                />
+                            )}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            {/* Tab content – two columns */}
+            <div className="relative">
+                {tabs.map((tab, index) => (
+                    <div
+                        key={tab.id}
+                        className={`transition-all duration-500 ${activeTab === index
+                                ? "opacity-100 translate-y-0 pointer-events-auto"
+                                : "opacity-0 translate-y-4 pointer-events-none absolute inset-0"
+                            }`}
+                    >
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-10 items-stretch">
+                            {/* Left: Staircase illustration image */}
+                            <div className="relative min-h-[320px] md:min-h-[380px] rounded-2xl overflow-hidden lg:col-span-5 bg-[#1E274F]">
+                                <Image
+                                    src="/assets/images/engModel/engImg2.png"
+                                    alt="Growth-focused process: team, partnership, process, goals"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
+                            </div>
+
+                            {/* Right: Title, tagline, description, lists */}
+                            <div className="flex flex-col justify-center bg-[#EDEFF880] p-8 rounded-2xl lg:col-span-7">
+                                <h3 className={`${styles.h4} font-bold text-[#1E274F] font-outfit leading-tight mb-2`}>
+                                    {tab.title}
+                                </h3>
+                                <p className={`${styles.p3} text-gray-600 font-inter mb-5`}>
+                                    {tab.tagline}
+                                </p>
+                                <p className={`${styles.p2} text-gray-700 font-inter leading-relaxed mb-6`}>
+                                    {tab.description}
+                                </p>
+
+                                <div className="space-y-5">
+                                    <div>
+                                        <h4 className={`${styles.p3} font-semibold text-[#1E274F] font-outfit mb-3`}>
+                                            What this includes:
+                                        </h4>
+                                        <ul className="space-y-2">
+                                            {tab.whatThisIncludes.map((item, i) => (
+                                                <li key={i} className="flex items-start gap-2">
+                                                    <p className="text-xl md:text-2xl leading-none text-blue">•</p>
+                                                    <span className={`${styles.p4} text-gray-700 font-inter`}>
+                                                        {item}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 className={`${styles.p3} font-semibold text-[#1E274F] font-outfit mb-3`}>
+                                            Best Suited for:
+                                        </h4>
+                                        <ul className="space-y-2">
+                                            {tab.bestSuitedFor.map((item, i) => (
+                                                <li key={i} className="flex items-start gap-2">
+                                                    <p className="text-xl md:text-2xl leading-none text-blue">•</p>
+                                                    <span className={`${styles.p4} text-gray-700 font-inter`}>
+                                                        {item}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* CTA – centered orange button */}
+            <div className="mt-10 md:mt-12 lg:mt-14 flex justify-center">
+                <Button
+                    variant="accent"
+                    size="lg"
+                    className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                    Discuss Your Unique Needs
+                    <ArrowRight className="w-5 h-5" />
+                </Button>
+            </div>
+        </section>
+    );
 };
 
 export default Models;

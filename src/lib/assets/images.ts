@@ -66,7 +66,7 @@ export const getAboutCloudinaryImages = () => {
       aboutImages[key] = optimizeIconImage(fullUrl, 4000);
     }
   });
-// About Page Images Return Object
+  // About Page Images Return Object
   return aboutImages as {
     herobg: string;
     mission: string;
@@ -94,7 +94,7 @@ export const getAboutCloudinaryImages = () => {
     Map: string;
   };
 };
-  // Contact Page Images
+// Contact Page Images
 export const getContactCloudinaryImages = () => {
   return {};
 };
@@ -185,6 +185,7 @@ export const getCompanyCloudinaryImages = () => {
 export const getEngagementModelCloudinaryImages = () => {
   const modelBgEndpoint = "v1769540140/modelbg_pyfp12.webp";
   const modelBgUrl = buildCloudinaryUrl(modelBgEndpoint);
+
   const engagementIcons = {
     icon1: optimizeIconImage(buildCloudinaryUrl("v1769586921/engIcon1_fvm3et.svg")),
     icon2: optimizeIconImage(buildCloudinaryUrl("v1769586918/engIcon2_qhbzxb.svg")),
@@ -192,9 +193,23 @@ export const getEngagementModelCloudinaryImages = () => {
     icon4: optimizeIconImage(buildCloudinaryUrl("v1769586912/engIcon4_d3owr7.svg")),
     icon5: optimizeIconImage(buildCloudinaryUrl("v1769586911/engIcon5_mmomoj.svg")),
     icon6: optimizeIconImage(buildCloudinaryUrl("v1769586910/engIcon6_fe8igy.svg")),
+    icon7: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon7_e1iodp.svg")),
+    icon8: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon8_zv33ta.svg")),
+    icon9: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon9_e1zf8o.svg")),
+    icon10: optimizeIconImage(buildCloudinaryUrl("v1769767176/engIcon10_ekjd0n.svg")),
+    icon11: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon12_xxjtkv.svg")),
+    icon12: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon13_agwszb.svg")),
+    icon13: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon11_izuwau.svg")),
+    icon14: optimizeIconImage(buildCloudinaryUrl("v1769774786/engIcon14_xqanxw.svg")),
+    icon15: optimizeIconImage(buildCloudinaryUrl("v1769774785/engIcon15_n6osbg.svg")),
+    icon16: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon16_rbfwsc.svg")),
+    icon17: optimizeIconImage(buildCloudinaryUrl("v1769774783/engIcon17_wnxblz.svg")),
+    icon18: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon18_juqdcy.svg")),
   };
+  const advantageImg = buildCloudinaryUrl("v1769760508/engImg1_mbci7z.webp");
   return {
     modelBg: optimizeHeroImage(modelBgUrl),
+    advantageImg,
     ...engagementIcons,
   };
 };
