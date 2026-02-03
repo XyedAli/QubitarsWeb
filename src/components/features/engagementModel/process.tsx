@@ -4,58 +4,25 @@ import Image from "next/image";
 import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
-
-const processIcons = getEngagementModelCloudinaryImages();
-
-const processSteps = [
-  {
-    src: processIcons.icon14,
-    title: "DISCOVERY & AGREEMENT",
-    description:
-      "We understand needs, finalize requirements, and align on project terms.",
-    textPosition: "above" as const,
-  },
-  {
-    src: processIcons.icon15,
-    title: "STRATEGY & PREPARATION",
-    description:
-      "We map out the project plan and assemble the right team to execute it.",
-    textPosition: "below" as const,
-  },
-  {
-    src: processIcons.icon16,
-    title: "DEVELOPMENT & BUILDING",
-    description:
-      "We build your solution using best practices and cutting-edge technology.",
-    textPosition: "above" as const,
-  },
-  {
-    src: processIcons.icon17,
-    title: "TESTING & DEPLOYMENT",
-    description:
-      "We rigorously test for quality and seamlessly integrate into your environment.",
-    textPosition: "below" as const,
-  },
-  {
-    src: processIcons.icon18,
-    title: "LAUNCH & SUPPORT",
-    description:
-      "We go live and provide ongoing maintenance to keep everything running smoothly.",
-    textPosition: "above" as const,
-  },
-];
+import { processSection } from "@/data/engModel";
 
 const Process = () => {
+  const processIcons = getEngagementModelCloudinaryImages();
+  const processSteps = processSection.steps.map((step) => ({
+    ...step,
+    src: processIcons[step.iconKey],
+  }));
+
   return (
     <section
       className={`${styles.sectionPadding} pt-14 md:pt-18 lg:pt-22 xl:pt-24`}
     >
       <div className="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
         <span className={`${styles.h6} font-bold uppercase inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}>
-          COLLABORATION FRAMEWORK
+          {processSection.subtitle}
         </span>
         <h2 className={`${styles.h1} font-semibold text-[#1E274F] leading-tight font-outfit mt-1`}>
-          Results, Not <span className="text-[#F05C22]">Noise</span>
+          {processSection.title} <span className="text-[#F05C22]">{processSection.titleHighlight}</span>
         </h2>
       </div>
 
@@ -71,7 +38,7 @@ const Process = () => {
                 <h3 className={`${styles.p2} font-bold text-[#1E274F] uppercase font-outfit mb-1`}>
                   {step.title}
                 </h3>
-                <p className={`${styles.p4} text-gray-600 font-outfit max-w-[230px]`}>
+                <p className={`text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-gray-600 font-outfit max-w-[270px] xl:max-w-[230px]`}>
                   {step.description}
                 </p>
               </div>
@@ -92,7 +59,7 @@ const Process = () => {
               alt=""
               width={200}
               height={200}
-              className="object-contain w-full max-w-[180px] md:max-w-[220px]"
+              className="object-contain w-full max-w-[140px] lg:max-w-[180px] xl:max-w-[220px]"
               unoptimized={step.src.includes("cloudinary.com")}
             />
           </div>
@@ -100,7 +67,7 @@ const Process = () => {
       </div>
 
       {/* Bottom row: text for steps with text below */}
-      <div className="flex flex-row justify-between w-full gap-2 md:gap-4 mt-3 -mt-6 md:-mt-8">
+      <div className="flex flex-row justify-between w-full gap-0 xl:gap-4 mt-3 -mt-6 md:-mt-8">
         {processSteps.map((step, index) => (
           <div
             key={`bottom-${index}`}
@@ -111,7 +78,7 @@ const Process = () => {
                 <h3 className={`${styles.p2} font-bold text-[#1E274F] uppercase font-outfit mb-1`}>
                   {step.title}
                 </h3>
-                <p className={`${styles.p4} text-gray-600 font-outfit max-w-[230px]`}>
+                <p className={`text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-gray-600 font-outfit max-w-[270px] xl:max-w-[230px]`}>
                   {step.description}
                 </p>
               </div>
@@ -121,7 +88,7 @@ const Process = () => {
       </div>
 
       <div className="mt-8 md:mt-10 flex justify-center">
-        <Button variant="accent">Begin Your Project</Button>
+        <Button variant="accent">{processSection.ctaText}</Button>
       </div>
     </section>
   );

@@ -103,7 +103,7 @@ const OpenPositions = () => {
     };
 
     return (
-        <section className={`bg-white relative overflow-hidden ${styles.sectionPadding} `}>
+        <section className={`bg-white relative overflow-hidden ${styles.sectionPadding}`} id="open-positions">
             <div className="">
                 <SectionHeading
                     subtitle="Open Positions"
@@ -168,14 +168,14 @@ const OpenPositions = () => {
                                         {/* Right Side - Action Buttons */}
                                         <div className="flex items-start gap-2 lg:gap-3 flex-shrink-0">
                                             {job.isOnSite && (
-                                                <span className="px-4 lg:py-2 py-1.5 bg-blue text-white rounded-full text-sm lg:text-base font-semibold font-inter whitespace-nowrap">
+                                                <span className="px-4 lg:py-2 py-1.5 bg-blue text-white rounded-full text-sm lg:text-base font-semibold font-inter whitespace-nowrap hidden md:block">
                                                     On Site
                                                 </span>
                                             )}
                                             <Link href="/careers/apply-now">
                                             <button
                                                 onClick={(e) => handleApplyNow(e, job.id)}
-                                                className="px-3 lg:px-4 lg:py-2 py-1.5 border-2 border-accent cursor-pointer bg-white text-accent rounded-lg text-sm lg:text-base font-semibold font-inter hover:bg-[#F05C22] hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap group"
+                                                className="px-3 lg:px-4 lg:py-2 py-1.5 border-2 border-accent cursor-pointer bg-white text-accent rounded-lg text-sm lg:text-base font-semibold font-inter hover:bg-[#F05C22] hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap group ms-14 md:ms-0"
                                             >
                                                 Apply Now
                                                 <MoveUpRight className="w-4 h-4 text-[#F05C22] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />

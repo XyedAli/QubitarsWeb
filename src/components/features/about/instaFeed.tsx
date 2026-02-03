@@ -22,7 +22,7 @@ const InstaFeed = () => {
   ];
 
   return (
-    <section className="bg-white relative overflow-hidden">
+    <section className="bg-white relative overflow-hidden" id="life-at-qubitars">
       <div className={`${styles.sectionPadding}`}>
         {/* Header */}
         <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-4 mb-4 md:mb-10 lg:mb-12">

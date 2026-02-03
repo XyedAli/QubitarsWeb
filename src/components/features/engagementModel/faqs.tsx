@@ -1,13 +1,13 @@
 "use client";
 
 import { FAQSection } from "@/components/shared/faq";
-import { faqData } from "@/data";
+import { engModelFaqSection, engModelFaqData } from "@/data/engModel";
 
 const EngModelFAQs = () => (
   <FAQSection
-    data={faqData}
-    subtitle="Got Questions?"
-    title="Simple, Honest Answers"
+    data={engModelFaqData}
+    subtitle={engModelFaqSection.subtitle}
+    title={engModelFaqSection.title}
   />
 );
 

@@ -24,7 +24,7 @@ const Banner2 = ({
     const titleParts = title.split('. ').filter(part => part.trim());
     
     return (
-        <section className="relative overflow-hidden min-h-[53vh] md:min-h-[57vh] lg:min-h-[63vh] flex items-center mx-5">
+        <section className="relative overflow-hidden min-h-[53vh] md:min-h-[57vh] lg:min-h-[53vh] flex items-center mx-5">
             <div className="absolute inset-0 z-0">
                 <Image
                     src={backgroundImage}

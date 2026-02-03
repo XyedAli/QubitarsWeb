@@ -43,6 +43,7 @@ const BenefitCard = ({ icon, value, label, index, isActive, onMouseEnter, onMous
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      id="benifits"
     >
       {/* Orange Gradient Overlay from Bottom */}
       <div className={`absolute inset-0 ${isActive ? 'opacity-100' : 'opacity-0'} transition-opacity pointer-events-none rounded-2xl overflow-hidden`}>

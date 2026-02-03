@@ -36,7 +36,7 @@ const Awards = () => {
               return (
                 <div
                   key={award.id}
-                  className="bg-white rounded-2xl gap-4 lg:p-5 xl:p-7 shadow-sm w-full h-full min-h-[140px] md:min-h-[165px] lg:min-h-[170px] xl:min-h-[185px] flex items-center justify-center border border-gray-100"
+                  className="bg-white rounded-2xl gap-4 lg:p-5 xl:p-7 shadow-sm w-full h-full min-h-[123px] md:min-h-[165px] lg:min-h-[170px] xl:min-h-[185px] flex items-center justify-center border border-gray-100"
                 >
                   {isSvg ? (
                     <img
@@ -44,7 +44,7 @@ const Awards = () => {
                       alt={award.name}
                       width={150}
                       height={150}
-                      className="w-full h-auto max-w-[83px] md:max-w-[102px] lg:max-w-[110px] object-contain"
+                      className="w-full h-auto max-w-[73px] md:max-w-[102px] lg:max-w-[110px] object-contain"
                       loading={isPriority ? "eager" : "lazy"}
                       fetchPriority={isPriority ? "high" : "auto"}
                     />
@@ -54,7 +54,7 @@ const Awards = () => {
                       alt={award.name}
                       width={150}
                       height={150}
-                      className="w-full h-auto max-w-[83px] md:max-w-[102px] lg:max-w-[110px] object-contain"
+                      className="w-full h-auto max-w-[73px] md:max-w-[102px] lg:max-w-[110px] object-contain"
                       priority={isPriority}
                       loading={isPriority ? "eager" : "lazy"}
                       fetchPriority={isPriority ? "high" : "auto"}

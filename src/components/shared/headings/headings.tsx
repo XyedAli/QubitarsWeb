@@ -10,12 +10,12 @@ interface SectionHeadingProps {
 
 export const SectionHeading = ({ subtitle, title, highlightedText, subtitleColor, titleColor }: SectionHeadingProps) => {
   const subtitleClassName = subtitleColor
-    ? `${styles.h6} font-bold capitalize inline-block`
-    : `${styles.h6} font-bold capitalize inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`;
+    ? `${styles.h6} font-extrabold md:font-bold capitalize inline-block`
+    : `${styles.h6} font-extrabold md:font-bold capitalize inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`;
 
   const titleClassName = titleColor
-    ? `${styles.h1} font-semibold leading-tight font-outfit`
-    : `${styles.h1} font-semibold text-blue leading-tight font-outfit`;
+    ? `${styles.h2} font-semibold leading-tight font-outfit`
+    : `${styles.h2} font-semibold text-blue leading-tight font-outfit`;
 
   return (
     <div className="mb-6 md:mb-8 lg:mb-10 xl:mb-12">

@@ -2,9 +2,9 @@
 
 import HeroSection from "@/components/shared/heroSection";
 import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+import { heroSection } from "@/data/engModel";
 
 export default function EngModalHero() {
-    // Get Cloudinary engagement model images
     const engagementModelImages = getEngagementModelCloudinaryImages();
 
     return (
@@ -12,21 +12,19 @@ export default function EngModalHero() {
             variant="blog"
             title={
                 <>
-                    Tailored Engagement, Maximum{" "}
+                    {heroSection.title}{" "}
                     <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-                        Value
+                        {heroSection.titleHighlight}
                     </span>
                 </>
             }
-            descriptions={[
-                "Start lean, scale confidently, and adjust seamlessly.",
-            ]}
+            descriptions={heroSection.descriptions}
             backgroundType="image"
             backgroundImage={engagementModelImages.modelBg}
-            overlayTag="ENGAGEMENT MODEL"
-            overlayTitle="Engage Smarter, Build Faster"
-            overlayDescription="Choose an engagement structure that fits your business today, while leaving room for where you’re headed next."
-            buttonText="Book a Consultation - it's free"
+            overlayTag={heroSection.overlayTag}
+            overlayTitle={heroSection.overlayTitle}
+            overlayDescription={heroSection.overlayDescription}
+            buttonText={heroSection.buttonText}
         />
     );
 }

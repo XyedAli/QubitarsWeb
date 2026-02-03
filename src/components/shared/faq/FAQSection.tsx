@@ -91,7 +91,7 @@ const FAQSection = ({ data, subtitle, title }: FAQSectionProps) => {
                     </button>
 
                     {isOpen && (
-                      <div className="px-4 lg:px-6 xl:px-8 pb-4 md:pb-5 bg-white border-t border-gray-100">
+                      <div className="px-4 lg:px-6 xl:px-8 pb-2 lg:pb-5 bg-white border-t border-gray-100">
                         <div className="pt-4">
                           {renderDescription(item.answer)}
                           {item.link && (

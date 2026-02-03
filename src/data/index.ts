@@ -20,3 +20,7 @@ export type { CaseStudy } from "./caseStudies";
 export { careerValues } from "./careers";
 export type { CareerValue } from "./careers";
 
+// Engagement Model page data exports
+export {processSection,advantageSection,modelsSection,customersNeedsSection,numericBannerSection,heroSection,engModelFaqSection,engModelFaqData,} from "./engModel";
+export type {ProcessStep, AdvantageItem, ServiceTab, FeatureCard, AnimatedStat, EngModelFAQItem,} from "./engModel";
+

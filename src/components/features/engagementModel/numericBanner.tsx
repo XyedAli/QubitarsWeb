@@ -4,21 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { styles } from "@/styles/style";
 import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
-
-const engagementIcons = getEngagementModelCloudinaryImages();
-
-interface AnimatedStat {
-  end: number;
-  suffix: string;
-  label: string;
-  icon: string;
-}
-const animatedStats: AnimatedStat[] = [
-  { icon: engagementIcons.icon10, end: 150, suffix: "+", label: "Leading Companies" },
-  { icon: engagementIcons.icon11, end: 300, suffix: "+", label: "Industries Growth Strategies" },
-  { icon: engagementIcons.icon12, end: 8, suffix: "M+", label: "Revenue Boosted" },
-  { icon: engagementIcons.icon13, end: 400, suffix: "+", label: "Projects Successfully Delivered" },
-];
+import { numericBannerSection } from "@/data/engModel";
 
 const DURATION_MS = 2000;
 const TICK_MS = 16; // ~60fps
@@ -43,12 +29,16 @@ function useCountUp(end: number, start: boolean) {
   return count;
 }
 
-function AnimatedNumber({ stat, start }: { stat: AnimatedStat; start: boolean }) {
+function AnimatedNumber({
+  stat,
+  start,
+}: {
+  stat: (typeof numericBannerSection.stats)[number] & { icon: string };
+  start: boolean;
+}) {
   const count = useCountUp(stat.end, start);
   return (
-    <span
-      className={`text-[48px] font-bold font-outfit text-white leading-tight block mb-2 text-left`}
-    >
+    <span className="text-[28px] md:text-[35px] lg:text-[40px] xl:text-[48px] font-bold font-outfit text-white leading-tight block mb-2 text-left">
       {count}
       {stat.suffix}
     </span>
@@ -58,6 +48,11 @@ function AnimatedNumber({ stat, start }: { stat: AnimatedStat; start: boolean })
 const NumericBanner = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const engagementIcons = getEngagementModelCloudinaryImages();
+  const animatedStats = numericBannerSection.stats.map((stat) => ({
+    ...stat,
+    icon: engagementIcons[stat.iconKey],
+  }));
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -75,16 +70,12 @@ const NumericBanner = () => {
   return (
     <section
       ref={sectionRef}
-      className={`${styles.sectionPadding} py-10 md:py-12 lg:py-14 xl:py-16 bg-blue rounded-xl`}
->
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 ps-17 pe-10">
+      className={`${styles.sectionPadding} py-6 lg:py-12 xl:py-16 bg-blue rounded-xl`}
+    >
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 xl:gap-8 ps-4 md:ps-9 lg:ps-4 xl:ps-17 pe-3 md:pe-6 lg:pe-4 xl:pe-10">
         {animatedStats.map((stat, index) => (
-          <div
-            key={index}
-            className="relative flex  gap-5"
-          >
-            {/* Icon – medal, chart, briefcase, checklist per Figma */}
-            <div className="flex items-center w-12 h-12 md:w-14 md:h-14">
+          <div key={index} className="relative flex gap-3 lg:gap-4 xl:gap-5">
+            <div className="flex items-center w-9 h-9 md:w-12 md:h-12 xl:w-14 xl:h-14">
               <Image
                 src={stat.icon}
                 alt=""
@@ -94,16 +85,13 @@ const NumericBanner = () => {
                 unoptimized={stat.icon.includes("cloudinary.com")}
               />
             </div>
-            <div className="flex flex-col text-left">
-            <AnimatedNumber stat={stat} start={hasStarted} />
-            <span
-              className={`${styles.p2} text-white font-inter font-medium`}
-            >
-              {stat.label}
-            </span>
+            <div className={`${styles.flexCol} text-left`}>
+              <AnimatedNumber stat={stat} start={hasStarted} />
+              <span className="text-[13px] md:text-base xl:text-xl text-white font-inter font-medium">
+                {stat.label}
+              </span>
+            </div>
           </div>
-          </div>
-          
         ))}
       </div>
     </section>
