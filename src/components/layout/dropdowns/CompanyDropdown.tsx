@@ -57,7 +57,7 @@ export const CompanyDropdown = () => {
                   </span>
                 </div>
                 {/* Statistics Values */}
-                <div className="grid grid-cols-2 gap-3 mt-4">
+                <div className="grid grid-cols-2 gap-3 mt-4 xl:mt-7">
                   {companyData.filter(item => item.type === "statistic").map((stat) => {
                     const IconComponent = stat.icon!;
                     return (

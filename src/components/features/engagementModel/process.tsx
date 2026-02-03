@@ -5,7 +5,7 @@ import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import { processSection } from "@/data/engModel";
-
+import { SectionHeading } from "@/components/shared/headings";
 const Process = () => {
   const processIcons = getEngagementModelCloudinaryImages();
   const processSteps = processSection.steps.map((step) => ({
@@ -18,12 +18,10 @@ const Process = () => {
       className={`${styles.sectionPadding} pt-14 md:pt-18 lg:pt-22 xl:pt-24`}
     >
       <div className="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-        <span className={`${styles.h6} font-bold uppercase inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}>
-          {processSection.subtitle}
-        </span>
-        <h2 className={`${styles.h1} font-semibold text-[#1E274F] leading-tight font-outfit mt-1`}>
-          {processSection.title} <span className="text-[#F05C22]">{processSection.titleHighlight}</span>
-        </h2>
+       <SectionHeading
+        subtitle="Collaboration Framework"
+        title="Results, Not Noise"
+       />
       </div>
 
       {/* Top row: text for steps with text above */}

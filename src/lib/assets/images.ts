@@ -207,9 +207,21 @@ export const getEngagementModelCloudinaryImages = () => {
     icon18: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon18_juqdcy.svg")),
   };
   const advantageImg = buildCloudinaryUrl("v1769760508/engImg1_mbci7z.webp");
+  const execCard1 = buildCloudinaryUrl("v1770109319/engSlide1_vsmifx.webp");
+  const execCard2 = buildCloudinaryUrl("v1770109320/engSlide2_m3kgux.webp");
+  const execCard3 = buildCloudinaryUrl("v1770109320/engSlide3_lwmuya.webp");
+  const execCard4 = buildCloudinaryUrl("v1770109320/engSlide4_ooz5cv.webp");
+  const execCard5 = buildCloudinaryUrl("v1770109323/engSlide5_lh3evx.webp");
+  const execCard6 = buildCloudinaryUrl("v1770109325/engSlide6_ntto6a.webp");
   return {
     modelBg: optimizeHeroImage(modelBgUrl),
     advantageImg,
+    execCard1,
+    execCard2,
+    execCard3,
+    execCard4,
+    execCard5,
+    execCard6,
     ...engagementIcons,
   };
 };

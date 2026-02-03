@@ -198,25 +198,25 @@ const DigitalServices = () => {
       {isFixed && <div style={{ height: `${sectionHeight}px` }} />}
       <section ref={sectionRef} className={`bg-white md:min-h-screen md:flex md:items-center transition-all duration-500 ${isFixed ? "md:fixed md:top-0 md:bottom-0 md:left-0 md:right-0 md:z-40" : "relative"}`}>
         <div className={`${styles.sectionPadding} w-full py-6 md:py-12 lg:py-16`}>
-          <div className="mx-4 md:mx-0 mb-4 md:mb-6 lg:mb-8">
+          <div className="mb-4 md:mb-6 lg:mb-8">
             <SectionHeading
               subtitle="Engagement Model"
               title="Growth-Focused Digital Services"
             />
           </div>
 
-          {/* Mobile accordion */}
+          {/* Mobile accordion – aligned with heading (section + mx-4); equal space both sides */}
           <div className="md:hidden">
             {engagementOptions.map((option) => {
               const isExpanded = expandedSections.has(option.id);
               return (
                 <div
                   key={option.id}
-                  className="transition-all duration-300 overflow-hidden mx-4"
+                  className="transition-all duration-300 overflow-hidden md:mx-4"
                 >
                   <button
                     onClick={() => handleMobileSectionToggle(option.id)}
-                    className="w-full flex items-center justify-between py-4 text-left border-b border-gray-400 transition-colors"
+                    className="w-full flex items-center justify-between py-4 px-4 text-left border-b border-gray-400 transition-colors min-w-0"
                   >
                     <h3 className="text-[20px] font-semibold text-blue font-outfit">
                       {option.title}
@@ -230,7 +230,7 @@ const DigitalServices = () => {
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
                   >
                     <div className="pt-4 pb-4 bg-[#EDEFF880] rounded-2xl mt-3">
-                      <div className="px-3">
+                      <div className="px-4">
                         <h3 className="text-[20px] font-bold text-blue mb-3 font-outfit">{option.title}</h3>
                         {option.description[0] && (
                           <p className="text-base font-medium text-gray-800 mb-3 font-outfit">

@@ -314,7 +314,7 @@ const HeroSection = ({
           {/* Text Content */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-9 items-start md:items-center w-full h-full relative z-20">
             <div
-              className={`${textColorClass} col-span-8 text-center md:text-left relative z-20 pe-4 md:pe-0 ps-4 xl:ps-10 ${marginBottomClass}`}
+              className={`${textColorClass} col-span-8 text-left relative z-20 pe-4 md:pe-0 ps-4 xl:ps-10 ${marginBottomClass}`}
             >
               {subtitle && (
                 <p
@@ -357,15 +357,15 @@ const HeroSection = ({
           {/* Awards Section */}
           {awardsSection && (
             <div
-              className={`absolute ${awardsBottomClass} left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 ps-4 sm:px-0 md:px-5 xl:px-10 z-20`}
+              className={`absolute ${awardsBottomClass} left-0 md:left-auto md:right-0 ps-4 sm:px-0 md:px-5 xl:px-10 z-20`}
             >
               <div className="max-w-md lg:max-w-lg xl:max-w-2xl">
                 <p
-                  className={`${styles.p4} text-white/50 uppercase flex justify-center md:justify-start font-poppins mb-2 md:mb-1 lg:mb-2 xl:mb-3 whitespace-nowrap`}
+                  className={`${styles.p4} text-white/50 uppercase flex justify-start font-poppins mb-2 md:mb-1 lg:mb-2 xl:mb-3 whitespace-nowrap`}
                 >
                   {awardsSection.label}
                 </p>
-                <div className={`${styles.flexCenter} gap-6 md:gap-2 lg:gap-3 xl:gap-5`}>
+                <div className={`flex items-center justify-start gap-6 md:gap-2 lg:gap-3 xl:gap-5`}>
                   {awardsSection.awards.map((award, index) => {
                     const isSvg = typeof award.src === 'string' && award.src.includes('.svg');
                     // Hero awards are always priority (above the fold)

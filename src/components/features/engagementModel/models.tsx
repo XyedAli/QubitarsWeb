@@ -15,13 +15,10 @@ const Models = () => {
     const tabs = modelsSection.tabs;
 
     return (
-        <section className={`${styles.sectionPadding} ${styles.sectionPaddingY} bg-white`}>
+        <section className={`${styles.sectionPadding} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}>
             <div className="mb-6 text-center">
-                <h2 className={`${styles.h1} font-semibold text-[#1E274F] leading-tight font-outfit`}>
-                    Growth-Focused
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]">
-                        Digital Services
-                    </span>
+                <h2 className={`${styles.h2} font-semibold text-[#1E274F] leading-tight font-outfit`}>
+                Results-Driven Digital Solutions
                 </h2>
             </div>
 
@@ -101,18 +98,6 @@ const Models = () => {
                 ))}
             </div>
 
-            {/* CTA – centered orange button */}
-            <div className="mt-10 md:mt-12 lg:mt-14 flex justify-center">
-                <Button
-                    variant="accent"
-                    size="lg"
-                    className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                    {modelsSection.ctaText}
-                    <ArrowRight className="w-5 h-5" />
-                </Button>
-            </div>
         </section>
     );
 };

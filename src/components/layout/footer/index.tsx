@@ -36,17 +36,17 @@ const Footer = () => {
                   className="w-auto h-10 md:h-12 lg:h-14 xl:h-16 self-center md:self-start"
                   unoptimized
                 />
-                <form onSubmit={handleSubscribe} className="flex gap-2 w-full md:w-auto">
+                <form onSubmit={handleSubscribe} className="flex flex-row gap-2 w-full md:w-auto min-w-0">
                   <input
                     type="email"
                     placeholder="Enter your Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-2.5 lg:py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-[270px] lg:min-w-[325px] xl:min-w-[370px]"
+                    className="flex-1 min-w-0 px-3 py-2 sm:px-4 sm:py-2.5 lg:py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm sm:min-w-[200px] lg:min-w-[325px] xl:min-w-[370px]"
                   />
                   <button
                     type="submit"
-                    className="px-4 lg:px-8 xl:px-7 py-2.5 lg:py-3 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 whitespace-nowrap text-base me-17"
+                    className="flex-shrink-0 px-3 py-2 sm:px-4 lg:px-8 xl:px-7 sm:py-2.5 lg:py-3 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 whitespace-nowrap text-sm sm:text-base sm:me-4"
                   >
                     Subscribe
                   </button>

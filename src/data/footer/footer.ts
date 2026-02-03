@@ -4,7 +4,7 @@ export const companyLinks = [
   { name: "About Us", href: "/about-us" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Blogs", href: "/blogs" },
-  { name: "Life At Qubitars", href: "/life" },
+  { name: "Life At Qubitars", href: "/about-us#life-at-qubitars" },
   { name: "Careers", href: "/careers" },
 ];
 

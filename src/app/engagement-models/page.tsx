@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { EngModalHero, CustomersNeeds, Advantage, Models, NumericBanner, Process, EngModelFAQs } from "@/components/features/engagementModel";
+import { EngModalHero, CustomersNeeds, Advantage, Models, NumericBanner, ExcellenceExecution, Process, EngModelFAQs } from "@/components/features/engagementModel";
 
 export default function EngagementModelsPage() {
   return (
@@ -9,6 +9,7 @@ export default function EngagementModelsPage() {
       <Advantage />
       <Models />
       <NumericBanner />
+      <ExcellenceExecution />
       <Process />
       <EngModelFAQs />
     </Fragment>

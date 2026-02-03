@@ -60,7 +60,7 @@ export interface AdvantageItem {
 }
 
 export const advantageSection = {
-  subtitle: "ADVANTAGE",
+  subtitle: "Advantage",
   title: "Key Benefits of Our Engagement Models",
   items: [
     {
@@ -95,9 +95,7 @@ export interface ServiceTab {
 }
 
 export const modelsSection = {
-  title: "Growth-Focused",
-  titleHighlight: "Digital Services",
-  ctaText: "Discuss Your Unique Needs",
+  title: "Results-Driven Digital Solutions",
   tabs: [
     {
       id: "product-development",
@@ -221,6 +219,61 @@ export const numericBannerSection = {
     { iconKey: "icon12" as const, end: 8, suffix: "M+", label: "Revenue Boosted" },
     { iconKey: "icon13" as const, end: 400, suffix: "+", label: "Projects Successfully Delivered" },
   ] as AnimatedStat[],
+};
+
+// ─── Execution Excellence (slider cards) ────────────────────────────────────
+export interface ExecutionExcellenceCard {
+  number: string;
+  title: string;
+  description: string;
+  imageKey: "execCard1" | "execCard2" | "execCard3" | "execCard4" | "execCard5" | "execCard6";
+}
+
+export const executionExcellenceSection = {
+  cards: [
+    {
+      number: "01",
+      title: "Milestone-Driven Execution",
+      description:
+        "Our engagement models are structured around clearly defined milestones, enabling predictable delivery, measurable progress, and alignment with your business goals at every stage.",
+      imageKey: "execCard1" as const,
+    },
+    {
+      number: "02",
+      title: "Transparent Collaboration",
+      description:
+        "We embed open and consistent communication into our engagement models, ensuring full visibility, faster decisions, and continuous alignment throughout the project lifecycle.",
+      imageKey: "execCard2" as const,
+    },
+    {
+      number: "03",
+      title: "Dedicated Engagement Management",
+      description:
+        "Each engagement model includes a dedicated manager who oversees planning, coordination, and execution—ensuring smooth workflows and accountability from start to finish.",
+      imageKey: "execCard3" as const,
+    },
+    {
+      number: "04",
+      title: "On-Demand Scalability",
+      description:
+        "Our flexible engagement models allow you to scale resources, skills, or features at any point, adapting seamlessly to evolving project needs.",
+      imageKey: "execCard4" as const,
+    },
+    {
+      number: "05",
+      title: "Flexible Engagement Structure",
+      description:
+        "Choose from engagement models designed to fit your timeline, budget, and scope—whether fixed, dedicated, or hybrid—without operational friction.",
+      imageKey: "execCard5" as const,
+    },
+    {
+      number: "06",
+      title: "Outcome Focused Delivery",
+      description:
+        "Every engagement model is built around defined outcomes, ensuring efforts remain aligned with business value, performance goals, and long-term growth.",
+      imageKey: "execCard6" as const,
+    },
+  ] as ExecutionExcellenceCard[],
 };
 
 // ─── Hero ──────────────────────────────────────────────────────────────────
