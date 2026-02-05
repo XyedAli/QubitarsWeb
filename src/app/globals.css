@@ -306,7 +306,7 @@ body {
   }
 }
 .animate-industries-text-up {
-  animation: industries-text-up 0.5s ease-out forwards;
+  animation: industries-text-up 1.50s ease-out forwards;
 }
 
 /* Industries hero: bg image jagah pe hi fade in — right se left slide na ho */

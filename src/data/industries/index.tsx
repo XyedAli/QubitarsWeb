@@ -1,5 +1,5 @@
 import React from "react";
-import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket } from "lucide-react";
+import { ChartNoAxesCombined, GraduationCap, Rocket } from "lucide-react";
 
 export interface HeroIndustryCard {
   id: string;
@@ -12,7 +12,7 @@ export interface HeroIndustryCard {
 /** Hero section cards data – industries carousel */
 export const heroIndustriesCards: HeroIndustryCard[] = [
   {
-    id: "real-estate",
+    id: "real-estate-1",
     name: "Real Estate",
     icon: ChartNoAxesCombined,
     title: "Real Estate Solutions",
@@ -20,51 +20,35 @@ export const heroIndustriesCards: HeroIndustryCard[] = [
       "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
   },
   {
-    id: "travel",
-    name: "Travel & Hospitality",
-    icon: MapPin,
-    title: "Travel & Hospitality Innovation",
+    id: "real-estate-2",
+    name: "Real Estate",
+    icon: ChartNoAxesCombined,
+    title: "Real Estate Solutions",
     description:
-      "Elevating guest experiences through smart technology solutions. We help travel businesses modernize operations and deliver exceptional service.",
+      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
   },
   {
-    id: "energy",
-    name: "Oil Gas & Energy",
-    icon: Atom,
-    title: "Energy Sector Technology",
+    id: "real-estate-3",
+    name: "Real Estate",
+    icon: ChartNoAxesCombined,
+    title: "Real Estate Solutions",
     description:
-      "Powering the future of energy with advanced digital solutions. Our expertise helps optimize operations and drive sustainable practices.",
+      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
   },
   {
-    id: "banking",
-    name: "Banking & FinTech",
-    icon: Diameter,
-    title: "FinTech Solutions",
+    id: "real-estate-4",
+    name: "Real Estate",
+    icon: ChartNoAxesCombined,
+    title: "Real Estate Solutions",
     description:
-      "Revolutionizing financial services with cutting-edge technology. We enable secure, efficient, and user-friendly banking experiences.",
+      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
   },
   {
-    id: "healthcare",
-    name: "Healthcare",
-    icon: HeartPlus,
-    title: "Healthcare Innovation",
+    id: "real-estate-5",
+    name: "Real Estate",
+    icon: ChartNoAxesCombined,
+    title: "Real Estate Solutions",
     description:
-      "Advancing healthcare delivery through digital transformation. Our solutions improve patient care and streamline medical operations.",
-  },
-  {
-    id: "edtech",
-    name: "EdTech",
-    icon: GraduationCap,
-    title: "Educational Technology",
-    description:
-      "Revolutionizing learning through innovative digital solutions. We help create engaging and effective educational experiences.",
-  },
-  {
-    id: "startups",
-    name: "Startups",
-    icon: Rocket,
-    title: "Startups Solutions",
-    description:
-      "Helping startups build and scale their businesses through innovative digital solutions. We provide the right tools and expertise to help them succeed.",
+      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
   },
 ];

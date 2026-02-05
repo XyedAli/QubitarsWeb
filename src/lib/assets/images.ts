@@ -32,13 +32,11 @@ export const getCaseStudiesCloudinaryImages = () => {
 export const getIndustriesHeroImages = (): Record<string, string> => {
   const base = (endpoint: string) => optimizeHeroImage(buildCloudinaryUrl(endpoint));
   return {
-    "real-estate": base("v1769159269/caseStudiesbg_piw2gw.webp"),
-    travel: base("v1769366420/herobg_pqhs8m.webp"),
-    energy: base("v1769366415/mission_b9vif4.webp"),
-    banking: base("v1769366415/vision_cmqh0e.webp"),
-    healthcare: base("v1769366417/Aimg17_oxpsdn.webp"),
-    edtech: base("v1769540140/modelbg_pyfp12.webp"),
-    startups: base("v1769160189/blogbg_dnvnad.webp"),
+    "real-estate-1": base("v1770317984/stateimg1_abtxed.webp"),
+    "real-estate-2": base("v1770317983/stateimg2_jymejk.webp"),
+    "real-estate-3": base("v1770317984/stateimg3_pgrgja.webp"),
+    "real-estate-4": base("v1770317984/stateimg4_uzmiwz.webp"),
+    "real-estate-5": base("v1770317986/stateimg5_lietsg.webp"),
   };
 };
 

@@ -1,11 +1,10 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, ArrowLeft, ArrowRight } from "lucide-react";
-import { industries } from "@/data";
+import { heroIndustriesCards } from "@/data/industries";
 import { styles, combine } from "@/styles/style";
 import { CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { getIndustriesHeroImages } from "@/lib/assets/images";
@@ -18,16 +17,32 @@ type ExpandRect = {
   height: number;
   viewportW: number;
   viewportH: number;
+  /** Hero bounds — expand img sirf hero tak, next sections par nahi */
+  heroLeft?: number;
+  heroTop?: number;
+  heroWidth?: number;
+  heroHeight?: number;
 };
 type PendingDirection = "next" | "prev" | null;
 
-/** Final state hamesha (0,0) se full viewport — ek hi bar apply, left/right gap na rahe */
+/** Final rect: hero ke andar absolute — height hero tak hi */
 function fullScreenRectFromCard(rect: ExpandRect) {
+  if (rect.heroWidth != null && rect.heroHeight != null && rect.heroTop != null && rect.heroLeft != null) {
+    return { left: 0, top: 0, width: rect.heroWidth, height: rect.heroHeight };
+  }
+  return { left: 0, top: 0, width: rect.viewportW, height: rect.viewportH };
+}
+
+/** Card position hero-relative (expand overlay hero ke andar absolute) */
+function cardRectRelativeToHero(rect: ExpandRect) {
+  if (rect.heroLeft == null || rect.heroTop == null) {
+    return { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
+  }
   return {
-    left: 0,
-    top: 0,
-    width: rect.viewportW,
-    height: rect.viewportH,
+    left: rect.left - rect.heroLeft,
+    top: rect.top - rect.heroTop,
+    width: rect.width,
+    height: rect.height,
   };
 }
 
@@ -36,22 +51,27 @@ const EXPAND_DELAY_MS = 0;
 const SLIDER_SPEED_MS = 600;
 
 const IndustriesHero = () => {
+  const heroSectionRef = useRef<HTMLElement | null>(null);
   const sliderRef = useRef<Slider | null>(null);
   const activeCardRef = useRef<HTMLDivElement | null>(null);
   const pendingDirectionRef = useRef<PendingDirection>(null);
   const expandEndCalledRef = useRef(false);
+  /** Expand khatam hone ke baad bg update par fade-in skip — same img dubara set na dikhe */
+  const skipNextBgFadeRef = useRef(false);
+  const lastRenderedBgIdRef = useRef<string | null>(null);
+  const usedNoAnimationForCurrentBgRef = useRef(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   /** Left panel: sirf expand khatam hone ke baad change — us se pehle nahi */
   const [contentSlideIndex, setContentSlideIndex] = useState(0);
-  const [previousIndustryId, setPreviousIndustryId] = useState<string>(industries[0]?.id ?? "real-estate");
+  const [previousIndustryId, setPreviousIndustryId] = useState<string>(heroIndustriesCards[0]?.id ?? "real-estate-1");
   const [isExpanding, setIsExpanding] = useState(false);
   const [expandFromRect, setExpandFromRect] = useState<ExpandRect | null>(null);
   const [expandToFull, setExpandToFull] = useState(false);
   const industryHeroImages = getIndustriesHeroImages();
-  const activeIndustry = industries[currentSlide] ?? industries[0];
-  const contentIndustry = industries[contentSlideIndex] ?? industries[0];
-  const previousBgImage = industryHeroImages[previousIndustryId] ?? industryHeroImages["real-estate"];
-  const activeCardImage = industryHeroImages[activeIndustry.id] ?? industryHeroImages["real-estate"];
+  const activeIndustry = heroIndustriesCards[currentSlide] ?? heroIndustriesCards[0];
+  const contentIndustry = heroIndustriesCards[contentSlideIndex] ?? heroIndustriesCards[0];
+  const previousBgImage = industryHeroImages[previousIndustryId] ?? industryHeroImages["real-estate-1"];
+  const activeCardImage = industryHeroImages[activeIndustry.id] ?? industryHeroImages["real-estate-1"];
 
   /** Sab cards (1–7) ke liye same: DOM se current slide ka card — .slick-current se, ref fallback */
   const getActiveCardElement = (): HTMLDivElement | null => {
@@ -66,6 +86,7 @@ const IndustriesHero = () => {
     if (!el) return false;
     const rect = el.getBoundingClientRect();
     if (rect.width <= 0 || rect.height <= 0) return false;
+    const heroRect = heroSectionRef.current?.getBoundingClientRect();
     setExpandFromRect({
       left: rect.left,
       top: rect.top,
@@ -73,6 +94,12 @@ const IndustriesHero = () => {
       height: rect.height,
       viewportW: window.innerWidth,
       viewportH: window.innerHeight,
+      ...(heroRect?.height && heroRect?.width && {
+        heroLeft: heroRect.left,
+        heroTop: heroRect.top,
+        heroWidth: heroRect.width,
+        heroHeight: heroRect.height,
+      }),
     });
     setIsExpanding(true);
     return true;
@@ -104,13 +131,16 @@ const IndustriesHero = () => {
     const direction = pendingDirectionRef.current;
     const nextIndex =
       direction === "next"
-        ? (currentSlide + 1) % industries.length
+        ? (currentSlide + 1) % heroIndustriesCards.length
         : direction === "prev"
-          ? (currentSlide - 1 + industries.length) % industries.length
+          ? (currentSlide - 1 + heroIndustriesCards.length) % heroIndustriesCards.length
           : currentSlide;
     // BG = jis card ki expand abhi khatam hui (currentSlide) — next card expand hone tak yahi rahegi
-    const expandedIndustry = industries[currentSlide];
-    if (expandedIndustry) setPreviousIndustryId(expandedIndustry.id);
+    const expandedIndustry = heroIndustriesCards[currentSlide];
+    if (expandedIndustry) {
+      skipNextBgFadeRef.current = true; // isi img ko overlay ne dikhaya, bg par dubara fade-in na ho
+      setPreviousIndustryId(expandedIndustry.id);
+    }
     pendingDirectionRef.current = null;
     // Left panel: previous card wala text — jis card ki img expand hui (currentSlide) usi ka, active/next ka nahi
     setContentSlideIndex(currentSlide);
@@ -148,59 +178,54 @@ const IndustriesHero = () => {
     responsive: sliderBreakpoints.fourToThreeToTwoToOne,
   };
 
-  const totalSlideCount = industries.length;
+  const totalSlideCount = heroIndustriesCards.length;
   const displayNumber = String(contentSlideIndex + 1).padStart(2, "0");
 
-  // Background body portal — slider ke transform se bilkul alag, right se left shift nahi hoga
-  const bgPortal =
-    typeof document !== "undefined"
-      ? createPortal(
-          <div
-            aria-hidden
-            className="overflow-hidden pointer-events-none"
-            style={{
-              position: "fixed",
-              left: 0,
-              top: 0,
-              width: "100vw",
-              height: "100vh",
-              zIndex: -1,
-              transform: "translateZ(0)",
-              contain: "layout style paint",
-            }}
-          >
-            <div key={previousIndustryId} className="absolute inset-0 animate-industries-bg-fade-in">
-              <Image
-                src={previousBgImage}
-                alt=""
-                fill
-                className="object-cover object-center"
-                priority
-                sizes="100vw"
-              />
-            </div>
-          </div>,
-          document.body
-        )
-      : null;
+  // Bg class: nayi industry par skip ho to opacity-100; same industry re-render par bhi opacity-100 rakho (flash na ho)
+  const isNewBgId = lastRenderedBgIdRef.current !== previousIndustryId;
+  if (isNewBgId) {
+    usedNoAnimationForCurrentBgRef.current = skipNextBgFadeRef.current;
+    if (skipNextBgFadeRef.current) skipNextBgFadeRef.current = false;
+    lastRenderedBgIdRef.current = previousIndustryId;
+  }
+  const bgNoAnimation = usedNoAnimationForCurrentBgRef.current;
+  const bgInnerClass = bgNoAnimation ? "absolute inset-0 opacity-100" : "absolute inset-0 animate-industries-bg-fade-in";
 
+  const useHeroContainment = expandFromRect && expandFromRect.heroHeight != null;
   return (
-    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden">
-      {bgPortal}
+    <section
+      ref={heroSectionRef}
+      className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden"
+    >
+      {/* Background: hero ke andar hi — expand overlay jahan khatam hoti wahi, top ki taraf move na ho */}
+      <div aria-hidden className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div key={previousIndustryId} className={bgInnerClass}>
+          <Image
+            src={previousBgImage}
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+      </div>
 
-      {/* Expand overlay: content/cards ke peeche — img bari hoti waqt bhi cards aur content dikhte rahen */}
+      {/* Expand overlay: hero ke andar absolute — img sirf hero tak, next sections par nahi */}
       {isExpanding && expandFromRect && (
         <div
-          className="fixed z-[5] overflow-hidden"
+          className={useHeroContainment ? "absolute z-[5] overflow-hidden" : "fixed z-[5] overflow-hidden"}
           style={{
             ...(expandToFull
               ? fullScreenRectFromCard(expandFromRect)
-              : {
-                  left: expandFromRect.left,
-                  top: expandFromRect.top,
-                  width: expandFromRect.width,
-                  height: expandFromRect.height,
-                }),
+              : useHeroContainment
+                ? cardRectRelativeToHero(expandFromRect)
+                : {
+                    left: expandFromRect.left,
+                    top: expandFromRect.top,
+                    width: expandFromRect.width,
+                    height: expandFromRect.height,
+                  }),
             transition: "left 900ms ease-out, top 900ms ease-out, width 900ms ease-out, height 900ms ease-out",
           }}
           onTransitionEnd={(e) => {
@@ -254,9 +279,9 @@ const IndustriesHero = () => {
                 }}
                 className="industries-hero-slider"
               >
-                {industries.map((industry, index) => {
+                {heroIndustriesCards.map((industry, index) => {
                   const IconComponent = industry.icon;
-                  const cardBgImage = industryHeroImages[industry.id] ?? industryHeroImages["real-estate"];
+                  const cardBgImage = industryHeroImages[industry.id] ?? industryHeroImages["real-estate-1"];
                   const isActive = index === currentSlide;
                   const hideActiveCard = isActive && isExpanding;
                   return (
