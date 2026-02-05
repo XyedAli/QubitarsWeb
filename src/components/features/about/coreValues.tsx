@@ -10,12 +10,12 @@ const CoreValues = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <section className={`bg-white relative overflow-hidden ${styles.sectionPadding}`}>
+    <section className={`bg-white relative overflow-hidden ${styles.sectionPadding} mt-9 md:mt-0`}>
           <SectionHeading
             subtitle="What Drives Us"
             title="Values Powering Our Vision"
           />
-      <div className={`max-w-5xl mx-auto pt-12 md:pt-16 lg:pt-20 xl:pt-10 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
+      <div className={`max-w-5xl mx-auto pt-2 lg:pt-6 xl:pt-10 pb-12 md:pb-16 lg:pb-20 xl:pb-24`}>
         {/* Heading */}
       
 
@@ -41,7 +41,7 @@ const CoreValues = () => {
                 {/* Content */}
                 <div className="relative z-10 flex flex-col flex-1 p-3 md:p-5 lg:p-7 xl:p-9">
                   {/* Icon Box - Before Title */}
-                  <div className={`w-16 h-16 md:w-17 md:h-17 lg:w-20 lg:h-20 rounded-full bg-white border-2 transition-all duration-300 ${styles.flexCenter} mb-4 md:mb-5 lg:mb-6 ${isActive ? "border-[#F05C22]" : "border-transparent group-hover:border-[#F05C22]"
+                  <div className={`w-15 h-15 md:w-17 md:h-17 lg:w-20 lg:h-20 rounded-full bg-white border-2 transition-all duration-300 ${styles.flexCenter} mb-3 md:mb-5 lg:mb-6 ${isActive ? "border-[#F05C22]" : "border-transparent group-hover:border-[#F05C22]"
                     }`}>
                     <Image
                       src={value.icon}
@@ -54,7 +54,7 @@ const CoreValues = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`text-[17px] md:text-[22px] lg:text-[28px] text-blue font-bold mb-3 lg:mb-4 font-outfit leading-tight"
+                  <h3 className={`text-[17px] md:text-[22px] lg:text-[28px] text-blue font-bold mb-2 md:mb-3 lg:mb-4 font-outfit leading-tight"
                     }`}>
                     {value.title}
                   </h3>

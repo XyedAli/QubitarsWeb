@@ -1,8 +1,11 @@
 // Engagement Model page – section data (icons resolved in components via getEngagementModelCloudinaryImages)
 
 // ─── Process (Collaboration Framework) ─────────────────────────────────────
+export type ProcessMobileIconKey = "engIcon19" | "engIcon20" | "engIcon21" | "engIcon22" | "engIcon23";
+
 export interface ProcessStep {
   iconKey: "icon14" | "icon15" | "icon16" | "icon17" | "icon18";
+  mobileIconKey: ProcessMobileIconKey;
   title: string;
   description: string;
   textPosition: "above" | "below";
@@ -16,6 +19,7 @@ export const processSection = {
   steps: [
     {
       iconKey: "icon14",
+      mobileIconKey: "engIcon21" as ProcessMobileIconKey,
       title: "DISCOVERY & AGREEMENT",
       description:
         "We understand needs, finalize requirements, and align on project terms.",
@@ -23,6 +27,7 @@ export const processSection = {
     },
     {
       iconKey: "icon15",
+      mobileIconKey: "engIcon20" as ProcessMobileIconKey,
       title: "STRATEGY & PREPARATION",
       description:
         "We map out the project plan and assemble the right team to execute it.",
@@ -30,6 +35,7 @@ export const processSection = {
     },
     {
       iconKey: "icon16",
+      mobileIconKey: "engIcon19" as ProcessMobileIconKey,
       title: "DEVELOPMENT & BUILDING",
       description:
         "We build your solution using best practices and cutting-edge technology.",
@@ -37,6 +43,7 @@ export const processSection = {
     },
     {
       iconKey: "icon17",
+      mobileIconKey: "engIcon23" as ProcessMobileIconKey,
       title: "TESTING & DEPLOYMENT",
       description:
         "We rigorously test for quality and seamlessly integrate into your environment.",
@@ -44,6 +51,7 @@ export const processSection = {
     },
     {
       iconKey: "icon18",
+      mobileIconKey: "engIcon22" as ProcessMobileIconKey,
       title: "LAUNCH & SUPPORT",
       description:
         "We go live and provide ongoing maintenance to keep everything running smoothly.",
@@ -215,9 +223,9 @@ export interface AnimatedStat {
 export const numericBannerSection = {
   stats: [
     { iconKey: "icon10" as const, end: 150, suffix: "+", label: "Leading Companies" },
-    { iconKey: "icon11" as const, end: 300, suffix: "+", label: "Industries Growth Strategies" },
+    { iconKey: "icon11" as const, end: 300, suffix: "+", label: "Strategic Growth" },
     { iconKey: "icon12" as const, end: 8, suffix: "M+", label: "Revenue Boosted" },
-    { iconKey: "icon13" as const, end: 400, suffix: "+", label: "Projects Successfully Delivered" },
+    { iconKey: "icon13" as const, end: 400, suffix: "+", label: "Delivery Excellence" },
   ] as AnimatedStat[],
 };
 
@@ -305,50 +313,50 @@ export const engModelFaqSection = {
 export const engModelFaqData: EngModelFAQItem[] = [
   {
     id: 1,
-    question: "What services does your company offer?",
+    question: "The top outsourcing method is Team Augmentation.?",
     answer:
-      "We provide end-to-end solutions ranging from strategy and design to development and automation, helping businesses streamline operations and scale efficiently.",
+      "Dedicated Development Teams are popular as well. They let you be flexible. You get specialized skills without full-time commitments. This is ideal for quick project scaling.",
   },
   {
     id: 2,
-    question: "Who are your typical clients?",
+    question: "What does Qubitars Technologies quality assurance process look like?",
     answer:
-      "Our clients range from startups and small businesses to large enterprises across various industries, including technology, healthcare, finance, and e-commerce.",
+      "Qubitars Technologies quality assurance is thorough. It starts with detailed analysis and continuous testing. Our dedicated QA team ensures robust, secure, and flawless software. We use advanced tools for early issue detection. This ensures smooth usage and user satisfaction.",
   },
   {
     id: 3,
-    question: "How do you ensure quality in your projects?",
+    question: "What project management methods does Qubitars Technologies use?",
     answer:
-      "We follow rigorous quality assurance processes, including code reviews, automated testing, and continuous monitoring to ensure high-quality deliverables.",
+      "Qubitars Technologies employs a variety of project management methods. These approaches suit different project needs and client preferences. We specialize in Agile and Scrum. They promote iterative development and being flexible. It ensures quick adjustments and continuous improvement. We utilize Lean principles to maximize efficiency and minimize waste as well. This helps us deliver high-value results",
   },
   {
     id: 4,
-    question: "What makes your company different from others?",
+    question: "Do you have a project requiring early-stage validation and refinement?",
     answer:
-      "We combine technical expertise with business acumen, delivering solutions that not only work flawlessly but also drive real business value and growth.",
+      "We implement Prototype methods for them. It allows clients to visualize the product. This way, they can interact with the product early in the development process. Our approach is tailored to deliver optimal outcomes. It ensures that every project benefits from the most suitable and effective practices.",
   },
   {
     id: 5,
-    question: "Do you customize solutions for each client?",
+    question: "How quickly can we see ROI?",
     answer:
-      "Yes, we believe in tailored solutions. Every project is unique, and we work closely with clients to understand their specific needs and deliver customized solutions.",
+      "Most clients see measurable ROI within 3-6 months through faster time-to-market, reduced costs, and access to specialized expertise.",
   },
   {
     id: 6,
-    question: "How do you handle security and compliance?",
+    question: "How do your engagement models reduce costs?",
     answer:
-      "Security is our top priority. We implement industry best practices, regular security audits, and ensure compliance with relevant regulations and standards.",
+      "You pay only for resources you need, eliminating full-time hiring overhead while maintaining enterprise-grade quality at competitive rates.",
   },
   {
     id: 7,
-    question: "What does your process look like from start to finish?",
+    question: "Can we start with a small pilot project?",
     answer:
-      "Our process includes discovery and planning, design and prototyping, development and testing, deployment, and ongoing support and maintenance.",
+      "Absolutely. Test our capabilities risk-free with a pilot before scaling up. Many long-term partnerships started this way.",
   },
   {
     id: 8,
-    question: "How can we get started with you?",
+    question: "Will outsourcing limit our innovation? ",
     answer:
-      "Getting started is easy! Simply reach out through our contact form or schedule a consultation. We'll discuss your needs and provide a tailored proposal.",
+      "No—it accelerates it. Access diverse expertise and emerging technologies while your core team focuses on strategy and growth.",
   },
 ];

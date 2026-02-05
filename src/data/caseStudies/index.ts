@@ -1,19 +1,19 @@
-// Case Study Interface
+// Case Study Interface – logoKey resolves to Cloudinary URL via getIndustryCloudinaryIcons (works on Vercel)
 export interface CaseStudy {
   id: number;
   image: string;
-  logo: string;
+  logoKey: "clogo1" | "clogo2" | "clogo3" | "clogo4" | "clogo5" | "clogo12" | "clogo17";
   tag: string;
   title: string;
   desc: string;
 }
 
-// Case Studies Data
+// Case Studies Data – image from public/, logo from Cloudinary via logoKey
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
     image: "/assets/images/caseStudies/csimage1.svg",
-    logo: "/assets/images/Industries/clogo1.svg",
+    logoKey: "clogo1",
     tag: "Real Estate",
     title: "The #1 AI Platform for Streamlining Slow Flip and Rental Properties.",
     desc:
@@ -22,7 +22,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 2,
     image: "/assets/images/caseStudies/csimage2.svg",
-    logo: "/assets/images/Industries/clogo2.svg",
+    logoKey: "clogo2",
     tag: "Startup",
     title: "AI-Human Collaboration Platform to Build Networks & Share Valu",
     desc:
@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 3,
     image: "/assets/images/caseStudies/csimage3.svg",
-    logo: "/assets/images/Industries/clogo12.svg",
+    logoKey: "clogo12",
     tag: "Healthcare",
     title: "The greatest investment you can make is in yourself.",
     desc:
@@ -40,7 +40,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 4,
     image: "/assets/images/caseStudies/csimage4.svg",
-    logo: "/assets/images/Industries/clogo17.svg",
+    logoKey: "clogo17",
     tag: "Healthcare",
     title: "Technology-Driven Healthcare for Africa",
     desc:
@@ -48,8 +48,8 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 5,
-    image: "/assets/images/CaseStudies/csimage5.svg",
-    logo: "/assets/images/Industries/clogo5.svg",
+    image: "/assets/images/caseStudies/csimage5.svg",
+    logoKey: "clogo5",
     tag: "Healthcare",
     title: "Technology-Driven Healthcare for Africa",
     desc:

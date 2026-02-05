@@ -28,6 +28,20 @@ export const getCaseStudiesCloudinaryImages = () => {
   };
 };
 
+// Industries Hero – per-industry background images (each card different image, no overlay)
+export const getIndustriesHeroImages = (): Record<string, string> => {
+  const base = (endpoint: string) => optimizeHeroImage(buildCloudinaryUrl(endpoint));
+  return {
+    "real-estate": base("v1769159269/caseStudiesbg_piw2gw.webp"),
+    travel: base("v1769366420/herobg_pqhs8m.webp"),
+    energy: base("v1769366415/mission_b9vif4.webp"),
+    banking: base("v1769366415/vision_cmqh0e.webp"),
+    healthcare: base("v1769366417/Aimg17_oxpsdn.webp"),
+    edtech: base("v1769540140/modelbg_pyfp12.webp"),
+    startups: base("v1769160189/blogbg_dnvnad.webp"),
+  };
+};
+
 // About Page Images
 export const getAboutCloudinaryImages = () => {
   const aboutEndpoints = {
@@ -205,6 +219,12 @@ export const getEngagementModelCloudinaryImages = () => {
     icon16: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon16_rbfwsc.svg")),
     icon17: optimizeIconImage(buildCloudinaryUrl("v1769774783/engIcon17_wnxblz.svg")),
     icon18: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon18_juqdcy.svg")),
+    // Mobile process section icons (used only in process.tsx mobile layout)
+    engIcon19: optimizeIconImage(buildCloudinaryUrl("v1770120269/engIcon19_rvf2kd.svg")),
+    engIcon20: optimizeIconImage(buildCloudinaryUrl("v1770120269/engIcon20_ofwbxg.svg")),
+    engIcon21: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon21_jo94nw.svg")),
+    engIcon22: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon22_ed4jyi.svg")),
+    engIcon23: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon23_fujqfp.svg")),
   };
   const advantageImg = buildCloudinaryUrl("v1769760508/engImg1_mbci7z.webp");
   const execCard1 = buildCloudinaryUrl("v1770109319/engSlide1_vsmifx.webp");

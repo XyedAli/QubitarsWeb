@@ -197,7 +197,7 @@ const DigitalServices = () => {
     <>
       {isFixed && <div style={{ height: `${sectionHeight}px` }} />}
       <section ref={sectionRef} className={`bg-white md:min-h-screen md:flex md:items-center transition-all duration-500 ${isFixed ? "md:fixed md:top-0 md:bottom-0 md:left-0 md:right-0 md:z-40" : "relative"}`}>
-        <div className={`${styles.sectionPadding} w-full py-6 md:py-12 lg:py-16`}>
+        <div className={`${styles.sectionPaddingX} w-full py-6 md:py-12 lg:py-16`}>
           <div className="mb-4 md:mb-6 lg:mb-8">
             <SectionHeading
               subtitle="Engagement Model"

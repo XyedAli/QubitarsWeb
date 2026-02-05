@@ -21,8 +21,8 @@ const ExcellenceExecution = () => {
     const fiveToFourToThreeToTwoToOne = [
         { breakpoint: 1280, settings: { slidesToShow: 4 } },
         { breakpoint: 1024, settings: { slidesToShow: 3 } },
-        { breakpoint: 768, settings: { slidesToShow: 2 } },
-        { breakpoint: 480, settings: { slidesToShow: 1 } },
+        { breakpoint: 768, settings: { slidesToShow: 3 } },
+        { breakpoint: 480, settings: { slidesToShow: 2 } },
     ];
 
     const sliderSettings = {
@@ -39,7 +39,7 @@ const ExcellenceExecution = () => {
     };
 
     return (
-        <section className={`${styles.sectionPadding} pt-14 md:pt-18 lg:pt-21 xl:pt-24 bg-white`}>
+        <section className={`${styles.sectionPadding} pt-12 md:pt-14 lg:pt-17 xl:pt-18 bg-white`}>
             <SectionHeading
                 subtitle="Execution Excellence"
                 title="Professional Transparency Proven Execution"
@@ -55,7 +55,7 @@ const ExcellenceExecution = () => {
                 >
                     {cards.map((card) => (
                         <div key={card.number} className="h-full">
-                            <div className="relative rounded-xl overflow-hidden group min-h-[360px] md:min-h-[420px] lg:min-h-[470px]">
+                            <div className="relative rounded-xl overflow-hidden group min-h-[320px] md:min-h-[340px] lg:min-h-[380px] xl:min-h-[430px]">
                                 <Image
                                     src={card.image}
                                     alt={card.title}
@@ -71,11 +71,11 @@ const ExcellenceExecution = () => {
                                     className="absolute inset-0 bg-white/15 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/10 rounded-2xl"
                                     aria-hidden
                                 />
-                                <div className="absolute inset-0 flex flex-col justify-start p-5 md:p-6">
+                                <div className="absolute inset-0 flex flex-col justify-start p-3 md:p-4 lg:p-5 xl:p-6">
                                     <span className={`text-white/90 ${styles.h4} font-bold font-outfit leading-none mb-2`}>
                                         {card.number}
                                     </span>
-                                    <h3 className="text-white mt-2 font-bold text-lg md:text-xl lg:text-2xl font-outfit leading-tight mb-2">
+                                    <h3 className="text-white mt-0 xl:mt-2 font-bold text-[15px] md:text-[17px] lg:text-xl xl:text-2xl font-outfit leading-tight mb-2">
                                         {card.title}
                                     </h3>
                                     <p
@@ -89,22 +89,22 @@ const ExcellenceExecution = () => {
                     ))}
                 </CustomSlider>
 
-                <div className="flex justify-end gap-3 mt-6 md:mt-8">
+                <div className="flex justify-end gap-3 mt-4 lg:mt-6 xl:mt-8">
                     <button
                         type="button"
                         onClick={() => sliderRef.current?.slickPrev()}
-                        className="w-10 h-10 rounded-full border-2 border-[#1E274F] flex items-center justify-center text-[#1E274F] hover:bg-[#1E274F] hover:text-white transition-colors shrink-0"
+                        className="w-8 xl:w-10 h-8 xl:h-10 rounded-full border-2 border-[#1E274F] flex items-center justify-center text-[#1E274F] hover:bg-[#1E274F] hover:text-white transition-colors shrink-0"
                         aria-label="Previous slide"
                     >
-                        <ArrowLeft className="w-5 h-5" />
+                        <ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5" />
                     </button>
                     <button
                         type="button"
                         onClick={() => sliderRef.current?.slickNext()}
-                        className="w-10 h-10 rounded-full border-2 border-[#1E274F] flex items-center justify-center text-[#1E274F] hover:bg-[#1E274F] hover:text-white transition-colors shrink-0"
+                        className="w-8 xl:w-10 h-8 xl:h-10 rounded-full border-2 border-[#1E274F] flex items-center justify-center text-[#1E274F] hover:bg-[#1E274F] hover:text-white transition-colors shrink-0"
                         aria-label="Next slide"
                     >
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-4 lg:w-5 h-4 lg:h-5" />
                     </button>
                 </div>
             </div>

@@ -6,11 +6,12 @@ import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import { processSection } from "@/data/engModel";
 import { SectionHeading } from "@/components/shared/headings";
+
 const Process = () => {
-  const processIcons = getEngagementModelCloudinaryImages();
+  const engagementImages = getEngagementModelCloudinaryImages();
   const processSteps = processSection.steps.map((step) => ({
     ...step,
-    src: processIcons[step.iconKey],
+    src: engagementImages[step.iconKey],
   }));
 
   return (
@@ -18,12 +19,46 @@ const Process = () => {
       className={`${styles.sectionPadding} pt-14 md:pt-18 lg:pt-22 xl:pt-24`}
     >
       <div className="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-       <SectionHeading
-        subtitle="Collaboration Framework"
-        title="Results, Not Noise"
-       />
+        <SectionHeading
+          subtitle="Collaboration Framework"
+          title="Results, Not Noise"
+        />
       </div>
 
+      {/* Mobile only: alternating order – row 1,3,5 img first; row 2,4 text first */}
+      <div className="block md:hidden space-y-1">
+        {processSection.steps.map((step, index) => {
+          const imgFirst = index % 2 === 0; // row 1,3,5: img first; row 2,4: text first
+          return (
+            <div
+              key={`mobile-${index}`}
+              className={`flex items-center gap-2 ${!imgFirst ? "flex-row-reverse" : ""}`}
+            >
+              <div className={`flex-shrink-0 w-30 h-30 flex items-center justify-center ${imgFirst ? "me-8" : "ms-1"}`}>
+                <Image
+                  src={engagementImages[step.mobileIconKey]}
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="object-contain w-full h-full"
+                  unoptimized
+                />
+              </div>
+              <div className="flex-1 min-w-0 text-left">
+                <h3 className={`text-base font-bold text-[#1E274F] uppercase font-outfit mb-1`}>
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-600 font-outfit leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: horizontal flow – no change */}
+      <div className="hidden md:block">
       {/* Top row: text for steps with text above */}
       <div className="flex flex-row justify-between w-full mb-3">
         {processSteps.map((step, index) => (
@@ -83,6 +118,7 @@ const Process = () => {
             ) : null}
           </div>
         ))}
+      </div>
       </div>
 
       <div className="mt-8 md:mt-10 flex justify-center">

@@ -15,7 +15,7 @@ const Models = () => {
     const tabs = modelsSection.tabs;
 
     return (
-        <section className={`${styles.sectionPadding} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}>
+        <section className={`${styles.sectionPaddingX} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}>
             <div className="mb-6 text-center">
                 <h2 className={`${styles.h2} font-semibold text-[#1E274F] leading-tight font-outfit`}>
                 Results-Driven Digital Solutions

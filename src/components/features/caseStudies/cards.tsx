@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/shared/headings";
 import { Button } from "@/components/shared/ui";
 import { MoveUpRight } from "lucide-react";
 import { caseStudies } from "@/data";
+import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 
 interface CaseCardProps {
   image: string;
@@ -31,7 +32,8 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
                 alt={`${title} logo`} 
                 width={180} 
                 height={64} 
-                className="object-contain h-full w-auto" 
+                className="object-contain h-full w-auto"
+                unoptimized={logo.includes("cloudinary.com")}
               />
             </div>
           </div>
@@ -72,6 +74,12 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
 };
 
 export default function CaseStudiesSection() {
+  const industryIcons = getIndustryCloudinaryIcons();
+  const studiesWithLogo = caseStudies.map((study) => ({
+    ...study,
+    logo: industryIcons[study.logoKey] ?? "",
+  }));
+
   return (
     <section className={`${styles.sectionPadding} pb-12 md:pb-16 lg:pb-20`}>
       {/* Section Heading */}
@@ -82,7 +90,7 @@ export default function CaseStudiesSection() {
       <div className="xl:mx-22">
       {/* Case Studies - Grid Layout */}
       <div className="grid grid-cols-1 gap-8 md:gap-12 xl:gap-16">
-        {caseStudies.map((study, index) => (
+        {studiesWithLogo.map((study, index) => (
           <CaseCard 
             key={study.id} 
             {...study} 

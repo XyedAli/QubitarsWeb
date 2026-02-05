@@ -134,7 +134,7 @@ export const MobileDropdownContent = ({ dropdownId }: MobileDropdownContentProps
       );
     case "engagement":
       return (
-        <div className="space-y-2">
+        <div className="space-y-4">
           {engagementData
             .filter((item) => item.type === "service")
             .map((service) => {
@@ -160,6 +160,14 @@ export const MobileDropdownContent = ({ dropdownId }: MobileDropdownContentProps
                 </div>
               );
             })}
+          <div className="pt-2">
+            <Link
+              href="/engagement-models"
+              className="inline-flex items-center justify-center px-4 py-2 text-base font-medium rounded-md bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white hover:opacity-90 transition-all duration-200"
+            >
+              Discover More
+            </Link>
+          </div>
         </div>
       );
     default:

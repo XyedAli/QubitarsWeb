@@ -9,13 +9,13 @@ const Awards = () => {
   const mapImage = getAwardsMapCloudinaryImage();
 
   return (
-    <section className={`${styles.sectionPaddingY} bg-[#EDEFF880] relative overflow-hidden`}>
-      <div className="absolute bottom-0 left-0 right-0 w-full h-[260px] md:h-[300px] lg:h-[330px] pointer-events-none">
+    <section className={`${styles.sectionPaddingY} bg-[#EDEFF8] relative z-[1] overflow-hidden`}>
+      <div className="absolute bottom-0 left-0 right-0 w-full h-[260px] md:h-[300px] lg:h-[330px] pointer-events-none overflow-hidden">
         <Image
           src={mapImage}
           alt=""
           fill
-          className=""
+          className="object-cover object-bottom"
           unoptimized
         />
       </div>
