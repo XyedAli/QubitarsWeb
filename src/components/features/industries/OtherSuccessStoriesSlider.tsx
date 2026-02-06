@@ -10,7 +10,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
 import type { CaseStudy } from "@/data/caseStudies";
 import type Slider from "react-slick";
-
+import { SectionHeading } from "@/components/shared/headings";
 interface SuccessStoryCardProps {
   image: string;
   logo: string;
@@ -25,7 +25,7 @@ function SuccessStoryCard({ image, logo, tag, title }: SuccessStoryCardProps) {
       href="/case-studies"
       className="group block h-full rounded-xl overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
     >
-      <article className="relative w-full h-full min-h-[320px] md:min-h-[360px] lg:min-h-[400px] rounded-xl overflow-hidden">
+      <article className="relative w-full h-full min-h-[320px] md:min-h-[360px] lg:min-h-[380px] rounded-xl overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -41,20 +41,20 @@ function SuccessStoryCard({ image, logo, tag, title }: SuccessStoryCardProps) {
         <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-5 lg:p-6">
           {/* Top: pill tag */}
           <div className="flex justify-end">
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-white/95 text-blue backdrop-blur-sm">
+            <span className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold bg-white/95 text-blue backdrop-blur-sm">
               {tag}
             </span>
           </div>
           {/* Middle: title */}
-          <div className="flex-1 flex items-center">
+          <div className="flex-1 flex items-end">
             <h3
-              className={`${styles.h5} md:${styles.h4} font-bold text-white leading-tight line-clamp-3 font-outfit`}
+              className={`${styles.h5} font-semibold text-white leading-tight font-outfit`}
             >
               {title}
             </h3>
           </div>
           {/* Bottom: logo + CTA */}
-          <div className="flex items-end justify-between gap-3 mt-3">
+          <div className="flex items-end justify-between gap-3 mt-3 border-t border-white/50 pt-3">
             <div className="relative h-7 md:h-8 w-auto min-w-0 flex-shrink-0">
               <Image
                 src={logo}
@@ -95,7 +95,8 @@ export default function OtherSuccessStoriesSlider() {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
@@ -107,50 +108,53 @@ export default function OtherSuccessStoriesSlider() {
     <section
       className={`py-12 md:py-16 lg:py-20 bg-white`}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-outfit bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] bg-clip-text text-transparent">
-          Other Success Stories
-        </h2>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => sliderRef.current?.slickPrev()}
-            className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-blue flex items-center justify-center text-blue hover:bg-blue hover:text-white transition-colors shrink-0"
-            aria-label="Previous stories"
-          >
-            <ArrowLeft className="w-4 md:w-5 h-4 md:h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => sliderRef.current?.slickNext()}
-            className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-blue flex items-center justify-center text-blue hover:bg-blue hover:text-white transition-colors shrink-0"
-            aria-label="Next stories"
-          >
-            <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
-          </button>
+      <div className={`${styles.sectionPadding}`}>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <SectionHeading
+            subtitle="Success Highlights"
+            title="Real Products. Real Impact."
+          />
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickPrev()}
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-blue flex items-center justify-center text-blue hover:bg-blue hover:text-white transition-colors shrink-0"
+              aria-label="Previous stories"
+            >
+              <ArrowLeft className="w-4 md:w-5 h-4 md:h-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickNext()}
+              className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-blue flex items-center justify-center text-blue hover:bg-blue hover:text-white transition-colors shrink-0"
+              aria-label="Next stories"
+            >
+              <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className="other-success-stories-slider min-h-[360px] md:min-h-[400px]">
-        <CustomSlider
-          settings={sliderSettings}
-          onSliderReady={(ref) => {
-            sliderRef.current = ref?.current ?? null;
-          }}
-          className="other-success-stories-slider__inner"
-        >
-          {studiesWithLogo.map((study) => (
-            <div key={study.id} className="h-full px-2 md:px-3">
-              <SuccessStoryCard
-                image={study.image}
-                logo={study.logo}
-                tag={study.tag}
-                title={study.title}
-                desc={study.desc}
-              />
-            </div>
-          ))}
-        </CustomSlider>
+        <div className="other-success-stories-slider min-h-[360px] md:min-h-[400px]">
+          <CustomSlider
+            settings={sliderSettings}
+            onSliderReady={(ref) => {
+              sliderRef.current = ref?.current ?? null;
+            }}
+            className="other-success-stories-slider__inner"
+          >
+            {studiesWithLogo.map((study) => (
+              <div key={study.id} className="h-full px-3">
+                <SuccessStoryCard
+                  image={study.image}
+                  logo={study.logo}
+                  tag={study.tag}
+                  title={study.title}
+                  desc={study.desc}
+                />
+              </div>
+            ))}
+          </CustomSlider>
+        </div>
       </div>
     </section>
   );
