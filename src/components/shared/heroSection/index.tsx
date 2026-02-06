@@ -105,8 +105,8 @@ const HeroSection = ({
   const heightClass = variant === "blog" ? blogHeightClass : defaultHeightClass;
 
   const h1FontClass = isMac
-    ? "text[30px] md:text-[28px] lg:text-[34px] xl:text-[46px] [1440px]:text-[48px] 2xl:text-[48px] [1920px]:text-[50px] 3xl:text-[52px]"
-    : "text[30px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[44px] 2xl:text-[44px] [1920px]:text-[48px] 3xl:text-[49px]";
+    ? "text-[24px] md:text-[28px] lg:text-[34px] xl:text-[46px] [1440px]:text-[48px] 2xl:text-[48px] [1920px]:text-[50px] 3xl:text-[52px]"
+    : "text-[24px] md:text-[28px] lg:text-[34px] xl:text-[44px] [1440px]:text-[44px] 2xl:text-[44px] [1920px]:text-[48px] 3xl:text-[49px]";
 
   const awardsBottomClass = isMac
     ? "bottom-11 md:bottom-5 lg:bottom-5 xl:bottom-9 [1440px]:bottom-[36px] 2xl:bottom-[50px] [1920px]:bottom-[52px] 3xl:bottom-[54px]"
@@ -318,7 +318,7 @@ const HeroSection = ({
             >
               {subtitle && (
                 <p
-                  className={`${styles.h6} ${nextGenTextClass} font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}
+                  className={`text-[18px] lg:text-[20px] xl:text-[24px] ${nextGenTextClass} font-semibold inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]`}
                 >
                   {subtitle}
                 </p>
@@ -335,7 +335,7 @@ const HeroSection = ({
               {descriptions.map((description, index) => (
                 <p
                   key={index}
-                  className={`${styles.p2} ${textOpacityClass} max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-inter ${descriptionClass}`}
+                  className={`text-[16px] lg:text-[18px] ${textOpacityClass} max-w-sm lg:max-w-lg xl:max-w-2xl leading-relaxed font-inter ${descriptionClass}`}
                 >
                   {description}
                 </p>
