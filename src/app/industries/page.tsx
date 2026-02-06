@@ -1,11 +1,13 @@
 import { Fragment } from "react";
 import {
   IndustriesHero,
+  IndustriesAbout,
+  BusinessExcellence,
   OtherSuccessStoriesSlider,
   ChooseQubitars,
-  BusinessExcellence,
-  IndustriesAbout,
   FAQs,
+  
+  
 } from "@/components/features/industries";
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
@@ -25,12 +27,12 @@ export default function RealStatePage() {
   return (
     <Fragment>
       <IndustriesHero />
+      <IndustriesAbout />
+      <BusinessExcellence />
       <OtherSuccessStoriesSlider />
       <ChooseQubitars />
-      <BusinessExcellence />
-      <IndustriesAbout />
-      <FAQs />
       <OurClient testimonials={testimonialsWithImages} />
+      <FAQs />
     </Fragment>
   );
 }
