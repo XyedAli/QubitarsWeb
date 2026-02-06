@@ -208,7 +208,7 @@ const IndustriesHero = () => {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-blue-900/20" aria-hidden />
+          <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden />
         </div>
       </div>
 
@@ -241,7 +241,7 @@ const IndustriesHero = () => {
               className="object-cover object-center"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-blue-900/20 pointer-events-none" aria-hidden />
+            <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden />
           </div>
         </div>
       )}
@@ -251,7 +251,7 @@ const IndustriesHero = () => {
           {/* Left panel: jis card ki img expand ho usi ka text — subtitle, title, description, button sab animate (niche se upar) */}
           <div className="lg:col-span-5 flex flex-col text-left overflow-hidden">
             <div key={contentSlideIndex} className="animate-industries-text-up">
-              <p className="text-accent text-base md:text-lg font-outfit font-bold uppercase tracking-wider mb-3">
+              <p className="text-white/90 text-sm md:text-base font-outfit uppercase tracking-wider mb-3">
                 {contentIndustry.name}
               </p>
               <h1 className={combine(styles.h1, "text-white font-bold font-outfit leading-tight mb-4 md:mb-5")}>
@@ -282,6 +282,7 @@ const IndustriesHero = () => {
                 className="industries-hero-slider"
               >
                 {heroIndustriesCards.map((industry, index) => {
+                  const IconComponent = industry.icon;
                   const cardBgImage = industryHeroImages[industry.id] ?? industryHeroImages["real-estate-1"];
                   const isActive = index === currentSlide;
                   const hideActiveCard = isActive && isExpanding;
@@ -292,7 +293,8 @@ const IndustriesHero = () => {
                         data-industry-card
                         className={combine(
                           "relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[300px] p-7 md:p-8 transition-opacity duration-200",
-                          isActive && !isExpanding && "border-2 border-white/40",
+                          isActive && !isExpanding && "border-2 border-white",
+                          !isActive && "border-2 border-transparent",
                           hideActiveCard && "opacity-0 pointer-events-none"
                         )}
                       >
@@ -303,8 +305,12 @@ const IndustriesHero = () => {
                           className="object-cover"
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 28vw"
                         />
-                        <div className="absolute inset-0 z-[1] bg-blue-900/20 rounded-xl pointer-events-none" aria-hidden />
-                        <div className="absolute bottom-0 left-0 right-0 z-10 p-7 md:p-8 pt-0 text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        <div className="relative z-10 flex flex-col h-full justify-end text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                          {IconComponent && (
+                            <div className="mb-5 text-white">
+                              <IconComponent width={44} height={44} className="opacity-95" />
+                            </div>
+                          )}
                           <h3 className="text-white font-bold text-lg md:text-xl font-outfit mb-2">
                             {industry.name}
                           </h3>
