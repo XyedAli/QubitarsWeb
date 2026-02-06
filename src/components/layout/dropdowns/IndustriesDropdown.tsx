@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { industries } from "@/data";
 import { styles, combine } from "@/styles/style";
@@ -10,7 +10,6 @@ import { styles, combine } from "@/styles/style";
 // Industries dropdown component
 export const IndustriesDropdown = () => {
   const [activeIndustry, setActiveIndustry] = useState("real-estate");
-  const router = useRouter();
   
   // Helper function to check if URL is an SVG
   const isSvg = (src: string) => src.includes('.svg');
@@ -79,9 +78,11 @@ export const IndustriesDropdown = () => {
                           <p className="text-black text-sm lg:text-base font-medium w-[70%] leading-snug">
                               {industry.description}
                             </p>
-                            <Button onClick={() => router.push("/realstate")} variant="outline" size="md" className="text-sm lg:text-base whitespace-nowrap cursor-pointer hover:bg-accent hover:text-white hover:border-none">
+                            <Link href="/industries">
+                            <Button variant="outline" size="md" className="text-sm lg:text-base whitespace-nowrap cursor-pointer hover:bg-accent hover:text-white hover:border-none">
                               Discover More
                             </Button>
+                          </Link>
                           </div>
                           {/* Company logos carousel */}
                           <div className="flex flex-col w-full border-b-2 border-gray-300">
