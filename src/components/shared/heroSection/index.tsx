@@ -142,8 +142,8 @@ const HeroSection = ({
     : "text-xs 2xl:text-sm";
 
   const nextGenTextClass = isMac
-    ? "mb-2 mt-25 md:mt-0"
-    : "mb-2 mt-18 md:mt-0";
+    ? "mb-2 mt-18 md:mt-0"
+    : "mb-2 mt-13 md:mt-0";
 
   const textColorClass = textColor === "white" ? "text-white" : "text-blue";
   const textOpacityClass = textColor === "white" ? "text-white/90" : "text-blue";
