@@ -56,10 +56,6 @@ const IndustriesHero = () => {
   const activeCardRef = useRef<HTMLDivElement | null>(null);
   const pendingDirectionRef = useRef<PendingDirection>(null);
   const expandEndCalledRef = useRef(false);
-  /** Expand khatam hone ke baad bg update par fade-in skip — same img dubara set na dikhe */
-  const skipNextBgFadeRef = useRef(false);
-  const lastRenderedBgIdRef = useRef<string | null>(null);
-  const usedNoAnimationForCurrentBgRef = useRef(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   /** Left panel: sirf expand khatam hone ke baad change — us se pehle nahi */
   const [contentSlideIndex, setContentSlideIndex] = useState(0);
@@ -105,11 +101,19 @@ const IndustriesHero = () => {
     return true;
   };
 
+  const EXPAND_RETRY_DELAYS = [0, 100, 200, 400, 700, 1100, 1600, 2200];
+
   const tryStartExpand = (attempt = 0) => {
     if (readRectAndStart()) return;
-    const delays = [0, 50, 150, 300];
-    const next = delays[attempt + 1];
-    if (next !== undefined) setTimeout(() => tryStartExpand(attempt + 1), next);
+    const next = EXPAND_RETRY_DELAYS[attempt + 1];
+    if (next !== undefined) {
+      setTimeout(() => tryStartExpand(attempt + 1), next);
+    } else {
+      // DOM/slider not ready after all retries (e.g. Vercel/hydration) — advance without expand so no card is skipped
+      const direction = pendingDirectionRef.current;
+      advanceSlideWithoutExpand(direction);
+      pendingDirectionRef.current = null;
+    }
   };
 
   const startExpand = (direction: PendingDirection) => {
@@ -125,26 +129,29 @@ const IndustriesHero = () => {
     return () => clearTimeout(t);
   }, [isExpanding, expandFromRect]);
 
-  const handleExpandEnd = () => {
-    if (expandEndCalledRef.current) return;
-    expandEndCalledRef.current = true;
-    const direction = pendingDirectionRef.current;
+  /** Advance to next/prev slide without expand (fallback when DOM not ready). Ensures no card is skipped. */
+  const advanceSlideWithoutExpand = (direction: PendingDirection) => {
     const nextIndex =
       direction === "next"
         ? (currentSlide + 1) % heroIndustriesCards.length
         : direction === "prev"
           ? (currentSlide - 1 + heroIndustriesCards.length) % heroIndustriesCards.length
           : currentSlide;
-    // BG = jis card ki expand abhi khatam hui (currentSlide) — next card expand hone tak yahi rahegi
+    const industry = heroIndustriesCards[nextIndex];
+    if (industry) setPreviousIndustryId(industry.id);
+    setContentSlideIndex(nextIndex);
+    if (direction === "next") sliderRef.current?.slickNext();
+    else if (direction === "prev") sliderRef.current?.slickPrev();
+  };
+
+  const handleExpandEnd = () => {
+    if (expandEndCalledRef.current) return;
+    expandEndCalledRef.current = true;
+    const direction = pendingDirectionRef.current;
     const expandedIndustry = heroIndustriesCards[currentSlide];
-    if (expandedIndustry) {
-      skipNextBgFadeRef.current = true; // isi img ko overlay ne dikhaya, bg par dubara fade-in na ho
-      setPreviousIndustryId(expandedIndustry.id);
-    }
+    if (expandedIndustry) setPreviousIndustryId(expandedIndustry.id);
     pendingDirectionRef.current = null;
-    // Left panel: previous card wala text — jis card ki img expand hui (currentSlide) usi ka, active/next ka nahi
     setContentSlideIndex(currentSlide);
-    // Slider next/prev — next card us jagah aa jaye; expand state slider khatam hone ke baad clear karo
     if (direction === "next") sliderRef.current?.slickNext();
     else if (direction === "prev") sliderRef.current?.slickPrev();
     setTimeout(() => {
@@ -181,16 +188,7 @@ const IndustriesHero = () => {
   const totalSlideCount = heroIndustriesCards.length;
   const displayNumber = String(contentSlideIndex + 1).padStart(2, "0");
 
-  // Bg class: nayi industry par skip ho to opacity-100; same industry re-render par bhi opacity-100 rakho (flash na ho)
-  const isNewBgId = lastRenderedBgIdRef.current !== previousIndustryId;
-  if (isNewBgId) {
-    usedNoAnimationForCurrentBgRef.current = skipNextBgFadeRef.current;
-    if (skipNextBgFadeRef.current) skipNextBgFadeRef.current = false;
-    lastRenderedBgIdRef.current = previousIndustryId;
-  }
-  const bgNoAnimation = usedNoAnimationForCurrentBgRef.current;
-  const bgInnerClass = bgNoAnimation ? "absolute inset-0 opacity-100" : "absolute inset-0 animate-industries-bg-fade-in";
-
+  // Har card ke liye bg fade-in — key change par remount, animation hamesha chale
   const useHeroContainment = expandFromRect && expandFromRect.heroHeight != null;
   return (
     <section
@@ -199,7 +197,7 @@ const IndustriesHero = () => {
     >
       {/* Background: hero ke andar hi — expand overlay jahan khatam hoti wahi, top ki taraf move na ho */}
       <div aria-hidden className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div key={previousIndustryId} className={bgInnerClass}>
+        <div key={previousIndustryId} className="absolute inset-0 animate-industries-bg-fade-in">
           <Image
             src={previousBgImage}
             alt=""
