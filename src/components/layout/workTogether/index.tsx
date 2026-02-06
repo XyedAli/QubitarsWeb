@@ -23,7 +23,7 @@ const WorkTogether = () => {
             Excited?
           </span>
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8 group">
-            <h2 className={`text-[32px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit transition-all duration-300`}>
+            <h2 className={`text-[28px] md:text-[49px] lg:text-[54px] xl:text-[60px] font-bold text-[#1E274F] font-outfit transition-all duration-300`}>
               <Link 
                 href="/contact" 
                 className="relative inline-block text-[#1E274F] transition-all duration-300 group-hover:scale-105 active:scale-95 active:opacity-80 active:bg-gradient-to-r active:from-[#F05C22] active:via-[#F58220] active:to-[#EA4D24] active:bg-clip-text active:text-transparent touch-manipulation"
