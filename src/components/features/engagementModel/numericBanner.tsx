@@ -7,7 +7,7 @@ import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 import { numericBannerSection } from "@/data/engModel";
 
 const DURATION_MS = 2000;
-const TICK_MS = 16; // ~60fps
+const TICK_MS = 16;
 
 function useCountUp(end: number, start: boolean) {
   const [count, setCount] = useState(0);

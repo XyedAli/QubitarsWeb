@@ -6,32 +6,24 @@ import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 import { SectionHeading } from "@/components/shared/headings";
 import { customersNeedsSection } from "@/data/engModel";
 
+const DIVIDER_CLASS = "hidden lg:block absolute w-[2px] bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none";
+const H_DIVIDER_CLASS = "hidden lg:block absolute top-[45%] xl:top-[50%] left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FCB477] to-transparent pointer-events-none";
+
 const CustomersNeeds = () => {
-  const engagementModelImages = getEngagementModelCloudinaryImages();
-  const featureCards = customersNeedsSection.featureCards.map((card) => ({
+  const images = getEngagementModelCloudinaryImages();
+  const cards = customersNeedsSection.featureCards.map((card) => ({
     ...card,
-    icon: engagementModelImages[card.iconKey],
+    icon: images[card.iconKey],
   }));
 
   return (
-    <section
-      className={combine(
-        "bg-white",
-        styles.sectionPadding,
-        "py-14 md:py-18 lg:py-22 xl:py-24"
-      )}
-    >
-      <SectionHeading
-        subtitle={customersNeedsSection.subtitle}
-        title={customersNeedsSection.title}
-      />
-
+    <section className={combine("bg-white", styles.sectionPadding, "py-14 md:py-18 lg:py-22 xl:py-24")}>
+      <SectionHeading subtitle={customersNeedsSection.subtitle} title={customersNeedsSection.title} />
       <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 lg:gap-0">
-        <div className="hidden lg:block absolute left-[33.333%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
-        <div className="hidden lg:block absolute left-[66.666%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FCB477] to-transparent pointer-events-none" />
-        <div className="hidden lg:block absolute top-[45%] xl:top-[50%] left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FCB477] to-transparent pointer-events-none" />
-
-        {featureCards.map((card, index) => (
+        <div className={`${DIVIDER_CLASS} left-[33.333%] top-0 bottom-0`} />
+        <div className={`${DIVIDER_CLASS} left-[66.666%] top-0 bottom-0`} />
+        <div className={H_DIVIDER_CLASS} />
+        {cards.map((card, index) => (
           <div
             key={index}
             className={combine(
@@ -52,19 +44,11 @@ const CustomersNeeds = () => {
                   className="w-7 h-7 xl:w-8 xl:h-8 shrink-0 object-contain"
                   unoptimized={card.icon.includes("cloudinary.com")}
                 />
-                <h3
-                  className={combine(
-                    styles.h5,
-                    "font-bold text-[#1E274F] font-outfit leading-tight"
-                  )}
-                >
+                <h3 className={combine(styles.h5, "font-bold text-[#1E274F] font-outfit leading-tight")}>
                   {card.title}
                 </h3>
               </div>
-              <p
-                className=
-                  "text-sm md:text-base xl:text-lg text-gray-600 font-inter leading-relaxed ps-9 md:ps-0"
-              >
+              <p className="text-sm md:text-base xl:text-lg text-gray-600 font-inter leading-relaxed ps-9 md:ps-0">
                 {card.description}
               </p>
             </div>

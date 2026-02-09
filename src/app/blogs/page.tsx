@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {BlogHero,BlogFeatures,ThinkForward} from "@/components/features/blog";
 import { blogsMetadata } from "@/lib/metadata";
-
+export const dynamic = "force-dynamic";
 export const metadata = blogsMetadata;
 
 export default function BlogPage() {

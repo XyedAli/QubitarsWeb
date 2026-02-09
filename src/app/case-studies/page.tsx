@@ -2,7 +2,7 @@ import { IndustryLogosSlider } from "@/components";
 import { CaseStudies, CaseStudyCards} from "@/components/features/caseStudies";
 import { Fragment } from "react/jsx-runtime";
 import { styles } from "@/styles/style";
-
+export const dynamic = "force-dynamic";
 const CaseStudiesPage = () => {
   return (
     <Fragment>
