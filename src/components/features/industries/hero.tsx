@@ -63,11 +63,45 @@ const IndustriesHero = () => {
   const [isExpanding, setIsExpanding] = useState(false);
   const [expandFromRect, setExpandFromRect] = useState<ExpandRect | null>(null);
   const [expandToFull, setExpandToFull] = useState(false);
+  /** Slider + DOM ready — animation/autoplay start only after this (fixes Vercel/hydration) */
+  const [isReady, setIsReady] = useState(false);
   const industryHeroImages = getIndustriesHeroImages();
   const activeIndustry = heroIndustriesCards[currentSlide] ?? heroIndustriesCards[0];
   const contentIndustry = heroIndustriesCards[contentSlideIndex] ?? heroIndustriesCards[0];
   const previousBgImage = industryHeroImages[previousIndustryId] ?? industryHeroImages["real-estate-1"];
   const activeCardImage = industryHeroImages[activeIndustry.id] ?? industryHeroImages["real-estate-1"];
+
+  /** Preload hero images once so background/cards load before animation runs */
+  const preloadedRef = useRef(false);
+  useEffect(() => {
+    if (preloadedRef.current || typeof window === "undefined") return;
+    preloadedRef.current = true;
+    Object.values(industryHeroImages).forEach((url) => {
+      const img = document.createElement("img");
+      img.src = url;
+    });
+  }, [industryHeroImages]);
+
+  /** Mark ready when slider is mounted and DOM has .slick-current (avoids animation before data/DOM ready on Vercel) */
+  const tryMarkReady = () => {
+    const card = document.querySelector(".industries-hero-slider .slick-slide.slick-current [data-industry-card]") as HTMLElement | null;
+    const hero = heroSectionRef.current;
+    if (card && hero) {
+      const rect = card.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        setIsReady(true);
+        return true;
+      }
+    }
+    return false;
+  };
+
+  /** Autoplay only after isReady so animation runs smoothly (data/DOM loaded) */
+  useEffect(() => {
+    if (!isReady || isExpanding) return;
+    const interval = setInterval(() => startExpand("next"), 4000);
+    return () => clearInterval(interval);
+  }, [currentSlide, isExpanding, isReady]);
 
   /** Sab cards (1–7) ke liye same: DOM se current slide ka card — .slick-current se, ref fallback */
   const getActiveCardElement = (): HTMLDivElement | null => {
@@ -167,14 +201,10 @@ const IndustriesHero = () => {
     return () => clearTimeout(fallback);
   }, [expandToFull, isExpanding]);
 
-  const handleNextClick = () => startExpand("next");
-  const handlePrevClick = () => startExpand("prev");
+  const handleNextClick = () => (isReady ? startExpand("next") : advanceSlideWithoutExpand("next"));
+  const handlePrevClick = () => (isReady ? startExpand("prev") : advanceSlideWithoutExpand("prev"));
 
-  useEffect(() => {
-    if (isExpanding) return;
-    const interval = setInterval(handleNextClick, 4000);
-    return () => clearInterval(interval);
-  }, [currentSlide, isExpanding]);
+  /** Start autoplay only when isReady (slider + DOM ready) — already in useEffect above */
 
   const sliderSettings = {
     speed: 600,
@@ -276,6 +306,12 @@ const IndustriesHero = () => {
                 showArrows={false}
                 onSliderReady={(ref) => {
                   sliderRef.current = ref?.current ?? null;
+                  const readyDelays = [0, 50, 150, 300, 500, 800];
+                  readyDelays.forEach((delay) => {
+                    setTimeout(() => {
+                      if (tryMarkReady()) return;
+                    }, delay);
+                  });
                 }}
                 className="industries-hero-slider"
               >
