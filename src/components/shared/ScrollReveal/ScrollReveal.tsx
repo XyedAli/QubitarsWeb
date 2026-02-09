@@ -21,6 +21,9 @@ export interface ScrollRevealProps {
   wordAnimationEnd?: string;
 }
 
+const STAGGER = 0.05;
+const WORD_TRIGGER = { start: "top bottom-=20%", scrub: true };
+
 const ScrollReveal = ({
   children,
   scrollContainerRef,
@@ -37,99 +40,47 @@ const ScrollReveal = ({
 
   const splitText = useMemo(() => {
     const text = typeof children === "string" ? children : "";
-    return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
-      return (
-        <span className="word" key={index}>
-          {word}
-        </span>
-      );
-    });
+    return text.split(/(\s+)/).map((word, i) =>
+      /^\s+$/.test(word) ? word : <span className="word" key={i}>{word}</span>
+    );
   }, [children]);
 
   useEffect(() => {
     const el = containerRef.current;
-    if (!el) return;
+    const scroller = scrollContainerRef?.current ?? (typeof window === "undefined" ? null : window);
+    if (!el || !scroller) return;
 
-    const scroller =
-      scrollContainerRef?.current ?? (typeof window !== "undefined" ? window : null);
-    if (!scroller) return;
+    const st = (end: string, overrides?: object) => ({ trigger: el, scroller, end, ...overrides });
 
     gsap.fromTo(
       el,
       { transformOrigin: "0% 50%", rotate: baseRotation },
-      {
-        ease: "none",
-        rotate: 0,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top bottom",
-          end: rotationEnd,
-          scrub: true,
-        },
-      }
+      { ease: "none", rotate: 0, scrollTrigger: { ...st(rotationEnd), start: "top bottom", scrub: true } }
     );
 
-    const wordElements = el.querySelectorAll(".word");
+    const words = el.querySelectorAll(".word");
+    const wordSt = { ...st(wordAnimationEnd), ...WORD_TRIGGER };
 
     gsap.fromTo(
-      wordElements,
+      words,
       { opacity: baseOpacity, willChange: "opacity" },
-      {
-        ease: "none",
-        opacity: 1,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top bottom-=20%",
-          end: wordAnimationEnd,
-          scrub: true,
-        },
-      }
+      { ease: "none", opacity: 1, stagger: STAGGER, scrollTrigger: wordSt }
     );
 
     if (enableBlur) {
       gsap.fromTo(
-        wordElements,
+        words,
         { filter: `blur(${blurStrength}px)` },
-        {
-          ease: "none",
-          filter: "blur(0px)",
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: "top bottom-=20%",
-            end: wordAnimationEnd,
-            scrub: true,
-          },
-        }
+        { ease: "none", filter: "blur(0px)", stagger: STAGGER, scrollTrigger: wordSt }
       );
     }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === el) trigger.kill();
-      });
-    };
-  }, [
-    scrollContainerRef,
-    enableBlur,
-    baseRotation,
-    baseOpacity,
-    rotationEnd,
-    wordAnimationEnd,
-    blurStrength,
-  ]);
+    return () => ScrollTrigger.getAll().forEach((t) => t.trigger === el && t.kill());
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <h2
-      ref={containerRef}
-      className={`scroll-reveal ${containerClassName}`.trim()}
-    >
-      <p className={`scroll-reveal-text ${textClassName}`.trim()}>{splitText}</p>
+    <h2 ref={containerRef} className={containerClassName ? `scroll-reveal ${containerClassName}` : "scroll-reveal"}>
+      <p className={textClassName ? `scroll-reveal-text ${textClassName}` : "scroll-reveal-text"}>{splitText}</p>
     </h2>
   );
 };

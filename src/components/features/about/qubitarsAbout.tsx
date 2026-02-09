@@ -5,14 +5,13 @@ import { getAboutCloudinaryImages } from "@/lib/assets/images";
 import { styles } from "@/styles/style";
 
 const AboutIntroSection = () => {
-  const aboutCloudinaryImages = getAboutCloudinaryImages();
-  
+  const images = getAboutCloudinaryImages();
   return (
-    <section className={`relative overflow-hidden py-3 xl:py-8`}>
+    <section className="relative overflow-hidden py-3 xl:py-8">
       <div className="relative w-full flex items-center justify-center">
         <div className="w-full mx-2 md:mx-8 lg:mx-16">
           <Image
-            src={aboutCloudinaryImages.aboutimg2}
+            src={images.aboutimg2}
             alt="About Qubitars"
             width={700}
             height={200}

@@ -1,111 +1,90 @@
 "use client";
 
 import Image from "next/image";
-import { Shield, Users, Settings, Star } from "lucide-react";
 import { styles } from "@/styles/style";
-import { getAboutCloudinaryImages } from "@/lib/assets/images";
+import { chooseQubitarsSection, chooseQubitarsStats } from "@/data";
 
-interface StatCard {
-  icon: React.ComponentType<{ className?: string }>;
-  value: string;
-  title: string;
-  description?: string;
-}
+const CARD_BASE = "bg-[#182132] border border-[#676767] rounded-lg";
+const TEXT_WHITE = "text-white font-inter";
 
-const stats: StatCard[] = [
-  {
-    icon: Shield,
-    value: "95%",
-    title: "Client Retention",
-    description: "Delivering consistent value that builds lasting client relationships.",
-  },
-  {
-    icon: Users,
-    value: "100K",
-    title: "User Impacted",
-  },
-  {
-    icon: Settings,
-    value: "90%",
-    title: "Automation Efficiency",
-    description: "Streamlining processes to save time and boost productivity.",
-  },
-  {
-    icon: Star,
-    value: "10/10",
-    title: "Preferred Partner",
-  },
-];
+const ChooseQubitars = () => (
+  <section className="relative overflow-hidden mt-14 md:mt-16 lg:mt-20 xl:mt-24">
+    <div className="absolute inset-0">
+      <Image
+        src={chooseQubitarsSection.bgImage}
+        alt="Background"
+        fill
+        className="object-cover"
+        priority
+        unoptimized
+      />
+      <div className="absolute inset-0 bg-[#0E1320]/90" />
+    </div>
 
-const ChooseQubitars = () => {
-  const aboutCloudinaryImages = getAboutCloudinaryImages();
-  
-  return (
-    <section className="relative overflow-hidden mt-14 md:mt-16 lg:mt-20 xl:mt-24">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={aboutCloudinaryImages.Aimg17}
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-          unoptimized
-        />
-        {/* Color Overlay #262A37 */}
-        <div className="absolute inset-0 bg-[#0E1320]/90" />
+    <div className={`relative z-10 ${styles.sectionPadding} pt-8 pb-12`}>
+      <div className="text-center mb-8 md:mb-10 lg:mb-12 xl:mb-8">
+        <h2 className={`${styles.h2} font-semibold font-outfit leading-tight text-white mb-4`}>
+          {chooseQubitarsSection.title}
+        </h2>
+        <p className={`${styles.p2} text-white/90 font-inter max-w-3xl mx-auto`}>
+          {chooseQubitarsSection.description}
+        </p>
       </div>
 
-      <div className={`relative z-10 ${styles.sectionPadding} pt-8 pb-12`}>
-        {/* Heading */}
-        <div className="text-center mb-8 md:mb-10 lg:mb-12 xl:mb-8">
-          <h2 className={`${styles.h2} font-semibold font-outfit leading-tight text-white mb-4 `}>
-            Why Choose Qubitars
-          </h2>
-          <p className={`${styles.p2} text-white/90 font-inter max-w-3xl mx-auto`}>
-            We combine AI, strategy, and execution to deliver scalable, real-world solutions.
-          </p>
-        </div>
-        <div className="max-w-lg lg:max-w-xl mx-auto">
+      <div className="max-w-lg lg:max-w-xl mx-auto">
         <div className="flex gap-4 mb-4">
-          <div className="bg-[#182132] flex items-center p-6 lg:p-8 w-[340px] lg:w-[380px] border border-[#676767] rounded-lg">
-            <div className="text-white border-r border-[#224872] pr-3 mr-5">
-              <Image src={aboutCloudinaryImages.Aimg18} alt="Shield" width={48} height={48} className="mb-1 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-              <h5 className={`${styles.p1} font-bold text-white`}>95%</h5>
-              <p className={`${styles.p4} font-inter text-white`}>Client Retention</p>
+          {chooseQubitarsStats.slice(0, 2).map((stat, i) => (
+            <div
+              key={i}
+              className={`${CARD_BASE} flex ${stat.description ? "items-center p-6 lg:p-8 w-[340px] lg:w-[380px]" : "flex-col justify-center text-center p-6 lg:p-8 lg:pt-10"}`}
+            >
+              {stat.description ? (
+                <>
+                  <div className="text-white border-r border-[#224872] pr-3 mr-5">
+                    <Image src={stat.src} alt={stat.title} width={48} height={48} className="mb-1 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                    <h5 className={`${styles.p1} font-bold text-white`}>{stat.value}</h5>
+                    <p className={`${styles.p4} ${TEXT_WHITE}`}>{stat.title}</p>
+                  </div>
+                  <p className={`${styles.p4} max-w-[150px] ${TEXT_WHITE}`}>{stat.description}</p>
+                </>
+              ) : (
+                <>
+                  <Image src={stat.src} alt={stat.title} width={38} height={38} className="mx-auto mb-2 w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
+                  <h5 className={`${styles.p1} font-bold text-white`}>{stat.value}</h5>
+                  <p className={`${styles.p4} ${TEXT_WHITE}`}>{stat.title}</p>
+                </>
+              )}
             </div>
-            <div>
-              <p className={`${styles.p4} max-w-[150px] font-inter text-white`}>Delivering consistent value that builds lasting client relationships.</p>
-            </div>
-          </div>
-          <div className="bg-[#182132] flex flex-col justify-center text-center p-6 lg:p-8 border border-[#676767] rounded-lg lg:pt-10">
-            <Image src={aboutCloudinaryImages.Aimg19} alt="Users" width={38} height={38} className="mx-auto mb-2 w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
-            <h5 className={`${styles.p1} font-bold text-white`}>100K</h5>
-            <p className={`${styles.p4} font-inter text-white`}>User Impacted</p>
-          </div>
+          ))}
         </div>
         <div className="flex gap-4">
-          <div className="bg-[#182132] flex items-center py-6 lg:py-8 ps-6 lg:ps-8 pe-8 lg:pe-10 w-[360px] lg:w-[435px] border border-[#676767] rounded-lg">
-            <div className="text-white border-r border-[#224872] pr-0 lg:pr-3 mr-5">
-              <Image src={aboutCloudinaryImages.Aimg20} alt="Shield" width={40} height={40} className="mb-1 w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
-              <h5 className={`${styles.p1} font-bold text-white`}>90%</h5>
-              <p className={`${styles.p4} font-inter text-white`}>Automation Efficiency</p>
+          {chooseQubitarsStats.slice(2, 4).map((stat, i) => (
+            <div
+              key={i}
+              className={`${CARD_BASE} ${stat.description ? "flex items-center py-6 lg:py-8 ps-6 lg:ps-8 pe-8 lg:pe-10 w-[360px] lg:w-[435px]" : "p-5 lg:p-8 text-center mr-0 md:mr-2 lg:mr-0"}`}
+            >
+              {stat.description ? (
+                <>
+                  <div className="text-white border-r border-[#224872] pr-0 lg:pr-3 mr-5">
+                    <Image src={stat.src} alt={stat.title} width={40} height={40} className="mb-1 w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
+                    <h5 className={`${styles.p1} font-bold text-white`}>{stat.value}</h5>
+                    <p className={`${styles.p4} ${TEXT_WHITE}`}>{stat.title}</p>
+                  </div>
+                  <p className={`${styles.p4} max-w-[180px] lg:max-w-[210px] pt-1 ${TEXT_WHITE}`}>{stat.description}</p>
+                </>
+              ) : (
+                <>
+                  <Image src={stat.src} alt={stat.title} width={48} height={48} className="mb-0 mx-auto w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                  <h5 className={`${styles.p1} font-bold text-white`}>{stat.value}</h5>
+                  <p className={`${styles.p4} ${TEXT_WHITE}`}>{stat.title}</p>
+                </>
+              )}
             </div>
-            <div>
-              <p className={`${styles.p4} max-w-[180px] lg:max-w-[210px] pt-1 font-inter text-white`}>Streamlining processes to save time and boost productivity.</p>
-            </div>
-          </div>
-          <div className="bg-[#182132] p-5 lg:p-8 border border-[#676767] text-center rounded-lg mr-0  md:mr-2 lg:mr-0">
-            <Image src={aboutCloudinaryImages.Aimg21} alt="Users" width={48} height={48} className="mb-0 mx-auto w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-            <h5 className={`${styles.p1} font-bold text-white`}>10/10</h5>
-            <p className={`${styles.p4} font-inter text-white`}>Preferred Partner</p>
-          </div>
-        </div>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default ChooseQubitars;
-

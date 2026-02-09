@@ -1,36 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { styles } from "@/styles/style";
- import { getAboutCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
+import type { StaticImageData } from "next/image";
 import { MoveUpRight } from "lucide-react";
+import { styles } from "@/styles/style";
+import { getNavbarCloudinaryImages } from "@/lib/assets/images";
+import { instaFeedImages } from "@/data";
 
 const InstaFeed = () => {
-  // Get Cloudinary images
-  const aboutCloudinaryImages = getAboutCloudinaryImages();
-  const navbarCloudinaryImages = getNavbarCloudinaryImages();
-  
-  const instaImages = [
-    aboutCloudinaryImages.Aimg9,
-    aboutCloudinaryImages.Aimg10,
-    aboutCloudinaryImages.Aimg11,
-    aboutCloudinaryImages.Aimg12,
-    aboutCloudinaryImages.Aimg13,
-    aboutCloudinaryImages.Aimg14,
-    aboutCloudinaryImages.Aimg15,
-    aboutCloudinaryImages.Aimg16,
-  ];
-
+  const navImages = getNavbarCloudinaryImages();
   return (
     <section className="bg-white relative overflow-hidden" id="life-at-qubitars">
-      <div className={`${styles.sectionPadding}`}>
-        {/* Header */}
+      <div className={styles.sectionPadding}>
         <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-4 mb-4 md:mb-10 lg:mb-12">
-          {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center overflow-hidden">
               <Image
-                src={navbarCloudinaryImages.logoSvg}
+                src={navImages.logoSvg}
                 alt="Qubitars Logo"
                 width={40}
                 height={40}
@@ -52,8 +38,6 @@ const InstaFeed = () => {
               50 posts
             </p>
           </div>
-
-          {/* Button */}
           <a
             href="https://www.instagram.com/qubitars"
             target="_blank"
@@ -65,9 +49,8 @@ const InstaFeed = () => {
           </a>
         </div>
 
-        {/* Instagram Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 xl:gap-8">
-          {instaImages.map((image, index) => (
+          {instaFeedImages.map((image: string | StaticImageData, index: number) => (
             <div
               key={index}
               className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
@@ -83,7 +66,6 @@ const InstaFeed = () => {
                 fetchPriority={index < 4 ? "high" : "auto"}
                 unoptimized
               />
-              {/* Overlay on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
             </div>
           ))}

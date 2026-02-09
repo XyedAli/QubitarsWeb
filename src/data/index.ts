@@ -9,8 +9,8 @@ export { featuredPost, sidebarPosts, featuredBlogs } from "./blog";
 export type { BlogPost, FeaturedBlogPost } from "./blog";
 
 // About data exports
-export { faqData, coreValues, locations } from "./about";
-export type { FAQItem, CoreValue, Location } from "./about";
+export { faqData, coreValues, locations, chooseQubitarsSection, chooseQubitarsStats, instaFeedImages } from "./about";
+export type { FAQItem, CoreValue, Location, ChooseQubitarsStat } from "./about";
 
 // Case Studies data exports
 export { caseStudies } from "./caseStudies";

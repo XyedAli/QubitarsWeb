@@ -1,48 +1,13 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import { getHeroClasses } from "./styles";
-
-interface Award {
-  src: string | import("next/image").StaticImageData;
-  alt: string;
-  width: number;
-  height: number;
-  className: string;
-}
-
-interface HeroSectionProps {
-  variant?: "default" | "blog";
-  title: string | ReactNode;
-  descriptions: string[];
-  subtitle?: string;
-  buttonText?: string;
-  backgroundType: "image" | "color" | "pattern";
-  backgroundImage?: any;
-  backgroundColor?: string;
-  patternImages?: {
-    mobile?: any;
-    desktop?: any;
-  };
-  textColor?: "white" | "blue";
-  awardsSection?: {
-    label: string;
-    awards: Award[];
-    ministryText?: string;
-    governmentText?: string;
-  };
-  objectPosition?: string;
-  titleUppercase?: boolean;
-  overlayTag?: string;
-  overlayTitle?: string;
-  overlayDescription?: string;
-  customHeightClass?: { mac?: string; nonMac?: string };
-}
+import type { HeroSectionProps } from "@/lib/types/home";
 
 const HeroSection = ({
   variant = "default",

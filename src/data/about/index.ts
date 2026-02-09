@@ -383,3 +383,46 @@ export const locations: Location[] = [
     leftXxl: "77%",
   },
 ];
+
+// Choose Qubitars section
+export interface ChooseQubitarsStat {
+  src: ReturnType<typeof getAboutCloudinaryImages>["Aimg18"];
+  value: string;
+  title: string;
+  description?: string;
+}
+
+export const chooseQubitarsSection = {
+  title: "Why Choose Qubitars",
+  description: "We combine AI, strategy, and execution to deliver scalable, real-world solutions.",
+  bgImage: aboutCloudinaryImages.Aimg17,
+};
+
+export const chooseQubitarsStats: ChooseQubitarsStat[] = [
+  {
+    src: aboutCloudinaryImages.Aimg18,
+    value: "95%",
+    title: "Client Retention",
+    description: "Delivering consistent value that builds lasting client relationships.",
+  },
+  { src: aboutCloudinaryImages.Aimg19, value: "100K", title: "User Impacted" },
+  {
+    src: aboutCloudinaryImages.Aimg20,
+    value: "90%",
+    title: "Automation Efficiency",
+    description: "Streamlining processes to save time and boost productivity.",
+  },
+  { src: aboutCloudinaryImages.Aimg21, value: "10/10", title: "Preferred Partner" },
+];
+
+// Insta feed grid images (about page)
+export const instaFeedImages = [
+  aboutCloudinaryImages.Aimg9,
+  aboutCloudinaryImages.Aimg10,
+  aboutCloudinaryImages.Aimg11,
+  aboutCloudinaryImages.Aimg12,
+  aboutCloudinaryImages.Aimg13,
+  aboutCloudinaryImages.Aimg14,
+  aboutCloudinaryImages.Aimg15,
+  aboutCloudinaryImages.Aimg16,
+];

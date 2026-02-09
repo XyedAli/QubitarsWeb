@@ -4,8 +4,7 @@ import HeroSection from "@/components/shared/heroSection";
 import { getAboutCloudinaryImages } from "@/lib/assets/images";
 
 export default function AboutHero() {
-  const aboutCloudinaryImages = getAboutCloudinaryImages();
-  
+  const images = getAboutCloudinaryImages();
   return (
     <HeroSection
       variant="blog"
@@ -21,7 +20,7 @@ export default function AboutHero() {
         "Qubitars exists to help businesses turn bold ideas into enduring digital value.",
       ]}
       backgroundType="image"
-      backgroundImage={aboutCloudinaryImages.herobg}
+      backgroundImage={images.herobg}
       overlayTag="ABOUT US"
       overlayTitle="Building Tomorrow’s Digital Foundations"
       overlayDescription="At Qubitars, strategy, design, and engineering work as one to turn ambitious ideas into reliable, future-ready solutions."
