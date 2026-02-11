@@ -5,11 +5,8 @@ import Image from "next/image";
 import { styles, combine } from "@/styles/style";
 import { getIndustriesStateIcons } from "@/lib/assets/icons";
 
-/** S-curve clip path: dark panel’s right edge (0–1 coords) */
 const CURVE_CLIP_ID = "solutions-curve-clip";
-
 const VIDEO_SRC = "/assets/videos/BG%202.mp4";
-
 const solutionIcons = getIndustriesStateIcons();
 
 export default function Solutions() {
@@ -25,11 +22,10 @@ export default function Solutions() {
   return (
     <section
       className={combine(
-        "relative overflow-hidden py-14 md:py-18 lg:py-24 mb-24 bg-gray-100"
+        "relative overflow-hidden py-14 md:py-18 lg:py-24 mb-24 bg-white"
       )}
       aria-labelledby="solutions-heading"
     >
-      {/* Dark bg sirf 60% tak – S-curve se clip */}
       <svg className="absolute w-0 h-0" aria-hidden>
         <defs>
           <clipPath id={CURVE_CLIP_ID} clipPathUnits="objectBoundingBox">
@@ -37,16 +33,12 @@ export default function Solutions() {
           </clipPath>
         </defs>
       </svg>
+
       <div
         className="absolute inset-y-0 left-0 z-[0] w-full lg:w-[70%]"
         style={{ clipPath: `url(#${CURVE_CLIP_ID})` }}
         aria-hidden
       >
-        {/* Dark base */}
-        <div
-          className="absolute inset-0"
-         
-        />
         {/* Video ellipse ke andar */}
         <div
           className="absolute inset-0 overflow-hidden"
@@ -62,17 +54,11 @@ export default function Solutions() {
             playsInline
           />
         </div>
-        {/* Overlay – text readable */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-        
-        
-        />
+  
       </div>
 
       <div className={combine(styles.container, "relative z-10")}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-4 items-center min-h-[420px] lg:min-h-[480px]">
-          {/* Left: title – col-span-7 */}
           <div className="lg:col-span-7 flex items-center py-8 lg:py-0">
             <h2
               id="solutions-heading"
