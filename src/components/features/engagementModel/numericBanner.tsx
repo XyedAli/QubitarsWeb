@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { styles } from "@/styles/style";
-import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { numericBannerSection } from "@/data/engModel";
 
 const DURATION_MS = 2000;
@@ -48,7 +48,7 @@ function AnimatedNumber({
 const NumericBanner = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
-  const engagementIcons = getEngagementModelCloudinaryImages();
+  const engagementIcons = getEngagementModelCloudinaryIcons();
   const animatedStats = numericBannerSection.stats.map((stat) => ({
     ...stat,
     icon: engagementIcons[stat.iconKey],

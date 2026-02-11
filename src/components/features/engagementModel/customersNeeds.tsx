@@ -2,7 +2,7 @@
 
 import { styles, combine } from "@/styles/style";
 import Image from "next/image";
-import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { SectionHeading } from "@/components/shared/headings";
 import { customersNeedsSection } from "@/data/engModel";
 
@@ -10,10 +10,10 @@ const DIVIDER_CLASS = "hidden lg:block absolute w-[2px] bg-gradient-to-b from-tr
 const H_DIVIDER_CLASS = "hidden lg:block absolute top-[45%] xl:top-[50%] left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FCB477] to-transparent pointer-events-none";
 
 const CustomersNeeds = () => {
-  const images = getEngagementModelCloudinaryImages();
+  const icons = getEngagementModelCloudinaryIcons();
   const cards = customersNeedsSection.featureCards.map((card) => ({
     ...card,
-    icon: images[card.iconKey],
+    icon: icons[card.iconKey],
   }));
 
   return (

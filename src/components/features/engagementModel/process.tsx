@@ -3,15 +3,15 @@
 import Image from "next/image";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
-import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { processSection } from "@/data/engModel";
 import { SectionHeading } from "@/components/shared/headings";
 
 const STEP_DESC_CLASS = "text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-gray-600 font-outfit max-w-[270px] xl:max-w-[230px]";
 
 const Process = () => {
-  const images = getEngagementModelCloudinaryImages();
-  const steps = processSection.steps.map((step) => ({ ...step, src: images[step.iconKey] }));
+  const icons = getEngagementModelCloudinaryIcons();
+  const steps = processSection.steps.map((step) => ({ ...step, src: icons[step.iconKey] }));
 
   const StepText = ({ step }: { step: (typeof steps)[0] }) => (
     <div className="text-center">
@@ -32,7 +32,7 @@ const Process = () => {
             <div key={`mobile-${index}`} className={`flex items-center gap-2 ${!imgFirst ? "flex-row-reverse" : ""}`}>
               <div className={`flex-shrink-0 w-30 h-30 flex items-center justify-center ${imgFirst ? "me-8" : "ms-1"}`}>
                 <Image
-                  src={images[step.mobileIconKey]}
+                  src={icons[step.mobileIconKey]}
                   alt=""
                   width={56}
                   height={56}

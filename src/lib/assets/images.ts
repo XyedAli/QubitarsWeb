@@ -29,7 +29,7 @@ export const getCaseStudiesCloudinaryImages = () => {
 };
 
 // Industries Hero – per-industry background images (each card different image, no overlay)
-export const getIndustriesHeroImages = (): Record<string, string> => {
+export const getIndustriesImages = (): Record<string, string> => {
   const base = (endpoint: string) => optimizeHeroImage(buildCloudinaryUrl(endpoint));
   return {
     "real-estate-1": base("v1770317984/stateimg1_abtxed.webp"),
@@ -37,6 +37,18 @@ export const getIndustriesHeroImages = (): Record<string, string> => {
     "real-estate-3": base("v1770317984/stateimg3_pgrgja.webp"),
     "real-estate-4": base("v1770317984/stateimg4_uzmiwz.webp"),
     "real-estate-5": base("v1770317986/stateimg5_lietsg.webp"),
+    "real-estate-6": base("v1770714103/stateimg6_quqfhq.webp"),
+    "real-estate-7": base("v1770714103/stateimg7_vehq4o.webp"),
+  };
+};
+
+// Industries – webp images only (stateimg6, stateimg7, ellipse). SVG icons are in icons.ts
+export const getIndustriesAssets = (): Record<string, string> => {
+  const hero = (endpoint: string) => optimizeHeroImage(buildCloudinaryUrl(endpoint));
+  return {
+    stateimg6: hero("v1770714103/stateimg6_quqfhq.webp"),
+    stateimg7: hero("v1770714103/stateimg7_vehq4o.webp"),
+    ellipse: hero("v1770714103/Ellipse_dh4ejq.webp"),
   };
 };
 
@@ -117,32 +129,7 @@ export const getProfileCloudinaryImages = () => {
     profileIcon: optimizeIconImage(buildCloudinaryUrl(profileIconEndpoint)),
   };
 };
-// Awards Page Images
-export const getAwardsCloudinaryImages = () => {
-  const awardEndpoints = {
-    caward1: "v1769171094/caward1_ztjtyk.svg",
-    caward2: "v1769171099/caward2_cehhvo.svg",
-    caward3: "v1769171106/caward3_c8ywqm.svg",
-    caward4: "v1769171112/caward4_bpszen.svg",
-    caward5: "v1769171119/caward5_mdgbzk.svg",
-    caward6: "v1769171125/caward6_gz4r0y.svg",
-  };
-
-  const awards: Record<string, string> = {};
-  Object.entries(awardEndpoints).forEach(([key, endpoint]) => {
-    const fullUrl = buildCloudinaryUrl(endpoint);
-    awards[key] = optimizeIconImage(fullUrl);
-  });
-
-  return awards as {
-    caward1: string;
-    caward2: string;
-    caward3: string;
-    caward4: string;
-    caward5: string;
-    caward6: string;
-  };
-};
+// Awards – webp only (map). SVG award logos are in icons.ts (getAwardsCloudinaryIcons)
 // Home Page Images
 export const getHomeHeroCloudinaryImages = () => {
   const heroEndpoints = {
@@ -165,11 +152,10 @@ export const getHomeHeroCloudinaryImages = () => {
     himg4: string;
   };
 };
-// Awards Page Images
+// Awards – map image (webp)
 export const getAwardsMapCloudinaryImage = () => {
   const mapEndpoint = "v1769171864/map_m0zhp9.webp";
-  const mapUrl = buildCloudinaryUrl(mapEndpoint);
-  return optimizeIconImage(mapUrl, 4000);
+  return optimizeHeroImage(buildCloudinaryUrl(mapEndpoint));
 };
 
 export const getCompanyCloudinaryImages = () => {
@@ -193,54 +179,18 @@ export const getCompanyCloudinaryImages = () => {
     blog3: string;
   };
 };
-// Engagement Model Page Images
+// Engagement Model – webp only. SVG icons are in icons.ts (getEngagementModelCloudinaryIcons)
 export const getEngagementModelCloudinaryImages = () => {
-  const modelBgEndpoint = "v1769540140/modelbg_pyfp12.webp";
-  const modelBgUrl = buildCloudinaryUrl(modelBgEndpoint);
-
-  const engagementIcons = {
-    icon1: optimizeIconImage(buildCloudinaryUrl("v1769586921/engIcon1_fvm3et.svg")),
-    icon2: optimizeIconImage(buildCloudinaryUrl("v1769586918/engIcon2_qhbzxb.svg")),
-    icon3: optimizeIconImage(buildCloudinaryUrl("v1769586915/engIcon3_xeefwe.svg")),
-    icon4: optimizeIconImage(buildCloudinaryUrl("v1769586912/engIcon4_d3owr7.svg")),
-    icon5: optimizeIconImage(buildCloudinaryUrl("v1769586911/engIcon5_mmomoj.svg")),
-    icon6: optimizeIconImage(buildCloudinaryUrl("v1769586910/engIcon6_fe8igy.svg")),
-    icon7: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon7_e1iodp.svg")),
-    icon8: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon8_zv33ta.svg")),
-    icon9: optimizeIconImage(buildCloudinaryUrl("v1769759042/engIcon9_e1zf8o.svg")),
-    icon10: optimizeIconImage(buildCloudinaryUrl("v1769767176/engIcon10_ekjd0n.svg")),
-    icon11: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon12_xxjtkv.svg")),
-    icon12: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon13_agwszb.svg")),
-    icon13: optimizeIconImage(buildCloudinaryUrl("v1769767172/engIcon11_izuwau.svg")),
-    icon14: optimizeIconImage(buildCloudinaryUrl("v1769774786/engIcon14_xqanxw.svg")),
-    icon15: optimizeIconImage(buildCloudinaryUrl("v1769774785/engIcon15_n6osbg.svg")),
-    icon16: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon16_rbfwsc.svg")),
-    icon17: optimizeIconImage(buildCloudinaryUrl("v1769774783/engIcon17_wnxblz.svg")),
-    icon18: optimizeIconImage(buildCloudinaryUrl("v1769774784/engIcon18_juqdcy.svg")),
-    // Mobile process section icons (used only in process.tsx mobile layout)
-    engIcon19: optimizeIconImage(buildCloudinaryUrl("v1770120269/engIcon19_rvf2kd.svg")),
-    engIcon20: optimizeIconImage(buildCloudinaryUrl("v1770120269/engIcon20_ofwbxg.svg")),
-    engIcon21: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon21_jo94nw.svg")),
-    engIcon22: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon22_ed4jyi.svg")),
-    engIcon23: optimizeIconImage(buildCloudinaryUrl("v1770120268/engIcon23_fujqfp.svg")),
-  };
-  const advantageImg = buildCloudinaryUrl("v1769760508/engImg1_mbci7z.webp");
-  const execCard1 = buildCloudinaryUrl("v1770109319/engSlide1_vsmifx.webp");
-  const execCard2 = buildCloudinaryUrl("v1770109320/engSlide2_m3kgux.webp");
-  const execCard3 = buildCloudinaryUrl("v1770109320/engSlide3_lwmuya.webp");
-  const execCard4 = buildCloudinaryUrl("v1770109320/engSlide4_ooz5cv.webp");
-  const execCard5 = buildCloudinaryUrl("v1770109323/engSlide5_lh3evx.webp");
-  const execCard6 = buildCloudinaryUrl("v1770109325/engSlide6_ntto6a.webp");
+  const hero = (endpoint: string) => optimizeHeroImage(buildCloudinaryUrl(endpoint));
   return {
-    modelBg: optimizeHeroImage(modelBgUrl),
-    advantageImg,
-    execCard1,
-    execCard2,
-    execCard3,
-    execCard4,
-    execCard5,
-    execCard6,
-    ...engagementIcons,
+    modelBg: hero("v1769540140/modelbg_pyfp12.webp"),
+    advantageImg: hero("v1769760508/engImg1_mbci7z.webp"),
+    execCard1: hero("v1770109319/engSlide1_vsmifx.webp"),
+    execCard2: hero("v1770109320/engSlide2_m3kgux.webp"),
+    execCard3: hero("v1770109320/engSlide3_lwmuya.webp"),
+    execCard4: hero("v1770109320/engSlide4_ooz5cv.webp"),
+    execCard5: hero("v1770109323/engSlide5_lh3evx.webp"),
+    execCard6: hero("v1770109325/engSlide6_ntto6a.webp"),
   };
 };
 

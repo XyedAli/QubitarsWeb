@@ -1,8 +1,8 @@
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
-import { getTriScrollCloudinaryLogos, getAwardsCloudinaryImages, getCompanyCloudinaryImages, getHomeCloudinaryImages, getNavbarCloudinaryImages, getServiceModalCloudinaryImages, getTechnologyIconCloudinaryImages } from "@/lib/assets/images";
-import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
+import { getTriScrollCloudinaryLogos, getCompanyCloudinaryImages, getHomeCloudinaryImages, getNavbarCloudinaryImages, getServiceModalCloudinaryImages, getTechnologyIconCloudinaryImages } from "@/lib/assets/images";
+import { getIndustryCloudinaryIcons, getAwardsCloudinaryIcons } from "@/lib/assets/icons";
 import {
   techStackIcons,
 } from "../../../public/assets/images";
@@ -25,8 +25,8 @@ export const businessTypes = [
   },
 ];
 
-// Get Cloudinary awards images
-const awardsCloudinaryImages = getAwardsCloudinaryImages();
+// Get Cloudinary awards icons (SVG) from icons.ts
+const awardsCloudinaryImages = getAwardsCloudinaryIcons();
 
 // Get Cloudinary service modal images
 const serviceModalCloudinaryImages = getServiceModalCloudinaryImages();

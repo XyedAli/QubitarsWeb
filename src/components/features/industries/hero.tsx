@@ -7,7 +7,7 @@ import { MapPin, ArrowLeft, ArrowRight } from "lucide-react";
 import { heroIndustriesCards } from "@/data/industries";
 import { styles, combine } from "@/styles/style";
 import { CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
-import { getIndustriesHeroImages } from "@/lib/assets/images";
+import { getIndustriesImages } from "@/lib/assets/images";
 import type Slider from "react-slick";
 
 type ExpandRect = {
@@ -65,7 +65,7 @@ const IndustriesHero = () => {
   const [expandToFull, setExpandToFull] = useState(false);
   /** Slider + DOM ready — animation/autoplay start only after this (fixes Vercel/hydration) */
   const [isReady, setIsReady] = useState(false);
-  const industryHeroImages = getIndustriesHeroImages();
+  const industryHeroImages = getIndustriesImages();
   const activeIndustry = heroIndustriesCards[currentSlide] ?? heroIndustriesCards[0];
   const contentIndustry = heroIndustriesCards[contentSlideIndex] ?? heroIndustriesCards[0];
   const previousBgImage = industryHeroImages[previousIndustryId] ?? industryHeroImages["real-estate-1"];

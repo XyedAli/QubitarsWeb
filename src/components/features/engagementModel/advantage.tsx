@@ -6,15 +6,17 @@ import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { Button } from "@/components/shared/ui";
 import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
+import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { advantageSection } from "@/data/engModel";
 
 const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
 const Advantage = () => {
   const images = getEngagementModelCloudinaryImages();
+  const icons = getEngagementModelCloudinaryIcons();
   const items = advantageSection.items.map((item) => ({
     ...item,
-    icon: images[item.iconKey],
+    icon: icons[item.iconKey],
   }));
 
   return (

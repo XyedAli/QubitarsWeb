@@ -23,7 +23,7 @@ export default function IndustriesAbout() {
             baseRotation={3}
             blurStrength={4}
             containerClassName="!m-0"
-            textClassName={combine("font-outfit text-blue leading-relaxed font-normal !text-[15px] sm:!text-[16px] md:!text-[17px] lg:!text-[32px] max-w-4xl mx-auto")}
+            textClassName={combine("font-outfit text-blue leading-relaxed !font-medium !text-[15px] sm:!text-[16px] md:!text-[17px] lg:!text-[32px] max-w-4xl mx-auto")}
             rotationEnd="bottom center"
             wordAnimationEnd="bottom center"
           >

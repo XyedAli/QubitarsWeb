@@ -1,109 +1,106 @@
 "use client";
 
-import {
-  UserPlus,
-  Users,
-  ClipboardList,
-  type LucideIcon,
-} from "lucide-react";
+import Image from "next/image";
 import { styles, combine } from "@/styles/style";
+import { getIndustriesAssets } from "@/lib/assets/images";
+import { getIndustriesStateIcons } from "@/lib/assets/icons";
 
 export interface EngagementCard {
   id: string;
-  icon: LucideIcon;
+  iconKey: "stateicon9" | "stateicon10" | "stateicon11";
   title: string;
 }
 
 const engagementCards: EngagementCard[] = [
-  {
-    id: "staff-augmentation",
-    icon: UserPlus,
-    title: "Staff Augmentation",
-  },
-  {
-    id: "dedicated-teams",
-    icon: Users,
-    title: "Dedicated Teams",
-  },
-  {
-    id: "product-development",
-    icon: ClipboardList,
-    title: "Product Development",
-  },
+  { id: "team-augmentation", iconKey: "stateicon9", title: "Team Augmentation" },
+  { id: "product-development", iconKey: "stateicon10", title: "Product Development" },
+  { id: "consultation", iconKey: "stateicon11", title: "Consultation" },
 ];
 
-const BANNER_BG = "#1E274F";
-const iconWrapperClass =
-  "w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center bg-violet-100 border border-violet-200/80 text-blue shrink-0 mx-auto";
 const cardClass =
-  "flex flex-col items-center gap-4 p-6 md:p-8 rounded-2xl bg-white border border-sky-100/80 shadow-md hover:shadow-lg transition-all duration-300";
-const cardBorderStyle = {
-  border: "1px solid transparent",
-  backgroundImage:
-    "linear-gradient(white, white), linear-gradient(to bottom left, #D9E6FE, #82ABFC)",
-  backgroundOrigin: "padding-box, border-box",
-  backgroundClip: "padding-box, border-box",
-};
+  "flex flex-col items-center gap-4 p-6 rounded-xl bg-white transition-all duration-300 shadow-[0_4px_20px_rgba(30,39,79,0.06)] hover:shadow-[0_12px_40px_rgba(30,39,79,0.1)]";
 
 export default function BusinessExcellence() {
+  const assets = getIndustriesAssets();
+  const icons = getIndustriesStateIcons();
+
   return (
-    <section
-      className={combine(styles.sectionPadding, "relative")}
-      aria-labelledby="business-excellence-heading"
-    >
-      <div className="">
-        {/* Blue header banner */}
-        <div
-          className="rounded-2xl md:rounded-3xl px-6 py-10 md:py-12 lg:px-12 text-center min-h-[160px] md:min-h-[400px] flex flex-col items-start justify-center"
-          style={{ backgroundColor: BANNER_BG }}
-        >
-          <h2
-            id="business-excellence-heading"
-            className={combine(
-              styles.h2,
-              "font-bold text-white leading-tight font-outfit max-w-4xl mx-auto"
-            )}
+    <section className={combine(styles.sectionPadding, "relative")}>
+      <div>
+        {/* Banner: white block, rounded top. stateimg6 + stateimg7 in corners (absolute). */}
+        <div className="relative overflow-hidden rounded-xl bg-[#F2F4FF] min-h-[220px] md:min-h-[420px] px-6 py-12 md:py-16 lg:px-14 lg:py-20">
+          {/* stateimg6 – absolute left bottom corner */}
+          <div
+            className="absolute top-0 right-0 w-[320px] md:w-[420px] lg:w-[380px] h-[200px] md:h-[280px] lg:h-[300px] pointer-events-none z-0"
+            aria-hidden
           >
-            Unlock Business Excellence With Our Versatile Engagement Models
-          </h2>
-          <p
-            className={combine(
-              styles.p2,
-              "text-white/90 mt-3 md:mt-4 max-w-2xl mx-auto font-outfit mb-9"
-            )}
+            <Image
+              src={assets.stateimg6}
+              alt=""
+              fill
+              className=""
+              sizes=""
+            />
+          </div>
+          {/* stateimg7 – absolute right top corner */}
+          <div
+            className="absolute bottom-0 left-0 w-[280px] md:w-[360px] lg:w-[300px] h-[180px] md:h-[240px] lg:h-[200px] pointer-events-none z-0"
+            aria-hidden
           >
-            Transform your vision into reality and drive exemplary results
-            through Qubitars&apos; dynamic engagement models.
-          </p>
+            <Image
+              src={assets.stateimg7}
+              alt=""
+              fill
+              className=""
+              sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 420px"
+            />
+          </div>
+
+          <div className="relative z-10 text-center max-w-4xl mx-auto">
+            <h2
+              id="business-excellence-heading"
+              className={combine(
+                styles.h2,
+                "font-bold text-[#1E274F] leading-tight font-outfit text-balance"
+              )}
+            >
+              Elevate growth outcomes using flexible collaboration approaches
+            </h2>
+            <p
+              className={combine(
+                styles.p2,
+                "text-gray-600 mt-3 md:mt-5 font-outfit max-w-2xl mx-auto"
+              )}
+            >
+              Convert dreams toward tangible impact while delivering peak performance via Qubitars Technologies&apos;s engagement models.
+            </p>
+          </div>
         </div>
 
         {/* Feature cards – overlapping the banner */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-9 -mt-8 md:-mt-20 relative z-10 px-2 sm:px-6 max-w-6xl mx-auto">
-          {engagementCards.map((card) => {
-            const Icon = card.icon;
-            return (
-              <article
-                key={card.id}
-                className={cardClass}
-                style={cardBorderStyle}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-5 -mt-6 md:-mt-32 relative z-10 px-2 sm:px-0 max-w-5xl mx-auto">
+          {engagementCards.map((card) => (
+            <article key={card.id} className={cardClass}>
+              <div>
+                <Image
+                  src={icons[card.iconKey]}
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="w-8 h-8 md:w-18 md:h-18 object-contain"
+                  unoptimized={icons[card.iconKey]?.includes("cloudinary.com")}
+                />
+              </div>
+              <h3
+                className={combine(
+                  styles.h6,
+                  "font-semibold text-[#1E274F] text-center font-outfit"
+                )}
               >
-                <div className={iconWrapperClass} aria-hidden>
-                  <Icon
-                    className="w-7 h-7 md:w-8 md:h-8 text-blue"
-                    strokeWidth={2}
-                  />
-                </div>
-                <h3
-                  className={combine(
-                    styles.h5,
-                    "font-semibold text-blue text-center font-outfit"
-                  )}
-                >
-                  {card.title}
-                </h3>
-              </article>
-            );
-          })}
+                {card.title}
+              </h3>
+            </article>
+          ))}
         </div>
       </div>
     </section>
