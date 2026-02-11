@@ -10,39 +10,41 @@ import {
 } from "lucide-react";
 import { styles, combine } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
-import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
+import { getIndustriesStateIcons } from "@/lib/assets/icons";
+
+const stateIcons = getIndustriesStateIcons();
 
 export interface WhyUsCard {
   id: string;
-  icon: LucideIcon;
+  icon: LucideIcon | string;
   label: string;
 }
 
 const whyUsCards: WhyUsCard[] = [
   {
     id: "compliance",
-    icon: ShieldCheck,
+    icon: stateIcons.stateicon16,
     label: "Compliance-first mindset",
   },
   {
     id: "ai",
-    icon: Cpu,
+    icon: stateIcons.stateicon17,
     label: "Built-in AI, not bolted on",
   },
   {
     id: "iterations",
-    icon: RefreshCw,
+    icon: stateIcons.stateicon18,
     label: "Rapid iterations with user feedback",
   },
   {
     id: "infrastructure",
-    icon: Server,
+    icon: stateIcons.stateicon19,
     label: "Infrastructure optimized for data and privacy",
   },
 ];
 
 const iconWrapperClass =
-  "w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center bg-sky-100 border border-sky-200/80 text-sky-600 shrink-0";
+  "w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center  shrink-0";
 const cardClass =
   "flex flex-col items-start gap-4 p-5 md:p-6 rounded-xl bg-white shadow-sm transition-all duration-300";
 const cardBorderStyle = {
@@ -73,11 +75,24 @@ export default function ChooseQubitars() {
 </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-9 mt-2 md:mt-4">
           {whyUsCards.map((card) => {
-            const Icon = card.icon;
+            const isUrl = typeof card.icon === "string";
+            const iconSrc = isUrl ? (card.icon as string) : "";
+            const Icon = !isUrl ? (card.icon as LucideIcon) : null;
             return (
               <article key={card.id} className={cardClass} style={cardBorderStyle}>
                 <div className={iconWrapperClass} aria-hidden>
-                  <Icon className="w-6 h-6 md:w-9 md:h-9" strokeWidth={2} />
+                  {isUrl ? (
+                    <Image
+                      src={iconSrc}
+                      alt=""
+                      width={36}
+                      height={36}
+                      className="w-6 h-6 md:w-12 md:h-12 object-contain"
+                      unoptimized={iconSrc.includes("cloudinary.com")}
+                    />
+                  ) : (
+                    Icon && <Icon className="w-6 h-6 md:w-12 md:h-12" strokeWidth={2} />
+                  )}
                 </div>
                 <p
                   className={combine(
