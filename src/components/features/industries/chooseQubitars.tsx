@@ -1,13 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import {
-  ShieldCheck,
-  Cpu,
-  RefreshCw,
-  Server,
-  type LucideIcon,
-} from "lucide-react";
 import { styles, combine } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { getIndustriesStateIcons } from "@/lib/assets/icons";
@@ -16,7 +9,7 @@ const stateIcons = getIndustriesStateIcons();
 
 export interface WhyUsCard {
   id: string;
-  icon: LucideIcon | string;
+  icon:  string;
   label: string;
 }
 
@@ -77,11 +70,9 @@ export default function ChooseQubitars() {
           {whyUsCards.map((card) => {
             const isUrl = typeof card.icon === "string";
             const iconSrc = isUrl ? (card.icon as string) : "";
-            const Icon = !isUrl ? (card.icon as LucideIcon) : null;
             return (
               <article key={card.id} className={cardClass} style={cardBorderStyle}>
                 <div className={iconWrapperClass} aria-hidden>
-                  {isUrl ? (
                     <Image
                       src={iconSrc}
                       alt=""
@@ -90,9 +81,7 @@ export default function ChooseQubitars() {
                       className="w-6 h-6 md:w-12 md:h-12 object-contain"
                       unoptimized={iconSrc.includes("cloudinary.com")}
                     />
-                  ) : (
-                    Icon && <Icon className="w-6 h-6 md:w-12 md:h-12" strokeWidth={2} />
-                  )}
+               
                 </div>
                 <p
                   className={combine(

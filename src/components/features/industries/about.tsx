@@ -12,7 +12,7 @@ export default function IndustriesAbout() {
       className={combine(styles.sectionPadding, styles.sectionPaddingY, "bg-white")}
       aria-labelledby="industries-about-heading"
     >
-      <div className={styles.container}>
+      <div>
         <div
           id="industries-about-heading"
           className={combine("max-w-4xl mx-auto text-center", styles.p1, "font-outfit text-blue leading-relaxed")}
@@ -23,7 +23,7 @@ export default function IndustriesAbout() {
             baseRotation={3}
             blurStrength={4}
             containerClassName="!m-0"
-            textClassName={combine("font-outfit text-blue leading-relaxed !font-medium !text-[15px] sm:!text-[16px] md:!text-[17px] lg:!text-[32px] max-w-4xl mx-auto")}
+            textClassName={combine("font-outfit text-blue leading-relaxed !font-medium !text-[20px] md:!text-[26px] lg:!text-[32px] max-w-4xl mx-auto")}
             rotationEnd="bottom center"
             wordAnimationEnd="bottom center"
           >

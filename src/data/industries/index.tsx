@@ -8,49 +8,55 @@ export interface HeroIndustryCard {
   icon: React.ComponentType<{ width: number; height: number; className?: string }>;
   title: string;
   description: string;
+  buttonText: string;
 }
 
 /** Hero section cards data – industries carousel */
 export const heroIndustriesCards: HeroIndustryCard[] = [
   {
     id: "real-estate-1",
-    name: "Real Estate",
+    name: "Digital Advantage",
     icon: ChartNoAxesCombined,
-    title: "Real Estate Solutions",
+    title: "Built For Real Estate",
     description:
-      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
+      "From property data to client workflows, we modernize how real estate teams operate, collaborate, and deliver results.",
+    buttonText: "See How It Works",
   },
   {
     id: "real-estate-2",
     name: "Real Estate",
     icon: ChartNoAxesCombined,
-    title: "Real Estate Solutions",
+    title: "Smarter Property Operations",
     description:
-      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
+      "We help real estate businesses replace fragmented processes with connected, technology-driven operations that scale confidently.",
+    buttonText: "Book a Free Consultation",
   },
   {
     id: "real-estate-3",
-    name: "Real Estate",
+    name: "Intelligent Growth",
     icon: ChartNoAxesCombined,
-    title: "Real Estate Solutions",
+    title: "Data-Driven Real Estate Decisions",
     description:
-      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
+      "Centralized data, automated workflows, and real-time insights empower faster decisions and reduced operational friction.",
+    buttonText: "View Use Cases",
   },
   {
     id: "real-estate-4",
-    name: "Real Estate",
+    name: "Trusted Technology",
     icon: ChartNoAxesCombined,
-    title: "Real Estate Solutions",
+    title: "Scalable Real Estate Platforms",
     description:
-      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
+      "Our solutions grow with your portfolio, supporting expansion, compliance, and long-term operational reliability.",
+    buttonText: "Talk to Experts",
   },
   {
     id: "real-estate-5",
-    name: "Real Estate",
+    name: "Business Impact",
     icon: ChartNoAxesCombined,
-    title: "Real Estate Solutions",
+    title: "Results Built to Scale",
     description:
-      "We empower real estate professionals with smart digital solutions—streamlining property management, simplifying transactions, and enhancing customer journeys from search to close.",
+      "We partner with real estate leaders to deliver measurable outcomes through secure, efficient, and future-ready systems.",
+    buttonText: "Start the Conversation",
   },
 ];
 
@@ -75,7 +81,7 @@ export const growthBarrierCards: GrowthBarrierCard[] = [
   {
     id: "compliance",
     icon: _growthBarrierIcons.stateicon2,
-    title: "Regulatory Compliance Risks",
+    title: "Regulatory Risks",
     description:
       "Navigating regulations and ownership documents is time-consuming and error-prone digitally without automation.",
   },

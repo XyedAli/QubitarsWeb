@@ -2,13 +2,24 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { MapPin, ArrowLeft, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button, CustomSlider } from "@/components/shared/ui";
 import { heroIndustriesCards } from "@/data/industries";
 import { styles, combine } from "@/styles/style";
-import { CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { getIndustriesImages } from "@/lib/assets/images";
 import type Slider from "react-slick";
+
+const heroOverlay = "absolute inset-0 bg-[#0000004D] z-[1]";
+const heroImageCover = "object-cover object-center";
+const heroArrowButton = combine(
+  styles.flexCenter,
+  "w-10 h-10 rounded-full border-2 border-white/80 text-white hover:bg-white/20 transition-colors duration-300 disabled:opacity-50"
+);
+const heroCardContent = combine(
+  "absolute inset-0 z-10 justify-end p-3 xl:p-4 text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]",
+  styles.flexCol
+);
 
 type ExpandRect = {
   left: number;
@@ -17,7 +28,6 @@ type ExpandRect = {
   height: number;
   viewportW: number;
   viewportH: number;
-  /** Hero bounds — expand img sirf hero tak, next sections par nahi */
   heroLeft?: number;
   heroTop?: number;
   heroWidth?: number;
@@ -212,7 +222,11 @@ const IndustriesHero = () => {
     slidesToScroll: 1,
     autoplay: false,
     afterChange: (index: number) => setCurrentSlide(index),
-    responsive: sliderBreakpoints.fourToThreeToTwoToOne,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
   };
 
   const totalSlideCount = heroIndustriesCards.length;
@@ -223,7 +237,7 @@ const IndustriesHero = () => {
   return (
     <section
       ref={heroSectionRef}
-      className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden"
+      className={combine("relative min-h-[75vh] md:min-h-[85vh] xl:min-h-[90vh] overflow-hidden", styles.flexitems)}
     >
       {/* Background: hero ke andar hi — expand overlay jahan khatam hoti wahi, top ki taraf move na ho */}
       <div aria-hidden className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -232,11 +246,11 @@ const IndustriesHero = () => {
             src={previousBgImage}
             alt=""
             fill
-            className="object-cover object-center"
+            className={heroImageCover}
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden />
+          <div className={heroOverlay} aria-hidden />
         </div>
       </div>
 
@@ -250,11 +264,11 @@ const IndustriesHero = () => {
               : useHeroContainment
                 ? cardRectRelativeToHero(expandFromRect)
                 : {
-                    left: expandFromRect.left,
-                    top: expandFromRect.top,
-                    width: expandFromRect.width,
-                    height: expandFromRect.height,
-                  }),
+                  left: expandFromRect.left,
+                  top: expandFromRect.top,
+                  width: expandFromRect.width,
+                  height: expandFromRect.height,
+                }),
             transition: "left 900ms ease-out, top 900ms ease-out, width 900ms ease-out, height 900ms ease-out",
           }}
           onTransitionEnd={(e) => {
@@ -266,41 +280,38 @@ const IndustriesHero = () => {
               src={activeCardImage}
               alt=""
               fill
-              className="object-cover object-center"
+              className={heroImageCover}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-black/20 z-[1]" aria-hidden />
+            <div className={heroOverlay} aria-hidden />
           </div>
         </div>
       )}
 
       <div className={combine("relative z-10 w-full", styles.sectionPadding)}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-          {/* Left panel: jis card ki img expand ho usi ka text — subtitle, title, description, button sab animate (niche se upar) */}
-          <div className="lg:col-span-5 flex flex-col text-left overflow-hidden">
+        <div className={combine("grid grid-cols-1 md:grid-cols-12 gap-7 lg:gap-10 xl:gap-16", styles.flexitems)}>
+          <div className={combine("md:col-span-6 lg:col-span-5 text-left overflow-hidden", styles.flexCol)}>
             <div key={contentSlideIndex} className="animate-industries-text-up">
-              <p className="text-white/90 text-sm md:text-base font-outfit uppercase tracking-wider mb-3">
+              <p className="text-[#FC7E13] text-lg md:text-xl font-bold tracking-wider mb-3">
                 {contentIndustry.name}
               </p>
-              <h1 className={combine(styles.h1, "text-white font-bold font-outfit leading-tight mb-4 md:mb-5")}>
+              <h1 className={combine(styles.h1, "text-white font-bold leading-tight mb-4 xl:mb-5")}>
                 {contentIndustry.title}
               </h1>
-              <p className={combine(styles.p2, "text-white/90 max-w-lg leading-relaxed mb-6 md:mb-8")}>
+              <p className={combine("text-white max-w-lg text-lg leading-relaxed mb-6 xl:mb-8")}>
                 {contentIndustry.description}
               </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-5 py-3 md:px-6 md:py-3.5 rounded-lg bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold text-sm md:text-base hover:opacity-90 transition-all duration-300 w-fit"
-              >
-                <MapPin className="w-5 h-5 flex-shrink-0" aria-hidden />
-                Discover Solutions
+              <Link href="/contact">
+                <Button variant="primary" size="lg" className="w-fit">
+                  {contentIndustry.buttonText}
+                </Button>
               </Link>
             </div>
           </div>
 
-          {/* Right panel: industry cards carousel */}
-          <div className="lg:col-span-7">
-            <div className="relative">
+          {/* Right panel: industry cards carousel — hidden on mobile */}
+          <div className="hidden md:block md:col-span-6 lg:col-span-7">
+            <div className={combine(styles.flexCol, "relative")}>
               <CustomSlider
                 settings={sliderSettings}
                 showArrows={false}
@@ -321,13 +332,13 @@ const IndustriesHero = () => {
                   const isActive = index === currentSlide;
                   const hideActiveCard = isActive && isExpanding;
                   return (
-                    <div key={industry.id} className="px-2 md:px-3">
+                    <div key={industry.id} className="px-1 xl:px-3">
                       <div
                         ref={isActive ? activeCardRef : null}
                         data-industry-card
                         className={combine(
-                          "relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[300px] p-7 md:p-8 transition-opacity duration-200",
-                          isActive && !isExpanding && "border-2 border-white",
+                          "relative rounded-xl overflow-hidden min-h-[240px] lg:min-h-[250px] xl:min-h-[315px] p-7 md:p-8 transition-opacity duration-200",
+                          isActive && !isExpanding && "",
                           !isActive && "border-2 border-transparent",
                           hideActiveCard && "opacity-0 pointer-events-none"
                         )}
@@ -336,19 +347,15 @@ const IndustriesHero = () => {
                           src={cardBgImage}
                           alt=""
                           fill
-                          className="object-cover"
+                          className={heroImageCover}
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 28vw"
                         />
-                        <div className="relative z-10 flex flex-col h-full justify-end text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                          {IconComponent && (
-                            <div className="mb-5 text-white">
-                              <IconComponent width={44} height={44} className="opacity-95" />
-                            </div>
-                          )}
-                          <h3 className="text-white font-bold text-lg md:text-xl font-outfit mb-2">
+                        <div className={heroOverlay} aria-hidden />
+                        <div className={heroCardContent}>
+                          <h3 className={combine( "text-[#FC7E13] font-bold text-[15px] xl:text-[19px] mb-2")}>
                             {industry.name}
                           </h3>
-                          <p className="text-white/95 text-sm md:text-base font-outfit line-clamp-2">
+                          <p className={combine("text-white font-semibold text-base lg:text-[17px] xl:text-[23px] leading-tight")}>
                             {industry.title}
                           </p>
                         </div>
@@ -359,13 +366,13 @@ const IndustriesHero = () => {
               </CustomSlider>
 
               {/* Carousel controls: arrows + progress + number */}
-              <div className="flex items-center justify-start gap-4 mt-5">
-                <div className="flex items-center gap-2">
+              <div className={combine(styles.flexitems, "justify-start gap-4 mt-5")}>
+                <div className={combine(styles.flexitems, "gap-2")}>
                   <button
                     type="button"
                     onClick={handlePrevClick}
                     disabled={isExpanding}
-                    className="w-10 h-10 rounded-full border-2 border-white/80 text-white flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50"
+                    className={heroArrowButton}
                     aria-label="Previous slide"
                   >
                     <ArrowLeft className="w-5 h-5" />
@@ -374,7 +381,7 @@ const IndustriesHero = () => {
                     type="button"
                     onClick={handleNextClick}
                     disabled={isExpanding}
-                    className="w-10 h-10 rounded-full border-2 border-white/80 text-white flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50"
+                    className={heroArrowButton}
                     aria-label="Next slide"
                   >
                     <ArrowRight className="w-5 h-5" />
@@ -386,7 +393,7 @@ const IndustriesHero = () => {
                     style={{ width: `${((contentSlideIndex + 1) / Math.max(totalSlideCount, 1)) * 100}%` }}
                   />
                 </div>
-                <span className="text-white font-bold text-2xl md:text-3xl font-outfit tabular-nums">
+                <span className={combine(styles.h2, "text-white font-bold font-outfit tabular-nums")}>
                   {displayNumber}
                 </span>
               </div>

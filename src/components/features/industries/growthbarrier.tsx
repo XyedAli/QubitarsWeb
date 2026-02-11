@@ -15,9 +15,8 @@ export default function GrowthBarrier() {
   return (
     <section
       className={combine(
-        "bg-white relative overflow-hidden",
+        "bg-white relative overflow-hidden mb-12 md:mb-16 lg:mb-20 xl:mb-24",
         styles.sectionPadding,
-        styles.sectionPaddingY
       )}
       aria-labelledby="growth-barriers-heading"
     >
