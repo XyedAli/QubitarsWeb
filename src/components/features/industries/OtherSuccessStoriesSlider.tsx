@@ -99,14 +99,15 @@ export default function OtherSuccessStoriesSlider() {
     autoplaySpeed: 4000,
     pauseOnHover: true,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
     ],
   };
 
   return (
     <section
-      className={`py-12 md:py-16 lg:py-20 bg-white`}
+      className={`pb-8 md:pb-12 lg:pb-20 bg-white`}
     >
       <div className={`${styles.sectionPadding}`}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

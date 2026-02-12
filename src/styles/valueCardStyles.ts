@@ -46,7 +46,9 @@ export function valueCardDescColorClass(isActive: boolean): string {
 // --- Compact variant (Growth Barrier only; Core Values use default above) ---
 
 export const valueCardTitleClassCompact =
-  `text-[16px] md:text-[18px] lg:text-[18px] xl:text-[23px] text-blue font-bold mb-2 md:mb-2.5 font-outfit leading-tight`;
+  `text-[16px] md:text-[20px] lg:text-[18px] xl:text-[23px] text-blue font-bold mb-2 md:mb-2.5 font-outfit leading-tight`;
 
 export const valueCardContentClassCompact =
   "relative z-10 flex flex-col flex-1 p-3 md:p-4 lg:p-5 xl:p-6";
+  export const valueCardDescClass2 =
+  "text-[13px] md:text-[15px] leading-relaxed font-inter";

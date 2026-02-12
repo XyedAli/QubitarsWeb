@@ -237,7 +237,7 @@ const IndustriesHero = () => {
   return (
     <section
       ref={heroSectionRef}
-      className={combine("relative min-h-[75vh] md:min-h-[85vh] xl:min-h-[90vh] overflow-hidden", styles.flexitems)}
+      className={combine("relative min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] xl:min-h-[90vh] overflow-hidden", styles.flexitems)}
     >
       {/* Background: hero ke andar hi — expand overlay jahan khatam hoti wahi, top ki taraf move na ho */}
       <div aria-hidden className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

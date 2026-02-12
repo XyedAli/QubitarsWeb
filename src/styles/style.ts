@@ -58,6 +58,7 @@
  phoneCodeButton: "ps-3 py-3 flex items-center gap-1 font-inter min-w-[83px] xl:min-w-[91px] whitespace-nowrap",
  phoneInput: "flex-1 ps-1 pe-4 py-3 focus:outline-none font-inter",
  submitButton: "w-full bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold py-4 rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg font-inter text-lg",
+ ctaButtonOrange: "group inline-flex items-center gap-2 px-5 py-3 md:px-6 md:py-3.5 rounded-lg bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] text-white font-semibold text-sm md:text-base hover:opacity-90 transition-all duration-300 w-fit shrink-0",
  chevronIcon: "w-4 h-4 transition-transform flex-shrink-0",
  searchIcon: "absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400",
  countryItem: "flex items-center gap-3",

@@ -2,9 +2,7 @@
 
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { styles, combine } from "@/styles/style";
-
-const COPY =
-  "PropTech and data platforms are reshaping real estate. Firms seek streamlined transactions and seamless experiences for buyers, investors, and tenants. At Qubitars, we build digital foundations for growth—clarity, efficiency, lasting value.";
+import { industriesAboutCopy } from "@/data/industries";
 
 export default function IndustriesAbout() {
   return (
@@ -23,11 +21,11 @@ export default function IndustriesAbout() {
             baseRotation={3}
             blurStrength={4}
             containerClassName="!m-0"
-            textClassName={combine("font-outfit text-blue leading-relaxed !font-medium !text-[20px] md:!text-[26px] lg:!text-[32px] max-w-4xl mx-auto")}
+            textClassName="font-outfit text-blue leading-relaxed !font-medium !text-[20px] md:!text-[26px] lg:!text-[32px] max-w-4xl mx-auto"
             rotationEnd="bottom center"
             wordAnimationEnd="bottom center"
           >
-            {COPY}
+            {industriesAboutCopy}
           </ScrollReveal>
         </div>
       </div>
