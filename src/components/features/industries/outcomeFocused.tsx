@@ -30,8 +30,8 @@ function StepCard({ step }: { step: RoadmapStep }) {
                 cardBg,
                 isCard1 && "md:-mt-16 xl:ms-11",
                 isCard2 && "md:mt-18",
-                isCard3 && "md:mt-17 xl:mt-21 ms-0 lg:ms-14 xl:ms-49",
-                isCard4 && "md:mt-32 lg:mt-53 lg:ms-15 xl:ms-39"
+                isCard3 && "md:-mt-7 lg:mt-11 xl:mt-16 ms-0 lg:ms-14 xl:ms-49",
+                isCard4 && "md:mt-32 lg:mt-45 xl:mt-53 lg:ms-15 xl:ms-39"
             )}
         >
             <div
@@ -133,11 +133,11 @@ export default function OutcomeFocused() {
                         <img src={getIndustriesStateIcons().arrow1} alt="" className="w-[220px] lg:w-[280px] xl:w-[430px] h-[70px] lg:h-[80px] xl:h-[70px]" />
                     </div>
 
-                    <div className="absolute left-18 lg:left-25 xl:left-62 top-106 lg:top-121 xl:top-127 hidden md:block">
-                        <img src={getIndustriesStateIcons().arrow2} alt="" className="w-[470px] lg:w-[580px] xl:w-[700px] h-[120px] lg:h-[158px] xl:h-[180px]" />
+                    <div className="absolute left-26 lg:left-29 xl:left-62 top-106 lg:top-121 xl:top-127 hidden md:block">
+                        <img src={getIndustriesStateIcons().arrow2} alt="" className="w-[445px] lg:w-[580px] xl:w-[700px] h-[90px] lg:h-[135px] xl:h-[160px]" />
                     </div>
 
-                    <div className="absolute left-83 lg:left-119 xl:left-163 top-153 lg:top-180 xl:top-186 hidden md:block">
+                    <div className="absolute left-83 lg:left-119 xl:left-163 top-153 lg:top-172 xl:top-186 hidden md:block">
                         <img src={getIndustriesStateIcons().arrow3} alt="" className="w-[230px] lg:w-[260px] xl:w-[430px] h-[75px] lg:h-[82px] xl:h-[70px]" />
                     </div>
 

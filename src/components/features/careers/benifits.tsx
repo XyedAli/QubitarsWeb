@@ -42,7 +42,6 @@ function BenefitCard({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      id="benifits"
     >
       <div className={`absolute inset-0 ${isActive ? "opacity-100" : "opacity-0"} transition-opacity pointer-events-none rounded-2xl overflow-hidden`}>
         <div className="absolute inset-0 bg-gradient-to-tl from-[#F05C22]/12 via-white/72 via-[#FFF5EA]/60 to-white" />
@@ -68,7 +67,7 @@ const Benefits = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20">
+    <section id="benifits" className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20 scroll-mt-[var(--header-height,7rem)]">
       <div className="w-full px-4 md:px-6 lg:px-8 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
         <div className="flex flex-col justify-center col-span-12 lg:col-span-4 xl:col-span-5">
           <SectionHeading subtitle={benefitsSection.subtitle} title={benefitsSection.title} />

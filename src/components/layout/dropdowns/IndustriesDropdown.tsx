@@ -12,6 +12,7 @@ export const IndustriesDropdown = () => {
   const activeId = pathname.startsWith("/industries/")
     ? pathname.replace("/industries/", "").split("/")[0] ?? "real-estate"
     : "real-estate";
+  const rightSideIndustry = industries.find((i) => i.id === "real-estate") ?? industries[0];
 
   const isSvg = (src: string) => src.includes('.svg');
   const sliderSettings = {
@@ -68,20 +69,17 @@ export const IndustriesDropdown = () => {
               })}
             </div>
 
-            {/* Industry content area */}
+            {/* Industry content area - always shows Real Estate */}
             <div className="border-l-2 border-gray-200 ps-6 py-6 col-span-9">
-              {industries.map((industry) => {
-                if (activeId === industry.id) {
-                  return (
-                    <div key={industry.id} className="space-y-4">
-                      {/* Render rich content (companies, testimonials) or simple content */}
-                      {industry.hasSpecialContent ? (
+              <div key={rightSideIndustry.id} className="space-y-4">
+                {/* Render rich content (companies, testimonials) or simple content */}
+                {rightSideIndustry.hasSpecialContent ? (
                         <>
                           <div className={combine(styles.flexBetween, "w-full border-b-2 border-gray-300 pb-4")}>
                           <p className="text-black text-sm lg:text-base font-medium w-[70%] leading-snug">
-                              {industry.description}
+                              {rightSideIndustry.description}
                             </p>
-                            <Link href={`/industries/${industry.id}`}>
+                            <Link href={`/industries/${activeId}`}>
                             <Button variant="outline" size="md" className="text-sm lg:text-base whitespace-nowrap cursor-pointer hover:bg-accent hover:text-white hover:border-none">
                               Discover More
                             </Button>
@@ -94,7 +92,7 @@ export const IndustriesDropdown = () => {
                             </h3>
                             <div className="overflow-hidden w-full mt-3 mb-5">
                               <CustomSlider settings={sliderSettings}>
-                                {industry.companies?.map((company) => (
+                                {rightSideIndustry.companies?.map((company) => (
                                   <div key={company.id} className="px-0">
                                     <div className={combine(styles.flexCenter, "h-[58px] rounded-xl border border-gray-200 bg-white px-2 hover:border-accent transition-colors duration-300 mx-3")}>
                                       <Image
@@ -112,7 +110,7 @@ export const IndustriesDropdown = () => {
                           </div>
                           {/* Client testimonials */}
                           <div className="border-b-2 border-gray-300 pb-4">
-                            {industry.testimonials?.map((testimonial) => (
+                            {rightSideIndustry.testimonials?.map((testimonial) => (
                               <div key={testimonial.id}>
                                 <p className="text-[#666666] text-sm lg:text-base font-medium">
                                   &ldquo;{testimonial.quote}&rdquo;
@@ -161,18 +159,14 @@ export const IndustriesDropdown = () => {
                         <>
                           {/* Simple content for industries without special content */}
                           <h3 className="text-xl lg:text-2xl font-bold text-accent">
-                            {industry.title}
+                            {rightSideIndustry.title}
                           </h3>
                           <p className={combine(styles.p4, "text-gray-600")}>
-                            {industry.description}
+                            {rightSideIndustry.description}
                           </p>
                         </>
                       )}
-                    </div>
-                  );
-                }
-                return null;
-              })}
+              </div>
             </div>
           </div>
         </div>

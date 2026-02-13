@@ -14,6 +14,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Sticky header height – used so hash links show section from start, not under header */
+  --header-height: 7rem;
+}
+
+html {
+  scroll-padding-top: var(--header-height);
 }
 
 @theme inline {

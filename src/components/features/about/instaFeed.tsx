@@ -10,9 +10,9 @@ import { instaFeedImages } from "@/data";
 const InstaFeed = () => {
   const navImages = getNavbarCloudinaryImages();
   return (
-    <section className="bg-white relative overflow-hidden" id="life-at-qubitars">
+    <section className="bg-white relative overflow-hidden">
       <div className={styles.sectionPadding}>
-        <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-4 mb-4 md:mb-10 lg:mb-12">
+        <div id="life-at-qubitars" className="flex items-center justify-center gap-4 md:gap-6 lg:gap-4 mb-4 md:mb-10 lg:mb-12 scroll-mt-[var(--header-height,7rem)]">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center overflow-hidden">
               <Image

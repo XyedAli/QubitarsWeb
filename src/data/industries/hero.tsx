@@ -37,12 +37,12 @@ const travelHospitalityCards: HeroIndustryCard[] = makeCards("travel-hospitality
   { name: "Seamless Journeys", title: "Redefining Guest Experiences", description: "From AI-powered recommendations to contactless check-ins, we craft digital experiences that delight guests, boost loyalty, and simplify operations.", buttonText: "Book a Free Demo" },
   { name: "Digital Concierge", title: "Built For Hospitality", description: "Our solutions empower hotels, resorts, and travel brands to streamline bookings, personalize stays, and deliver memorable experiences.", buttonText: "See How It Works" },
   { name: "Smart Operations", title: "Data-Driven Guest Insights", description: "Centralized analytics and automated workflows help you make faster decisions, optimize services, and enhance satisfaction at every touchpoint.", buttonText: "View Use Cases" },
-  { name: "Trusted Experiences", title: "Scalable Hospitality Platforms", description: "Our systems grow with your brand, supporting operational efficiency, compliance, and long-term guest satisfaction.", buttonText: "Talk to Experts" },
+  { name: "Trusted Experiences", title: "Hospitality at Scale", description: "Our systems grow with your brand, supporting operational efficiency, compliance, and long-term guest satisfaction.", buttonText: "Talk to Experts" },
   { name: "Business Impact", title: "Results That Delight", description: "We partner with hospitality leaders to drive measurable outcomes through intelligent, guest-centric technology.", buttonText: "Start the Conversation" },
 ]);
 
 const oilGasEnergyCards: HeroIndustryCard[] = makeCards("oil-gas-energy", [
-  { name: "Smarter Energy", title: "Optimized Operations, Reduced Risk", description: "From smart grids to predictive analytics, we create solutions that maximize efficiency, safety, and resource management.", buttonText: "Book a Free Consultation" },
+  { name: "Smarter Energy", title: "Reduced Risk Operations", description: "From smart grids to predictive analytics, we create solutions that maximize efficiency, safety, and resource management.", buttonText: "Book a Free Consultation" },
   { name: "Digital Advantage", title: "Built For Energy Leaders", description: "Our platforms integrate data, monitor assets, and automate workflows, helping energy companies operate smarter and safer.", buttonText: "See How It Works" },
   { name: "Intelligent Insights", title: "Data-Driven Energy Decisions", description: "Real-time analytics, centralized monitoring, and predictive systems empower faster, informed, and more sustainable decisions.", buttonText: "View Use Cases" },
   { name: "Scale & Trust", title: "Reliable Energy Platforms", description: "Our solutions grow with your infrastructure, ensuring compliance, resilience, and long-term operational reliability.", buttonText: "Talk to Experts" },
@@ -51,10 +51,10 @@ const oilGasEnergyCards: HeroIndustryCard[] = makeCards("oil-gas-energy", [
 
 const bankingFintechCards: HeroIndustryCard[] = makeCards("banking-fintech", [
   { name: "Smarter Finance", title: "Seamless Digital Banking", description: "From AI fraud detection to blockchain-powered systems, we deliver secure, transparent, and efficient financial solutions.", buttonText: "Book a Free Consultation" },
-  { name: "Digital Advantage", title: "Built For Finance", description: "Modernize banking, payments, and client workflows with solutions that improve trust, compliance, and user experience.", buttonText: "See How It Works" },
+  { name: "Digital Advantage", title: "Built for Modern Finance", description: "Modernize banking, payments, and client workflows with solutions that improve trust, compliance, and user experience.", buttonText: "See How It Works" },
   { name: "Intelligent Insights", title: "Data-Driven Decisions", description: "Centralized financial data, automation, and real-time analytics enable faster, more accurate, and compliant decision-making.", buttonText: "View Use Cases" },
   { name: "Trusted Platforms", title: "Scalable FinTech Solutions", description: "Our systems grow with your business, supporting expansion, regulatory compliance, and operational reliability.", buttonText: "Talk to Experts" },
-  { name: "Business Impact", title: "Results That Scale", description: "We empower financial institutions to deliver secure, efficient, and future-ready services that build customer trust.", buttonText: "Start the Conversation" },
+  { name: "Business Impact", title: "Results That Scale With You", description: "We empower financial institutions to deliver secure, efficient, and future-ready services that build customer trust.", buttonText: "Start the Conversation" },
 ]);
 
 const healthcareCards: HeroIndustryCard[] = makeCards("healthcare", [

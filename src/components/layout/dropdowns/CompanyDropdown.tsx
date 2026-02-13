@@ -80,11 +80,13 @@ export const CompanyDropdown = () => {
                 <div className="p-1 rounded-lg group-hover/item:bg-blue-100 transition-colors duration-300">
                   <Building2 width={20} height={20} className="text-[#1E274F]" />
                 </div>
-                <h4 className="font-extrabold text-accent">Company</h4>
+                <Link href="/about-us">
+                <h4 className="font-extrabold text-accent hover:underline cursor-pointer hover:translate-x-2 transition-all duration-300">Company</h4>
+                </Link>
               </div>
               <div className={combine(styles.flexCol, "space-y-3 border-b border-[#CCCCCC] pb-6")}>
                 {companyData.filter(item => item.type === "companyLink").map((link) => (
-                  <Link key={link.id} href={link.href!} className="hover:text-accent text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
+                  <Link key={link.id} href={link.href!} className="hover:text-accent hover:underline text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
                     {link.label}
                   </Link>
                 ))}
@@ -95,10 +97,12 @@ export const CompanyDropdown = () => {
                   <div className="p-1 rounded-lg group-hover/item:bg-blue-100 transition-colors duration-300">
                     <Lightbulb width={20} height={20} className="text-[#1E274F]" />
                   </div>
-                  <h4 className="font-bold text-[15px] lg:text-lg text-accent pb-1">Inside Qubitars</h4>
+                  <Link href="/about-us">
+                  <h4 className="font-bold text-[15px] lg:text-lg text-accent hover:underline cursor-pointer pb-1 hover:translate-x-2 transition-all duration-300">Inside Qubitars</h4>
+                  </Link>
                 </div>
                 {companyData.filter(item => item.type === "insideQubitarsLink").map((link) => (
-                  <Link key={link.id} href={link.href!} className="hover:text-accent text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
+                  <Link key={link.id} href={link.href!} className="hover:text-accent hover:underline text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
                     {link.label}
                   </Link>
                 ))}
@@ -116,7 +120,7 @@ export const CompanyDropdown = () => {
               </div>
               <div className={combine(styles.flexCol, "space-y-3 border-b border-[#CCCCCC] pb-6 mr-4 lg:mr-2 xl:mr-0")}>
                 {companyData.filter(item => item.type === "careersLink").map((link) => (
-                  <Link key={link.id} href={link.href!} className="hover:text-accent text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
+                  <Link key={link.id} href={link.href!} className="hover:text-accent hover:underline text-[#1E274F] font-medium text-sm hover:translate-x-2 transition-all duration-300">
                     {link.label}
                   </Link>
                 ))}

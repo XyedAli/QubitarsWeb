@@ -312,7 +312,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
                 {contentIndustry.description}
               </p>
               <Link href="/contact">
-                <Button variant="primary" size="lg" className="w-fit">
+                <Button variant="primary" size="lg" className="w-fit mt-0 xl:mt-2">
                   {contentIndustry.buttonText}
                 </Button>
               </Link>

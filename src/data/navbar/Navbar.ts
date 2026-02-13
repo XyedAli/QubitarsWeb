@@ -272,24 +272,24 @@ interface EngagementDataItem {
 export const engagementData: EngagementDataItem[] = [
   {
     type: "service",
-    id: "software-outsourcing",
+    id: "Product Development",
     icon: Plug,
     title: "Software Outsourcing",
-    description: "Qubitars Software Outsourcing handles your project end-to-end, saving you time, cost, and hassle.",
+    description: "We collaborate closely with your team to turn ideas into high-impact digital products.",
   },
   {
     type: "service",
     id: "dedicated-teams",
     icon: Users2,
-    title: "Dedicated Teams",
+    title: "Team Augmentation",
     description: "Providing Dedicated Teams that work like your in-house team, minus the overhead.",
   },
   {
     type: "service",
     id: "staff-augmentation",
     icon: UserPlus,
-    title: "Staff Augmentation",
-    description: "Qubitars Staff Augmentation boosts your team with the right talent to speed up delivery.",
+    title: "Consultation",
+    description: "Our consultation engagement helps you make informed decisions before investing in execution.",
   },
   {
     type: "testimonial",
