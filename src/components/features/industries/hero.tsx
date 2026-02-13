@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MapPin, ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button, CustomSlider } from "@/components/shared/ui";
-import { heroIndustriesCards } from "@/data/industries";
+import { getHeroCardsForIndustry } from "@/data/industries";
 import { styles, combine } from "@/styles/style";
 import { getIndustriesImages } from "@/lib/assets/images";
 import type Slider from "react-slick";
@@ -60,26 +60,36 @@ const EXPAND_DURATION_MS = 900;
 const EXPAND_DELAY_MS = 0;
 const SLIDER_SPEED_MS = 600;
 
-const IndustriesHero = () => {
+interface IndustriesHeroProps {
+  industryId?: string;
+}
+
+/** Resolve hero image for a card id; falls back to real-estate-{n} when no industry-specific image exists */
+function getHeroImageForCardId(images: Record<string, string>, cardId: string): string {
+  if (images[cardId]) return images[cardId];
+  const suffix = cardId.split("-").pop() ?? "1";
+  return images[`real-estate-${suffix}`] ?? images["real-estate-1"] ?? "";
+}
+
+const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => {
+  const heroCards = getHeroCardsForIndustry(industryId);
   const heroSectionRef = useRef<HTMLElement | null>(null);
   const sliderRef = useRef<Slider | null>(null);
   const activeCardRef = useRef<HTMLDivElement | null>(null);
   const pendingDirectionRef = useRef<PendingDirection>(null);
   const expandEndCalledRef = useRef(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  /** Left panel: sirf expand khatam hone ke baad change — us se pehle nahi */
   const [contentSlideIndex, setContentSlideIndex] = useState(0);
-  const [previousIndustryId, setPreviousIndustryId] = useState<string>(heroIndustriesCards[0]?.id ?? "real-estate-1");
+  const [previousIndustryId, setPreviousIndustryId] = useState<string>(heroCards[0]?.id ?? "real-estate-1");
   const [isExpanding, setIsExpanding] = useState(false);
   const [expandFromRect, setExpandFromRect] = useState<ExpandRect | null>(null);
   const [expandToFull, setExpandToFull] = useState(false);
-  /** Slider + DOM ready — animation/autoplay start only after this (fixes Vercel/hydration) */
   const [isReady, setIsReady] = useState(false);
   const industryHeroImages = getIndustriesImages();
-  const activeIndustry = heroIndustriesCards[currentSlide] ?? heroIndustriesCards[0];
-  const contentIndustry = heroIndustriesCards[contentSlideIndex] ?? heroIndustriesCards[0];
-  const previousBgImage = industryHeroImages[previousIndustryId] ?? industryHeroImages["real-estate-1"];
-  const activeCardImage = industryHeroImages[activeIndustry.id] ?? industryHeroImages["real-estate-1"];
+  const activeIndustry = heroCards[currentSlide] ?? heroCards[0];
+  const contentIndustry = heroCards[contentSlideIndex] ?? heroCards[0];
+  const previousBgImage = getHeroImageForCardId(industryHeroImages, previousIndustryId);
+  const activeCardImage = getHeroImageForCardId(industryHeroImages, activeIndustry.id);
 
   /** Preload hero images once so background/cards load before animation runs */
   const preloadedRef = useRef(false);
@@ -177,11 +187,11 @@ const IndustriesHero = () => {
   const advanceSlideWithoutExpand = (direction: PendingDirection) => {
     const nextIndex =
       direction === "next"
-        ? (currentSlide + 1) % heroIndustriesCards.length
+        ? (currentSlide + 1) % heroCards.length
         : direction === "prev"
-          ? (currentSlide - 1 + heroIndustriesCards.length) % heroIndustriesCards.length
+          ? (currentSlide - 1 + heroCards.length) % heroCards.length
           : currentSlide;
-    const industry = heroIndustriesCards[nextIndex];
+    const industry = heroCards[nextIndex];
     if (industry) setPreviousIndustryId(industry.id);
     setContentSlideIndex(nextIndex);
     if (direction === "next") sliderRef.current?.slickNext();
@@ -192,7 +202,7 @@ const IndustriesHero = () => {
     if (expandEndCalledRef.current) return;
     expandEndCalledRef.current = true;
     const direction = pendingDirectionRef.current;
-    const expandedIndustry = heroIndustriesCards[currentSlide];
+    const expandedIndustry = heroCards[currentSlide];
     if (expandedIndustry) setPreviousIndustryId(expandedIndustry.id);
     pendingDirectionRef.current = null;
     setContentSlideIndex(currentSlide);
@@ -229,7 +239,7 @@ const IndustriesHero = () => {
     ],
   };
 
-  const totalSlideCount = heroIndustriesCards.length;
+  const totalSlideCount = heroCards.length;
   const displayNumber = String(contentSlideIndex + 1).padStart(2, "0");
 
   // Har card ke liye bg fade-in — key change par remount, animation hamesha chale
@@ -326,7 +336,7 @@ const IndustriesHero = () => {
                 }}
                 className="industries-hero-slider"
               >
-                {heroIndustriesCards.map((industry, index) => {
+                {heroCards.map((industry, index) => {
                   const IconComponent = industry.icon;
                   const cardBgImage = industryHeroImages[industry.id] ?? industryHeroImages["real-estate-1"];
                   const isActive = index === currentSlide;

@@ -1,42 +1,11 @@
-import { Fragment } from "react";
-import {
-  IndustriesHero,
-  IndustriesAbout,
-  GrowthBarrier,
-  BusinessExcellence,
-  Solutions,
-  OutcomeFocused,
-  OtherSuccessStoriesSlider,
-  ChooseQubitars,
-  FAQs,
-} from "@/components/features/industries";
-import { OurClient } from "@/components/features/home";
-import { testimonialsData, testimonialImagesById } from "@/data/home";
+import { redirect } from "next/navigation";
+import { industrySlugs } from "@/data/industries/industrySlugs";
 
 export const metadata = {
-  title: "Real Estate | Qubitars Technologies",
-  description:
-    "PropTech and real estate software solutions. Streamlined transactions, seamless experiences for buyers, investors, and tenants.",
+  title: "Industries | Qubitars Technologies",
+  description: "Industry-focused solutions and digital transformation.",
 };
 
-export default function RealStatePage() {
-  const testimonialsWithImages = testimonialsData.map((testimonial) => {
-    const images = testimonialImagesById[testimonial.id];
-    return { ...testimonial, ...images };
-  });
-
-  return (
-    <Fragment>
-      <IndustriesHero />
-      <IndustriesAbout />
-      <GrowthBarrier />
-      <Solutions />
-      <BusinessExcellence />
-      <OutcomeFocused />
-      <OtherSuccessStoriesSlider />
-      <ChooseQubitars />
-      <OurClient testimonials={testimonialsWithImages} />
-      <FAQs />
-    </Fragment>
-  );
+export default function IndustriesPage() {
+  redirect(`/industries/${industrySlugs[0].id}`);
 }

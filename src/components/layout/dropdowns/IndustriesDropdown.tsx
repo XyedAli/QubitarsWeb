@@ -1,26 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { industries } from "@/data";
 import { styles, combine } from "@/styles/style";
 
-// Industries dropdown component
 export const IndustriesDropdown = () => {
-  const [activeIndustry, setActiveIndustry] = useState("real-estate");
-  
-  // Helper function to check if URL is an SVG
+  const pathname = usePathname();
+  const activeId = pathname.startsWith("/industries/")
+    ? pathname.replace("/industries/", "").split("/")[0] ?? "real-estate"
+    : "real-estate";
+
   const isSvg = (src: string) => src.includes('.svg');
-  
-  // Slider config for company logos carousel
   const sliderSettings = {
     speed: 2000,
     slidesToShow: 4,
     autoplaySpeed: 2000,
     responsive: sliderBreakpoints.fourToThreeToTwoToOne
   };
+
   return (
     <>
       <div className="fixed inset-x-0 top-[97px] max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">
@@ -30,45 +30,48 @@ export const IndustriesDropdown = () => {
             <div className="space-y-8 col-span-3">
               {industries.map((industry) => {
                 const IconComponent = industry.icon;
-                const isActive = activeIndustry === industry.id;
+                const active = activeId === industry.id;
 
                 return (
-                  // map function of sidebar
-                  <div
+                  <Link
                     key={industry.id}
-                    onClick={() => setActiveIndustry(industry.id)}
+                    href={`/industries/${industry.id}`}
                     className={combine(
                       styles.flexitems,
                       "gap-1 lg:gap-3 text-gray-600 hover:translate-x-2 transition-all duration-300 cursor-pointer group/item",
-                      isActive ? "bg-[#FFF5E280] shadow-sm rounded-lg px-1 lg:px-2 xl:px-3 py-[12px]" : ""
+                      active ? "bg-[#FFF5E280] shadow-sm rounded-lg px-1 lg:px-2 xl:px-3 py-[12px]" : ""
                     )}
                   >
                     <div className="rounded-lg">
                       <IconComponent
                         width={22}
                         height={22}
-                        className={combine("opacity-90", isActive ? "text-accent" : "")}
+                        className={combine("opacity-90", active ? "text-accent" : "")}
                       />
                     </div>
                     <div
-                      className={`font-medium text-xs lg:text-[15px] xl:text-base relative z-10 ${isActive ? "text-accent" : ""
-                        }`}
+                      className={combine(
+                        "font-medium text-xs lg:text-[15px] xl:text-base relative z-10",
+                        active ? "text-accent" : ""
+                      )}
                     >
                       {industry.name}
                       <div
-                        className={`absolute bottom-0 left-0 w-[7rem] lg:w-[8.5rem] xl:w-[10.2rem] h-[1.5px] ${isActive ? "bg-accent" : "bg-transparent"
-                          }`}
-                      ></div>
+                        className={combine(
+                          "absolute bottom-0 left-0 w-[7rem] lg:w-[8.5rem] xl:w-[10.2rem] h-[1.5px]",
+                          active ? "bg-accent" : "bg-transparent"
+                        )}
+                      />
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
 
             {/* Industry content area */}
-            <div className="border-l-2 border-gray-200 ps-6  py-6 col-span-9">
+            <div className="border-l-2 border-gray-200 ps-6 py-6 col-span-9">
               {industries.map((industry) => {
-                if (activeIndustry === industry.id) {
+                if (activeId === industry.id) {
                   return (
                     <div key={industry.id} className="space-y-4">
                       {/* Render rich content (companies, testimonials) or simple content */}
@@ -78,7 +81,7 @@ export const IndustriesDropdown = () => {
                           <p className="text-black text-sm lg:text-base font-medium w-[70%] leading-snug">
                               {industry.description}
                             </p>
-                            <Link href="/industries">
+                            <Link href={`/industries/${industry.id}`}>
                             <Button variant="outline" size="md" className="text-sm lg:text-base whitespace-nowrap cursor-pointer hover:bg-accent hover:text-white hover:border-none">
                               Discover More
                             </Button>

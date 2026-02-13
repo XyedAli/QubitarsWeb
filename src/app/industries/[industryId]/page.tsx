@@ -1,0 +1,66 @@
+import { Fragment } from "react";
+import { notFound } from "next/navigation";
+import {
+  IndustriesHero,
+  IndustriesAbout,
+  GrowthBarrier,
+  BusinessExcellence,
+  Solutions,
+  OutcomeFocused,
+  OtherSuccessStoriesSlider,
+  ChooseQubitars,
+  FAQs,
+} from "@/components/features/industries";
+import { OurClient } from "@/components/features/home";
+import { testimonialsData, testimonialImagesById } from "@/data/home";
+import { industryIds, isValidIndustryId } from "@/data/industries/industrySlugs";
+
+export function generateStaticParams() {
+  return industryIds.map((industryId) => ({ industryId }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ industryId: string }>;
+}) {
+  const { industryId } = await params;
+  if (!isValidIndustryId(industryId)) return { title: "Industries | Qubitars Technologies" };
+  const title = industryId
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+  return {
+    title: `${title} | Qubitars Technologies`,
+    description: `Industry solutions and digital transformation for ${title}.`,
+  };
+}
+
+export default async function IndustryPage({
+  params,
+}: {
+  params: Promise<{ industryId: string }>;
+}) {
+  const { industryId } = await params;
+  if (!isValidIndustryId(industryId)) notFound();
+
+  const testimonialsWithImages = testimonialsData.map((testimonial) => {
+    const images = testimonialImagesById[testimonial.id];
+    return { ...testimonial, ...images };
+  });
+
+  return (
+    <Fragment>
+      <IndustriesHero industryId={industryId} />
+      <IndustriesAbout industryId={industryId} />
+      <GrowthBarrier industryId={industryId} />
+      <Solutions industryId={industryId} />
+      <BusinessExcellence />
+      <OutcomeFocused />
+      <OtherSuccessStoriesSlider />
+      <ChooseQubitars />
+      <OurClient testimonials={testimonialsWithImages} />
+      <FAQs industryId={industryId} />
+    </Fragment>
+  );
+}

@@ -7,10 +7,15 @@ import { ArrowRight } from "lucide-react";
 import { styles, combine } from "@/styles/style";
 import {valueCardGradient,valueCardBaseClass,valueCardBorderClass,valueCardOverlayClass,valueCardIconBorderClass,valueCardDescColorClass,valueCardTitleClassCompact,valueCardDescClass2,valueCardContentClassCompact,valueCardIconWrapperBaseClass,} from "@/styles/valueCardStyles";
 import { SectionHeading } from "@/components/shared/headings";
-import { growthBarrierHeading, growthBarrierCards } from "@/data/industries";
+import { getGrowthBarrierForIndustry } from "@/data/industries";
 
-export default function GrowthBarrier() {
+interface GrowthBarrierProps {
+  industryId?: string;
+}
+
+export default function GrowthBarrier({ industryId = "real-estate" }: GrowthBarrierProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { subtitle, title, description, buttonText, cards } = getGrowthBarrierForIndustry(industryId);
 
   return (
     <section
@@ -22,29 +27,27 @@ export default function GrowthBarrier() {
     >
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-28 items-center">
-          {/* Left column: sirf md par button text ke samn; mobile + lg/xl par button niche, hamesha left-aligned */}
           <div className="lg:col-span-5 flex flex-col md:flex-row lg:flex-col md:items-center lg:items-start md:justify-between md:gap-6">
             <div>
-              <SectionHeading subtitle={growthBarrierHeading.subtitle} title={growthBarrierHeading.title} />
+              <SectionHeading subtitle={subtitle} title={title} />
               <p
                 className={combine(
                   styles.p2,
                   "text-blue leading-relaxed mb-6 md:mb-0 lg:mb-6 font-inter -mt-6"
                 )}
               >
-                {growthBarrierHeading.description}
+                {description}
               </p>
             </div>
             <Link href="/contact" className={styles.ctaButtonOrange}>
-              Discuss Your Needs
+              {buttonText}
               <ArrowRight className="w-5 h-5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
-          {/* Right column: 2x2 grid — shared value card styles */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-2 gap-4 lg:gap-6">
-              {growthBarrierCards.map((card, index) => {
+              {cards.map((card, index) => {
                 const isActive = activeIndex === index;
                 return (
                   <div

@@ -1,14 +1,21 @@
 "use client";
 
 import { FAQSection } from "@/components/shared/faq";
-import { faqData } from "@/data";
+import { getIndustryFaqs } from "@/data/industries";
 
-const FAQ = () => (
-  <FAQSection
-    data={faqData}
-    subtitle="Got Questions?"
-    title="Simple, Honest Answers"
-  />
-);
+interface FAQsProps {
+  industryId: string;
+}
 
-export default FAQ;
+const FAQs = ({ industryId }: FAQsProps) => {
+  const data = getIndustryFaqs(industryId);
+  return (
+    <FAQSection
+      data={data}
+      subtitle="Got Questions?"
+      title="Simple, Honest Answers"
+    />
+  );
+};
+
+export default FAQs;

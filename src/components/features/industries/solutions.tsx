@@ -3,18 +3,29 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { styles, combine } from "@/styles/style";
-import { solutionCards } from "@/data/industries";
+import { getSolutionCardsForIndustry } from "@/data/industries";
+import { getIndustriesStateIcons } from "@/lib/assets/icons";
+
+interface SolutionsProps {
+  industryId?: string;
+}
 
 const CURVE_CLIP_ID = "solutions-curve-clip";
 const VIDEO_SRC = "/assets/videos/BG%202.mp4";
+/** Static icons for Solutions section – same for all industries (by card index) */
+const SOLUTION_ICONS = (() => {
+  const icons = getIndustriesStateIcons();
+  return [icons.stateicon5, icons.stateicon6, icons.stateicon7, icons.stateicon8];
+})();
 const solutionIconCircle =
   "shrink-0 w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-full flex items-center justify-center bg-[#00002F]";
 const titleClass =
   "text-blue font-bold text-lg lg:text-[22px] xl:text-[26px] leading-tight mb-1 lg:mb-2";
 const descBaseClass = "text-sm md:text-base lg:text-lg font-inter leading-relaxed max-w-md";
 
-export default function Solutions() {
+export default function Solutions({ industryId = "real-estate" }: SolutionsProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const solutionCards = getSolutionCardsForIndustry(industryId);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -77,11 +88,11 @@ export default function Solutions() {
           </div>
 
           <div className="md:col-span-6 lg:col-span-5 relative min-h-0 md:min-h-[360px] lg:min-h-[440px] xl:min-h-[480px] space-y-6 md:space-y-0 -mt-5 lg:mt-2">
-            {solutionCards.map((card) => (
+            {solutionCards.map((card, index) => (
               <article key={card.id} className={card.articleClassName}>
                 <div className={solutionIconCircle} aria-hidden>
                   <Image
-                    src={card.icon}
+                    src={SOLUTION_ICONS[index % SOLUTION_ICONS.length]}
                     alt=""
                     width={24}
                     height={24}
