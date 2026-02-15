@@ -7,14 +7,15 @@ import { SectionHeading } from "@/components/shared/headings";
 import { servicesData, ServiceData } from "@/data/home";
 import ServiceModal from "@/components/shared/ui/ServiceModal";
 
+const MD_DEFAULT_ACTIVE_INDICES = [0, 3, 4];
+
 const Services = () => {
   const [activeCardRow1, setActiveCardRow1] = useState<number>(0);
   const [activeCardRow2, setActiveCardRow2] = useState<number>(3);
   const [activeCardRow3, setActiveCardRow3] = useState<number>(4);
-  const [activeCardRow1Lg, setActiveCardRow1Lg] = useState<number>(0);
-  const [activeCardRow2Lg, setActiveCardRow2Lg] = useState<number>(5);
   const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isMdHovering, setIsMdHovering] = useState<boolean>(false);
   const [activeMobileCard, setActiveMobileCard] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
@@ -42,12 +43,12 @@ const Services = () => {
     if (isMobileScreen) return;
 
     if (isLgScreen) {
-      if (index < 3) {
-        setActiveCardRow1Lg(index);
-      } else {
-        setActiveCardRow2Lg(index);
-      }
+      setIsMdHovering(true);
+      if (index < 2) setActiveCardRow1(index);
+      else if (index < 4) setActiveCardRow2(index);
+      else setActiveCardRow3(index);
     } else {
+      setIsMdHovering(true);
       if (index < 2) {
         setActiveCardRow1(index);
       } else if (index < 4) {
@@ -63,9 +64,12 @@ const Services = () => {
     if (isMobileScreen) return;
 
     if (isLgScreen) {
-      setActiveCardRow1Lg(0);
-      setActiveCardRow2Lg(5);
+      setIsMdHovering(false);
+      setActiveCardRow1(0);
+      setActiveCardRow2(3);
+      setActiveCardRow3(4);
     } else {
+      setIsMdHovering(false);
       setActiveCardRow1(0);
       setActiveCardRow2(3);
       setActiveCardRow3(4);
@@ -105,39 +109,45 @@ const Services = () => {
           title="Growth-Focused Digital Services"
         />
 
-        <div className="flex flex-wrap gap-6 lg:gap-4 xl:gap-8">
+        <div
+          className="flex flex-wrap gap-6 lg:gap-6 xl:gap-8"
+          onMouseLeave={() => !isMobileScreen && setIsMdHovering(false)}
+        >
           {servicesData.map((service, index) => {
             let isActive = false;
 
-            // On mobile, use activeMobileCard state
+            // On mobile, all cards show active style (dark bg, image right, content left)
             if (isMobileScreen) {
-              isActive = activeMobileCard === index;
+              isActive = true;
             } else if (isLgScreen) {
-              if (index < 3) {
-                isActive = activeCardRow1Lg === index;
+              if (isMdHovering) {
+                if (index < 2) isActive = activeCardRow1 === index;
+                else if (index < 4) isActive = activeCardRow2 === index;
+                else isActive = activeCardRow3 === index;
               } else {
-                isActive = activeCardRow2Lg === index;
+                isActive = MD_DEFAULT_ACTIVE_INDICES.includes(index);
               }
             } else {
-              if (index < 2) {
-                isActive = activeCardRow1 === index;
-              } else if (index < 4) {
-                isActive = activeCardRow2 === index;
+              // md: default active = id 1, 4, 5; on hover use per-row active
+              if (isMdHovering) {
+                if (index < 2) isActive = activeCardRow1 === index;
+                else if (index < 4) isActive = activeCardRow2 === index;
+                else isActive = activeCardRow3 === index;
               } else {
-                isActive = activeCardRow3 === index;
+                isActive = MD_DEFAULT_ACTIVE_INDICES.includes(index);
               }
             }
+            // Per row only one card gets active width so two cards fit in one row; md: active wider
+            const rowStart = index < 2 ? 0 : index < 4 ? 2 : 4;
+            const activeIndexInRow = isMdHovering
+              ? (rowStart === 0 ? activeCardRow1 : rowStart === 2 ? activeCardRow2 : activeCardRow3)
+              : (MD_DEFAULT_ACTIVE_INDICES.includes(rowStart) ? rowStart : MD_DEFAULT_ACTIVE_INDICES.includes(rowStart + 1) ? rowStart + 1 : null);
+            const getsActiveWidth = !isMobileScreen && isActive && activeIndexInRow === index;
             let cardWidth = "w-full"; // mobile: full width
-            if (!isMobileScreen && !isLgScreen) {
-              // Medium screens: gap-6 = 1.5rem
-              cardWidth = isActive
-                ? "md:w-[calc(50%-1.5rem)]" // 50% - 1.5rem (full gap)
-                : "md:w-[calc(25%-0.75rem)]"; // 25% - 0.75rem (half gap)
-            } else if (isLgScreen) {
-              // Large screens: lg gap-4 (1rem), xl gap-8 (2rem)
-              cardWidth = isActive
-                ? "lg:w-[calc(50%-1rem)] xl:w-[calc(50%-2rem)]"
-                : "lg:w-[calc(25%-0.5rem)] xl:w-[calc(25%-1rem)]";
+            if (!isMobileScreen) {
+              const activeW = "md:w-[calc(62%-0.75rem)] lg:w-[calc(58%-0.75rem)] xl:w-[calc(58%-1rem)]";
+              const inactiveW = "md:w-[calc(38%-0.75rem)] lg:w-[calc(42%-0.75rem)] xl:w-[calc(42%-1rem)]";
+              cardWidth = getsActiveWidth ? activeW : inactiveW;
             }
 
             return (
@@ -147,25 +157,27 @@ const Services = () => {
                 onMouseLeave={handleCardLeave}
                 onClick={() => handleCardClick(index)}
                 className={`${cardWidth} flex-shrink-0 relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer group ${isActive
-                  ? "bg-[#010101] shadow-2xl scale-[1.02] border border-transparent"
+                  ? "bg-[#010101] shadow-2xl md:scale-[1.02] border border-transparent"
                   : "bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg"
                   }`}
               >
-                <div className={`relative ps-4 lg:ps-5 xl:ps-5 h-full ${isActive ? "min-h-[270px] lg:min-h-[310px] xl:min-h-[330px]" : "min-h-[270px] lg:min-h-[290px] xl:min-h-[270px]"} ${isActive ? "flex flex-col justify-between py-4" : "flex flex-col justify-between py-4 pe-3 xl:pe-0"
+                <div className={`relative ps-4 lg:ps-5 xl:ps-5 h-full ${isActive ? "min-h-[255px] lg:min-h-[270px] xl:min-h-[330px]" : "min-h-[255px] lg:min-h-[250px] xl:min-h-[270px]"} ${isActive ? "flex flex-col justify-between py-4" : "flex flex-col justify-between py-4 pe-3 xl:pe-0"
                   }`}>
                   <div
                     className={`absolute inset-0 ps-4 lg:ps-5 xl:ps-5 flex flex-col justify-between gap-3 lg:gap-4 xl:gap-3 w-full h-full transition-opacity duration-300 ease-in-out ${isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                       }`}
                     style={{
-                      backgroundImage: (isMobileScreen || !isActive) ? 'none' : `url(${service.image})`,
+                      backgroundImage: !isActive ? 'none' : `url(${service.image})`,
                       backgroundPosition: 'right center',
                       backgroundRepeat: 'no-repeat',
-                      backgroundSize: 'contain'
+                      backgroundSize: isMobileScreen
+                        ? (index === 3 ? '32%' : index === 5 ? '35%' : '42%')
+                        : 'contain'
                     }}
                   >
-                    <div className={`flex-1 flex flex-col justify-between py-4 transition-opacity duration-300 ease-in-out ${isMobileScreen && isActive ? 'pr-0' : 'pr-[41%] lg:pr-[44%] xl:pr-[44%]'}`}>
+                    <div className={`flex-1 flex flex-col justify-between py-4 transition-opacity duration-300 ease-in-out ${isActive ? (isMobileScreen && (index === 3 || index === 5) ? 'pr-[39%] md:pr-[41%] lg:pr-[44%] xl:pr-[44%]' : 'pr-[42%] md:pr-[41%] lg:pr-[44%] xl:pr-[44%]') : 'pr-0'}`}>
                       <div>
-                        <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[28px] leading-tight font-semibold text-white font-outfit mb-3 xl:mb-4`}>
+                        <h3 className={`text-[24px] md:text-[26px] lg:text-[24px] xl:text-[28px] leading-none font-semibold text-white font-outfit mb-3 xl:mb-4`}>
                           {service.title}
                         </h3>
                         <p className={`${styles.p3} text-white/90 leading-relaxed font-inter pe-3 md:pe-0`}>
@@ -173,7 +185,7 @@ const Services = () => {
                         </p>
                       </div>
                       <div
-                        className="group/btn flex items-center gap-2 mt-9 cursor-pointer transition-all duration-300 hover:gap-3"
+                        className="group/btn flex items-center gap-2 mt-2 md:mt-5 xl:mt-9 cursor-pointer transition-all duration-300 hover:gap-3"
                         onClick={(e) => handleExploreMore(service, e)}
                       >
                         <span className={`${styles.p3} font-semibold text-white transition-all duration-300 group-hover/btn:translate-x-1`}>Explore More</span>
@@ -186,7 +198,7 @@ const Services = () => {
                   <div className={`relative pe-2 flex flex-col justify-between w-full h-full transition-opacity duration-300 ease-in-out ${isActive ? "opacity-0 z-0 pointer-events-none absolute inset-0" : "opacity-100 z-10"
                     }`}>
                     <div className="pt-0">
-                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[28px] font-semibold text-blue font-outfit transition-colors duration-300 group-hover:text-blue-600 mt-0`}>
+                      <h3 className={`text-[24px] md:text-[26px] lg:text-[26px] xl:text-[28px] leading-none font-semibold text-blue font-outfit transition-colors duration-300 group-hover:text-blue-600 mt-0`}>
                         {service.title}
                       </h3>
                       {/* Short description - Show on all screens for non-active cards */}

@@ -25,7 +25,7 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
         {/* Content Section */}
         <div className={`flex-1 flex flex-col justify-center ${reversed ? "md:col-start-2" : "md:col-start-1"}`}>
           {/* Logo */}
-          <div className="mb-4 md:mb-6">
+          <div className="mb-4 lg:mb-6">
             <div className="relative h-8 lg:h-10 xl:h-12 w-auto">
               <Image 
                 src={logo} 
@@ -38,12 +38,12 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
             </div>
           </div>
           {/* Title */}
-          <h3 className={`${styles.h4} font-bold text-blue leading-tight mb-4 md:mb-6`}>
+          <h3 className={`${styles.h4} font-bold text-blue leading-tight mb-4 lg:mb-6`}>
             {title}
           </h3>
 
           {/* Description */}
-          <p className={`${styles.p2} text-gray-600 leading-relaxed mb-7 xl:mb-8`}>
+          <p className={`${styles.p2} text-gray-600 leading-relaxed mb-7 lg:mb-8`}>
             {desc}
           </p>
 
@@ -59,7 +59,7 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
         </div>
 
         {/* Image Section */}
-        <div className={`relative w-full h-[280px] md:h-[350px] lg:h-[380px] xl:h-[400px] overflow-hidden bg-gray-50 ${reversed ? "md:col-start-1 md:row-start-1" : "md:col-start-2"}`}>
+        <div className={`relative w-full h-[280px] md:h-[360px] lg:h-[395px] xl:h-[420px] overflow-hidden bg-gray-50 ${reversed ? "md:col-start-1 md:row-start-1" : "md:col-start-2"}`}>
           <Image
             src={image}
             alt={title}

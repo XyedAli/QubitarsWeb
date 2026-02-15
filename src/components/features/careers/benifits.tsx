@@ -67,7 +67,8 @@ const Benefits = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section id="benifits" className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20 scroll-mt-[var(--header-height,7rem)]">
+<div id="benifits" className="scroll-mt-[calc(var(--header-height,1rem)-11rem)]">
+    <div className="bg-white relative overflow-visible py-12 md:py-16 lg:py-20">
       <div className="w-full px-4 md:px-6 lg:px-8 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
         <div className="flex flex-col justify-center col-span-12 lg:col-span-4 xl:col-span-5">
           <SectionHeading subtitle={benefitsSection.subtitle} title={benefitsSection.title} />
@@ -87,7 +88,8 @@ const Benefits = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
+    </div>
   );
 };
 

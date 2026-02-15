@@ -66,7 +66,7 @@ import Link from "next/link";
           {/* angled orange card from background image; CEO/CTO cards overlay */}
           <div className="relative w-full max-w-[540px] h-[160px] md:h-[260px] lg:h-[280px]">
             {/* CTO */}
-            <div className="absolute bottom-0 right-[8%] md:right-0 bottom-[-48px] z-20 flex flex-col items-center">
+            <div className="absolute bottom-0 right-[2%] md:right-0 bottom-[-48px] z-20 flex flex-col items-center">
               <div className="relative w-[230px] md:w-[210px] lg:w-[300px] xl:w-[400px] h-[220px] md:h-[310px] lg:h-[300px] xl:h-[350px]">
                 <Image
                   src="/assets/images/generals/banners/CTO.png.png"
