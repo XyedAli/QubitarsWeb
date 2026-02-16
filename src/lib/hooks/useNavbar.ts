@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import { usePathname } from 'next/navigation';
 import { companyData } from '@/data';
 
 interface UseNavbarReturn {
@@ -16,10 +17,16 @@ interface UseNavbarReturn {
 }
 
 export const useNavbar = (): UseNavbarReturn => {
+  const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
+
+  // Close desktop dropdown when route changes (e.g. user clicks a link inside dropdown)
+  useEffect(() => {
+    setActiveDropdown(null);
+  }, [pathname]);
 
   const socialLinks = useMemo(
     () => companyData.filter((item) => item.type === "socialLink"),

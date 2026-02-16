@@ -14,8 +14,11 @@ const Services = () => {
   const [activeCardRow2, setActiveCardRow2] = useState<number>(3);
   const [activeCardRow3, setActiveCardRow3] = useState<number>(4);
   const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
+  const [isXlScreen, setIsXlScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isMdHovering, setIsMdHovering] = useState<boolean>(false);
+  const [activeCardRow1Xl, setActiveCardRow1Xl] = useState<number>(0);
+  const [activeCardRow2Xl, setActiveCardRow2Xl] = useState<number>(5);
   const [activeMobileCard, setActiveMobileCard] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
@@ -25,6 +28,7 @@ const Services = () => {
       const width = window.innerWidth;
       setIsMobileScreen(width < 768);
       setIsLgScreen(width >= 1024);
+      setIsXlScreen(width >= 1280);
     };
 
     checkScreenSize();
@@ -39,23 +43,24 @@ const Services = () => {
   }, []);
 
   const handleCardHover = (index: number) => {
-    // Don't handle hover on mobile - only first card is active
     if (isMobileScreen) return;
 
-    if (isLgScreen) {
+    if (isXlScreen) {
+      // xl+: 3 cards per row
+      setIsMdHovering(true);
+      if (index < 3) setActiveCardRow1Xl(index);
+      else setActiveCardRow2Xl(index);
+    } else if (isLgScreen) {
+      // lg: 2 cards per row
       setIsMdHovering(true);
       if (index < 2) setActiveCardRow1(index);
       else if (index < 4) setActiveCardRow2(index);
       else setActiveCardRow3(index);
     } else {
       setIsMdHovering(true);
-      if (index < 2) {
-        setActiveCardRow1(index);
-      } else if (index < 4) {
-        setActiveCardRow2(index);
-      } else {
-        setActiveCardRow3(index);
-      }
+      if (index < 2) setActiveCardRow1(index);
+      else if (index < 4) setActiveCardRow2(index);
+      else setActiveCardRow3(index);
     }
   };
 
@@ -65,9 +70,8 @@ const Services = () => {
 
     if (isLgScreen) {
       setIsMdHovering(false);
-      setActiveCardRow1(0);
-      setActiveCardRow2(3);
-      setActiveCardRow3(4);
+      setActiveCardRow1Xl(0);
+      setActiveCardRow2Xl(5);
     } else {
       setIsMdHovering(false);
       setActiveCardRow1(0);
@@ -116,10 +120,18 @@ const Services = () => {
           {servicesData.map((service, index) => {
             let isActive = false;
 
-            // On mobile, all cards show active style (dark bg, image right, content left)
+            // On mobile, all cards show active style
             if (isMobileScreen) {
               isActive = true;
+            } else if (isXlScreen) {
+              // xl+: 3 per row; row1 only index 0 active, row2 only index 5 (last) active
+              if (isMdHovering) {
+                isActive = index < 3 ? activeCardRow1Xl === index : activeCardRow2Xl === index;
+              } else {
+                isActive = (index < 3 && index === 0) || (index >= 3 && index === 5);
+              }
             } else if (isLgScreen) {
+              // lg: 2 cards per row; default active 0, 3, 4
               if (isMdHovering) {
                 if (index < 2) isActive = activeCardRow1 === index;
                 else if (index < 4) isActive = activeCardRow2 === index;
@@ -128,7 +140,6 @@ const Services = () => {
                 isActive = MD_DEFAULT_ACTIVE_INDICES.includes(index);
               }
             } else {
-              // md: default active = id 1, 4, 5; on hover use per-row active
               if (isMdHovering) {
                 if (index < 2) isActive = activeCardRow1 === index;
                 else if (index < 4) isActive = activeCardRow2 === index;
@@ -137,16 +148,17 @@ const Services = () => {
                 isActive = MD_DEFAULT_ACTIVE_INDICES.includes(index);
               }
             }
-            // Per row only one card gets active width so two cards fit in one row; md: active wider
+            // Per row only one card gets active width; xl+ = 3 per row, md/lg = 2 per row
+            const isThreePerRowActiveWidth = isXlScreen && isActive && (index < 3 ? activeCardRow1Xl === index : activeCardRow2Xl === index);
             const rowStart = index < 2 ? 0 : index < 4 ? 2 : 4;
-            const activeIndexInRow = isMdHovering
+            const activeIndexInRow = !isXlScreen && (isMdHovering
               ? (rowStart === 0 ? activeCardRow1 : rowStart === 2 ? activeCardRow2 : activeCardRow3)
-              : (MD_DEFAULT_ACTIVE_INDICES.includes(rowStart) ? rowStart : MD_DEFAULT_ACTIVE_INDICES.includes(rowStart + 1) ? rowStart + 1 : null);
-            const getsActiveWidth = !isMobileScreen && isActive && activeIndexInRow === index;
-            let cardWidth = "w-full"; // mobile: full width
+              : (MD_DEFAULT_ACTIVE_INDICES.includes(rowStart) ? rowStart : MD_DEFAULT_ACTIVE_INDICES.includes(rowStart + 1) ? rowStart + 1 : null));
+            const getsActiveWidth = !isMobileScreen && (isXlScreen ? isThreePerRowActiveWidth : isActive && activeIndexInRow === index);
+            let cardWidth = "w-full";
             if (!isMobileScreen) {
-              const activeW = "md:w-[calc(62%-0.75rem)] lg:w-[calc(58%-0.75rem)] xl:w-[calc(58%-1rem)]";
-              const inactiveW = "md:w-[calc(38%-0.75rem)] lg:w-[calc(42%-0.75rem)] xl:w-[calc(42%-1rem)]";
+              const activeW = "md:w-[calc(62%-0.75rem)] lg:w-[calc(58%-0.75rem)] xl:w-[calc(45%-1.34rem)]";
+              const inactiveW = "md:w-[calc(38%-0.75rem)] lg:w-[calc(42%-0.75rem)] xl:w-[calc(27.5%-1.34rem)]";
               cardWidth = getsActiveWidth ? activeW : inactiveW;
             }
 
