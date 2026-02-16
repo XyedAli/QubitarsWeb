@@ -15,7 +15,7 @@ const OpenPositions = () => {
   const toggle = (id: number) => setExpandedId((prev) => (prev === id ? null : id));
 
   return (
-    <section className={`bg-white relative overflow-hidden ${styles.sectionPadding} scroll-mt-[calc(var(--header-height,1rem)-6rem)]`} id="open-positions">
+    <section className={`bg-white relative overflow-hidden ${styles.sectionPadding} scroll-mt-[calc(var(--header-height,1rem)-4rem)]`} id="open-positions">
       <SectionHeading subtitle="Open Positions" title="We'd Love To Meet You!" />
       <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
         {openPositions.map((job) => {
