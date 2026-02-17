@@ -272,21 +272,21 @@ interface EngagementDataItem {
 export const engagementData: EngagementDataItem[] = [
   {
     type: "service",
-    id: "Product Development",
+    id: "product-development",
     icon: Plug,
-    title: "Software Outsourcing",
+    title: "Product Development",
     description: "We collaborate closely with your team to turn ideas into high-impact digital products.",
   },
   {
     type: "service",
-    id: "dedicated-teams",
+    id: "team-augmentation",
     icon: Users2,
     title: "Team Augmentation",
-    description: "Providing Dedicated Teams that work like your in-house team, minus the overhead.",
+    description: "Scale your capabilities with vetted experts who integrate directly into your workflows.",
   },
   {
     type: "service",
-    id: "staff-augmentation",
+    id: "consultation",
     icon: UserPlus,
     title: "Consultation",
     description: "Our consultation engagement helps you make informed decisions before investing in execution.",

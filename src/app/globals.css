@@ -340,8 +340,8 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: none;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2px;
+  padding-right: 2px;
   flex: 1;
 }
 
@@ -353,9 +353,9 @@ body {
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #6b7280;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #6b7280;
   pointer-events: none;
   z-index: 10;
 }
@@ -381,9 +381,9 @@ body {
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #6b7280;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  /* border-top: 6px solid #6b7280; */
   pointer-events: none;
   z-index: 10;
 }

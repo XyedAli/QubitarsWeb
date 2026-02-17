@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { MoveUpRight, ChevronDown } from "lucide-react";
 import { styles } from "@/styles/style";
 import { engagementOptions } from "@/data/home/index";
+import Link from "next/link";
 import { SectionHeading } from "@/components/shared/headings";
 
 const DigitalServices = () => {
@@ -277,14 +278,14 @@ const DigitalServices = () => {
                         </div>
 
                         <div className="mt-4 pt-4 border-t border-gray-100">
-                          <a href="#" className="inline-flex items-center gap-2 group">
-                            <div className="w-6 h-6 rounded-full bg-blue group-hover:bg-[#F05C22]/10 flex items-center justify-center transition-colors duration-300">
+                          <Link href="/engagement-models" className="inline-flex items-center gap-2 group">
+                            <div className="w-6 h-6 rounded-full bg-blue group-hover:bg-[#F05C22] flex items-center justify-center transition-colors duration-300">
                               <MoveUpRight className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform duration-300" />
                             </div>
                             <span className="text-sm font-semibold text-blue group-hover:text-[#F05C22] transition-colors duration-300 font-outfit">
                               Learn More
                             </span>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -377,14 +378,14 @@ const DigitalServices = () => {
                   </div>
 
                   <div className="mt-4 md:mt-5 lg:mt-6 pt-4 md:pt-5 border-t border-gray-100">
-                    <a href="#" className="inline-flex items-center gap-2 group">
-                      <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-blue group-hover:bg-[#F05C22]/10 flex items-center justify-center transition-colors duration-300">
+                    <Link href="/engagement-models" className="inline-flex items-center gap-2 group">
+                      <div className="w-6 h-6 md:w-7 md:h-7 rounded-full bg-blue group-hover:bg-[#F05C22] flex items-center justify-center transition-colors duration-300">
                         <MoveUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-white group-hover:scale-110 transition-transform duration-300" />
                       </div>
                       <span className="text-sm md:text-base font-semibold text-blue group-hover:text-[#F05C22] transition-colors duration-300 font-outfit">
                         Learn More
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -24,8 +24,8 @@ const OurTechStack = () => {
       : techStackData.filter((tech) => tech.category.includes(activeCategory));
 
   return (
-    <section className="bg-white">
-      <div className={`${styles.sectionPadding} pt-10 md:pt-12 lg:pt-14 xl:pt-17`}>
+    <section className="bg-[#EDEFF880] mt-9 lg:mt-15">
+      <div className={`${styles.sectionPadding} py-10 md:py-12 lg:py-14 xl:py-17`}>
         {/* Heading */}
           <SectionHeading title="Modern Stack. Real Results." />
         {/* Category Tabs */}

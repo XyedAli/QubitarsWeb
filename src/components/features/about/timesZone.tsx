@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { locations } from "@/data";
 import { getAboutCloudinaryImages } from "@/lib/assets/images";
+import { styles } from "@/styles/style";
 
 const PIN_PATH = "M12 0C5.373 0 0 5.373 0 12C0 19.5 12 32 12 32C12 32 24 19.5 24 12C24 5.373 18.627 0 12 0Z";
 const PIN_VIEWBOX = "0 0 24 32";
@@ -69,8 +70,16 @@ const TimesZone = () => {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <style dangerouslySetInnerHTML={{ __html: responsiveCSS }} />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-12">
         <div className="relative mx-auto w-full max-w-[1400px]">
+          <div className="text-center max-w-3xl mx-auto mb-4 md:mb-5">
+            <h2 className={`${styles.h2} font-semibold text-blue font-outfit mb-2`}>
+              Partnering With Clients Across Time Zones
+            </h2>
+            <p className={`${styles.p3} text-gray-600 font-inter`}>
+              We deliver cutting-edge digital solutions to businesses worldwide. From Texas to Pakistan and beyond, our teams work across time zones to ensure seamless collaboration, continuity, and results—so your project keeps moving forward, no matter where you are.
+            </p>
+          </div>
           <div className="relative aspect-[1.4/1] sm:aspect-[1.6/1] md:aspect-[1.8/1] w-full min-h-[350px] sm:min-h-[500px] md:min-h-0">
             <Image
               src={images.Map}

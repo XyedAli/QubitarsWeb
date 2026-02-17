@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { industries } from "@/data";
+import { MoveUpRight, MoveRight } from "lucide-react";
+
 import { styles, combine } from "@/styles/style";
 
 export const IndustriesDropdown = () => {
@@ -74,98 +76,106 @@ export const IndustriesDropdown = () => {
               <div key={rightSideIndustry.id} className="space-y-4">
                 {/* Render rich content (companies, testimonials) or simple content */}
                 {rightSideIndustry.hasSpecialContent ? (
-                        <>
-                          <div className={combine(styles.flexBetween, "w-full border-b-2 border-gray-300 pb-4")}>
-                          <p className="text-black text-sm lg:text-base font-medium w-[70%] leading-snug">
-                              {rightSideIndustry.description}
-                            </p>
-                            <Link href={`/industries/${activeId}`}>
-                            <Button variant="outline" size="md" className="text-sm lg:text-base whitespace-nowrap cursor-pointer hover:bg-accent hover:text-white hover:border-none">
-                              Discover More
-                            </Button>
-                          </Link>
-                          </div>
-                          {/* Company logos carousel */}
-                          <div className="flex flex-col w-full border-b-2 border-gray-300">
-                            <h3 className="text-lg font-bold text-accent mb-2">
-                              Companies that we have worked with
-                            </h3>
-                            <div className="overflow-hidden w-full mt-3 mb-5">
-                              <CustomSlider settings={sliderSettings}>
-                                {rightSideIndustry.companies?.map((company) => (
-                                  <div key={company.id} className="px-0">
-                                    <div className={combine(styles.flexCenter, "h-[58px] rounded-xl border border-gray-200 bg-white px-2 hover:border-accent transition-colors duration-300 mx-3")}>
-                                      <Image
-                                        src={company.image}
-                                        width={80}
-                                        height={32}
-                                        alt={company.alt}
-                                        className="w-[120px] h-auto object-contain hover:opacity-90 transition-opacity"
-                                      />
-                                    </div>
-                                  </div>
-                                ))}
-                              </CustomSlider>
-                            </div>
-                          </div>
-                          {/* Client testimonials */}
-                          <div className="border-b-2 border-gray-300 pb-4">
-                            {rightSideIndustry.testimonials?.map((testimonial) => (
-                              <div key={testimonial.id}>
-                                <p className="text-[#666666] text-sm lg:text-base font-medium">
-                                  &ldquo;{testimonial.quote}&rdquo;
-                                </p>
-                                <div className={combine(styles.flexitems, "gap-3 mt-3")}>
-                                  {isSvg(testimonial.avatar) ? (
-                                    <img
-                                      src={testimonial.avatar}
-                                      alt={testimonial.author}
-                                      width={50}
-                                      height={50}
-                                      className="hover:opacity-90 transition-opacity"
-                                      loading="lazy"
-                                    />
-                                  ) : (
-                                    <Image
-                                      src={testimonial.avatar}
-                                      alt={testimonial.author}
-                                      width={50}
-                                      height={50}
-                                      className="hover:opacity-90 transition-opacity"
-                                    />
-                                  )}
-                                  <span className="text-accent font-bold text-md">
-                                    {testimonial.author}
-                                    <span className="text-[#1A1A1A] font-semibold text-sm">
-                                      / {testimonial.position}, {testimonial.company}
-                                    </span>
-                                  </span>
-                                </div>
+                  <>
+                    <div className={combine(styles.flexBetween, "w-full border-b-2 border-gray-300 pb-4")}>
+                      <p className="text-black text-sm lg:text-base font-medium w-[70%] leading-snug">
+                        {rightSideIndustry.description}
+                      </p>
+                      <Link href={`/industries/${activeId}`}>
+                        <div className="btn neon-pulse">
+                          <button className="btn-content">
+                            Discover More
+                            <MoveUpRight className="w-4 h-4" />
+                          </button>
+                        </div>
+
+                      </Link>
+                    </div>
+                    {/* Company logos carousel */}
+                    <div className="flex flex-col w-full border-b-2 border-gray-300">
+                      <h3 className="text-lg font-bold text-accent mb-2">
+                        Companies that we have worked with
+                      </h3>
+                      <div className="overflow-hidden w-full mt-3 mb-5">
+                        <CustomSlider settings={sliderSettings}>
+                          {rightSideIndustry.companies?.map((company) => (
+                            <div key={company.id} className="px-0">
+                              <div className={combine(styles.flexCenter, "h-[58px] rounded-xl border border-gray-200 bg-white px-2 hover:border-accent transition-colors duration-300 mx-3")}>
+                                <Image
+                                  src={company.image}
+                                  width={80}
+                                  height={32}
+                                  alt={company.alt}
+                                  className="w-[120px] h-auto object-contain hover:opacity-90 transition-opacity"
+                                />
                               </div>
-                            ))}
-                          </div>
-                          {/* CTA section */}
-                          <div className={combine(styles.flexBetween, "w-full")}>
-                            <div className={combine(styles.flexCol, "gap-1")}>
-                              <h3 className="font-bold text-sm lg:text-base text-accent">Let&apos;s Build Your Next Project Together</h3>
-                              <p className="text-[#1E274F] font-semibold text-sm">With over 1000 tech experts, we&apos;re ready to discuss your project.</p>
                             </div>
-                            <Button variant="accent" size="lg">
-                              Schedule a Call
-                            </Button>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          {/* Simple content for industries without special content */}
-                          <h3 className="text-xl lg:text-2xl font-bold text-accent">
-                            {rightSideIndustry.title}
-                          </h3>
-                          <p className={combine(styles.p4, "text-gray-600")}>
-                            {rightSideIndustry.description}
+                          ))}
+                        </CustomSlider>
+                      </div>
+                    </div>
+                    {/* Client testimonials */}
+                    <div className="border-b-2 border-gray-300 pb-4">
+                      {rightSideIndustry.testimonials?.map((testimonial) => (
+                        <div key={testimonial.id}>
+                          <p className="text-[#666666] text-sm lg:text-base font-medium">
+                            &ldquo;{testimonial.quote}&rdquo;
                           </p>
-                        </>
-                      )}
+                          <div className={combine(styles.flexitems, "gap-3 mt-3")}>
+                            {isSvg(testimonial.avatar) ? (
+                              <img
+                                src={testimonial.avatar}
+                                alt={testimonial.author}
+                                width={50}
+                                height={50}
+                                className="hover:opacity-90 transition-opacity"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <Image
+                                src={testimonial.avatar}
+                                alt={testimonial.author}
+                                width={50}
+                                height={50}
+                                className="hover:opacity-90 transition-opacity"
+                              />
+                            )}
+                            <span className="text-accent font-bold text-md">
+                              {testimonial.author}
+                              <span className="text-[#1A1A1A] font-semibold text-sm">
+                                / {testimonial.position}, {testimonial.company}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* CTA section */}
+                    <div className={combine(styles.flexBetween, "w-full")}>
+                      <div className={combine(styles.flexCol, "gap-1")}>
+                        <h3 className="font-bold text-sm lg:text-base text-accent">Let&apos;s Build Your Next Project Together</h3>
+                        <p className="text-[#1E274F] font-semibold text-sm">With over 1000 tech experts, we&apos;re ready to discuss your project.</p>
+                      </div>
+                      <Button variant="accent" size="md">
+                        Schedule a Call
+                        <div className="relative">
+                          <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+                          <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        </div>
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Simple content for industries without special content */}
+                    <h3 className="text-xl lg:text-2xl font-bold text-accent">
+                      {rightSideIndustry.title}
+                    </h3>
+                    <p className={combine(styles.p4, "text-gray-600")}>
+                      {rightSideIndustry.description}
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

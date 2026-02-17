@@ -1,42 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { businessTypes } from "@/data";
-import { CustomSlider, Button } from "@/components/shared/ui";
+import { Button } from "@/components/shared/ui";
 
 const BusinessTypes = () => {
-  const [slidesToShow, setSlidesToShow] = useState(2);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0); // First card active by default
-
-  // Keep slide count responsive without server/client mismatch.
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setSlidesToShow(1);
-      } else {
-        setSlidesToShow(2);
-      }
-    };
-
-    handleResize();
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const sliderSettings = {
-    slidesToShow: slidesToShow,
-    slidesToScroll: 1,
-    autoplay: false,
-    infinite: true,
-  };
 
   const renderCard = (business: typeof businessTypes[0], index: number) => {
     const isHovered = hoveredIndex === index;
@@ -79,19 +52,13 @@ const BusinessTypes = () => {
           ))}
         </div>
 
-        {/* Mobile slider */}
-        <div className="block lg:hidden mb-10 pt-9">
-          <div className="slider-equal-height">
-            <CustomSlider settings={sliderSettings}>
-              {businessTypes.map((business, index) => (
-                <div key={index} className="px-2">
-                  <div className="h-full flex">
-                    {renderCard(business, index)}
-                  </div>
-                </div>
-              ))}
-            </CustomSlider>
-          </div>
+        {/* Mobile/tablet: all cards in grid (no slider) */}
+        <div className="block lg:hidden mb-10 pt-9 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {businessTypes.map((business, index) => (
+            <div key={index} className="h-full">
+              {renderCard(business, index)}
+            </div>
+          ))}
         </div>
 
         <div className="flex justify-center">

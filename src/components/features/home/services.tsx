@@ -87,17 +87,17 @@ const Services = () => {
     }
   };
 
+  const openModalForService = (service: ServiceData) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
   const handleExploreMore = (service: ServiceData, e?: React.MouseEvent) => {
-    // Prevent card click when clicking Explore More button
+    // Prevent card click from firing when clicking Explore More (avoid double open)
     if (e) {
       e.stopPropagation();
     }
-
-    // Only show modal for AI & ML Development and Digital Transformation
-    if (service.title === "AI & ML Development" || service.title === "Digital Transformation") {
-      setSelectedService(service);
-      setIsModalOpen(true);
-    }
+    openModalForService(service);
   };
 
   const handleCloseModal = () => {
@@ -165,9 +165,20 @@ const Services = () => {
             return (
               <div
                 key={index}
+                role="button"
+                tabIndex={0}
                 onMouseEnter={() => handleCardHover(index)}
                 onMouseLeave={handleCardLeave}
-                onClick={() => handleCardClick(index)}
+                onClick={() => {
+                  handleCardClick(index);
+                  openModalForService(service);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openModalForService(service);
+                  }
+                }}
                 className={`${cardWidth} flex-shrink-0 relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer group ${isActive
                   ? "bg-[#010101] shadow-2xl md:scale-[1.02] border border-transparent"
                   : "bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg"

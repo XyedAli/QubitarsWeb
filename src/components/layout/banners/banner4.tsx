@@ -6,8 +6,23 @@ import { styles, combine } from "@/styles/style";
 import Button from "@/components/shared/ui/button/Button";
 import Link from "next/link";
 
+const ConsultationButton = () => (
+  <Button
+    variant="outline"
+    size="lg"
+    className="bg-white text-[#111827] font-semibold font-outfit rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 w-fit"
+  >
+    <span><Link href="/contact">Book a Consultation, it&apos;s free</Link></span>
+    <div className="relative">
+      <MoveUpRight className="w-5 h-5 mx-1 text-[#111827] transition-opacity duration-300 group-hover:opacity-0" />
+      <MoveRight className="w-5 h-5 mx-1 text-[#111827] font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    </div>
+  </Button>
+);
+
  const Banner4 = () => {
    return (
+     <>
      <section 
         className="relative overflow-hidden my-6 md:my-10 bg-[#E9ECF4]"
       >
@@ -46,18 +61,9 @@ import Link from "next/link";
           How Businesses Can Move Past the AI Pilot Phase
           </h2>
 
-          <div className="mt-4 md:mt-7 xl:mt-12 w-fit">
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white text-[#111827] font-semibold font-outfit rounded-lg border-transparent shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <span><Link href="/contact">Book a Consultation, it&apos;s free</Link></span>
-              <div className="relative">
-                <MoveUpRight className="w-5 h-5 mx-1 text-[#111827] transition-opacity duration-300 group-hover:opacity-0" />
-                <MoveRight className="w-5 h-5 mx-1 text-[#111827] font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </div>
-            </Button>
+          {/* Button inside banner: hidden on mobile, shown on md+ */}
+          <div className="mt-4 md:mt-7 xl:mt-12 w-fit hidden md:block">
+            <ConsultationButton />
           </div>
         </div>
 
@@ -118,6 +124,12 @@ import Link from "next/link";
         </div>
       </div>
     </section>
+
+    {/* Button below banner: only on mobile - common button styling, not full width */}
+    <div className="px-4 pb-4 md:hidden flex justify-center">
+      <ConsultationButton />
+    </div>
+    </>
   );
 };
 

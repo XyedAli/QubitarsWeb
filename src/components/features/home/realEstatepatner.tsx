@@ -46,7 +46,7 @@ const RealEstatePartner = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Subtitle */}
           <div className="mb-4 md:mb-3">
-            <span className={`${styles.h6} font-semibold inline-block bg-clip-text text-transparent bg-linear-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] font-outfit uppercase tracking-wider`}>
+            <span className={`${styles.h6} font-semibold inline-block bg-clip-text text-transparent bg-linear-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] font-outfit tracking-wider`}>
               Real Estate Partnership
             </span>
           </div>

@@ -29,7 +29,7 @@ export default function Home() {
       <BusinessTypes />
       <Services />
       <RealEstatePartner />
-      <IndustriesCards />
+      {/* <IndustriesCards /> */}
       <DigitalServices />
       {/* <Banner1 /> */}
       {/* <Banner3 /> */}

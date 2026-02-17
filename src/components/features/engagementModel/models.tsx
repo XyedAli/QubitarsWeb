@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { styles } from "@/styles/style";
 import { modelsSection } from "@/data/engModel";
+import { useRouter } from "next/navigation";
+
 
 const LIST_BLOCK_CLASS = `${styles.p3} font-semibold text-[#1E274F] font-outfit mb-3`;
 const LIST_ITEM_CLASS = `${styles.p4} text-gray-700 font-inter`;
@@ -13,11 +16,39 @@ const TAB_BLOCKS = [
 ] as const;
 
 const Models = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const pathname = usePathname();
   const { tabs } = modelsSection;
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    const hash = window.location.hash.slice(1);
+    const index = modelsSection.tabs.findIndex((t) => t.id === hash);
+    return index >= 0 ? index : 0;
+  });
+
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "");
+      const foundIndex = tabs.findIndex((tab) => tab.id === hash);
+      if (foundIndex !== -1) {
+        setActiveTab(foundIndex);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    const index = tabs.findIndex((t) => t.id === hash);
+    if (index >= 0) setActiveTab(index);
+  }, [pathname, tabs]);
 
   return (
-    <section className={`${styles.sectionPaddingX} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}>
+    <section
+      id={tabs[activeTab].id}
+      className={`${styles.sectionPaddingX} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}
+    >
       <div className="mb-6 text-center">
         <h2 className={`${styles.h2} font-semibold text-[#1E274F] leading-tight font-outfit`}>{modelsSection.title}</h2>
       </div>
@@ -25,13 +56,18 @@ const Models = () => {
         <div className="flex flex-wrap gap-1 md:gap-2 justify-center">
           {tabs.map((tab, index) => (
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(index)}
-              className={`relative px-1 py-2 md:px-6 md:py-4 font-semibold font-outfit transition-all duration-300 ${
-                activeTab === index ? "text-[#F05C22]" : "text-gray-600 hover:text-[#1E274F]"
-              }`}
+              key={index}
+              onClick={() => {
+                setActiveTab(index);
+                router.push(`#${tab.id}`);
+              }}
+              className={`relative px-1 py-2 md:px-6 md:py-4 font-semibold font-outfit transition-all duration-300 ${activeTab === index ? "text-[#F05C22]" : "text-gray-600 hover:text-[#1E274F]"
+                }`}
             >
-              <span className="text-sm md:text-lg lg:text-xl xl:text-2xl">{tab.title}</span>
+              <span className="text-sm md:text-lg lg:text-xl xl:text-2xl">
+                {tab.title}
+              </span>
+
               {activeTab === index && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]" />
               )}
@@ -43,9 +79,8 @@ const Models = () => {
         {tabs.map((tab, index) => (
           <div
             key={tab.id}
-            className={`transition-all duration-500 ${
-              activeTab === index ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none absolute inset-0"
-            }`}
+            className={`transition-all duration-500 ${activeTab === index ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none absolute inset-0"
+              }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-5 xl:gap-10 items-stretch">
               <div className="relative min-h-[320px] md:min-h-[380px] rounded-2xl overflow-hidden lg:col-span-5 bg-[#1E274F] hidden md:block">
