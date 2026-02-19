@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Button, CustomSlider } from "@/components/shared/ui";
 import { engagementData } from "@/data";
@@ -10,6 +10,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";
 import Link from "next/link";
 import { getCompanyCloudinaryImages } from "@/lib/assets/images";
+import { usePathname } from "next/navigation";
 
 // Map dropdown service titles to engagement-models page tab hashes (models.tsx)
 const SERVICE_TO_HASH: Record<string, string> = {
@@ -19,11 +20,42 @@ const SERVICE_TO_HASH: Record<string, string> = {
 };
 
 // Engagement dropdown component
-export const EngagementDropdown = () => {
+export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
+    const pathname = usePathname();
+    const [activeHash, setActiveHash] = useState("");
     const sliderRef = useRef<Slider | null>(null);
 
     // Get Cloudinary company images
     const companyCloudinaryImages = getCompanyCloudinaryImages();
+
+    // Check for hash changes
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const hash = window.location.hash.slice(1);
+            setActiveHash(hash);
+            
+            // Listen for hash changes
+            const handleHashChange = () => {
+                const newHash = window.location.hash.slice(1);
+                setActiveHash(newHash);
+            };
+            
+            window.addEventListener('hashchange', handleHashChange);
+            
+            // Periodic check as fallback
+            const interval = setInterval(() => {
+                const currentHash = window.location.hash.slice(1);
+                if (currentHash !== hash) {
+                    setActiveHash(currentHash);
+                }
+            }, 100);
+            
+            return () => {
+                window.removeEventListener('hashchange', handleHashChange);
+                clearInterval(interval);
+            };
+        }
+    }, [pathname]);
 
     // Slider config for testimonials carousel
     const sliderSettings = {
@@ -50,13 +82,14 @@ export const EngagementDropdown = () => {
                                 const IconComponent = service.icon!;
                                 const hash = service.title ? SERVICE_TO_HASH[service.title] : undefined;
                                 const href = hash ? `/engagement-models#${hash}` : "/engagement-models";
+                                const isActive = activeHash === hash;
                                 return (
-                                    <Link key={service.id} href={href} className="flex items-start gap-2 group block">
+                                    <Link key={service.id} href={href} className={`flex items-start gap-2 group block ${isActive ? "" : ""}`} onClick={onClose}>
                                         <div className="flex-shrink-0">
-                                            <IconComponent width={32} height={32} className="text-blue group-hover:text-accent transition-colors" />
+                                            <IconComponent width={32} height={32} className={`text-blue group-hover:text-accent transition-colors ${isActive ? "text-accent" : ""}`} />
                                         </div>
                                         <div className="flex-1">
-                                            <h4 className="text-base lg:text-lg font-bold text-accent mb-2 hover:underline">
+                                            <h4 className={`text-base lg:text-lg font-bold mb-2 hover:underline ${isActive ? "text-accent" : "text-accent"}`}>
                                                 {service.title}
                                             </h4>
                                             <p className={combine(styles.p4, "text-blue leading-relaxed")}>
@@ -67,15 +100,15 @@ export const EngagementDropdown = () => {
                                 );
                             })}
                             <Button variant="accent" size="md" className="mt-4">
-                             <Link href="/engagement-models">
-                                        Discover More
-                                    </Link>
-                                    <div className="relative">
-                                        <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-                                        <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                                    </div>
-                                </Button>
-                            </div>
+                                <Link href="/engagement-models#models-section">
+                                    Discover More
+                                </Link>
+                                <div className="relative">
+                                    <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
+                                    <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                </div>
+                            </Button>
+                        </div>
 
                         {/* Testimonials carousel */}
                         <div className="space-y-4 border-l-2 border-gray-300 pl-7">

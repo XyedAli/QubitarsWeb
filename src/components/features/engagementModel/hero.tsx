@@ -24,6 +24,7 @@ export default function EngModalHero() {
       overlayTitle={heroSection.overlayTitle}
       overlayDescription={heroSection.overlayDescription}
       buttonText={heroSection.buttonText}
+      textColor="white"
     />
   );
 }

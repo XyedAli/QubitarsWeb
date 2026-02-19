@@ -1,12 +1,12 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
-import { getCareerHeroBackground } from "@/lib/assets/images";
 
 export default function CareersHero() {
   return (
     <HeroSection
       variant="blog"
+      textColor="blue"
       title={
         <>
           Where Passion Meets{" "}
@@ -16,9 +16,9 @@ export default function CareersHero() {
         </>
       }
       descriptions={["Turn your curiosity into expertise and your skills into real-world impact."]}
-      backgroundType="image"
-      backgroundImage={getCareerHeroBackground()}
-      overlayTag="ENGAGEMENT MODEL"
+      backgroundType="video"
+      backgroundVideo="/assets/videos/temp_video_for_share.MP4"
+      overlayTag="CAREERS"
       overlayTitle="Empowering Talent. Building the Future."
       overlayDescription="Join a team where innovation, collaboration, and growth are part of everyday life."
       buttonText="View Opportunities"

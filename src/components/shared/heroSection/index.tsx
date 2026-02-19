@@ -17,6 +17,7 @@ const HeroSection = ({
   buttonText = "Book a Consultation, it's free",
   backgroundType,
   backgroundImage,
+  backgroundVideo,
   backgroundColor,
   patternImages,
   textColor = "white",
@@ -74,23 +75,36 @@ const HeroSection = ({
           </div>
           <div className="relative rounded-2xl overflow-hidden">
             <div className={`relative w-full ${heightClass} overflow-hidden`}>
-              {backgroundImage && (
+              {backgroundType === "video" && backgroundVideo && (
+                <>
+                  <video
+                    src={backgroundVideo}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30"></div>
+                </>
+              )}
+              {backgroundType === "image" && backgroundImage && (
                 <Image src={backgroundImage} alt="Blog Hero" fill className="object-cover" priority sizes="100vw" quality={90} />
               )}
             </div>
             {hasOverlay && (
               <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 lg:left-8 lg:right-8 xl:left-10 xl:right-10">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className={`${backgroundType === "video" ? "bg-white" : "bg-white/10 backdrop-blur-md"} border border-white/30 rounded-xl p-5 xl:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4`}>
                   <div className="relative">
                     {overlayTag && (
-                      <span className="absolute -top-9 lg:-top-11 left-0 px-5 py-2 text-xs md:text-sm lg:text-base font-semibold bg-white text-gray-900 rounded-full">
+                      <span className={`absolute -top-9 lg:-top-11 left-0 px-5 py-2 text-xs md:text-sm lg:text-base font-semibold bg-white text-gray-900 rounded-full ${backgroundType === "video" ? "border-2 border-gray-100" : ""}`}>
                         {overlayTag}
                       </span>
                     )}
                     {overlayTitle && (
-                      <h3 className="text-white font-semibold text-[16px] md:text-[18px] lg:text-[20px] mt-2 xl:mt-0">{overlayTitle}</h3>
+                      <h3 className={`${isWhite ? "text-white" : "text-blue"} font-semibold text-[16px] md:text-[18px] lg:text-[20px] mt-2 xl:mt-0`}>{overlayTitle}</h3>
                     )}
-                    {overlayDescription && <p className="text-white text-xs md:text-sm mt-1">{overlayDescription}</p>}
+                    {overlayDescription && <p className={`${isWhite ? "text-white" : "text-blue"} text-xs md:text-sm mt-1`}>{overlayDescription}</p>}
                   </div>
                   <div className="flex-shrink-0">
                     <Button variant="accent" size={isLargeScreen ? "lg" : "md"} className="whitespace-nowrap">
@@ -112,6 +126,7 @@ const HeroSection = ({
 
   const isPattern = backgroundType === "pattern";
   const isImage = backgroundType === "image";
+  const isVideo = backgroundType === "video";
   const awardCl = (cls: string) => `object-contain opacity-90 hover:opacity-100 transition-opacity ${cls}`;
 
   return (
@@ -120,6 +135,7 @@ const HeroSection = ({
         <div className={`relative z-0 w-full ${heightClass} overflow-hidden ${bgFill}`}>
           {isImage && <div className="absolute inset-0 z-10" />}
           {isPattern && <div className="absolute inset-0 bg-black/30 z-10" />}
+          {isVideo && <div className="absolute inset-0 bg-black/20 z-10" />}
           {isImage && backgroundImage && (
             <Image
               src={backgroundImage}
@@ -130,6 +146,16 @@ const HeroSection = ({
               priority
               sizes="100vw"
               quality={90}
+            />
+          )}
+          {isVideo && backgroundVideo && (
+            <video
+              src={backgroundVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover z-0"
             />
           )}
           {isPattern && patternImages?.mobile && (

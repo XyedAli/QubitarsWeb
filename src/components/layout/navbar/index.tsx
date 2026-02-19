@@ -72,7 +72,13 @@ const Navbar = () => {
                           }`}
                       />
                     </button>
-                    {activeDropdown === id && <DropdownComponent />}
+                    {activeDropdown === id && (
+                      id === "engagement" ? (
+                        <DropdownComponent onClose={() => setActiveDropdown(null)} />
+                      ) : (
+                        <DropdownComponent />
+                      )
+                    )}
                   </div>
                 ))}
               </div>

@@ -10,7 +10,7 @@ export const companyLinks = [
 
 export const servicesLinks = [
   { name: "AI & ML Development", href: "/services/ai-ml" },
-  { name: "Digital Transformation", href: "/services/digital-transformation" },
+  { name: "Digital Transformation", href: "/digital-transformation" },
   { name: "Product Design", href: "/services/product-design" },
   { name: "Quality Assurance", href: "/services/qa" },
   { name: "DevOps", href: "/services/devops" },

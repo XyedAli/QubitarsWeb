@@ -44,8 +44,9 @@ export interface HeroSectionProps {
   descriptions: string[];
   subtitle?: string;
   buttonText?: string;
-  backgroundType: "image" | "color" | "pattern";
+  backgroundType: "image" | "color" | "pattern" | "video";
   backgroundImage?: ImageSource;
+  backgroundVideo?: string;
   backgroundColor?: string;
   patternImages?: { mobile?: ImageSource; desktop?: ImageSource };
   textColor?: "white" | "blue";

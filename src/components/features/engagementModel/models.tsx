@@ -18,37 +18,76 @@ const TAB_BLOCKS = [
 const Models = () => {
   const pathname = usePathname();
   const { tabs } = modelsSection;
-  const [activeTab, setActiveTab] = useState(() => {
-    if (typeof window === "undefined") return 0;
-    const hash = window.location.hash.slice(1);
-    const index = modelsSection.tabs.findIndex((t) => t.id === hash);
-    return index >= 0 ? index : 0;
-  });
-
+  const [activeTab, setActiveTab] = useState(0);
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash.replace("#", "");
-      const foundIndex = tabs.findIndex((tab) => tab.id === hash);
-      if (foundIndex !== -1) {
-        setActiveTab(foundIndex);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    const hash = window.location.hash.slice(1);
+  // Function to handle tab switching
+  const switchToTab = (hash: string) => {
     const index = tabs.findIndex((t) => t.id === hash);
-    if (index >= 0) setActiveTab(index);
+    if (index >= 0) {
+      // First activate tab
+      setActiveTab(index);
+      // Update URL hash
+      window.history.replaceState(null, '', `#${hash}`);
+      
+      // Wait for tab to be active, then scroll to models section
+      setTimeout(() => {
+        const modelsSection = document.getElementById("models-section");
+        if (modelsSection) {
+          const headerHeight = 80; // Account for fixed header
+          const sectionTop = modelsSection.offsetTop;
+          window.scrollTo({
+            top: sectionTop - headerHeight,
+            behavior: "smooth"
+          });
+        }
+      }, 300); // Increased delay to ensure DOM is updated
+    }
+  };
+
+  // Handle initial hash and hash changes
+  useEffect(() => {
+    let currentHash = window.location.hash.slice(1);
+    if (currentHash) {
+      switchToTab(currentHash);
+    } else {
+      setActiveTab(0);
+    }
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      const newHash = window.location.hash.slice(1);
+      if (newHash) {
+        switchToTab(newHash);
+      } else {
+        setActiveTab(0);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Also check for hash changes periodically (fallback)
+    const interval = setInterval(() => {
+      const latestHash = window.location.hash.slice(1);
+      if (latestHash !== currentHash) {
+        currentHash = latestHash;
+        if (latestHash) {
+          switchToTab(latestHash);
+        } else {
+          setActiveTab(0);
+        }
+      }
+    }, 100);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      clearInterval(interval);
+    };
   }, [pathname, tabs]);
 
   return (
-    <section
-      id={tabs[activeTab].id}
-      className={`${styles.sectionPaddingX} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}
-    >
+    <section id="models-section" className={`${styles.sectionPaddingX} ${styles.sectionPaddingY} bg-white w-full max-w-full overflow-x-hidden`}>
       <div className="mb-6 text-center">
         <h2 className={`${styles.h2} font-semibold text-[#1E274F] leading-tight font-outfit`}>{modelsSection.title}</h2>
       </div>
@@ -58,8 +97,23 @@ const Models = () => {
             <button
               key={index}
               onClick={() => {
+                // First activate tab
                 setActiveTab(index);
-                router.push(`#${tab.id}`);
+                // Update URL hash
+                window.history.replaceState(null, '', `#${tab.id}`);
+                
+                // Wait for tab to be active, then scroll to models section
+                setTimeout(() => {
+                  const modelsSection = document.getElementById("models-section");
+                  if (modelsSection) {
+                    const headerHeight = 80; // Account for fixed header
+                    const sectionTop = modelsSection.offsetTop;
+                    window.scrollTo({
+                      top: sectionTop - headerHeight,
+                      behavior: "smooth"
+                    });
+                  }
+                }, 300);
               }}
               className={`relative px-1 py-2 md:px-6 md:py-4 font-semibold font-outfit transition-all duration-300 ${activeTab === index ? "text-[#F05C22]" : "text-gray-600 hover:text-[#1E274F]"
                 }`}
@@ -79,6 +133,7 @@ const Models = () => {
         {tabs.map((tab, index) => (
           <div
             key={tab.id}
+            id={tab.id}
             className={`transition-all duration-500 ${activeTab === index ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none absolute inset-0"
               }`}
           >

@@ -82,13 +82,9 @@ export const IndustriesDropdown = () => {
                         {rightSideIndustry.description}
                       </p>
                       <Link href={`/industries/${activeId}`}>
-                        <div className="btn neon-pulse">
-                          <button className="btn-content">
-                            Discover More
-                            <MoveUpRight className="w-4 h-4" />
-                          </button>
+                        <div className="btn btn-pulse inline-flex items-center px-3 lg:px-4 xl:px-5 lg:px-5 xl:px-5 py-1.5 sm:py-2 md:py-2.5 lg:py-2.5 xl:py-2.5 m-2.5 border-2 border-orange bg-white text-blue hover:text-white hover:bg-blue rounded-lg cursor-pointer text-sm sm:text-base transition-all duration-300 animate-pulse whitespace-nowrap">
+                          Discover More <MoveUpRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
                         </div>
-
                       </Link>
                     </div>
                     {/* Company logos carousel */}
@@ -181,6 +177,21 @@ export const IndustriesDropdown = () => {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </>
   );
 };
+
+export default IndustriesDropdown;
