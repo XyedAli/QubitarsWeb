@@ -98,7 +98,9 @@ export default function Home() {
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
-                  ref={(el) => (tabsRef.current[index] = el)}
+                  ref={(el) => {
+                    tabsRef.current[index] = el;
+                  }}
                   onClick={() => handleTabClick(index)}
                   className={`px-5 py-3 text-lg transition-all duration-300 ${
                     activeTab === index ? "text-blue font-extrabold" : "text-blue opacity-70"

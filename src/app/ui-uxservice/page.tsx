@@ -1,10 +1,10 @@
 import { Fragment } from "react/jsx-runtime"
-import { FeaturesSection, HeroSection, OurStrategy, SalesforceProcess, StackingCards, TechnicalResource, FAQ } from "@/components/features/services/digitalTransformation"
+import { FeaturesSection, HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ , Measureables} from "@/components/features/services/UIUXService"
 import Banner3 from "@/components/layout/banners/banner3"
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 
-const DigitalTransformation = () => {
+const UIUXService = () => {
     // Merge testimonials data with images
     const testimonialsWithImages = testimonialsData.map((testimonial) => {
         const images = testimonialImagesById[testimonial.id];
@@ -16,15 +16,15 @@ const DigitalTransformation = () => {
     return (
         <Fragment>
             <HeroSection />
-            <OurStrategy />
-            {/* <StackingCards /> */}
+            <OurServices />
             <Banner3 />
-            <FeaturesSection />
+            {/* <FeaturesSection /> */}
             <TechnicalResource />
             <SalesforceProcess />
+            <Measureables />
             <OurClient testimonials={testimonialsWithImages} />
             <FAQ />
         </Fragment>
     )
 }
-export default DigitalTransformation
+export default UIUXService

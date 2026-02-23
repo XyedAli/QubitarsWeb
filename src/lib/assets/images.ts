@@ -427,6 +427,54 @@ export const getTriScrollCloudinaryLogos = () => {
   };
 };
 
+// UI/UX Service Card Images
+export const getUIUXServiceImages = () => {
+  const serviceEndpoints = {
+    scardbg1: "v1771564755/scardbg1_lnpppp.webp",
+    scardbg2: "v1771564756/scardbg2_eqv7pw.webp",
+    scardbg3: "v1771564757/scardbg3_jsphvy.webp",
+    scardbg4: "v1771564759/scardbg4_byncqf.webp",
+    scardbg5: "v1771564759/scardbg5_xjuhcf.webp",
+    scardbg6: "v1771564761/scardbg6_c8tzlv.webp",
+    blurframe: "v1771564756/blurframe_idzpa7.webp",
+  };
+
+  const serviceImages: Record<string, string> = {};
+  Object.entries(serviceEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    serviceImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return serviceImages as {
+    scardbg1: string;
+    scardbg2: string;
+    scardbg3: string;
+    scardbg4: string;
+    scardbg5: string;
+    scardbg6: string;
+    blurframe: string;
+  };
+};
+
+// Hero Background Lines Images
+export const getHeroBackgroundLines = () => {
+  const heroEndpoints = {
+    leftLine: "v1771562918/sbannerline_ajw79z.webp",
+    rightLine: "v1771562918/sbannerline1_hyd2vv.webp",
+  };
+
+  const heroImages: Record<string, string> = {};
+  Object.entries(heroEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    heroImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return heroImages as {
+    leftLine: string;
+    rightLine: string;
+  };
+};
+
 export const getAllCloudinaryImages = () => {
   return {
     blog: getBlogCloudinaryImages(),

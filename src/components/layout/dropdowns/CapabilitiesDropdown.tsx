@@ -1,6 +1,8 @@
 import { capabilitiesData, additionalServices } from "@/data";
 import Image from "next/image";
+import Link from "next/link";
 import { styles, combine } from "@/styles/style";
+import { CapabilityItem } from "@/lib/types";
 
 // Capabilities dropdown component
 export const CapabilitiesDropdown = () => {
@@ -24,19 +26,33 @@ export const CapabilitiesDropdown = () => {
                 </div>
                 {/* Capability items */}
                 <ul className="space-y-3">
-                  {section.items.map((item) => (
-                    <li
-                      key={item.id}
-                      className={combine(styles.flexitems, "gap-1 xl:gap-3 text-black transition-all duration-300 cursor-pointer group/item")}
-                    >
-                      <div className={combine("pl-0 p-1 lg:p-1.5 rounded-lg text-blue group-hover/item:text-accent transition-colors duration-300", styles.flexCenter)}>
-                        <div className={combine("w-4 h-4 md:w-5 md:h-5 lg:w-8 lg:h-8", styles.flexCenter)}>
-                          <item.icon.component />
+                  {section.items.map((item) => {
+                    const ItemContent = (
+                      <>
+                        <div className={combine("pl-0 p-1 lg:p-1.5 rounded-lg text-blue group-hover/item:text-accent transition-colors duration-300", styles.flexCenter)}>
+                          <div className={combine("w-4 h-4 md:w-5 md:h-5 lg:w-8 lg:h-8", styles.flexCenter)}>
+                            <item.icon.component />
+                          </div>
                         </div>
-                      </div>
-                      <span className={combine(styles.p4, "font-medium group-hover/item:text-accent")}>{item.name}</span>
-                    </li>
-                  ))}
+                        <span className={combine(styles.p4, "font-medium group-hover/item:text-accent")}>{item.name}</span>
+                      </>
+                    );
+
+                    return (
+                      <li
+                        key={item.id}
+                        className={combine(styles.flexitems, "gap-1 xl:gap-3 text-black transition-all duration-300 cursor-pointer group/item")}
+                      >
+                        {(item as any).href ? (
+                          <Link href={(item as any).href} className={combine(styles.flexitems, "gap-1 xl:gap-3 w-full")}>
+                            {ItemContent}
+                          </Link>
+                        ) : (
+                          ItemContent
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

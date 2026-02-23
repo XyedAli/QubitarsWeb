@@ -19,8 +19,7 @@
  p5 : "text-[12px] md:text-[13px] lg:text-[14px] xl:text-[14px] font-urbanist",
 
 // Layout
- container : "max-w-7xl mx-auto px-4 xl:px-0",
- containerLarge : "max-w-[78.2rem] mx-auto",
+ 
  containerXl : "max-w-2xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl leading-relaxed",
  sectionPadding : "mx-4 lg:mx-8 xl:mx-16 mx-1700-260",
  sectionPaddingX : "px-4 lg:px-8 xl:px-16",

@@ -62,6 +62,7 @@ export const capabilitiesData = [
       {
         id: "ui-ux",
         name: "UI/UX Design",
+        href: "/ui-uxservice",
         icon: { type: "icon", component: Icons.Design },
       },
       {

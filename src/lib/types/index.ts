@@ -1,4 +1,4 @@
-export type { NavItem } from "./navbar";
+export type { NavItem, CapabilityItem } from "./navbar";
 export type {
   SectionHeadingProps,
   FAQSectionItem,

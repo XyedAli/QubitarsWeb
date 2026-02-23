@@ -52,8 +52,8 @@ export default function SalesforceProcess() {
 
         {/* SVG CONNECTOR (ALL 3 LINES) */}
         <svg
-          className="absolute top-[130px] left-0 w-full h-[300px]"
-          viewBox="0 0 1200 300"
+          className="absolute top-[130px] left-0 w-full h-[350px]"
+          viewBox="0 0 1200 356"
         >
           {/* TOP LINE */}
           <line
@@ -71,40 +71,50 @@ export default function SalesforceProcess() {
             x1="1185"
             y1="75"
             x2="1185"
-            y2="230"
+            y2="220"
             stroke="#6B7280"
             strokeWidth="2"
           />
-
-          {/* BOTTOM LINE */}
+          
+          {/* LEFT VERTICAL CONNECTOR */}
           <line
             x1="-20"
-            y1="230"
+            y1="220"
+            x2="-20"
+            y2="350"
+            stroke="#6B7280"
+            strokeWidth="2"
+          />
+
+          {/* Mid LINE */}
+          <line
+            x1="-20"
+            y1="220"
             x2="1185"
-            y2="230"
+            y2="220"
             stroke="#6B7280"
             strokeWidth="2"
           />
 
           <line
-            x1="0"
-            y1="430"
-            x2="1300"
-            y2="290"
+            x1="-5"
+            y1="350"
+            x2="1200"
+            y2="350"
             stroke="#6B7280"
             strokeWidth="2"
             strokeDasharray="5,8"
           />
           {/* DOTS TOP ROW */}
-          <circle cx="08" cy="74" r="8" fill="#9CA3AF" />
+          <circle cx="-14" cy="74" r="8" fill="#9CA3AF" />
           <circle cx="410" cy="74" r="8" fill="#9CA3AF" />
           <circle cx="810" cy="74" r="8" fill="#9CA3AF" />
           <circle cx="1185" cy="74" r="8" fill="#9CA3AF" />
 
           {/* DOTS BOTTOM ROW */}
-          <circle cx="100" cy="230" r="6" fill="#9CA3AF" />
-          <circle cx="450" cy="230" r="6" fill="#9CA3AF" />
-          <circle cx="800" cy="230" r="6" fill="#9CA3AF" />
+          <circle cx="-18" cy="348" r="8" fill="#9CA3AF" />
+          <circle cx="410" cy="348" r="8" fill="#9CA3AF" />
+          <circle cx="810" cy="348" r="8" fill="#9CA3AF" />
         </svg>
 
         {/* FIRST ROW */}
@@ -129,7 +139,7 @@ export default function SalesforceProcess() {
         </div>
 
         {/* SECOND ROW */}
-        <div className="grid grid-cols-3 gap-20 relative">
+        <div className="grid grid-cols-3 gap-20 relative mt-3">
           {steps.slice(3).map((step) => (
             <div key={step.number}>
               <div className="flex items-center mb-4">

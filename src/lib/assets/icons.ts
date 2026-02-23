@@ -187,3 +187,20 @@ export const getEngagementModelCloudinaryIcons = (): Record<string, string> => {
   });
   return icons;
 };
+
+/**
+ * Measureables – section icons (SVG)
+ */
+export const getMeasureablesIcons = (): Record<string, string> => {
+  const iconEndpoints: Record<string, string> = {
+    sicon1: "v1771824905/sicon1_qb4m0u.svg",
+    sicon2: "v1771824902/sicon2_xf624a.svg",
+  };
+  
+  const icons: Record<string, string> = {};
+  Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
+    icons[key] = optimizeIconImage(buildCloudinaryUrl(endpoint));
+  });
+  
+  return icons;
+};
