@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime"
-import { FeaturesSection, HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ , Measureables} from "@/components/features/services/UIUXService"
+import { FeaturesSection, HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ , Measureables, ChooseQubitars} from "@/components/features/services/UIUXService"
 import Banner3 from "@/components/layout/banners/banner3"
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
@@ -17,6 +17,8 @@ const UIUXService = () => {
         <Fragment>
             <HeroSection />
             <OurServices />
+                        <ChooseQubitars />
+
             <Banner3 />
             {/* <FeaturesSection /> */}
             <TechnicalResource />

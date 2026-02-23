@@ -44,12 +44,13 @@ export default function Home() {
     const tabEl = tabsRef.current[index];
     if (!tabEl) return;
 
-    // Always start width from 0 for new tab, so it grows forward
-    setUnderlineStyle({ left: tabEl.offsetLeft, width: 0 });
-
-    setTimeout(() => {
-      setUnderlineStyle({ left: tabEl.offsetLeft, width: tabEl.offsetWidth });
-    }, 50); // small delay to trigger animation
+    // Always show full tab width for active tab
+    requestAnimationFrame(() => {
+      setUnderlineStyle({
+        left: tabEl.offsetLeft,
+        width: tabEl.offsetWidth
+      });
+    });
   };
 
   useEffect(() => {
@@ -69,7 +70,7 @@ export default function Home() {
   };
 
   return (
-    <section className={combine(styles.sectionPadding, "pb-16 lg:pb-20 xl:pb-24")}>
+    <section className={combine(styles.sectionPaddingY, styles.sectionPadding)}>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
 
@@ -93,7 +94,7 @@ export default function Home() {
 
           <div className="col-span-7">
             <div className="relative flex flex-wrap gap-4 mb-8">
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gray-300 rounded-full" />
+              <span className="absolute bottom-0 left-0 w-[743px] h-[2px] bg-gray-300 rounded-full" />
 
               {tabs.map((tab, index) => (
                 <button
@@ -116,7 +117,7 @@ export default function Home() {
                 style={{
                   left: underlineStyle.left,
                   width: underlineStyle.width,
-                  transition: "width 1200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                  transition: "all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 }}
               />
             </div>

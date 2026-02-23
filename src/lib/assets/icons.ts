@@ -204,3 +204,22 @@ export const getMeasureablesIcons = (): Record<string, string> => {
   
   return icons;
 };
+
+/**
+ * Choose Qubitars – section icons (SVG)
+ */
+export const getChooseQubitarsIcons = (): Record<string, string> => {
+  const iconEndpoints: Record<string, string> = {
+    sicon3: "v1771831731/sicon3_nhymf1.svg",
+    sicon4: "v1771831731/sicon4_twrlh4.svg",
+    sicon5: "v1771831731/sicon5_fio4z3.svg",
+    sicon6: "v1771831731/sicon6_asgsro.svg",
+  };
+  
+  const icons: Record<string, string> = {};
+  Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
+    icons[key] = optimizeIconImage(buildCloudinaryUrl(endpoint));
+  });
+  
+  return icons;
+};

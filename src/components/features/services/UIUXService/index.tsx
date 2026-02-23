@@ -8,3 +8,4 @@ export {default as SalesforceProcess} from "./process"
 export {default as FAQ} from "./FAQs"
 export { default as OurServices } from "./ourServices";
 export {default as Measureables} from "./measureables"
+export {default as ChooseQubitars} from "./chooseQubitars"
