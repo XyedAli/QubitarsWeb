@@ -16,7 +16,7 @@ const Banner1 = () => {
           unoptimized
         />
       </div>
-      <div className={combine("relative z-10", styles.container, "text-center")}>
+      <div className={combine("relative z-10", styles.sectionPaddingX, "text-center")}>
         <h2 className={combine( "text-[30px] md:text-[37px] lg:text-[44px] xl:text-[50px] text-white font-bold mb-8 md:mb-12 leading-tight font-outfit")}>
           A Strategic Partner<br />
         <span className="font-normal"> for Digital Growth</span> 
