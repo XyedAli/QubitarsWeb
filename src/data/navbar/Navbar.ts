@@ -36,21 +36,25 @@ export const capabilitiesData = [
       },
       {
         id: "ai-development",
+        href: "/ai-development",
         name: "AI Development & Integration",
         icon: { type: "icon", component: Icons.Development },
       },
       {
         id: "ai-agent",
+        href: "/ai-agent",
         name: "AI Agent",
         icon: { type: "icon", component: Icons.Agent },
       },
       {
         id: "ai-workflow",
+        href: "/ai-workflow",
         name: "AI Workflow Automation",
         icon: { type: "icon", component: Icons.Workflow },
       },
       {
         id: "generative-ai",
+        href: "/generative-ai",
         name: "Generative AI Solutions",
         icon: { type: "icon", component: Icons.Generative },
       },
@@ -108,11 +112,11 @@ export const capabilitiesData = [
 
 // Additional services shown in capabilities dropdown
 export const additionalServices = [
-  { id: "product-design", name: "Product Design" },
-  { id: "quality-assurance", name: "Quality Assurance" },
-  { id: "devops", name: "DevOps" },
-  { id: "staff-augmentation", name: "Staff Augmentation" },
-];
+  { id: "product-design", name: "Product Design", href: "/product-design" },
+  { id: "quality-assurance", name: "Quality Assurance", href: "/quality-assurance" },
+  { id: "devops", name: "DevOps", href: "/devops" },
+  { id: "staff-augmentation", name: "Staff Augmentation", href: "/staff-augmentation" },
+]; 
 
 
 interface CompanyLogo {

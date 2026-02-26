@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "@types/react-slick": "^0.23.13",
     "country-flag-icons": "^1.5.19",
     "flag-icons": "^7.5.0",

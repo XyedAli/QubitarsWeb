@@ -60,11 +60,11 @@ export const CapabilitiesDropdown = () => {
             {/* Additional services */}
             <div className="space-y-2 lg:space-y-3">
               {additionalServices.map((service) => (
-                <div key={service.id} className="group/item cursor-pointer">
+                <Link key={service.id} href={service.href || '#'} className="group/item cursor-pointer block">
                   <h3 className="font-bold text-base lg:text-lg text-accent hover:text-accent/80 transition-colors duration-300 pb-2">
                     {service.name}
                   </h3>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

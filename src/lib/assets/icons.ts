@@ -71,6 +71,36 @@ export const getIndustryCloudinaryIcons = () => {
   };
 };
 
+// DevOps Icons
+export const getDevOpsIcons = () => {
+  // Cloudinary DevOps icon endpoints
+  const devOpsIconEndpoints = {
+    devicon1: "v1772089289/devicon1_v6kxxf.svg",
+    devicon2: "v1772089288/devicon2_gxym0q.svg",
+    devicon3: "v1772089288/devicon3_wyg5or.svg",
+    devicon4: "v1772089289/devicon4_wbjryl.svg",
+    devicon5: "v1772089288/devicon5_xggwhz.svg",
+    devicon6: "v1772089288/devicon6_abtgse.svg",
+  };
+
+  // Build full URLs and optimize them
+  const devOpsIcons: Record<string, string> = {};
+  
+  Object.entries(devOpsIconEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    devOpsIcons[key] = optimizeIconImage(fullUrl, 4000); // 4K width for maximum HD quality
+  });
+
+  return devOpsIcons as {
+    devicon1: string;
+    devicon2: string;
+    devicon3: string;
+    devicon4: string;
+    devicon5: string;
+    devicon6: string;
+  };
+};
+
 /**
  * Industries / Real Estate – state icons (1–15) and arrows (1–3)
  * SVG icons for industries page sections

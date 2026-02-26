@@ -475,16 +475,35 @@ export const getHeroBackgroundLines = () => {
   };
 };
 
+// DevOps Page Images
+export const getDevOpsCloudinaryImages = () => {
+  const devOpsEndpoints = {
+    hero: "v1772089288/devimg1_qsfwjz.webp",
+  };
+
+  const devOpsImages: Record<string, string> = {};
+  Object.entries(devOpsEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    devOpsImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return devOpsImages as {
+    hero: string;
+  };
+};
+
 export const getAllCloudinaryImages = () => {
   return {
     blog: getBlogCloudinaryImages(),
     caseStudies: getCaseStudiesCloudinaryImages(),
     about: getAboutCloudinaryImages(),
     contact: getContactCloudinaryImages(),
+    devops: getDevOpsCloudinaryImages(),
   };
 };
 
 export const cloudinaryImages = {
   blogBg: getBlogCloudinaryImages().blogBg,
   caseStudiesBg: getCaseStudiesCloudinaryImages().caseStudiesBg,
+  devops: getDevOpsCloudinaryImages(),
 };
