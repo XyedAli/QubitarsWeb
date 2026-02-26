@@ -3,8 +3,10 @@ import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Me
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { webDevelopmentProcessSteps } from "@/data/digital-transformation/process";
+import { webDevelopmentServices } from "@/data/digital-transformation/services";
+import { heroData } from "@/data/digital-transformation/hero";
 
-const UIUXService = () => {
+const WebDevelopment = () => {
     // Merge testimonials data with images
     const testimonialsWithImages = testimonialsData.map((testimonial) => {
         const images = testimonialImagesById[testimonial.id];
@@ -15,16 +17,17 @@ const UIUXService = () => {
     });
     return (
         <Fragment>
-            <HeroSection />
-            <OurServices />
+            <HeroSection data={heroData} />
+            <OurServices services={webDevelopmentServices} />
             <ChooseQubitars />
             {/* <FeaturesSection /> */}
             <TechnicalResource />
-            <SalesforceProcess steps={webDevelopmentProcessSteps} title="Our UI/UX Design Process" />
+            <SalesforceProcess steps={webDevelopmentProcessSteps} title="Our Web Development Process" />
             <Measureables />
             <OurClient testimonials={testimonialsWithImages} />
             <FAQ />
         </Fragment>
     )
 }
-export default UIUXService
+
+export default WebDevelopment;

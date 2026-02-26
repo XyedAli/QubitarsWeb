@@ -30,6 +30,7 @@ export const capabilitiesData = [
     items: [
       {
         id: "ai-consultation",
+        href: "/ai-development",
         name: "AI Consultation",
         icon: { type: "icon", component: Icons.AI },
       },
@@ -67,31 +68,37 @@ export const capabilitiesData = [
       },
       {
         id: "custom-software",
+        href: "/custom-software-development",
         name: "Custom Software Development",
         icon: { type: "icon", component: Icons.Custom },
       },
       {
         id: "web-app",
+        href: "/web-development",
         name: "Web App Development",
         icon: { type: "icon", component: Icons.Browser },
       },
       {
         id: "mobile-app",
+        href: "/mobile-app-development",
         name: "Mobile App Development",
         icon: { type: "icon", component: Icons.Mobile },
       },
       {
         id: "mvp-development",
+        href: "/mvp-development",
         name: "MVP Development",
         icon: { type: "icon", component: Icons.MVP },
       },
       {
         id: "saas-development",
+        href: "/saas-development",
         name: "SAAS Development",
         icon: { type: "icon", component: Icons.Saas },
       },
       {
         id: "low-code",
+        href: "/low-code-no-code",
         name: "Low-Code/No-Code Development",
         icon: { type: "icon", component: Icons.LowCode },
       },
@@ -109,30 +116,30 @@ export const additionalServices = [
 
 
 interface CompanyLogo {
-    id: string;
-    name: string;
-    image: string;
-    alt: string;
+  id: string;
+  name: string;
+  image: string;
+  alt: string;
 }
 
 interface Testimonial {
-    id: string;
-    quote: string;
-    author: string;
-    position: string;
-    company: string;
-    avatar: string;
+  id: string;
+  quote: string;
+  author: string;
+  position: string;
+  company: string;
+  avatar: string;
 }
 
 interface Industry {
-    id: string;
-    name: string;
-    icon: React.ComponentType<{ width: number; height: number; className: string }>;
-    description: string;
-    title: string;
-    companies?: CompanyLogo[];
-    testimonials?: Testimonial[];
-    hasSpecialContent?: boolean;
+  id: string;
+  name: string;
+  icon: React.ComponentType<{ width: number; height: number; className: string }>;
+  description: string;
+  title: string;
+  companies?: CompanyLogo[];
+  testimonials?: Testimonial[];
+  hasSpecialContent?: boolean;
 }
 
 // Industries dropdown data - industries we serve
@@ -219,18 +226,18 @@ export const industries: Industry[] = [
 ];
 
 interface CompanyDataItem {
-    type: "testimonialSlide" | "statistic" | "companyLink" | "insideQubitarsLink" | "careersLink" | "blogPost" | "socialLink";
-    id: string;
-    title?: string;
-    label?: string;
-    name?: string;
-    value?: string;
-    href?: string;
-    image?: string;
-    alt?: string;
-    logo?: string;
-    logoAlt?: string;
-    icon?: React.ComponentType<{ width: number; height: number; className?: string }>;
+  type: "testimonialSlide" | "statistic" | "companyLink" | "insideQubitarsLink" | "careersLink" | "blogPost" | "socialLink";
+  id: string;
+  title?: string;
+  label?: string;
+  name?: string;
+  value?: string;
+  href?: string;
+  image?: string;
+  alt?: string;
+  logo?: string;
+  logoAlt?: string;
+  icon?: React.ComponentType<{ width: number; height: number; className?: string }>;
 }
 
 // Company dropdown data - testimonials, stats, links, blogs, social media
@@ -258,15 +265,15 @@ export const companyData: CompanyDataItem[] = [
 ];
 
 interface EngagementDataItem {
-    type: "service" | "testimonial";
-    id: string;
-    icon?: React.ComponentType<{ width?: number; height?: number; className?: string }>;
-    title?: string;
-    description?: string;
-    quote?: string;
-    clientAvatar?: string;
-    clientName?: string;
-    clientTitle?: string;
+  type: "service" | "testimonial";
+  id: string;
+  icon?: React.ComponentType<{ width?: number; height?: number; className?: string }>;
+  title?: string;
+  description?: string;
+  quote?: string;
+  clientAvatar?: string;
+  clientName?: string;
+  clientTitle?: string;
 }
 
 // Engagement models dropdown data - services and client testimonials

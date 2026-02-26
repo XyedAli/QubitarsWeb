@@ -2,9 +2,11 @@ import { Fragment } from "react/jsx-runtime"
 import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation"
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
-import { webDevelopmentProcessSteps } from "@/data/digital-transformation/process";
+import { mvpDevelopmentProcessSteps } from "@/data/digital-transformation/process";
+import { mvpData } from "@/data/digital-transformation/hero";
+import { mvpDevelopmentServices } from "@/data/digital-transformation/services";
 
-const UIUXService = () => {
+const MVPDevelopment = () => {
     // Merge testimonials data with images
     const testimonialsWithImages = testimonialsData.map((testimonial) => {
         const images = testimonialImagesById[testimonial.id];
@@ -15,16 +17,17 @@ const UIUXService = () => {
     });
     return (
         <Fragment>
-            <HeroSection />
-            <OurServices />
+            <HeroSection data={mvpData} />
+            <OurServices services={mvpDevelopmentServices} />
             <ChooseQubitars />
             {/* <FeaturesSection /> */}
             <TechnicalResource />
-            <SalesforceProcess steps={webDevelopmentProcessSteps} title="Our UI/UX Design Process" />
+            <SalesforceProcess steps={mvpDevelopmentProcessSteps} title="Our MVP Development Process" />
             <Measureables />
             <OurClient testimonials={testimonialsWithImages} />
             <FAQ />
         </Fragment>
     )
 }
-export default UIUXService
+
+export default MVPDevelopment;
