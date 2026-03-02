@@ -33,15 +33,15 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
         if (typeof window !== "undefined") {
             const hash = window.location.hash.slice(1);
             setActiveHash(hash);
-            
+
             // Listen for hash changes
             const handleHashChange = () => {
                 const newHash = window.location.hash.slice(1);
                 setActiveHash(newHash);
             };
-            
+
             window.addEventListener('hashchange', handleHashChange);
-            
+
             // Periodic check as fallback
             const interval = setInterval(() => {
                 const currentHash = window.location.hash.slice(1);
@@ -49,7 +49,7 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
                     setActiveHash(currentHash);
                 }
             }, 100);
-            
+
             return () => {
                 window.removeEventListener('hashchange', handleHashChange);
                 clearInterval(interval);
@@ -100,7 +100,7 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
                                 );
                             })}
                             <Button variant="accent" size="md" className="mt-4">
-                                <Link href="/engagement-models#models-section">
+                                <Link href="/engagement-models">
                                     Discover More
                                 </Link>
                                 <div className="relative">

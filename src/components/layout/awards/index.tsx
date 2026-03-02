@@ -8,7 +8,7 @@ import { getAwardsMapCloudinaryImage } from "@/lib/assets/images";
 
 const Awards = () => (
   <section className={`${styles.sectionPaddingY} bg-[#EDEFF8] relative z-[1] overflow-hidden`}>
-    <div className="absolute bottom-0 left-0 right-0 w-full h-[260px] md:h-[280px] lg:h-[300px] xl:h-[330px] pointer-events-none overflow-hidden">
+    <div className="absolute bottom-0 left-0 right-0 w-full h-[260px] md:h-[280px] lg:h-[300px] xl:h-[350px] pointer-events-none overflow-hidden">
       <Image src={getAwardsMapCloudinaryImage()} alt="" fill className="object-cover object-bottom" unoptimized />
     </div>
     <div className={`${styles.sectionPadding} relative z-10`}>

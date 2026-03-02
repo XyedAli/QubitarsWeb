@@ -28,7 +28,7 @@ export default function BusinessExcellence() {
   const devOpsImages = getDevOpsCloudinaryImages();
 
   return (
-    <section className={combine(styles.sectionPaddingY2,"bg-gray-50 pt-14")}>
+    <section className={combine(styles.sectionPaddingY2,"bg-gray-50 pt-14 mb-9 md:mb-13 lg:mb-16 xl:mb-20")}>
       <div>
         <div className="relative overflow-hidden bg-[#0E1225] min-h-[315px] lg:min-h-[380px] xl:min-h-[420px] px-6 py-12 lg:px-14 lg:py-20 pb-10 md:pb-12">
           

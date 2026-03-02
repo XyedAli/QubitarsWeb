@@ -39,8 +39,10 @@ const reality = [
 export default function MythRealityPerfect() {
   return (
     <div className="bg-gray-100">
-      <div className={combine(styles.sectionPaddingY, "px-9")}>
-        <SectionHeading subtitle="Myth vs. reality" title="From Myth To Measurable" />
+      <div className={combine(styles.sectionPaddingY, "px-8 mb-10 md:mb-16 lg:mb-20")}>
+        <div className="ms-9">
+          <SectionHeading subtitle="Myth vs. reality" title="From Myth To Measurable" />
+        </div>
         <div className="relative grid grid-cols-2 gap-24 ">
 
           {/* ================= VS LINE ================= */}
