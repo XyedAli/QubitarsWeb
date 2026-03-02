@@ -1,6 +1,24 @@
 "use client";
 
-import { Check, X } from "lucide-react";
+import Image from "next/image";
+import { styles, combine } from "@/styles/style";
+import { SectionHeading } from "@/components/shared/headings";
+
+const mythPositions = [
+  { top: 20, left: 270 }, // UI UX means only visual design
+  { top: 117, left: 380 }, // Wireframes slow development
+  { top: 220, left: 400 }, // Good design is subjective
+  { top: 330, left: 370 }, // UX is unnecessary for simple products
+  { top: 415, left: 270 }, // More features create better experience
+];
+
+const realityPositions = [
+  { top: 20, right: 283 }, // Effective design is validated...
+  { top: 114, right: 341 }, // They reduce rework...
+  { top: 216, right: 378 },  // It covers research...
+  { top: 324, right: 345 }, // Even simple flows...
+  { top: 407, right: 290 }, // Focused functionality...
+];
 
 const myths = [
   "UI UX means only visual design",
@@ -18,74 +36,49 @@ const reality = [
   "Focused functionality improves usability and user satisfaction.",
 ];
 
-function polarToCartesian(cx: number, cy: number, r: number, angle: number) {
-  const rad = (angle * Math.PI) / 180;
-  return {
-    x: cx + r * Math.cos(rad),
-    y: cy + r * Math.sin(rad),
-  };
-}
-
 export default function MythRealityPerfect() {
-  const arcRadius = 180;
-  const centerY = 300;
-
-  const mythAngles = [-60, -30, 0, 30, 60];
-  const realityAngles = [240, 210, 180, 150, 120];
-
   return (
-    <section className="mx-16 bg-white">
-      <div className="relative">
+    <div className="bg-gray-100">
+      <div className={combine(styles.sectionPaddingY, "px-9")}>
+        <SectionHeading subtitle="Myth vs. reality" title="From Myth To Measurable" />
+        <div className="relative grid grid-cols-2 gap-24 ">
 
-        {/* CENTER DIVIDER */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gray-300 -translate-x-1/2" />
+          {/* ================= VS LINE ================= */}
+          <div className="absolute top-40 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+            <div className="bg-white text-blue px-5 py-1 rounded-full font-bold text-lg shadow-lg border border-gray-600">
+              VS
+            </div>
+          </div>
 
-        <div className="grid grid-cols-2 gap-24 relative h-[620px]">
+          {/* ================= VERTICAL LINES ================= */}
+          <div className="absolute top-13 bottom-20 left-1/2 w-[0.5px] bg-gray-700 z-40 -translate-x-1/2"></div>
 
           {/* ================= LEFT COLUMN ================= */}
-          <div className="relative flex justify-start">
-
-            {/* Big Circle */}
-            <div className="absolute left-0 top-[180px] w-[240px] h-[240px] bg-gray-100 rounded-full flex items-center justify-center text-center shadow-sm">
-              <div className="font-medium text-gray-800">
-                False Assumptions<br />About UI/UX
-              </div>
+          <div className="relative">
+            <Image
+              src="https://res.cloudinary.com/drugkop7t/image/upload/v1772437770/myth_lnan3r.webp"
+              alt="Myth - False Assumptions About UI/UX"
+              className="w-[400px] h-[470px] object-cover rounded-xl"
+              width={500}
+              height={500}
+            />
+            <div className="absolute top-58 left-40 -translate-x-1/2 -translate-y-1/2 text-center text-gray-800 font-bold text-xl max-w-[190px]">
+              False Assumptions About UI/UX
             </div>
 
-            {/* Curve */}
-            <svg className="absolute left-0 top-0 w-full h-full pointer-events-none">
-              <path
-                d="M 160 180 A 180 180 0 0 1 160 480"
-                stroke="#E5E7EB"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-
-            {/* Items */}
-            {mythAngles.map((angle, i) => {
-              const p = polarToCartesian(160, centerY, arcRadius, angle);
+            {myths.map((text, i) => {
+              const position = mythPositions[i];
 
               return (
-                <div key={i}>
-                  <div
-                    className="absolute w-2 h-2 bg-black rounded-full"
-                    style={{ left: p.x - 4, top: p.y - 4 }}
-                  />
-
-                  <div
-                    className="absolute w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center"
-                    style={{ left: p.x + 14, top: p.y - 20 }}
-                  >
-                    <X size={16} />
-                  </div>
-
-                  <div
-                    className="absolute w-[230px] text-gray-600"
-                    style={{ left: p.x + 70, top: p.y - 10 }}
-                  >
-                    {myths[i]}
-                  </div>
+                <div
+                  key={i}
+                  className="absolute text-gray-700 font-medium text-base max-w-xs"
+                  style={{
+                    left: `${position.left}px`,
+                    top: `${position.top}px`
+                  }}
+                >
+                  <p className="leading-tight text-gray-700">{text}</p>
                 </div>
               );
             })}
@@ -93,48 +86,31 @@ export default function MythRealityPerfect() {
 
           {/* ================= RIGHT COLUMN ================= */}
           <div className="relative flex justify-end">
-
-            {/* Big Circle */}
-            <div className="absolute right-0 top-[180px] w-[250px] h-[250px] bg-gray-100 rounded-full flex items-center justify-center text-center shadow-sm">
-              <div className="font-medium text-gray-800">
-                What UI/UX<br />Really Means
-              </div>
+            <Image
+              src="https://res.cloudinary.com/drugkop7t/image/upload/v1772437770/reality_iyam8v.webp"
+              alt="Reality - What UI/UX Really Means"
+              className="w-[400px] h-[470px] object-cover rounded-xl"
+              width={500}
+              height={500}
+            />
+            <div className="absolute top-60 right-[-30px] -translate-x-1/2 -translate-y-1/2 text-center text-gray-800 font-bold text-xl max-w-[190px]">
+              What UI/UX Really Means
             </div>
 
-            {/* Curve */}
-            <svg className="absolute right-10 top-[-27px] w-full h-full pointer-events-none">
-              <path
-                d="M 500 180 A 210 180 0 0 0 500 480"
-                stroke="#E5E7EB"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-            
-            {/* Items */}
-            {realityAngles.map((angle, i) => {
-              const p = polarToCartesian(550, centerY, arcRadius, angle);
+            {reality.map((text, i) => {
+              const position = realityPositions[i];
 
               return (
-                <div key={i}>
-                  <div
-                    className="absolute w-3 h-3 bg-orange-500 rounded-full"
-                    style={{ left: p.x - 1.5, top: p.y - 1.5 }}
-                  />
+                <div
+                  key={i}
+                  className="absolute text-gray-700 font-medium text-base max-w-xs"
+                  style={{
+                    right: `${position.right}px`,
+                    top: `${position.top}px`
+                  }}
+                >
+                  <p className="leading-tight text-gray-700">{text}</p>
 
-                  <div
-                    className="absolute w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center"
-                    style={{ left: p.x - 52, top: p.y - 43 }}
-                  >
-                    <Check size={16} className="text-orange-500" />
-                  </div>
-
-                  <div
-                    className="absolute w-[260px] text-right text-gray-600"
-                    style={{ left: p.x - 320, top: p.y - 10 }}
-                  >
-                    {reality[i]}
-                  </div>
                 </div>
               );
             })}
@@ -142,6 +118,6 @@ export default function MythRealityPerfect() {
 
         </div>
       </div>
-    </section>
+    </div>
   );
 }

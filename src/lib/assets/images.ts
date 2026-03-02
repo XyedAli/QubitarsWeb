@@ -481,7 +481,11 @@ export const getDevOpsCloudinaryImages = () => {
     hero: "v1772089288/devimg1_qsfwjz.webp",
     bg1: "v1772188381/bannerbg1_p9aq5q.webp",
     bg2: "v1772188381/approachbg_lcwrsw.webp",
-    infinity: "v1772429261/dev_1_dmdvu2.png"
+    infinity: "v1772429261/dev_1_dmdvu2.png",
+    chooseQubitars1: "v1772445198/devimg5_ezoj5o.webp",
+    chooseQubitars2: "v1772445199/devimg3_tnkju5.webp",
+    chooseQubitars3: "v1772445199/devimg2_ryxzd9.webp",
+    chooseQubitars4: "v1772445199/devimg4_ihaned.webp"
   };
 
   const devOpsImages: Record<string, string> = {};
@@ -495,6 +499,10 @@ export const getDevOpsCloudinaryImages = () => {
     bg1: string;
     bg2: string;
     infinity: string;
+    chooseQubitars1: string;
+    chooseQubitars2: string;
+    chooseQubitars3: string;
+    chooseQubitars4: string;
   };
 };
 
