@@ -14,6 +14,7 @@ import {
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { industryIds, isValidIndustryId } from "@/data/industries/industrySlugs";
+import { styles } from "@/styles/style";
 
 export function generateStaticParams() {
   return industryIds.map((industryId) => ({ industryId }));
@@ -59,7 +60,9 @@ export default async function IndustryPage({
       <OutcomeFocused />
       <OtherSuccessStoriesSlider />
       <ChooseQubitars />
+      <div className={styles.sectionPaddingY1}>
       <OurClient testimonials={testimonialsWithImages} />
+      </div>
       <FAQs industryId={industryId} />
     </Fragment>
   );

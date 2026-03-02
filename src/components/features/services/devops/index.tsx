@@ -1,3 +1,9 @@
 export {default as DeliverFlow} from "./how-we-deliver";
 export {default as Services} from "./services";
 export {default as Hero} from "./hero";
+export {default as Benefits} from "./benefits";
+export {default as RelationWithOthers} from "./relation-with-others";
+export {default as ChooseQubitars} from "./chooseQubitars";
+export {default as DevopsEfficiency} from "./devops-efficiency";
+export {default as OurApproaches} from "./ourApproaches";
+export {default as FAQs} from "./FAQs";

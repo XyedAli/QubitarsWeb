@@ -55,7 +55,7 @@ const deliverData = [
     number: "01",
     title: "Automation-First",
     description:
-      "We automate CI/CD, infrastructure, and workflows to reduce manual effort, ensure consistency, and accelerate delivery.",
+      "We streamline CI/CD, infrastructure, and workflows through automation to reduce manual work and accelerate consistent, reliable delivery.",
   },
   {
     number: "02",
@@ -67,7 +67,7 @@ const deliverData = [
     number: "03",
     title: "Reliability Engineering",
     description:
-      "SLOs, SLIs, monitoring, alerting, incident response, and root-cause analysis are embedded for high system reliability.",
+      "We embed SLOs, SLIs, monitoring, alerting, incident response, and root-cause analysis to ensure high system reliability and operational resilience.",
   },
   {
     number: "04",
@@ -118,8 +118,8 @@ export default function DeliverFlow() {
 
                   {/* NUMBER RECTANGLE */}
                   <div
-                    className={`w-12 h-12 flex items-center justify-center rounded-md font-semibold transition-all duration-200 ${isActive
-                      ? "bg-blue-600 text-white"
+                    className={`w-12 h-12 flex items-center justify-center rounded-md font-semibold transition-all duration-200 flex-shrink-0 ${isActive
+                      ? "bg-blue-700 text-white"
                       : "bg-gray-100 text-gray-600"
                       }`}
                   >
@@ -130,7 +130,7 @@ export default function DeliverFlow() {
                   <div>
                     <h3
                       className={`text-2xl font-semibold ${isActive
-                        ? "text-blue-600"
+                        ? "text-blue-700"
                         : "text-gray-900"
                         }`}
                     >

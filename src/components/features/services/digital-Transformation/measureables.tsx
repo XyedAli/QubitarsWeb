@@ -1,83 +1,147 @@
 "use client";
 
-import React from "react";
-import { combine, styles } from "@/styles/style";
-import { getMeasureablesIcons } from "@/lib/assets/icons";
-import { SectionHeading } from "@/components/shared/headings";
+import { Check, X } from "lucide-react";
 
-const mythsReality = [
-  {
-    myth: "Good design is subjective",
-    reality: "Effective design is validated through data, behavior patterns, usability testing.",
-  },
-  {
-    myth: "Wireframes slow development",
-    reality: "They reduce rework, align teams, and accelerate delivery.",
-  },
-  {
-    myth: "UI UX means only visual design",
-    reality: "It covers research, strategy, usability, testing, and continuous optimization.",
-  },
-  {
-    myth: "UX is unnecessary for simple products",
-    reality: "Even simple flows require clarity, accessibility, friction-free interactions.",
-  },
-  {
-    myth: "More features create better experience",
-    reality: "Focused functionality improves usability and user satisfaction.",
-  },
+const myths = [
+  "UI UX means only visual design",
+  "Wireframes slow development",
+  "Good design is subjective",
+  "UX is unnecessary for simple products",
+  "More features create better experience",
 ];
 
-const MythVsRealitySection = () => {
-  const measureablesIcons = getMeasureablesIcons();
+const reality = [
+  "Effective design is validated through data, behavior patterns, usability testing.",
+  "They reduce rework, align teams, and accelerate delivery.",
+  "It covers research, usability testing, and continuous optimization.",
+  "Even simple flows require clarity, accessibility, friction-free interactions.",
+  "Focused functionality improves usability and user satisfaction.",
+];
+
+function polarToCartesian(cx: number, cy: number, r: number, angle: number) {
+  const rad = (angle * Math.PI) / 180;
+  return {
+    x: cx + r * Math.cos(rad),
+    y: cy + r * Math.sin(rad),
+  };
+}
+
+export default function MythRealityPerfect() {
+  const arcRadius = 180;
+  const centerY = 300;
+
+  const mythAngles = [-60, -30, 0, 30, 60];
+  const realityAngles = [240, 210, 180, 150, 120];
+
   return (
-    <section className={combine(styles.sectionPaddingY, "bg-gray-100")}>
-      <div className={styles.sectionPaddingX}>
-        {/* Heading */}
-        <SectionHeading
-          subtitle="Myth vs. Reality"
-          title="From Myth To Measurable"
-        />
-        {/* Table/Grid */}
-        <div className="overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 text-white font-bold">
-            {/* Header */}
-            <div className={combine(styles.flexCenter, "relative col-span-2 h-20")}>
-              <div className={combine(styles.flexBetween, "bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] py-1 px-2 rounded-tl-lg rounded-bl-lg w-1/2")}>
-                <div className="w-15 h-15 bg-white rounded-lg flex items-center justify-center">
-                  <img src={measureablesIcons.sicon1} alt="Myth icon" className="h-8 w-8" />
-                </div>
-                <h4 className={combine(styles.flexCenter, styles.h4, "text-white font-bold flex-1 text-center")}>Myth</h4>
-              </div>
-              <div className={combine(styles.flexBetween, "bg-gradient-to-r from-[#1F274F] via-[#1E274F] to-[#36458A] py-1 px-2 rounded-tr-lg rounded-br-lg w-1/2")}>
-                <h4 className={combine(styles.flexCenter, styles.h4, "text-white font-bold text-lg flex-1 text-center")}>Reality</h4>
-                <div className="w-15 h-15 bg-white rounded-lg flex items-center justify-center">
-                  <img src={measureablesIcons.sicon2} alt="Reality icon" className="h-8 w-8" />
-                </div>
-              </div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] bg-white text-gray-900 font-bold rounded-full h-19 w-19 flex items-center justify-center shadow-md text-lg z-10">
-                vs
+    <section className="mx-16 bg-white">
+      <div className="relative">
+
+        {/* CENTER DIVIDER */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gray-300 -translate-x-1/2" />
+
+        <div className="grid grid-cols-2 gap-24 relative h-[620px]">
+
+          {/* ================= LEFT COLUMN ================= */}
+          <div className="relative flex justify-start">
+
+            {/* Big Circle */}
+            <div className="absolute left-0 top-[180px] w-[240px] h-[240px] bg-gray-100 rounded-full flex items-center justify-center text-center shadow-sm">
+              <div className="font-medium text-gray-800">
+                False Assumptions<br />About UI/UX
               </div>
             </div>
 
-            {/* Rows */}
-            {mythsReality.map((item, idx) => (
-              <React.Fragment key={idx}>
-                <div
-                  className={combine(styles.p1, "px-6 py-4 text-blue font-bold border-b border-gray-200 rounded-tl-lg rounded-bl-lg bg-white h-20 flex items-center justify-center")}>
-                  {item.myth}
+            {/* Curve */}
+            <svg className="absolute left-0 top-0 w-full h-full pointer-events-none">
+              <path
+                d="M 160 180 A 180 180 0 0 1 160 480"
+                stroke="#E5E7EB"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
+
+            {/* Items */}
+            {mythAngles.map((angle, i) => {
+              const p = polarToCartesian(160, centerY, arcRadius, angle);
+
+              return (
+                <div key={i}>
+                  <div
+                    className="absolute w-2 h-2 bg-black rounded-full"
+                    style={{ left: p.x - 4, top: p.y - 4 }}
+                  />
+
+                  <div
+                    className="absolute w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center"
+                    style={{ left: p.x + 14, top: p.y - 20 }}
+                  >
+                    <X size={16} />
+                  </div>
+
+                  <div
+                    className="absolute w-[230px] text-gray-600"
+                    style={{ left: p.x + 70, top: p.y - 10 }}
+                  >
+                    {myths[i]}
+                  </div>
                 </div>
-                <div
-                  className={combine(styles.p2, "px-14 py-4 text-gray-600 font-normal font-inter border-b border-gray-200 rounded-tr-lg rounded-br-lg bg-white h-20 flex items-center justify-center text-center")}>
-                  {item.reality}
-                </div>
-              </React.Fragment>
-            ))}
+              );
+            })}
           </div>
+
+          {/* ================= RIGHT COLUMN ================= */}
+          <div className="relative flex justify-end">
+
+            {/* Big Circle */}
+            <div className="absolute right-0 top-[180px] w-[250px] h-[250px] bg-gray-100 rounded-full flex items-center justify-center text-center shadow-sm">
+              <div className="font-medium text-gray-800">
+                What UI/UX<br />Really Means
+              </div>
+            </div>
+
+            {/* Curve */}
+            <svg className="absolute right-10 top-[-27px] w-full h-full pointer-events-none">
+              <path
+                d="M 500 180 A 210 180 0 0 0 500 480"
+                stroke="#E5E7EB"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
+            
+            {/* Items */}
+            {realityAngles.map((angle, i) => {
+              const p = polarToCartesian(550, centerY, arcRadius, angle);
+
+              return (
+                <div key={i}>
+                  <div
+                    className="absolute w-3 h-3 bg-orange-500 rounded-full"
+                    style={{ left: p.x - 1.5, top: p.y - 1.5 }}
+                  />
+
+                  <div
+                    className="absolute w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center"
+                    style={{ left: p.x - 52, top: p.y - 43 }}
+                  >
+                    <Check size={16} className="text-orange-500" />
+                  </div>
+
+                  <div
+                    className="absolute w-[260px] text-right text-gray-600"
+                    style={{ left: p.x - 320, top: p.y - 10 }}
+                  >
+                    {reality[i]}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>
   );
-};
-
-export default MythVsRealitySection;
+}

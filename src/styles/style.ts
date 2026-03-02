@@ -24,6 +24,9 @@
  sectionPadding : "mx-4 lg:mx-8 xl:mx-16 mx-1700-260",
  sectionPaddingX : "px-4 lg:px-8 xl:px-16",
  sectionPaddingY : "py-14 md:py-18 lg:py-21 xl:py-24",
+  sectionPaddingY1: "pt-14 md:pt-18 lg:pt-21 xl:pt-24",
+  sectionPaddingY2: "pb-14 md:pb-18 lg:pb-21 xl:pb-24",
+
 
 // Flex utilities
  flexCenter : "flex items-center justify-center",

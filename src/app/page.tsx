@@ -2,8 +2,6 @@ import { Hero, BusinessTypes, Services, OurClient, DigitalServices, TriScroll, R
 import { IndustryLogosSlider } from "@/components/shared/ui";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { styles } from "@/styles/style";
-import Banner1 from "@/components/layout/banners/banner1";
-import Banner3 from "@/components/layout/banners/banner3";
 import Banner4 from "@/components/layout/banners/banner4";
 import { homeMetadata } from "@/lib/metadata";
 
@@ -23,20 +21,19 @@ export default function Home() {
       <Hero />
       <div className="py-8 bg-white">
         <div className={styles.sectionPadding}>
-          <IndustryLogosSlider /> 
+          <IndustryLogosSlider />
         </div>
       </div>
       <BusinessTypes />
       <Services />
       <RealEstatePartner />
-      {/* <IndustriesCards /> */}
       <DigitalServices />
-      {/* <Banner1 /> */}
-      {/* <Banner3 /> */}
       <Banner4 />
       <TriScroll />
       <OurTechStack />
-      <OurClient testimonials={testimonialsWithImages} />
+      <div className={styles.sectionPaddingY}>
+        <OurClient testimonials={testimonialsWithImages} />
+      </div>
     </>
   );
 }

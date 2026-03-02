@@ -1,13 +1,30 @@
 import { Fragment } from "react/jsx-runtime"
-import { DeliverFlow, Services, Hero,  } from "@/components/features/services/devops"
-import StickyCards from "@/components/features/services/devops/StickyCards"
+import { DeliverFlow, Services, Hero, Benefits, RelationWithOthers, ChooseQubitars, DevopsEfficiency, OurApproaches ,FAQs
+    
+} from "@/components/features/services/devops"
+import { OurClient } from "@/components/features/home";
+import { testimonialsData, testimonialImagesById } from "@/data/home";
 const Devops = () => {
+        // Merge testimonials data with images
+    const testimonialsWithImages = testimonialsData.map((testimonial) => {
+        const images = testimonialImagesById[testimonial.id];
+        return {
+            ...testimonial,
+            ...images,
+        };
+    });
     return (
         <Fragment>
             <Hero />
             <Services />
+            <ChooseQubitars />
+            <OurApproaches />
+            <Benefits />
+            <DevopsEfficiency />
             <DeliverFlow />
-            <StickyCards />
+            <RelationWithOthers />
+            <OurClient testimonials={testimonialsWithImages} />
+            <FAQs />
         </Fragment>
     )
 }

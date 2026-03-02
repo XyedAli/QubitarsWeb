@@ -479,6 +479,9 @@ export const getHeroBackgroundLines = () => {
 export const getDevOpsCloudinaryImages = () => {
   const devOpsEndpoints = {
     hero: "v1772089288/devimg1_qsfwjz.webp",
+    bg1: "v1772188381/bannerbg1_p9aq5q.webp",
+    bg2: "v1772188381/approachbg_lcwrsw.webp",
+    infinity: "v1772429261/dev_1_dmdvu2.png"
   };
 
   const devOpsImages: Record<string, string> = {};
@@ -489,6 +492,9 @@ export const getDevOpsCloudinaryImages = () => {
 
   return devOpsImages as {
     hero: string;
+    bg1: string;
+    bg2: string;
+    infinity: string;
   };
 };
 

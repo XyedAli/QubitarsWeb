@@ -81,6 +81,9 @@ export const getDevOpsIcons = () => {
     devicon4: "v1772089289/devicon4_wbjryl.svg",
     devicon5: "v1772089288/devicon5_xggwhz.svg",
     devicon6: "v1772089288/devicon6_abtgse.svg",
+    devicon7: "v1772430323/devicon7_lzwbo1.svg",
+    devicon8: "v1772430322/devicon8_qzfyho.svg",
+    devicon9: "v1772430322/devicon9_lmlnlj.svg",
   };
 
   // Build full URLs and optimize them
@@ -98,6 +101,9 @@ export const getDevOpsIcons = () => {
     devicon4: string;
     devicon5: string;
     devicon6: string;
+    devicon7: string;
+    devicon8: string;
+    devicon9: string;
   };
 };
 
