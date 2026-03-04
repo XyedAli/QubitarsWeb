@@ -541,5 +541,6 @@ export const cloudinaryImages = {
   productDesign: getProductDesignCloudinaryImages(),
   productRoadmap: getProductRoadmapImages(),
   chooseQubitars: getDevOpsCloudinaryImages(),
+  devops: getDevOpsCloudinaryImages(),
   all: getAllCloudinaryImages(),
 };
