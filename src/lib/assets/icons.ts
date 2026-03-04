@@ -251,11 +251,30 @@ export const getChooseQubitarsIcons = (): Record<string, string> => {
     sicon5: "v1771831731/sicon5_fio4z3.svg",
     sicon6: "v1771831731/sicon6_asgsro.svg",
   };
-  
+
   const icons: Record<string, string> = {};
   Object.entries(iconEndpoints).forEach(([key, endpoint]) => {
     icons[key] = optimizeIconImage(buildCloudinaryUrl(endpoint));
   });
   
+  return icons;
+};
+
+// Product Design Icons
+export const getProductDesignIcons = () => {
+  const icons = {
+    pdIcon1: optimizeIconImage(buildCloudinaryUrl("v1772534328/pdIcon1_krzaj1.svg")),
+    pdIcon2: optimizeIconImage(buildCloudinaryUrl("v1772534327/pdIcon2_xifa9r.svg")),
+    pdIcon3: optimizeIconImage(buildCloudinaryUrl("v1772534327/pdIcon3_oaf4fz.svg")),
+    pdIcon4: optimizeIconImage(buildCloudinaryUrl("v1772534328/pdIcon4_bcnatd.svg")),
+    pdIcon5: optimizeIconImage(buildCloudinaryUrl("v1772605564/pdIcon5_yxi476.svg")),
+    pdIcon6: optimizeIconImage(buildCloudinaryUrl("v1772605562/pdIcon6_cc69za.svg")),
+    pdIcon7: optimizeIconImage(buildCloudinaryUrl("v1772605562/pdIcon7_vs0i8f.svg")),
+    pdIcon8: optimizeIconImage(buildCloudinaryUrl("v1772605563/pdIcon8_pz9ubn.svg")),
+    pdIcon9: optimizeIconImage(buildCloudinaryUrl("v1772605563/pdIcon9_w7mxtw.svg")),
+    pdIcon10: optimizeIconImage(buildCloudinaryUrl("v1772605563/pdIcon10_hosm3u.svg")),
+    pdIcon11: optimizeIconImage(buildCloudinaryUrl("v1772605563/pdIcon11_ktsabh.svg")),
+  };
+
   return icons;
 };

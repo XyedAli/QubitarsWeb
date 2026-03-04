@@ -506,6 +506,25 @@ export const getDevOpsCloudinaryImages = () => {
   };
 };
 
+// Product Design Images
+export const getProductDesignCloudinaryImages = () => {
+  const images = {
+    pdImg1: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg1_so3mg9.webp")),
+  };
+
+  return images;
+};
+
+export const getProductRoadmapImages = () => {
+  const images = {
+    pdImg3: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg3_ghuybm.webp")),
+    pdImg2: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg2_ogliko.webp")),
+    pdImg4: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg4_mnitur.webp")),
+  };
+
+  return images;
+};
+
 export const getAllCloudinaryImages = () => {
   return {
     blog: getBlogCloudinaryImages(),
@@ -513,11 +532,14 @@ export const getAllCloudinaryImages = () => {
     about: getAboutCloudinaryImages(),
     contact: getContactCloudinaryImages(),
     devops: getDevOpsCloudinaryImages(),
+    productDesign: getProductDesignCloudinaryImages(),
+    productRoadmap: getProductRoadmapImages(),
   };
 };
 
 export const cloudinaryImages = {
-  blogBg: getBlogCloudinaryImages().blogBg,
-  caseStudiesBg: getCaseStudiesCloudinaryImages().caseStudiesBg,
-  devops: getDevOpsCloudinaryImages(),
+  productDesign: getProductDesignCloudinaryImages(),
+  productRoadmap: getProductRoadmapImages(),
+  chooseQubitars: getDevOpsCloudinaryImages(),
+  all: getAllCloudinaryImages(),
 };
