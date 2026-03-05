@@ -6,7 +6,7 @@ const HeroSection = () => {
   const devOpsImages = cloudinaryImages.devops;
 
   return (
-    <section className={combine(styles.flexCenter, styles.sectionPadding, "relative min-h-[40vh] md:min-h-[68vh] overflow-hidden bg-blue mt-4 lg:mt-8 xl:mt-10 rounded-2xl")}>
+    <section className={combine(styles.flexCenter, styles.sectionPadding, "relative min-h-[40vh] md:min-h-[54vh] overflow-hidden bg-blue mt-4 lg:mt-8 xl:mt-10 rounded-2xl")}>
       <div className="grid grid-cols-2 gap-16 items-center">
         <div className={combine(styles.sectionPadding, "relative z-10")}>
           <div className="max-w-4xl mx-auto">
@@ -26,7 +26,7 @@ const HeroSection = () => {
             alt="DevOps Development"
             width={500}
             height={500}
-            className="h-full w-[160px] md:w-[210px] lg:w-[355px] xl:w-[516px] object-cover"
+            className="h-full w-[160px] md:w-[210px] lg:w-[355px] xl:w-[480px] object-cover"
             priority
           />
         </div>

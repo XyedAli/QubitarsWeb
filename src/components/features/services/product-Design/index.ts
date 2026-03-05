@@ -4,3 +4,4 @@ export {default as MvpDelivery} from "./mvpDilevery";
 export {default as ChooseQubitars} from "./chooseQubitars";
 export {default as Banner} from "./banner";
 export {default as Slider} from "./slider";
+export {default as FAQs} from "./FAQs";
