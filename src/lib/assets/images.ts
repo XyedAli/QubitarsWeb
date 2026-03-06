@@ -515,6 +515,10 @@ export const getProductDesignCloudinaryImages = () => {
   return images;
 };
 
+export const getProductDesignBannerImage = () => {
+  return optimizeHeroImage(buildCloudinaryUrl("v1772789643/pdbanner_ospyvj.webp"));
+};
+
 export const getProductRoadmapImages = () => {
   const images = {
     pdImg3: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg3_ghuybm.webp")),

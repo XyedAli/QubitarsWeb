@@ -3,23 +3,23 @@ import { HeroSection, ProductRoadmap, MvpDelivery, ChooseQubitars, Banner, Slide
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 const ProductDesign = () => {
-         // Merge testimonials data with images
-        const testimonialsWithImages = testimonialsData.map((testimonial) => {
-            const images = testimonialImagesById[testimonial.id];
-            return {
-                ...testimonial,
-                ...images,
-            };
-        });
+    // Merge testimonials data with images
+    const testimonialsWithImages = testimonialsData.map((testimonial) => {
+        const images = testimonialImagesById[testimonial.id];
+        return {
+            ...testimonial,
+            ...images,
+        };
+    });
     return (
         <Fragment>
             <HeroSection />
             <Slider />
             <MvpDelivery />
             <ProductRoadmap />
+            <Banner />
             <ChooseQubitars />
-            {/* <Banner /> */}
-             <OurClient testimonials={testimonialsWithImages} />
+            <OurClient testimonials={testimonialsWithImages} />
             <FAQs />
         </Fragment>
     )

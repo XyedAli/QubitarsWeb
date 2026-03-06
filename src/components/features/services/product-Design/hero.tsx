@@ -118,72 +118,104 @@ export default function ProductHero() {
 
   /* =============================== */
 
-  return (
-    <div className={`relative bg-blue ${isVideoPinned ? 'h-[190vh]' : 'h-[120vh]'}`}>
+ return (
+  <div
+    className={`relative ${
+      isVideoPinned
+        ? "bg-white lg:min-h-[170vh] xl:min-h-[180vh]"
+        : "bg-blue lg:min-h-[155vh]"
+    }`}
+  >
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
       className="relative"
     >
-      <div className="sticky-area sticky top-0 h-screen mx-16 relative">
+      {/* ========================= */}
+      {/* 🔥 LARGE & XL SCREENS */}
+      {/* ========================= */}
+      <div className="hidden lg:block">
+        <div className="sticky-area sticky top-0 h-screen mx-16 relative">
+          {/* TEXT */}
+          <div className="relative z-10 max-w-6xl w-full pt-40">
+            <h1 className="text-6xl lg:text-[80px] xl:text-[90px] text-white leading-tight pt-40">
+              We design what moves business forward
+            </h1>
+          </div>
 
-        {/* TEXT */}
-        <div className="relative z-10 max-w-6xl w-full pt-40">
-          <h1 className="text-6xl md:text-[90px] text-white leading-tight pt-40">
-            We design what moves business forward
-          </h1>
+          {/* BORDER BOX */}
+          <div
+            ref={borderBoxRef}
+            className="mx-14 rounded-3xl h-[600px]"
+          />
+
+          {/* VIDEO WITH ANIMATION */}
+          {isVideoVisible && (
+            <motion.div
+              style={{
+                x: isVideoPinned ? 0 : smoothX,
+                y: isVideoPinned ? 0 : moveDown,
+                scale: isVideoPinned ? 1 : scale,
+                borderRadius: isVideoPinned ? 0 : borderRadius,
+              }}
+              className={
+                isVideoPinned
+                  ? "fixed inset-x-16 top-0 bottom-0 z-50 overflow-hidden shadow-2xl group cursor-pointer bg-white"
+                  : "absolute left-0 top-40 -translate-y-1/2 w-[400px] h-[260px] z-50 overflow-hidden shadow-2xl group cursor-pointer"
+              }
+              onMouseEnter={() => setShowPlayButton(true)}
+              onMouseLeave={() => setShowPlayButton(false)}
+            >
+              <video
+                src="https://wearenotch.com/wp-content/uploads/2024/07/Iskon-245-979KB.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
+
+              <AnimatePresence>
+                {showPlayButton && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute inset-0 flex items-center justify-center bg-black/40"
+                  >
+                    <button className="px-6 py-3 bg-white text-black rounded-full text-lg font-semibold">
+                      Play reel
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
         </div>
+      </div>
 
-        {/* BORDER BOX (Layout SAME) */}
-        <div
-          ref={borderBoxRef}
-          className="mx-14 rounded-3xl h-[600px] "
-        />
+      {/* ========================= */}
+      {/* 🔥 MD & SM SCREENS */}
+      {/* ========================= */}
 
-        {/* VIDEO BOX */}
-        {isVideoVisible && (
-          <motion.div
-            style={{
-              x: isVideoPinned ? 0 : smoothX,
-              y: isVideoPinned ? 0 : moveDown,
-              scale: isVideoPinned ? 1 : scale,
-              borderRadius: isVideoPinned ? 0 : borderRadius,
-            }}
-            className={
-              isVideoPinned
-                ? "fixed left-0 top-0 w-screen h-screen z-50 overflow-hidden shadow-2xl group cursor-pointer"
-                : "absolute left-0 top-40 -translate-y-1/2 w-[400px] h-[260px] z-50 overflow-hidden shadow-2xl group cursor-pointer"
-            }
-            onMouseEnter={() => setShowPlayButton(true)}
-            onMouseLeave={() => setShowPlayButton(false)}
-          >
-            <video
-              src="https://wearenotch.com/wp-content/uploads/2024/07/Iskon-245-979KB.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
+      <div className="block lg:hidden px-6 py-12">
 
-            <AnimatePresence>
-              {showPlayButton && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="absolute inset-0 flex items-center justify-center bg-black/40"
-                >
-                  <button className="px-6 py-3 bg-white text-black rounded-full text-lg font-semibold">
-                    Play reel
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        )}
-
+        {/* SIMPLE VIDEO (NO ANIMATION) */}
+        <div className="rounded-2xl overflow-hidden shadow-lg">
+          <video
+            src="https://wearenotch.com/wp-content/uploads/2024/07/Iskon-245-979KB.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full object-cover h-60"
+          />
+        </div>
+        {/* SIMPLE TEXT */}
+        <h1 className="text-3xl md:text-5xl font-bold text-white mt-7">
+          We design what moves business forward
+        </h1>
       </div>
     </section>
-    </div>
-  );
+  </div>
+);
 }

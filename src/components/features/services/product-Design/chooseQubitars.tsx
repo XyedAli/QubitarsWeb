@@ -4,41 +4,19 @@ import { getProductDesignIcons } from "@/lib/assets/icons";
 import { getDevOpsCloudinaryImages } from "@/lib/assets/images";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
+import { chooseQubitarsFeaturesData } from "@/data/product-design";
 
 export default function WhyChooseUs() {
     const images = getDevOpsCloudinaryImages();
     const icons = getProductDesignIcons();
-
-    const features = [
-        {
-            icon: icons.pdIcon8,
-            title: "Strategic Thinking",
-            description: "We look beyond features and focus on long-term value, aligning every initiative with measurable business objectives.",
-            borderColor: "border-orange-400"
-        },
-        {
-            icon: icons.pdIcon9,
-            title: "Unified Execution",
-            description: "Business goals, user expectations, and technical feasibility are integrated into one clear, actionable direction.",
-            borderColor: "border-orange-500"
-        },
-        {
-            icon: icons.pdIcon10,
-            title: "Results–Driven Delivery",
-            description: "Every milestone, sprint, and release is structured around performance, adoption, and growth.",
-            borderColor: "border-orange-600"
-        },
-        {
-            icon: icons.pdIcon11,
-            title: "Structured Innovation",
-            description: "Research-driven discovery paired with iterative execution for clear, fast progress.",
-            borderColor: "border-orange-700"
-        }
-    ];
+    const features = chooseQubitarsFeaturesData.map(feature => ({
+        ...feature,
+        icon: icons[feature.icon as keyof typeof icons]
+    }));
 
     return (
-        <section className={`bg-[#F7F7F7] ${styles.sectionPaddingY}`}>
-            <div className={`${styles.sectionPaddingX} grid grid-cols-12 gap-16 items-center`}>
+        <section className={`bg-white ${styles.sectionPaddingY}`}>
+            <div className={`${styles.sectionPaddingX} grid grid-cols-12 gap-9 lg:gap-12 xl:gap-16 items-center`}>
 
                 {/* ================= LEFT SIDE ================= */}
                 <div className="col-span-12 lg:col-span-6">
@@ -49,14 +27,14 @@ export default function WhyChooseUs() {
                     />
 
                     {/* Feature List */}
-                    <div className="space-y-7">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1  gap-x-8 gap-y-4 xl:gap-y-7">
                         {features.map((feature, index) => (
                             <div key={index} className={`flex gap-5`}>
                                 <div className={`w-12 h-12 ${styles.flexCenter} border-b-2 ${feature.borderColor} text-orange-500`}>
                                     <img src={feature.icon} alt="" className="w-9 h-9" />
                                 </div>
                                 <div>
-                                    <h4 className={`text-[26px] font-semibold text-blue mb-2`}>
+                                    <h4 className={`text-[20px] md:text-[24px] xl:text-[26px] font-semibold text-blue mb-1 xl:mb-2`}>
                                         {feature.title}
                                     </h4>
                                     <p className={`${styles.p2} text-blue leading-normal max-w-2xl `}>
@@ -69,9 +47,9 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* ================= RIGHT SIDE ================= */}
-                <div className="col-span-12 lg:col-span-6 flex justify-end">
+                <div className="col-span-12 lg:col-span-6 flex justify-end hidden lg:block">
 
-                    <div className="relative w-[520px] h-[600px]">
+                    <div className="relative w-[520px] h-[500px] xl:h-[600px]">
                         <Image
                             src={images.chooseQubitars1}
                             alt="Handshake"
