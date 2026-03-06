@@ -3,55 +3,31 @@
 import { useState } from "react";
 import { SectionHeading } from "@/components/shared/headings";
 import { styles, combine } from "@/styles/style";
+import { getChooseQubitarsTabs } from "@/data/devops/devops";
 import { getDevOpsCloudinaryImages } from "@/lib/assets/images";
 
 export default function ChooseQubitars() {
     const [activeTab, setActiveTab] = useState(0);
     const devOpsImages = getDevOpsCloudinaryImages();
-    
-    const tabsData = [
-        {
-            title: "DevSecOps",
-            content:
-                "We embed security into every stage of the delivery pipeline, using automated compliance checks, vulnerability scanning, and policy enforcement to protect applications without slowing development velocity.",
-            image: devOpsImages.chooseQubitars1,
-        },
-        {
-            title: "MLOps",
-            content: "We operationalize machine learning by automating model training, deployment, monitoring, and performance optimization, enabling faster insights, reduced costs, and proactive issue detection.",
-            image: devOpsImages.chooseQubitars2,
-
-        },
-        {
-            title: "ModelOps",
-            content: "We manage the full lifecycle of AI/ML models—from deployment to governance—ensuring scalability, regulatory compliance, collaboration, and consistent performance across environments.",
-            image: devOpsImages.chooseQubitars3,
-
-        },
-        {
-            title: "GitOps",
-            content: "We use Git as a single source of truth for infrastructure and deployments, enabling version-controlled environments, faster rollbacks, improved collaboration, and reliable, automated delivery workflows.",
-            image: devOpsImages.chooseQubitars4,
-        },
-    ];
+    const tabsData = getChooseQubitarsTabs(devOpsImages);
 
     return (
         <section className="" >
         <div className={combine(styles.sectionPaddingY, styles.sectionPadding, )}>
-            <div className="flex flex-col lg:flex-row gap-24 items-center">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-16 xl:gap-24 items-center">
                 {/* Text Content */}
-                <div className="flex-1">
+                <div className="flex-1 mb-0 xl:mb-6">
                     <SectionHeading
                         subtitle="Why CHOOSE US"
                         title="DevOps Enabling Business Agility"
                     />
 
                     {/* Tabs */}
-                    <ul className={combine("flex gap-12 mb-12 list-none")}>
+                    <ul className={combine("flex gap-5 lg:gap-9 xl:gap-12 mb-4 lg:mb-6 xl:mb-10 list-none")}>
                         {tabsData.map((tab, index) => (
                             <li
                                 key={index}
-                                className={combine("cursor-pointer font-medium pb-1", activeTab === index
+                                className={combine("cursor-pointer text-base lg:text-lg font-medium pb-1", activeTab === index
                                     ? "border-b-2 border-orange-500 text-orange-500 px-5"
                                     : "text-black"
                                     )}
@@ -74,7 +50,7 @@ export default function ChooseQubitars() {
                     <img
                         src={tabsData[activeTab].image}
                         alt={`${tabsData[activeTab].title} illustration`}
-                        className="w-full rounded-lg"
+                        className="w-full rounded-lg h-[340px] md:h-[360px] lg:h-[405px] xl:h-[475px]"
                     />
                 </div>
             </div>

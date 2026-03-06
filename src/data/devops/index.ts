@@ -1,1 +1,1 @@
-export * from "./realtion-with-others";
+export * from "./devops";

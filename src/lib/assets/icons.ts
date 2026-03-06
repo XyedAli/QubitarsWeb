@@ -1,4 +1,4 @@
-// Re-export icons from src/lib/assets/icons folder
+import { DevOpsIconKey } from "@/data/devops/devops";
 export { default } from "./icons/index";
 export { Icons } from "./icons/index";
 import { optimizeIconImage } from "@/lib/utils/cloudinary";
@@ -94,17 +94,7 @@ export const getDevOpsIcons = () => {
     devOpsIcons[key] = optimizeIconImage(fullUrl, 4000); // 4K width for maximum HD quality
   });
 
-  return devOpsIcons as {
-    devicon1: string;
-    devicon2: string;
-    devicon3: string;
-    devicon4: string;
-    devicon5: string;
-    devicon6: string;
-    devicon7: string;
-    devicon8: string;
-    devicon9: string;
-  };
+  return devOpsIcons as Record<DevOpsIconKey, string>;
 };
 
 /**
