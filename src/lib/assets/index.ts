@@ -8,6 +8,7 @@ export {
   getMeasureablesIcons,
   getChooseQubitarsIcons,
   getProductDesignIcons,
+  getStaffAugmentationIcons,
 } from './icons';
 
 // Re-export all image functions
@@ -20,6 +21,7 @@ export {
   getDevOpsCloudinaryImages,
   getProductDesignCloudinaryImages,
   getProductDesignBannerImage,
+  getStaffAugmentationImages,
   getProductRoadmapImages,
   getAllCloudinaryImages,
   cloudinaryImages,

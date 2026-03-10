@@ -268,3 +268,22 @@ export const getProductDesignIcons = () => {
 
   return icons;
 };
+
+// Staff Augmentation Icons
+export const getStaffAugmentationIcons = () => {
+  const icons = {
+    saIcon1: optimizeIconImage(buildCloudinaryUrl("v1773035726/SAicon1_s8smzf.svg")),
+    saIcon2: optimizeIconImage(buildCloudinaryUrl("v1773035726/SAicon2_gsspfo.svg")),
+    saIcon3: optimizeIconImage(buildCloudinaryUrl("v1773035726/SAicon3_pdkxbs.svg")),
+    saIcon4: optimizeIconImage(buildCloudinaryUrl("v1773035726/SAicon4_ewnwzt.svg")),
+    saIcon5: optimizeIconImage(buildCloudinaryUrl("v1773125729/SAicon5_pbx2l4.svg")),
+    saIcon6: optimizeIconImage(buildCloudinaryUrl("v1773125728/SAicon6_v3ovqm.svg")),
+    saIcon7: optimizeIconImage(buildCloudinaryUrl("v1773125728/SAicon7_q0xtp8.svg")),
+    saIcon8: optimizeIconImage(buildCloudinaryUrl("v1773125727/SAicon8_nliaky.svg")),
+    saIcon9: optimizeIconImage(buildCloudinaryUrl("v1773125727/SAicon9_a5et8c.svg")),
+    saIcon10: optimizeIconImage(buildCloudinaryUrl("v1773125723/SAicon10_gvq7ui.svg")),
+    saIcon11: optimizeIconImage(buildCloudinaryUrl("v1773125721/SAicon11_ujruqx.svg")),
+  };
+
+  return icons;
+};

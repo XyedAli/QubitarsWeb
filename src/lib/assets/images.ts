@@ -472,79 +472,41 @@ export const getHeroBackgroundLines = () => {
   return heroImages as {
     leftLine: string;
     rightLine: string;
+    hero1: string;
+    hero2: string;
+    hero3: string;
+    hero4: string;
+    hero5: string;
+    hero6: string;
+    hero7: string;
+    hero8: string;
+    hero9: string;
+    hero10: string;
   };
 };
 
-// DevOps Page Images
-export const getDevOpsCloudinaryImages = () => {
-  const devOpsEndpoints = {
-    hero: "v1772089288/devimg1_qsfwjz.webp",
-    bg1: "v1772188381/bannerbg1_p9aq5q.webp",
-    bg2: "v1772188381/approachbg_lcwrsw.webp",
-    infinity: "v1772429261/dev_1_dmdvu2.png",
-    chooseQubitars1: "v1772445198/devimg5_ezoj5o.webp",
-    chooseQubitars2: "v1772445199/devimg3_tnkju5.webp",
-    chooseQubitars3: "v1772445199/devimg2_ryxzd9.webp",
-    chooseQubitars4: "v1772445199/devimg4_ihaned.webp"
-  };
-
-  const devOpsImages: Record<string, string> = {};
-  Object.entries(devOpsEndpoints).forEach(([key, endpoint]) => {
-    const fullUrl = buildCloudinaryUrl(endpoint);
-    devOpsImages[key] = optimizeHeroImage(fullUrl);
-  });
-
-  return devOpsImages as {
-    hero: string;
-    bg1: string;
-    bg2: string;
-    infinity: string;
-    chooseQubitars1: string;
-    chooseQubitars2: string;
-    chooseQubitars3: string;
-    chooseQubitars4: string;
-  };
-};
-
-// Product Design Images
-export const getProductDesignCloudinaryImages = () => {
-  const images = {
-    pdImg1: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg1_so3mg9.webp")),
-  };
-
-  return images;
-};
-
-export const getProductDesignBannerImage = () => {
-  return optimizeHeroImage(buildCloudinaryUrl("v1772789643/pdbanner_ospyvj.webp"));
-};
-
-export const getProductRoadmapImages = () => {
-  const images = {
-    pdImg3: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg3_ghuybm.webp")),
-    pdImg2: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg2_ogliko.webp")),
-    pdImg4: optimizeHeroImage(buildCloudinaryUrl("v1772534327/pdimg4_mnitur.webp")),
-  };
-
-  return images;
-};
-
-export const getAllCloudinaryImages = () => {
+export const getStaffAugmentationImages = () => {
   return {
-    blog: getBlogCloudinaryImages(),
-    caseStudies: getCaseStudiesCloudinaryImages(),
-    about: getAboutCloudinaryImages(),
-    contact: getContactCloudinaryImages(),
-    devops: getDevOpsCloudinaryImages(),
-    productDesign: getProductDesignCloudinaryImages(),
-    productRoadmap: getProductRoadmapImages(),
+    staffOverlay: optimizeHeroImage(buildCloudinaryUrl("v1772793229/staffoverlay_hqzorv.webp")),
+    staffImage1: optimizeHeroImage(buildCloudinaryUrl("v1772793228/staffimg1_c99mxv.webp")),
+    staffImage2: optimizeHeroImage(buildCloudinaryUrl("v1773035726/SAimg1_skcccp.webp")),
+    // New staff augmentation images
+    saImg2: optimizeHeroImage(buildCloudinaryUrl("v1773050892/SAimg2_vlcrec.webp")),
+    saImg3: optimizeHeroImage(buildCloudinaryUrl("v1773050899/SAimg3_rzk5i8.webp")),
+    saImg4: optimizeHeroImage(buildCloudinaryUrl("v1773050892/SAimg4_sbnuwl.webp")),
+    saImg5: optimizeHeroImage(buildCloudinaryUrl("v1773050899/SAimg5_w5m6i6.webp")),
+    saImg6: optimizeHeroImage(buildCloudinaryUrl("v1773050900/SAimg6_bkceee.webp")),
+    saImg7: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg7_lncuor.webp")),
+    saImg8: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg8_kgz9rj.webp")),
+    saImg9: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg9_etapbe.webp")),
+    saImg10: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg10_n9ol1p.webp")),
+    saImg11: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg11_kgh6qb.webp")),
+    saImg12: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg12_ynnddp.webp")),
+    saImg13: optimizeHeroImage(buildCloudinaryUrl("v1773125712/SAimg15_xlxxmv.webp")),
+    saImg14: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg14_lcevav.webp")),
+    saImg15: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg13_iowvie.webp")),
+    saImg16: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg16_svyvdh.webp")),
+    saImg17: optimizeHeroImage(buildCloudinaryUrl("v1773125721/SAimg17_ecnzbo.webp")),
+    saImg18: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg18_udmfub.webp")),
   };
-};
-
-export const cloudinaryImages = {
-  productDesign: getProductDesignCloudinaryImages(),
-  productRoadmap: getProductRoadmapImages(),
-  chooseQubitars: getDevOpsCloudinaryImages(),
-  devops: getDevOpsCloudinaryImages(),
-  all: getAllCloudinaryImages(),
 };
