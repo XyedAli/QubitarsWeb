@@ -508,5 +508,7 @@ export const getStaffAugmentationImages = () => {
     saImg16: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg16_svyvdh.webp")),
     saImg17: optimizeHeroImage(buildCloudinaryUrl("v1773125721/SAimg17_ecnzbo.webp")),
     saImg18: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg18_udmfub.webp")),
+    saImg19: optimizeHeroImage(buildCloudinaryUrl("v1773131982/SAimg19_sou9zo.webp")),
+    saImg20: optimizeHeroImage(buildCloudinaryUrl("v1773131982/SAimg20_okup8n.webp")),
   };
 };

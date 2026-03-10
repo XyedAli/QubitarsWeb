@@ -2,10 +2,11 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { combine, styles } from "@/styles/style"
 
 const tabs = [
   "Front-End",
-  "Back-End",
+  "Back-End", 
   "Low/No Code",
   "DevOps",
   "Mobile",
@@ -29,12 +30,12 @@ export default function HireEngineers() {
   const [active, setActive] = useState("Front-End")
 
   return (
-    <section className="max-w-6xl mx-auto px-8 py-12">
-      <div className="bg-[#1e2b56] rounded-2xl p-12 flex gap-16 items-center">
-
+    <section className={combine("mx-auto", styles.sectionPaddingX, "py-12")}>
+      <div className={combine("bg-[#1e2b56] rounded-2xl p-12 flex gap-16 items-center")}>
+        
         {/* LEFT SIDE */}
         <div className="flex-1 text-white">
-          <h2 className="text-4xl font-bold leading-snug mb-6">
+          <h2 className={combine("text-4xl font-bold leading-tight mb-10", styles.h2)}>
             Hire Engineers <br />
             Experienced In The Tools <br />
             Your Project Relies On
@@ -49,7 +50,7 @@ export default function HireEngineers() {
         <div className="flex-1">
 
           {/* Tabs */}
-          <div className="flex gap-6 mb-10 text-sm">
+          <div className={combine("flex gap-9 mb-10", styles.p4)}>
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -75,7 +76,7 @@ export default function HireEngineers() {
                   width={40}
                   height={40}
                 />
-                <p className="text-sm">{item.name}</p>
+                <p className={combine("text-sm", styles.p4)}>{item.name}</p>
               </div>
             ))}
           </div>

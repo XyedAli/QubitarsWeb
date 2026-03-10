@@ -10,27 +10,27 @@ export default function HeroSection() {
   const [selectedService, setSelectedService] = useState("");
 
   return (
-    <section className={combine("bg-blue relative px-10 overflow-hidden py-12 mx-16 mt-6 rounded-2xl" )}>
+    <section className={combine(" relative px-10 overflow-hidden py-12 mx-16 mt-6 rounded-2xl" )}>
 
       {/* Right Background Image */}
       <div
-        className="absolute inset-y-0 right-0 w-1/2 z-0"
+        className="absolute inset-y-0 right-0 w-2/4 z-10"
         style={{
-          backgroundImage: `url(${staffImages.staffImage1})`,
+          backgroundImage: "url('/assets/images/BG Image.png')",
           backgroundSize: "cover",
           backgroundPosition: "right",
         }}
       />
 
       {/* FULL SECTION OVERLAY */}
-      {/* <div
-        className="absolute inset-0 z-20 w-full" 
+      <div
+        className="absolute inset-0 z-0 w-full bg-blue" 
         style={{
-          backgroundImage: `url(${staffImages.staffOverlay})`,
+          backgroundImage: ``,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-      /> */}
+      />
 
       {/* CONTENT */}
       <div className={combine("relative z-30 grid lg:grid-cols-2 gap-12 items-center")}>
@@ -53,7 +53,7 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT FORM */}
-        <div className={combine("flex justify-center")}>
+        <div className={combine("flex justify-center ms-6")}>
           <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
             
             <div className="grid grid-cols-2 gap-4">

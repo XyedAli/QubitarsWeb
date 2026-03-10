@@ -3,3 +3,7 @@ export {default as AdvantagesSection} from "./advantages";
 export {default as BenefitsSection} from "./benefits";
 export {default as Models4Team} from "./models4team";
 export {default as OperationalProcess} from "./operationalProcess";
+export {default as FlexibleScaling} from "./techStack";
+export {default as ProductDelivery} from "./productDelivery";
+export {default as DedicatedTeam} from "./dedicatedTeam";
+export {default as FAQs} from "./FAQs";
