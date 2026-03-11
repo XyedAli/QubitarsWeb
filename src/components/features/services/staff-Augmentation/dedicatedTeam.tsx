@@ -6,61 +6,27 @@ import { getStaffAugmentationImages } from "@/lib/assets/images"
 import { getStaffAugmentationIcons } from "@/lib/assets"
 import { combine, styles } from "@/styles/style"
 import { GoArrowRight } from "react-icons/go";
-
+import { dedicatedTeamData } from '@/data/staff-augmentation';
 
 const staffImages = getStaffAugmentationImages()
 const staffIcons = getStaffAugmentationIcons()
 
-const teamMembers = [
-    {
-        text: "Software Developers",
-        icon: staffIcons.saIcon1,
-    },
-    {
-        text: "Mobile Developers",
-        icon: staffIcons.saIcon2,
-    },
-    {
-        text: "AI & ML Experts",
-        icon: staffIcons.saIcon3,
-    },
-    {
-        text: "DevOps Engineers",
-        icon: staffIcons.saIcon4,
-    }, {
-        text: "Data Engineers",
-        icon: staffIcons.saIcon1,
-    },
-    {
-        text: "UI/UX Designers",
-        icon: staffIcons.saIcon2,
-    },
-    {
-        text: "Software Testers",
-        icon: staffIcons.saIcon3,
-    },
-    {
-        text: "Support Engineers",
-        icon: staffIcons.saIcon4,
-    }
-]
-
 export default function DedicatedTeam() {
     return (
-        <section className={combine("py-20 bg-gray-50 mb-20", styles.sectionPaddingX)}>
+        <section className={combine("py-10 md:py-14 lg:py-17 xl:py-20 bg-gray-50 mb-20", styles.sectionPaddingX)}>
             <SectionHeading
                 subtitle="Our Expert Teams"
                 title="Skilled Professionals Across All Technologies"
             />
 
             {/* Team Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-                {teamMembers.map((member, index) => (
-                    <div key={index} className="bg-white rounded-xl p-6 border border-gray-300 duration-300">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8 mt-5 xl:mt-12">
+                {dedicatedTeamData.map((member, index) => (
+                    <div key={index} className="bg-white rounded-xl p-3 lg:p-4 xl:p-6 border border-gray-300 duration-300">
                         {/* Team Member Icon */}
                         <div className="flex mb-4">
                             <Image
-                                src={member.icon}
+                                src={staffIcons[member.iconKey as keyof typeof staffIcons]}
                                 alt={member.text}
                                 width={64}
                                 height={64}
@@ -70,7 +36,7 @@ export default function DedicatedTeam() {
 
                         {/* Team Member Info */}
                         <div className="space-y-3">
-                            <h3 className={combine("text-blue max-w-[200px] leading-tight", styles.h4)}>
+                            <h3 className={combine("text-blue max-w-[200px] leading-tight text-[17px] md:text-[24px] lg:text-[28px] xl:text-[32px]")}>
                                 {member.text}
                             </h3>
                         </div>

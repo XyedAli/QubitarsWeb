@@ -6,6 +6,7 @@ import { getStaffAugmentationIcons, getStaffAugmentationImages } from "@/lib/ass
 import { combine, styles } from "@/styles/style";
 import { SectionHeading } from '@/components/shared/headings';
 import Button from '@/components/shared/ui/button/Button';
+import { teamsData } from '@/data/staff-augmentation';
 
 interface Team {
   id: number;
@@ -15,39 +16,6 @@ interface Team {
   showButton?: boolean;
 }
 
-const teams: Team[] = [
-  {
-    id: 1,
-    title: 'Extended Team',
-    description: 'Integrate expert engineers with your internal team to accelerate delivery without hiring overhead.',
-    tags: ['TeamExtension', 'SkillSupport', 'FastScaling'],
-    showButton: true,
-  },
-  {
-    id: 2,
-    title: 'Autonomous Team',
-    description: 'Independent engineering teams that handle development, architecture, and oversight requirements.',
-    showButton: true,
-  },
-  {
-    id: 3,
-    title: 'Flexible Team',
-    description: 'Scale engineering resources up or down according to priorities and workflow.',
-    showButton: true,
-  },
-  {
-    id: 4,
-    title: 'DevOps Team',
-    description: 'Engineers with expertise in CI/CD, speed, reliability, and operational excellence.',
-    showButton: true,
-  },
-  {
-    id: 5,
-    title: 'Product Team',
-    description: 'Complete cross-functional teams for design, development, and product improvement.',
-    showButton: true,
-  },
-];
 
 const Models4Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState(1);
@@ -60,7 +28,7 @@ const Models4Team: React.FC = () => {
       </div>
 
       <div className="space-y-6">
-        {teams.map((team) => {
+        {teamsData.map((team) => {
           const isActive = activeTeam === team.id;
           return (
             <div
@@ -68,10 +36,10 @@ const Models4Team: React.FC = () => {
               onClick={() => setActiveTeam(team.id)}
               className="relative cursor-pointer transition-all duration-300 overflow-hidden bg-white text-gray-900"
             >
-              <div className="grid grid-cols-12 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                 {/* Image Column */}
-                <div className="col-span-3 flex items-center">
-                  <div className={`relative flex-shrink-0 ${isActive ? 'w-70 h-53' : 'w-70 h-32'}`}>
+                <div className="col-span-3 flex items-center hidden md:block">
+                  <div className={`relative flex-shrink-0 ${isActive ? 'w-45 lg:w-55 xl:w-70 h-47 xl:h-53' : 'w-45 lg:w-55 xl:w-70 h-28 lg:h-32'}`}>
                     <div className="w-full h-full bg-gray-100 overflow-hidden">
                       <Image
                         src={staffImages.staffImage2}
@@ -84,16 +52,16 @@ const Models4Team: React.FC = () => {
                 </div>
 
                 {/* Content Columns */}
-                <div className="col-span-9 ">
+                <div className="md:col-span-9 ">
                   {/* ID & Tags */}
-                  <div className={` border-b-2 border-gray-300 ${isActive ? 'pb-8' : 'py-8'}`}>
+                  <div className={` border-b-2 border-gray-300 ${isActive ? 'pb-5 lg:pb-8' : 'py-6 xl:py-8'}`}>
                     <div className={`flex gap-4 ${isActive ? 'justify-between' : ''}`}>
                       <div className={`font-bold ${isActive ? 'text-4xl text-gray-700' : 'text-3xl text-gray-400'}`}>
                         {team.id.toString().padStart(2, '0')}.
                       </div>
                       <div className="">
                         <div className="space-y-4">
-                          <h3 className={combine("font-bold text-xl text-gray-900", styles.h3, !isActive ? 'ps-117' : '')}>
+                          <h3 className={combine("font-bold text-xl text-gray-900", styles.h3, !isActive ? 'lg:ps-35 xl:ps-117' : '')}>
                             {team.title}
                           </h3>
                           {isActive && (
@@ -106,7 +74,7 @@ const Models4Team: React.FC = () => {
                       </div>
                     </div>
                     {/* Team Title & Description */}
-                    <div className='flex items-end justify-between gap-14 mt-6'>
+                    <div className='flex items-end justify-between gap-8 lg:gap-14 mt-6'>
                       <div>
                         {
                           isActive && team.tags && (
@@ -114,7 +82,7 @@ const Models4Team: React.FC = () => {
                               {team.tags.map((tag, idx) => (
                                 <span
                                   key={idx}
-                                  className="text-base px-4 py-2 rounded-full bg-orange-100 text-blue font-medium"
+                                  className="text-sm lg:text-base px-3 lg:px-4 py-2 rounded-full bg-orange-100 text-blue font-medium"
                                 >
                                   #{tag}
                                 </span>
