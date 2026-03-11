@@ -23,7 +23,7 @@ export default function OurApproaches() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${devOpsImages.bg2})`,
+          backgroundImage: `url(${devOpsImages.chooseQubitars6})`,
         }}
       >
         <div className="absolute inset-0 bg-black/60" />

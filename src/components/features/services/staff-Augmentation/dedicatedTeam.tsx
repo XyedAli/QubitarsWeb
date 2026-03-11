@@ -2,7 +2,8 @@
 
 import { SectionHeading } from "@/components/shared/headings"
 import Image from "next/image"
-import { getStaffAugmentationImages, getStaffAugmentationIcons } from "@/lib/assets"
+import { getStaffAugmentationImages } from "@/lib/assets/images"
+import { getStaffAugmentationIcons } from "@/lib/assets"
 import { combine, styles } from "@/styles/style"
 import { GoArrowRight } from "react-icons/go";
 

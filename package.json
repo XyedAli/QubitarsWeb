@@ -1,9 +1,9 @@
 {
-  "name": "Qubitars Technologies",
+  "name": "qubitars-technologies",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build --turbopack && next-sitemap",
     "start": "next start",
     "lint": "eslint",
@@ -35,7 +35,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "autoprefixer": "^10.4.23",
-    "baseline-browser-mapping": "^2.9.19",
+    "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9",
     "eslint-config-next": "^16.0.8",
     "husky": "^8.0.0",

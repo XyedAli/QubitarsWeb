@@ -1,13 +1,13 @@
 // components/WhyChooseUs.jsx
 import Image from "next/image";
 import { getProductDesignIcons } from "@/lib/assets/icons";
-import { getDevOpsCloudinaryImages } from "@/lib/assets/images";
+import { getProductDesignCloudinaryImages } from "@/lib/assets/images";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { chooseQubitarsFeaturesData } from "@/data/product-design";
 
 export default function WhyChooseUs() {
-    const images = getDevOpsCloudinaryImages();
+    const images = getProductDesignCloudinaryImages();
     const icons = getProductDesignIcons();
     const features = chooseQubitarsFeaturesData.map(feature => ({
         ...feature,
@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
                     />
 
                     {/* Feature List */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1  gap-x-8 gap-y-4 xl:gap-y-7">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-8 gap-y-4 xl:gap-y-7">
                         {features.map((feature, index) => (
                             <div key={index} className={`flex gap-5`}>
                                 <div className={`w-12 h-12 ${styles.flexCenter} border-b-2 ${feature.borderColor} text-orange-500`}>
@@ -47,17 +47,18 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* ================= RIGHT SIDE ================= */}
-                <div className="col-span-12 lg:col-span-6 flex justify-end hidden lg:block">
+                <div className="col-span-12 lg:col-span-6 hidden lg:block">
+                    <div className="flex justify-end ">
 
-                    <div className="relative w-[520px] h-[500px] xl:h-[600px]">
-                        <Image
-                            src={images.chooseQubitars1}
-                            alt="Handshake"
-                            fill
-                            className="object-cover rounded-tr-4xl rounded-bl-4xl"
-                        />
+                        <div className="relative max-w-[520px] w-full h-[500px] xl:h-[600px] flex justify-end">
+                            <Image
+                                src={images.pdImg5}
+                                alt="Handshake"
+                                fill
+                                className="object-cover rounded-tr-4xl rounded-bl-4xl"
+                            />
+                        </div>
                     </div>
-
                 </div>
 
             </div>

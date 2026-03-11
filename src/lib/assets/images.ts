@@ -486,29 +486,121 @@ export const getHeroBackgroundLines = () => {
 };
 
 export const getStaffAugmentationImages = () => {
-  return {
-    staffOverlay: optimizeHeroImage(buildCloudinaryUrl("v1772793229/staffoverlay_hqzorv.webp")),
-    staffImage1: optimizeHeroImage(buildCloudinaryUrl("v1772793228/staffimg1_c99mxv.webp")),
-    staffImage2: optimizeHeroImage(buildCloudinaryUrl("v1773035726/SAimg1_skcccp.webp")),
+  const staffAugmentationEndpoints = {
+    staffOverlay: "v1772793229/staffoverlay_hqzorv.webp",
+    staffImage1: "v1772793228/staffimg1_c99mxv.webp",
+    staffImage2: "v1773035726/SAimg1_skcccp.webp",
     // New staff augmentation images
-    saImg2: optimizeHeroImage(buildCloudinaryUrl("v1773050892/SAimg2_vlcrec.webp")),
-    saImg3: optimizeHeroImage(buildCloudinaryUrl("v1773050899/SAimg3_rzk5i8.webp")),
-    saImg4: optimizeHeroImage(buildCloudinaryUrl("v1773050892/SAimg4_sbnuwl.webp")),
-    saImg5: optimizeHeroImage(buildCloudinaryUrl("v1773050899/SAimg5_w5m6i6.webp")),
-    saImg6: optimizeHeroImage(buildCloudinaryUrl("v1773050900/SAimg6_bkceee.webp")),
-    saImg7: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg7_lncuor.webp")),
-    saImg8: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg8_kgz9rj.webp")),
-    saImg9: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg9_etapbe.webp")),
-    saImg10: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg10_n9ol1p.webp")),
-    saImg11: optimizeHeroImage(buildCloudinaryUrl("v1773050891/SAimg11_kgh6qb.webp")),
-    saImg12: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg12_ynnddp.webp")),
-    saImg13: optimizeHeroImage(buildCloudinaryUrl("v1773125712/SAimg15_xlxxmv.webp")),
-    saImg14: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg14_lcevav.webp")),
-    saImg15: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg13_iowvie.webp")),
-    saImg16: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg16_svyvdh.webp")),
-    saImg17: optimizeHeroImage(buildCloudinaryUrl("v1773125721/SAimg17_ecnzbo.webp")),
-    saImg18: optimizeHeroImage(buildCloudinaryUrl("v1773125711/SAimg18_udmfub.webp")),
-    saImg19: optimizeHeroImage(buildCloudinaryUrl("v1773131982/SAimg19_sou9zo.webp")),
-    saImg20: optimizeHeroImage(buildCloudinaryUrl("v1773131982/SAimg20_okup8n.webp")),
+    saImg2: "v1773050892/SAimg2_vlcrec.webp",
+    saImg3: "v1773050899/SAimg3_rzk5i8.webp",
+    saImg4: "v1773050892/SAimg4_sbnuwl.webp",
+    saImg5: "v1773050899/SAimg5_w5m6i6.webp",
+    saImg6: "v1773050900/SAimg6_bkceee.webp",
+    saImg7: "v1773050891/SAimg7_lncuor.webp",
+    saImg8: "v1773050891/SAimg8_kgz9rj.webp",
+    saImg9: "v1773050891/SAimg9_etapbe.webp",
+    saImg10: "v1773050891/SAimg10_n9ol1p.webp",
+    saImg11: "v1773050891/SAimg11_kgh6qb.webp",
+    saImg12: "v1773125711/SAimg12_ynnddp.webp",
+    saImg13: "v1773125712/SAimg15_xlxxmv.webp",
+    saImg14: "v1773125711/SAimg14_lcevav.webp",
+    saImg15: "v1773125711/SAimg13_iowvie.webp",
+    saImg16: "v1773125711/SAimg16_svyvdh.webp",
+    saImg17: "v1773125721/SAimg17_ecnzbo.webp",
+    saImg18: "v1773125711/SAimg18_udmfub.webp",
+    saImg19: "v1773131982/SAimg19_sou9zo.webp",
+    saImg20: "v1773131982/SAimg20_okup8n.webp",
+  };
+
+  const staffAugmentationImages: Record<string, string> = {};
+  Object.entries(staffAugmentationEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    staffAugmentationImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return staffAugmentationImages as {
+    staffOverlay: string;
+    staffImage1: string;
+    staffImage2: string;
+    saImg2: string;
+    saImg3: string;
+    saImg4: string;
+    saImg5: string;
+    saImg6: string;
+    saImg7: string;
+    saImg8: string;
+    saImg9: string;
+    saImg10: string;
+    saImg11: string;
+    saImg12: string;
+    saImg13: string;
+    saImg14: string;
+    saImg15: string;
+    saImg16: string;
+    saImg17: string;
+    saImg18: string;
+    saImg19: string;
+    saImg20: string;
+  };
+};
+
+// DevOps Page Images
+export const getDevOpsCloudinaryImages = () => {
+  const devOpsEndpoints = {
+    bg1: "v1772793229/staffoverlay_hqzorv.webp",
+    infinity: "v1772429261/dev_1_dmdvu2.png",
+    chooseQubitars1: "v1772089288/devimg1_qsfwjz.webp",
+    chooseQubitars2: "v1772445199/devimg2_ryxzd9.webp",
+    chooseQubitars3: "v1772445199/devimg3_tnkju5.webp",
+    chooseQubitars4: "v1772445199/devimg4_ihaned.webp",
+    chooseQubitars5: "v1772445198/devimg5_ezoj5o.webp",
+    chooseQubitars6: "v1772188381/approachbg_lcwrsw.webp",
+    chooseQubitars7: "v1772188381/bannerbg1_p9aq5q.webp",
+  };
+
+  const devOpsImages: Record<string, string> = {};
+  Object.entries(devOpsEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    devOpsImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return devOpsImages as {
+    bg1: string;
+    infinity: string;
+    chooseQubitars1: string;
+    chooseQubitars2: string;
+    chooseQubitars3: string;
+    chooseQubitars4: string;
+    chooseQubitars5: string;
+    chooseQubitars6: string;
+    chooseQubitars7: string;
+
+  };
+};
+
+// Product Design Page Images
+export const getProductDesignCloudinaryImages = () => {
+  const productDesignEndpoints = {
+    pdImg1: "v1772534327/pdimg1_so3mg9.webp",
+    pdImg2: "v1772534327/pdimg2_ogliko.webp",
+    pdImg3: "v1772534327/pdimg3_ghuybm.webp",
+    pdImg4: "v1772534327/pdimg4_mnitur.webp",
+    bannerImage: "v1772789643/pdbanner_ospyvj.webp",
+    pdImg5: "v1772188381/approachbg_lcwrsw.webp",
+  };
+
+  const productDesignImages: Record<string, string> = {};
+  Object.entries(productDesignEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    productDesignImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return productDesignImages as {
+    pdImg1: string;
+    pdImg2: string;
+    pdImg3: string;
+    pdImg4: string;
+    bannerImage: string;
+    pdImg5: string;
   };
 };

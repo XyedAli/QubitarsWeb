@@ -1,13 +1,13 @@
 // components/ExecutionInsights.jsx
 import Image from "next/image";
-import { getProductRoadmapImages } from "@/lib/assets/images";
+import {getProductDesignCloudinaryImages } from "@/lib/assets/images";
 import { getProductDesignIcons } from "@/lib/assets/icons";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { executionCardsData } from "@/data/product-design";
 
 export default function ExecutionInsights() {
-  const images = getProductRoadmapImages();
+  const images = getProductDesignCloudinaryImages();
   const icons = getProductDesignIcons();
   const cards = executionCardsData.map(card => ({
     ...card,

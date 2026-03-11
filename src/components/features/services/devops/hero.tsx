@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { combine, styles } from "@/styles/style"
-import { cloudinaryImages } from "@/lib/assets/images"
+import { getDevOpsCloudinaryImages } from "@/lib/assets/images"
 
 const HeroSection = () => {
-  const devOpsImages = cloudinaryImages.devops;
+  const devOpsImages = getDevOpsCloudinaryImages();
 
   return (
     <section className={combine(styles.flexCenter, styles.sectionPadding, "relative min-h-[55vh] md:min-h-[48vh] lg:min-h-[54vh] overflow-hidden bg-blue mt-4 lg:mt-8 xl:mt-10 rounded-2xl")}>
@@ -22,7 +22,8 @@ const HeroSection = () => {
         </div>
         <div className="flex justify-center">
           <Image
-            src={devOpsImages.hero}
+            src={devOpsImages.chooseQubitars1}
+            
             alt="DevOps Development"
             width={500}
             height={500}

@@ -50,7 +50,7 @@ export default function ChooseQubitars() {
                     <img
                         src={tabsData[activeTab].image}
                         alt={`${tabsData[activeTab].title} illustration`}
-                        className="w-full rounded-lg h-[340px] md:h-[360px] lg:h-[405px] xl:h-[475px]"
+                        className="w-full rounded-lg h-[270px] md:h-[360px] lg:h-[405px] xl:h-[475px]"
                     />
                 </div>
             </div>

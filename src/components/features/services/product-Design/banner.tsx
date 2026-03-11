@@ -1,12 +1,11 @@
 import { combine, styles } from '@/styles/style';
 import { MdOutlineArrowOutward } from 'react-icons/md';
-import Link from 'next/link';
 import Image from 'next/image';
-import { getProductDesignBannerImage } from '@/lib/assets';
+import {getProductDesignCloudinaryImages } from "@/lib/assets/images";
 
 const Banner = () => {
-    const bannerImage = getProductDesignBannerImage();
-    
+      const images = getProductDesignCloudinaryImages();
+
     return (
         <section className={combine( "min-h-[32vh] lg:min-h-[37vh] md:flex md:justify-between bg-gray-50 px-5 lg:px-8 xl:px-11 py-9 md:py-0 mt-12 md:mt-0")}>
             <div className="w-full md:w-1/2 flex flex-col justify-center ps-0 lg:ps-2 xl:ps-14">
@@ -20,17 +19,17 @@ const Banner = () => {
                     </span>
                 </button>
             </div>
-            
-            <div className="md:w-1/2 flex justify-end hidden md:block">
-                <div className="relative w-full max-w-[500px] h-[250px] lg:h-[340px]">
-                    <Image
-                        src={bannerImage}
-                        alt="Product Design Banner"
-                        fill
-                        className="object-contain"
-                    />
-                </div>
-            </div>
+       <div className="md:w-1/2 hidden md:flex justify-end">
+    <div className="relative w-full max-w-[500px] h-[250px] lg:h-[320px] xl:h-[340px]">
+        <Image
+            src={images.bannerImage}
+            alt="Product Design Banner"
+            fill
+            className="object-contain"
+        />
+    </div>
+</div>
+            {/* </div> */}
         </section>
     );
 };

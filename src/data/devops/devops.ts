@@ -203,22 +203,22 @@ export const getChooseQubitarsTabs = (devOpsImages: any): ChooseQubitarsTab[] =>
     title: "DevSecOps",
     content:
       "We embed security into every stage of the delivery pipeline, using automated compliance checks, vulnerability scanning, and policy enforcement to protect applications without slowing development velocity.",
-    image: devOpsImages.chooseQubitars1,
+    image: devOpsImages.chooseQubitars2,
   },
   {
     title: "MLOps",
     content: "We operationalize machine learning by automating model training, deployment, monitoring, and performance optimization, enabling faster insights, reduced costs, and proactive issue detection.",
-    image: devOpsImages.chooseQubitars2,
+    image: devOpsImages.chooseQubitars3,
   },
   {
     title: "ModelOps",
     content: "We manage the full lifecycle of AI/ML models—from deployment to governance—ensuring scalability, regulatory compliance, collaboration, and consistent performance across environments.",
-    image: devOpsImages.chooseQubitars3,
+    image: devOpsImages.chooseQubitars4,
   },
   {
     title: "GitOps",
     content: "We use Git as a single source of truth for infrastructure and deployments, enabling version-controlled environments, faster rollbacks, improved collaboration, and reliable, automated delivery workflows.",
-    image: devOpsImages.chooseQubitars4,
+    image: devOpsImages.chooseQubitars5,
   },
 ];
 
