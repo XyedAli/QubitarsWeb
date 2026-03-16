@@ -81,18 +81,18 @@ const triScrollCloudinaryLogos = getTriScrollCloudinaryLogos();
 const homeCloudinaryImages = getHomeCloudinaryImages();
 
 export const triScrollLogos: TriScrollLogo[] = [
-  { src: triScrollCloudinaryLogos.tsimg1, alt: "Logo 1", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg2, alt: "Logo 2", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg3, alt: "Logo 3", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg4, alt: "Logo 4", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg5, alt: "Logo 5", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg6, alt: "Logo 6", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg7, alt: "Logo 7", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg8, alt: "Logo 8", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg9, alt: "Logo 9", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg10, alt: "Logo 10", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg11, alt: "Logo 11", width: 220, height: 90 },
-  { src: triScrollCloudinaryLogos.tsimg12, alt: "Logo 12", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg1, alt: "Tech partner 1", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg2, alt: "Tech partner 2", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg3, alt: "Tech partner 3", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg4, alt: "Tech partner 4", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg5, alt: "Tech partner 5", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg6, alt: "Tech partner 6", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg7, alt: "Tech partner 7", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg8, alt: "Tech partner 8", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg9, alt: "Tech partner 9", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg10, alt: "Tech partner 10", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg11, alt: "Tech partner 11", width: 220, height: 90 },
+  { src: triScrollCloudinaryLogos.tsimg12, alt: "Tech partner 12", width: 220, height: 90 },
 ];
 
 export interface ServiceData {

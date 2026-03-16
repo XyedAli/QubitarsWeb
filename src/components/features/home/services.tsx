@@ -197,6 +197,8 @@ const Services = () => {
                         ? (index === 3 ? '32%' : index === 5 ? '35%' : '42%')
                         : 'contain'
                     }}
+                    role="img"
+                    aria-label={`${service.title} service illustration`}
                   >
                     <div className={`flex-1 flex flex-col justify-between py-4 transition-opacity duration-300 ease-in-out ${isActive ? (isMobileScreen && (index === 3 || index === 5) ? 'pr-[39%] md:pr-[41%] lg:pr-[44%] xl:pr-[44%]' : 'pr-[42%] md:pr-[41%] lg:pr-[44%] xl:pr-[44%]') : 'pr-0'}`}>
                       <div>

@@ -9,7 +9,7 @@ import { businessTypes } from "@/data";
 import { Button } from "@/components/shared/ui";
 
 const BusinessTypes = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0); // First card active by default
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
   const renderCard = (business: typeof businessTypes[0], index: number) => {
     const isHovered = hoveredIndex === index;

@@ -4,20 +4,16 @@ import { useState, useEffect } from "react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { industries } from "@/data/careers";
-
 import { LucideIcon } from "lucide-react";
 
 const ValueCard = ({ icon: IconComponent, title, description, rotation }: { icon: LucideIcon; title: string; description: string; rotation: string }) => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
-
   useEffect(() => {
     const checkScreenSize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);
     };
-
     // Initial check
     checkScreenSize();
-
     // Listen for resize events
     window.addEventListener("resize", checkScreenSize);
 
@@ -47,11 +43,9 @@ const ValueCard = ({ icon: IconComponent, title, description, rotation }: { icon
     </div>
   );
 };
-
 export default function IndustriesCards() {
   // Rotation values for cards (alternating pattern)
   const rotations = ["8deg", "0deg", "-8deg", "-8deg", "0deg", "8deg"];
-
   return (
     <section className="bg-[#EDEFF880] pt-8 md:pt-12 lg:pt-16 pb-12 md:pb-18 lg:pb-24">
       <div className={`${styles.sectionPadding}`}>
@@ -62,7 +56,6 @@ export default function IndustriesCards() {
             title="Transforming Businesses Across Sectors"
           />
         </div>
-
         {/* Industries Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7 lg:gap-12 xl:gap-16 px-0 md:px-1 lg:px-4 xl:px-16">
           {industries.map((industry, index) => (

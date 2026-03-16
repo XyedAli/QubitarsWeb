@@ -10,7 +10,7 @@ export default function HeroSection() {
   const [selectedService, setSelectedService] = useState("");
 
   return (
-    <section className={combine(" relative px-4 md:px-6 lg:px-8 xl:px-10 overflow-hidden py-8 lg:py-10 xl:py-12 mt-6 rounded-2xl", styles.sectionPadding)}>
+    <section className={combine(" relative px-4 md:px-6 lg:px-8 xl:px-10 overflow-hidden py-8 lg:py-10 xl:py-11 mt-6 rounded-2xl", styles.sectionPadding)}>
 
       {/* Right Background Image - Hidden on mobile */}
       <div

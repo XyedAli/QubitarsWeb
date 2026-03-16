@@ -37,6 +37,8 @@ const RealEstatePartner = () => {
       <div
         className="absolute inset-0 bg-no-repeat bg-cover bg-center z-0"
         style={{ backgroundImage: `url('${homeCloudinaryImages.himg15}')` }}
+        role="img"
+        aria-label="Partnership with industries"
       />
       
       {/* Light overlay - keeps bg visible */}
@@ -44,12 +46,6 @@ const RealEstatePartner = () => {
       
       <div className={`${styles.sectionPadding} relative z-10 w-full`}>
         <div className="max-w-4xl mx-auto text-center">
-          {/* Subtitle */}
-          <div className="mb-4 md:mb-3">
-            <span className={`${styles.h6} font-semibold inline-block bg-clip-text text-transparent bg-linear-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24] font-outfit tracking-wider`}>
-              Real Estate Partnership
-            </span>
-          </div>
 
           {/* Main Heading */}
           <h2 className={`font-bold text-blue leading-tight font-outfit mb-6 md:mb-8`}>
@@ -69,12 +65,6 @@ const RealEstatePartner = () => {
               </AnimatePresence>
             </div>
           </h2>
-
-          {/* Description
-          <p className={`${styles.p2} text-gray-800 leading-relaxed font-inter max-w-2xl mx-auto mb-8 md:mb-10`}>
-            We design and develop digital products, platforms, and tools for real estate brands—helping them modernize operations and scale their business.
-          </p> */}
-
           {/* CTA Button */}
           <Button
             variant="accent"

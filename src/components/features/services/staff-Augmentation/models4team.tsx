@@ -16,7 +16,6 @@ interface Team {
   showButton?: boolean;
 }
 
-
 const Models4Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState(1);
   const staffImages = getStaffAugmentationImages();
@@ -92,7 +91,6 @@ const Models4Team: React.FC = () => {
                         }
                       </div>
                       <div>
-
                         {isActive && team.showButton && (
                           <Button variant="accent">Get a Quote</Button>
                         )}

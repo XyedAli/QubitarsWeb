@@ -54,10 +54,10 @@ export default function HowItWorks() {
                     </div>
 
                     {/* CENTER ARROWS */}
-                    <div className="relative flex flex-col items-center hidden lg:block">
+                    <div className="relative flex flex-col items-center justify-center hidden lg:block">
                         {/* YOU ARROW */}
 
-                        <div className="relative z-10">
+                        <div className="relative z-10 flex justify-center">
                             <Image
                                 src={staffImages.saImg19}
                                 alt="Qubitars Arrow"
@@ -66,7 +66,7 @@ export default function HowItWorks() {
                             />
                         </div>
                         {/* QUBITARS ARROW */}
-                        <div className="relative z-10">
+                        <div className="relative z-10 flex justify-center">
                             <Image
                                 src={staffImages.saImg20}
                                 alt="Qubitars Arrow"
