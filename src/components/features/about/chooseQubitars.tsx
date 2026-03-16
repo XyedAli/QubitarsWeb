@@ -11,7 +11,7 @@ const ChooseQubitars = () => {
       <div className="absolute inset-0">
         <Image
           src={chooseQubitarsSection.bgImage}
-          alt="Background"
+          alt="Qubitars achievements & success"
           fill
           className="object-cover"
           priority

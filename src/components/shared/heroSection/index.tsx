@@ -203,15 +203,17 @@ const HeroSection = ({
                   {desc}
                 </p>
               ))}
-              <button
-                className={`group inline-flex items-center text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 ${accentGradient} text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg ${h.buttonMarginTopClass}`}
-              >
-                <span>{buttonText}</span>
-                <div className="relative">
-                  <MoveUpRight className={`w-5 h-5 ${arrowTransition} group-hover:opacity-0`} />
-                  <MoveUpRight className={`w-5 h-5 absolute top-0 left-0 opacity-0 ${arrowTransition} group-hover:opacity-100`} />
-                </div>
-              </button>
+              <Link href="/contact">
+                <Button
+                  className={`group inline-flex items-center text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 ${accentGradient} text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg ${h.buttonMarginTopClass}`}
+                >
+                  <span>{buttonText}</span>
+                  <div className="relative">
+                    <MoveUpRight className={`w-5 h-5 ${arrowTransition} group-hover:opacity-0`} />
+                    <MoveUpRight className={`w-5 h-5 absolute top-0 left-0 opacity-0 ${arrowTransition} group-hover:opacity-100`} />
+                  </div>
+                </Button>
+              </Link>
             </div>
           </div>
           {awardsSection && (
@@ -225,7 +227,7 @@ const HeroSection = ({
                     const cls = awardCl(award.className);
                     const isSvg = typeof award.src === "string" && award.src.includes(".svg");
                     return isSvg ? (
-                      <img
+                      <Image
                         key={i}
                         src={award.src as string}
                         alt={award.alt}

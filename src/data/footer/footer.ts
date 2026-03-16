@@ -11,17 +11,17 @@ export const companyLinks = [
 export const servicesLinks = [
   { name: "AI & ML Development", href: "/services/ai-ml" },
   { name: "Digital Transformation", href: "/ux-ui-design" },
-  { name: "Product Design", href: "/services/product-design" },
-  { name: "Quality Assurance", href: "/services/quality-assurance" },
-  { name: "DevOps", href: "/services/devops" },
-  { name: "Staff Augmentation", href: "/services/staff-augmentation" },
+  { name: "Product Design", href: "/product-design" },
+  { name: "Quality Assurance", href: "/quality-assurance" },
+  { name: "DevOps", href: "/devops" },
+  { name: "Staff Augmentation", href: "/staff-augmentation" },
 ];
 
 export const industriesLinks = [
   { name: "REAL ESTATE", href: "/industries/real-estate" },
-  { name: "Travel & Hospitality", href: "/industries/travel" },
-  { name: "Oil, Gas & Energy", href: "/industries/energy" },
-  { name: "Banking & Fintech", href: "/industries/fintech" },
+  { name: "Travel & Hospitality", href: "/industries/travel-hospitality" },
+  { name: "Oil, Gas & Energy", href: "/industries/oil-gas-energy" },
+  { name: "Banking & Fintech", href: "/industries/banking-fintech" },
   { name: "Healthcare", href: "/industries/healthcare" },
   { name: "Edtech", href: "/industries/edtech" },
   { name: "Startups", href: "/industries/startups" },

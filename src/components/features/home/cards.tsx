@@ -16,8 +16,6 @@ const ValueCard = ({ icon: IconComponent, title, description, rotation }: { icon
     checkScreenSize();
     // Listen for resize events
     window.addEventListener("resize", checkScreenSize);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 

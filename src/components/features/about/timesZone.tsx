@@ -83,7 +83,7 @@ const TimesZone = () => {
           <div className="relative aspect-[1.4/1] sm:aspect-[1.6/1] md:aspect-[1.8/1] w-full min-h-[350px] sm:min-h-[500px] md:min-h-0">
             <Image
               src={images.Map}
-              alt="World Map connecting global clients"
+              alt="World Map global clients"
               fill
               className="object-contain opacity-90"
               priority

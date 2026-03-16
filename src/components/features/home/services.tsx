@@ -8,7 +8,6 @@ import { servicesData, ServiceData } from "@/data/home";
 import ServiceModal from "@/components/shared/ui/ServiceModal";
 
 const MD_DEFAULT_ACTIVE_INDICES = [0, 3, 4];
-
 const Services = () => {
   const [activeCardRow1, setActiveCardRow1] = useState<number>(0);
   const [activeCardRow2, setActiveCardRow2] = useState<number>(3);
@@ -46,12 +45,10 @@ const Services = () => {
     if (isMobileScreen) return;
 
     if (isXlScreen) {
-      // xl+: 3 cards per row
       setIsMdHovering(true);
       if (index < 3) setActiveCardRow1Xl(index);
       else setActiveCardRow2Xl(index);
     } else if (isLgScreen) {
-      // lg: 2 cards per row
       setIsMdHovering(true);
       if (index < 2) setActiveCardRow1(index);
       else if (index < 4) setActiveCardRow2(index);
@@ -63,11 +60,8 @@ const Services = () => {
       else setActiveCardRow3(index);
     }
   };
-
   const handleCardLeave = () => {
-    // Don't handle leave on mobile - only first card is active
     if (isMobileScreen) return;
-
     if (isLgScreen) {
       setIsMdHovering(false);
       setActiveCardRow1Xl(0);
@@ -81,7 +75,6 @@ const Services = () => {
   };
 
   const handleCardClick = (index: number) => {
-    // On mobile, clicking a card makes it active
     if (isMobileScreen) {
       setActiveMobileCard(index);
     }
@@ -93,7 +86,6 @@ const Services = () => {
   };
 
   const handleExploreMore = (service: ServiceData, e?: React.MouseEvent) => {
-    // Prevent card click from firing when clicking Explore More (avoid double open)
     if (e) {
       e.stopPropagation();
     }
@@ -119,19 +111,15 @@ const Services = () => {
         >
           {servicesData.map((service, index) => {
             let isActive = false;
-
-            // On mobile, all cards show active style
             if (isMobileScreen) {
               isActive = true;
             } else if (isXlScreen) {
-              // xl+: 3 per row; row1 only index 0 active, row2 only index 5 (last) active
               if (isMdHovering) {
                 isActive = index < 3 ? activeCardRow1Xl === index : activeCardRow2Xl === index;
               } else {
                 isActive = (index < 3 && index === 0) || (index >= 3 && index === 5);
               }
             } else if (isLgScreen) {
-              // lg: 2 cards per row; default active 0, 3, 4
               if (isMdHovering) {
                 if (index < 2) isActive = activeCardRow1 === index;
                 else if (index < 4) isActive = activeCardRow2 === index;
@@ -148,7 +136,6 @@ const Services = () => {
                 isActive = MD_DEFAULT_ACTIVE_INDICES.includes(index);
               }
             }
-            // Per row only one card gets active width; xl+ = 3 per row, md/lg = 2 per row
             const isThreePerRowActiveWidth = isXlScreen && isActive && (index < 3 ? activeCardRow1Xl === index : activeCardRow2Xl === index);
             const rowStart = index < 2 ? 0 : index < 4 ? 2 : 4;
             const activeIndexInRow = !isXlScreen && (isMdHovering
@@ -249,7 +236,6 @@ const Services = () => {
           })}
         </div>
       </div>
-
       {/* Service Modal */}
       <ServiceModal
         isOpen={isModalOpen}

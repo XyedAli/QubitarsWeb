@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { getAboutCloudinaryImages } from "@/lib/assets/images";
-import { styles } from "@/styles/style";
 
 const AboutIntroSection = () => {
   const images = getAboutCloudinaryImages();

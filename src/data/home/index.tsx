@@ -1,3 +1,16 @@
+import React from 'react';
+import { 
+  Code2,
+  Database,
+  Server,
+  Smartphone,
+  Globe,
+  FileCode,
+  Braces,
+  Box,
+  Layers,
+  Zap
+} from 'lucide-react';
 import { FaHome } from "react-icons/fa";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoBusinessSharp } from "react-icons/io5";
@@ -256,6 +269,50 @@ export const servicesData: ServiceData[] = [
     technologyIcons: serviceModalIcons,
   },
 ];
+
+export type TechnologyTab = 'frontend' | 'backend' | 'devops';
+
+export interface Technology {
+  name: string;
+  icon: React.ReactNode;
+}
+
+export const stackBannerTechnologies: Record<TechnologyTab, Technology[]> = {
+  frontend: [
+    { name: 'React', icon: <Code2 className="w-6 h-6 text-[#61DAFB]" /> },
+    { name: 'Angular', icon: <Box className="w-6 h-6 text-[#DD0031]" /> },
+    { name: 'Vue.js', icon: <Layers className="w-6 h-6 text-[#4FC08D]" /> },
+    { name: 'JavaScript', icon: <FileCode className="w-6 h-6 text-[#F7DF1E]" /> },
+    { name: 'CSS3', icon: <Braces className="w-6 h-6 text-[#1572B6]" /> },
+    { name: 'TypeScript', icon: <FileCode className="w-6 h-6 text-[#3178C6]" /> },
+    { name: 'HTML', icon: <Globe className="w-6 h-6 text-[#E34F26]" /> },
+    { name: 'Swift', icon: <Smartphone className="w-6 h-6 text-[#FA7343]" /> },
+    { name: 'Kotlin', icon: <Smartphone className="w-6 h-6 text-[#7F52FF]" /> },
+    { name: 'Next.js', icon: <Code2 className="w-6 h-6 text-black" /> },
+    { name: 'Flutter', icon: <Smartphone className="w-6 h-6 text-[#02569B]" /> },
+    { name: 'jQuery', icon: <Zap className="w-6 h-6 text-[#0769AD]" /> },
+  ],
+  backend: [
+    { name: 'Node.js', icon: <Server className="w-6 h-6 text-[#339933]" /> },
+    { name: 'Python', icon: <Code2 className="w-6 h-6 text-[#3776AB]" /> },
+    { name: 'Java', icon: <FileCode className="w-6 h-6 text-[#007396]" /> },
+    { name: 'PHP', icon: <Server className="w-6 h-6 text-[#777BB4]" /> },
+    { name: 'Ruby', icon: <Code2 className="w-6 h-6 text-[#CC342D]" /> },
+    { name: 'Go', icon: <Server className="w-6 h-6 text-[#00ADD8]" /> },
+    { name: 'C#', icon: <FileCode className="w-6 h-6 text-[#239120]" /> },
+    { name: 'Rust', icon: <Code2 className="w-6 h-6 text-[#000000]" /> },
+  ],
+  devops: [
+    { name: 'Docker', icon: <Box className="w-6 h-6 text-[#2496ED]" /> },
+    { name: 'Kubernetes', icon: <Layers className="w-6 h-6 text-[#326CE5]" /> },
+    { name: 'AWS', icon: <Database className="w-6 h-6 text-[#FF9900]" /> },
+    { name: 'Azure', icon: <Database className="w-6 h-6 text-[#0078D4]" /> },
+    { name: 'Jenkins', icon: <Server className="w-6 h-6 text-[#D24939]" /> },
+    { name: 'GitLab CI', icon: <Zap className="w-6 h-6 text-[#FCA121]" /> },
+    { name: 'Terraform', icon: <Code2 className="w-6 h-6 text-[#7B42BC]" /> },
+    { name: 'Ansible', icon: <Server className="w-6 h-6 text-[#EE0000]" /> },
+  ],
+};
 
 export interface Testimonial {
     id: string;

@@ -7,35 +7,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { IoStar } from "react-icons/io5";
 import { styles, combine } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
-
-export interface Testimonial {
-    id: string;
-    image1: string;
-    image2: string;
-    image3: string;
-    desp: string;
-    author: string;
-    title?: string;
-    logo?: string;
-}
-
-interface FunMomentsProps {
-    testimonials: Testimonial[];
-    heading?: string;
-    description?: string;
-}
+import { Testimonial, FunMomentsProps } from "@/data/home";
 
 const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
     const [readMoreStates, setReadMoreStates] = useState<{ [key: string]: boolean }>({});
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const sliderRef = useRef<Slider>(null);
-
     // Helper to check if image is SVG
     const isSvg = (url: string): boolean => {
         return typeof url === 'string' && url.includes('.svg');
     };
-
     // Detect mobile viewport
     useEffect(() => {
         const checkMobile = () => {
@@ -93,11 +75,10 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                     {testimonials.map((item, index) => (
                         <div
                             key={item.id}
-                            className={`relative transition-all duration-300 mt-[47px] ${
-                                currentSlide === index 
-                                    ? "scale-95 xl:scale-86 z-10" 
+                            className={`relative transition-all duration-300 mt-[47px] ${currentSlide === index
+                                    ? "scale-95 xl:scale-86 z-10"
                                     : "top-10 scale-85 blur-xs"
-                            }`}
+                                }`}
                         >
                             {/* Client avatar */}
                             {item.image3 && (
@@ -143,7 +124,7 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                                                         {item.desp.split(' ').length > 25 && (
                                                             <span className="text-zinc-600 underline text-[12px] font-medium hover:text-[#D6AB61] cursor-pointer ml-1" onClick={(e) => toggleReadMore(item.id, e)}>
                                                                 Read More
-                                                            </span> 
+                                                            </span>
                                                         )}
                                                     </>
                                                 ) : (
@@ -190,10 +171,12 @@ const OurClient: React.FC<FunMomentsProps> = ({ testimonials }) => {
                                         )}
                                     </div>
                                     {item.logo && (
-                                        <img 
-                                            src={item.logo} 
-                                            alt="Company Logo" 
-                                            className="h-6 md:h-7 lg:h-9 w-auto object-contain" 
+                                        <Image
+                                            src={item.logo}
+                                            alt="Company Logo"
+                                            width={100}
+                                            height={50}
+                                            className="h-6 md:h-7 lg:h-9 w-auto object-contain"
                                             loading="lazy"
                                         />
                                     )}

@@ -1,21 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  Code2,
-  Database,
-  Server,
-  Smartphone,
-  Globe,
-  FileCode,
-  Braces,
-  Box,
-  Layers,
-  Zap
-} from 'lucide-react';
+import {Code2, Database, Server, Smartphone, Globe, FileCode, Braces, Box, Layers, Zap} from 'lucide-react';
 
 type TechnologyTab = 'frontend' | 'backend' | 'devops';
-
 interface Technology {
   name: string;
   icon: React.ReactNode;
