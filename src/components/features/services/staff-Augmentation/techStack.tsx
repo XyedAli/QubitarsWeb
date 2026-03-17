@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 import { combine, styles } from "@/styles/style"
 import { techStackData } from '@/data/staff-augmentation';
 
@@ -19,10 +20,11 @@ export default function HireEngineers() {
             Experienced In The Tools 
             Your Project Relies On
           </h2>
-
-          <button className="border border-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-white hover:text-black transition hidden lg:block">
-            Get In Touch →
-          </button>
+          <Link href="/contact">
+            <button className="border border-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-white hover:text-black transition hidden lg:block">
+              Get In Touch →
+            </button>
+          </Link>
         </div>
 
         {/* RIGHT SIDE */}

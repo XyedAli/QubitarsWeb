@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
                         {features.map((feature, index) => (
                             <div key={index} className={`flex gap-5`}>
                                 <div className={`w-12 h-12 ${styles.flexCenter} border-b-2 ${feature.borderColor} text-orange-500`}>
-                                    <img src={feature.icon} alt="" className="w-9 h-9" />
+                                    <img src={feature.icon} alt="Feature Icon" className="w-9 h-9" />
                                 </div>
                                 <div>
                                     <h4 className={`text-[20px] md:text-[24px] xl:text-[26px] font-semibold text-blue mb-1 xl:mb-2`}>

@@ -13,7 +13,6 @@ const HeroSection = () => {
             <h1 className={combine(styles.h1, "font-bold text-white leading-tight mb-4 lg:mb-6")}>
               Reliable DevOps For Every Platform
             </h1>
-
             <p className={combine(styles.p2, "text-white font-inter leading-relaxed xl:mb-6 max-w-lg lg:max-w-xl xl:max-w-3xl mx-auto")}>
               We accelerate software delivery by automating workflows, optimizing CI/CD pipelines, and ensuring reliable, secure, high-performance systems at scale.
             </p>
@@ -23,7 +22,6 @@ const HeroSection = () => {
         <div className="flex justify-center">
           <Image
             src={devOpsImages.chooseQubitars1}
-            
             alt="DevOps Development"
             width={500}
             height={500}

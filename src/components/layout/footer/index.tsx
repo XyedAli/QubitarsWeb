@@ -57,7 +57,7 @@ const Footer = () => {
             <div className="absolute right-0 top-0 h-full w-[1px] z-10" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.05) 100%)' }}></div>
             <Image
               src={homeCloudinaryImages.footerbg}
-              alt=""
+              alt="Footer BackGround Image"
               fill
               className="absolute top-0 h-full w-full object-contain object-left opacity-100 z-0"
               style={{ left: '-40px' }}
@@ -166,13 +166,18 @@ const Footer = () => {
               </Link>
             </div>
 
-            <div className="flex flex-row md:flex-col items-center md:items-end gap-0.3 text-sm order-3 self-center md:self-auto">
-              <Link href="/privacy-policy" className="text-white/50 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <span className="block md:hidden text-white/50 mx-2">|</span>
-              <Link href="/terms-conditions" className="text-white/50 hover:text-white transition-colors">
-                Terms & Conditions
+            <div className="flex flex-row items-center gap-3 text-sm order-3 self-center md:self-auto">
+              <div className="flex flex-row md:flex-col items-center md:items-end gap-0.3 border-r border-white/30 pr-3">
+                <Link href="/privacy-policy" className="text-white/50 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <span className="block md:hidden text-white/50 mx-2">|</span>
+                <Link href="/terms-conditions" className="text-white/50 hover:text-white transition-colors">
+                  Terms & Conditions
+                </Link>
+              </div>
+              <Link href="/site-map" className="text-white/50 hover:text-white transition-colors">
+                Sitemap
               </Link>
             </div>
           </div>

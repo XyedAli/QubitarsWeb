@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { styles } from "@/styles/style";
 import { modelsSection } from "@/data/engModel";
+import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 
 const LIST_BLOCK_CLASS = `${styles.p3} font-semibold text-[#1E274F] font-outfit mb-3`;
 const LIST_ITEM_CLASS = `${styles.p4} text-gray-700 font-inter`;
@@ -14,48 +15,34 @@ const TAB_BLOCKS = [
 
 const Models = () => {
   const { tabs } = modelsSection;
+  const { tabImages } = getEngagementModelCloudinaryImages();
   const [activeTab, setActiveTab] = useState(0);
 
   // Scroll to section
   const scrollToSection = (id?: string) => {
     const el = document.getElementById("models-section");
     if (el) {
-      // optional: scroll to top of section
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
-    // optional: scroll to specific tab card if id provided
     if (id) {
       const tabEl = document.getElementById(id);
       if (tabEl) tabEl.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
-  // Handle hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-
       if (!hash) {
-        // default: scroll to section top
         setActiveTab(0);
         setTimeout(() => scrollToSection(), 50);
         return;
       }
-
-      // find tab by hash
       const index = tabs.findIndex((t) => t.id === hash);
       if (index >= 0) setActiveTab(index);
-
       setTimeout(() => scrollToSection(hash), 50);
     };
-
-    // Initial load
     handleHashChange();
-
-    // Listen to hash changes (for same-page navigation)
     window.addEventListener("hashchange", handleHashChange);
-
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, [tabs]);
 
@@ -70,7 +57,6 @@ const Models = () => {
           {modelsSection.title}
         </h2>
       </div>
-
       {/* Tabs */}
       <div className="mb-6 md:mb-8 lg:mb-10">
         <div className="flex flex-wrap gap-1 md:gap-2 justify-center">
@@ -94,7 +80,6 @@ const Models = () => {
           ))}
         </div>
       </div>
-
       {/* Tab Content */}
       <div className="relative">
         {tabs.map((tab, index) => (
@@ -110,7 +95,7 @@ const Models = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-5 xl:gap-10 items-stretch">
               <div className="relative min-h-[320px] md:min-h-[380px] rounded-2xl overflow-hidden lg:col-span-5 bg-[#1E274F] hidden md:block">
                 <Image
-                  src="/assets/images/engModel/engImg2.png"
+                  src={tabImages[index]}
                   alt="Growth-focused process"
                   fill
                   className="object-cover"

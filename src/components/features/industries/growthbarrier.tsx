@@ -12,11 +12,9 @@ import { getGrowthBarrierForIndustry } from "@/data/industries";
 interface GrowthBarrierProps {
   industryId?: string;
 }
-
 export default function GrowthBarrier({ industryId = "real-estate" }: GrowthBarrierProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { subtitle, title, description, buttonText, cards } = getGrowthBarrierForIndustry(industryId);
-
   return (
     <section
       className={combine(
@@ -63,7 +61,7 @@ export default function GrowthBarrier({ industryId = "real-estate" }: GrowthBarr
                       <div className={combine(valueCardIconWrapperBaseClass, valueCardIconBorderClass(isActive))}>
                         <Image
                           src={card.icon}
-                          alt=""
+                          alt="Growth Barriers Icons"
                           width={40}
                           height={40}
                           className="w-5 h-5 md:w-9 md:h-9 object-contain"

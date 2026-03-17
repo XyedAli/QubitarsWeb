@@ -21,7 +21,6 @@ const backgroundKeys = [
 
 const OurServices = ({ services = uiuxServicesData }: OurServicesProps = {}) => {
     const serviceImages = getUIUXServiceImages();
-
     return (
         <section
             className={combine(
@@ -38,7 +37,6 @@ const OurServices = ({ services = uiuxServicesData }: OurServicesProps = {}) => 
                 />
                 <div className="hidden md:block w-[400px] xl:w-[600px] h-[2px] bg-gray-500" />
             </div>
-
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-10">
                 {services.map((service, index) => (

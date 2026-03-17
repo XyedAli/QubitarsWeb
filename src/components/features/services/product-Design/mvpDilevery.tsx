@@ -8,10 +8,7 @@ import { approachStepsData, phaseContentData } from "@/data/product-design";
 export default function OurApproach() {
   const icons = getProductDesignIcons();
   const images = getProductDesignCloudinaryImages();
-
-  // Debug: Log icons to check if they're loading
   console.log('Icons:', icons);
-
   return (
     <section className={styles.sectionPaddingY}>
       <div className={styles.sectionPaddingX}>
@@ -20,7 +17,6 @@ export default function OurApproach() {
           subtitle="Our Approach"
         />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-11 items-center">
-          
           {/* LEFT SIDE */}
           <div className="lg:col-span-3 space-y-10 ms-0 xl:ms-4 hidden lg:block">
             {approachStepsData.map((step, index) => (
@@ -46,7 +42,6 @@ export default function OurApproach() {
           {/* RIGHT SIDE */}
           <div className="lg:col-span-9 relative flex w-full mt-6 lg:mt-0">
             <div className="relative w-full max-w-[380px] lg:max-w-[370px] xl:max-w-[480px] h-[340px] md:h-[420px] xl:h-[470px]">
-              
               <Image
                 src={images.pdImg1}
                 alt="Process Donut"

@@ -8,7 +8,6 @@ import { numericBannerSection } from "@/data/engModel";
 
 const DURATION_MS = 2000;
 const TICK_MS = 16;
-
 function useCountUp(end: number, start: boolean) {
   const [count, setCount] = useState(0);
 
@@ -28,7 +27,6 @@ function useCountUp(end: number, start: boolean) {
 
   return count;
 }
-
 function AnimatedNumber({
   stat,
   start,
@@ -44,7 +42,6 @@ function AnimatedNumber({
     </span>
   );
 }
-
 const NumericBanner = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
@@ -78,7 +75,7 @@ const NumericBanner = () => {
             <div className="flex items-center w-9 h-9 md:w-12 md:h-12 xl:w-14 xl:h-14">
               <Image
                 src={stat.icon}
-                alt=""
+                alt="Numeric Icons"
                 width={56}
                 height={56}
                 className="w-full h-full object-contain"

@@ -1,20 +1,19 @@
 // components/DevOpsSection.jsx
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { combine, styles } from "@/styles/style";
 import { getDevOpsIcons } from "@/lib/assets/icons";
 import { SectionHeading } from "@/components/shared/headings";
 import { devopsServices, devopsTags } from "@/data/devops/devops";
 
 const devOpsIcons = getDevOpsIcons();
-
 const services = devopsServices.map(service => ({
   ...service,
   icon: devOpsIcons[service.icon]
 }));
 
 const tags = devopsTags;
-
 const DevOpsSection = () => {
   return (
     <section className={combine(styles.sectionPaddingY, "bg-gray-50")}>
@@ -69,9 +68,11 @@ const DevOpsSection = () => {
             </div>
 
             {/* Button */}
-            <button className={combine(styles.p3, "w-inline-flex w-50 items-center px-6 py-2 border border-orange-600 text-orange-600 font-medium rounded hover:bg-orange-50 transition")}>
-              Get In Touch <span className="ml-2">→</span>
-            </button>
+            <Link href="/contact">
+              <button className={combine(styles.p3, "w-inline-flex w-50 items-center px-6 py-2 border border-orange-600 text-orange-600 font-medium rounded hover:bg-orange-50 transition")}>
+                Get In Touch <span className="ml-2">→</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

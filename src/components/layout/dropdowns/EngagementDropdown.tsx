@@ -27,21 +27,17 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
 
     // Get Cloudinary company images
     const companyCloudinaryImages = getCompanyCloudinaryImages();
-
     // Check for hash changes
     useEffect(() => {
         if (typeof window !== "undefined") {
             const hash = window.location.hash.slice(1);
             setActiveHash(hash);
-
             // Listen for hash changes
             const handleHashChange = () => {
                 const newHash = window.location.hash.slice(1);
                 setActiveHash(newHash);
             };
-
             window.addEventListener('hashchange', handleHashChange);
-
             // Periodic check as fallback
             const interval = setInterval(() => {
                 const currentHash = window.location.hash.slice(1);
@@ -56,21 +52,17 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
             };
         }
     }, [pathname]);
-
     // Slider config for testimonials carousel
     const sliderSettings = {
         fade: true,
         autoplaySpeed: 3000,
     };
-
     const handlePrevSlide = () => {
         sliderRef.current?.slickPrev();
     };
-
     const handleNextSlide = () => {
         sliderRef.current?.slickNext();
     };
-
     return (
         <>
             <div className="fixed inset-x-0 top-[97px] max-w-2xl lg:max-w-4xl  xl:max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform transition-all duration-300 ease-in-out">

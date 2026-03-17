@@ -221,6 +221,11 @@ export const getEngagementModelCloudinaryImages = () => {
     execCard4: hero("v1770109320/engSlide4_ooz5cv.webp"),
     execCard5: hero("v1770109323/engSlide5_lh3evx.webp"),
     execCard6: hero("v1770109325/engSlide6_ntto6a.webp"),
+    tabImages: [
+      hero("v1773651707/engslide7_aricb8.webp"),
+      hero("v1773651706/engslide8_sjvld6.webp"),
+      hero("v1773651707/engslide9_zkjyym.webp"),
+    ],
   };
 };
 

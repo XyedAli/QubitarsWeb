@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { getStaffAugmentationIcons, getStaffAugmentationImages } from "@/lib/assets";
 import { combine, styles } from "@/styles/style";
 import { SectionHeading } from '@/components/shared/headings';
@@ -15,7 +16,6 @@ interface Team {
   tags?: string[];
   showButton?: boolean;
 }
-
 const Models4Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState(1);
   const staffImages = getStaffAugmentationImages();
@@ -92,7 +92,9 @@ const Models4Team: React.FC = () => {
                       </div>
                       <div>
                         {isActive && team.showButton && (
-                          <Button variant="accent">Get a Quote</Button>
+                          <Link href="/contact">
+                            <Button variant="accent">Get a Quote</Button>
+                          </Link>
                         )}
                       </div>
                     </div>

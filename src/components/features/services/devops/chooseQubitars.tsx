@@ -21,7 +21,6 @@ export default function ChooseQubitars() {
                         subtitle="Why CHOOSE US"
                         title="DevOps Enabling Business Agility"
                     />
-
                     {/* Tabs */}
                     <ul className={combine("flex gap-5 lg:gap-9 xl:gap-12 mb-4 lg:mb-6 xl:mb-10 list-none")}>
                         {tabsData.map((tab, index) => (
@@ -37,14 +36,12 @@ export default function ChooseQubitars() {
                             </li>
                         ))}
                     </ul>
-
                     {/* Tab Content */}
                     <div className="bg-white">
                         <h3 className={combine(styles.h4, "font-semibold text-blue mb-2")}>{tabsData[activeTab].title}</h3>
                         <p className={combine(styles.p2, "text-blue leading-relaxed max-w-xl")}>{tabsData[activeTab].content}</p>
                     </div>
                 </div>
-
                 {/* Image Content */}
                 <div className="flex-1">
                     <img

@@ -24,12 +24,14 @@ const DevOpsEfficiency = () => {
             Improve efficiency with proven DevOps practices
           </h2>
 
-          <button className='bg-white w-40 lg:w-48 px-3 lg:px-5 py-2 mt-10 lg:mt-12 text-blue text-base lg:text-lg font-bold rounded-lg hidden md:flex items-center gap-2 cursor-pointer justify-start hover:bg-blue-600 transition-colors'>
-            Get In Touch
-            <span className='w-7 h-7 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-blue text-white'>
-              <MdOutlineArrowOutward />
-            </span>
-          </button>
+          <Link href="/contact">
+            <button className='bg-white w-40 lg:w-48 px-3 lg:px-5 py-2 mt-10 lg:mt-12 text-blue hover:text-white text-base lg:text-lg font-bold rounded-lg hidden md:flex items-center gap-2 cursor-pointer justify-start hover:bg-blue transition-colors'>
+              Get In Touch
+              <span className='w-7 h-7 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-blue text-white'>
+                <MdOutlineArrowOutward />
+              </span>
+            </button>
+          </Link>
 
         </div>
         <div className='mt-6 md:mt-0'>
@@ -45,12 +47,14 @@ const DevOpsEfficiency = () => {
             </p>
           ))}
         </div>
-      <button className='bg-white w-40 lg:w-48 px-3 lg:px-5 py-2 mt-10 lg:mt-12 text-blue text-base lg:text-lg font-bold rounded-lg flex items-center gap-2 cursor-pointer justify-start hover:bg-blue-600 transition-colors block md:hidden'>
+        <Link href="/contact">
+          <button className='bg-white w-40 lg:w-48 px-3 lg:px-5 py-2 mt-10 lg:mt-12 text-blue text-base lg:text-lg font-bold rounded-lg flex items-center gap-2 cursor-pointer justify-start hover:bg-blue-600 transition-colors block md:hidden'>
             Get In Touch
             <span className='w-7 h-7 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-blue text-white'>
               <MdOutlineArrowOutward />
             </span>
           </button>
+        </Link>
       </div>
     </section>
   );

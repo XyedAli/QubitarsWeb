@@ -17,7 +17,6 @@ export default function OurApproaches() {
     devOpsIcons.devicon8,
     devOpsIcons.devicon9,
   ];
-
   return (
     <section className={`relative w-full ${styles.sectionPaddingY}`}>
       <div
@@ -35,7 +34,6 @@ export default function OurApproaches() {
           title="Structured DevOps Delivery Framework"
           titleColor="white"
         />
-
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {approachesData.map((card, index) => (
             <div
@@ -59,7 +57,6 @@ export default function OurApproaches() {
                   {card.desc}
                 </p>
               </div>
-
               <div className="flex justify-end">
                 <LiaLongArrowAltRightSolid className="text-orange-500 text-5xl xl:text-7xl" />
               </div>

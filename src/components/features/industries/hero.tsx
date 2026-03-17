@@ -20,7 +20,6 @@ const heroCardContent = combine(
   "absolute inset-0 z-10 justify-end p-3 xl:p-4 text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]",
   styles.flexCol
 );
-
 type ExpandRect = {
   left: number;
   top: number;
@@ -35,15 +34,14 @@ type ExpandRect = {
 };
 type PendingDirection = "next" | "prev" | null;
 
-/** Final rect: hero ke andar absolute — height hero tak hi */
+/** Final rect: hero Image height*/
 function fullScreenRectFromCard(rect: ExpandRect) {
   if (rect.heroWidth != null && rect.heroHeight != null && rect.heroTop != null && rect.heroLeft != null) {
     return { left: 0, top: 0, width: rect.heroWidth, height: rect.heroHeight };
   }
   return { left: 0, top: 0, width: rect.viewportW, height: rect.viewportH };
 }
-
-/** Card position hero-relative (expand overlay hero ke andar absolute) */
+/** Card position hero-relative (expand overlay hero image) */
 function cardRectRelativeToHero(rect: ExpandRect) {
   if (rect.heroLeft == null || rect.heroTop == null) {
     return { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
@@ -55,22 +53,17 @@ function cardRectRelativeToHero(rect: ExpandRect) {
     height: rect.height,
   };
 }
-
 const EXPAND_DURATION_MS = 900;
 const EXPAND_DELAY_MS = 0;
 const SLIDER_SPEED_MS = 600;
-
 interface IndustriesHeroProps {
   industryId?: string;
 }
-
-/** Resolve hero image for a card id; falls back to real-estate-{n} when no industry-specific image exists */
 function getHeroImageForCardId(images: Record<string, string>, cardId: string): string {
   if (images[cardId]) return images[cardId];
   const suffix = cardId.split("-").pop() ?? "1";
   return images[`real-estate-${suffix}`] ?? images["real-estate-1"] ?? "";
 }
-
 const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => {
   const heroCards = getHeroCardsForIndustry(industryId);
   const heroSectionRef = useRef<HTMLElement | null>(null);
@@ -102,7 +95,6 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
     });
   }, [industryHeroImages]);
 
-  /** Mark ready when slider is mounted and DOM has .slick-current (avoids animation before data/DOM ready on Vercel) */
   const tryMarkReady = () => {
     const card = document.querySelector(".industries-hero-slider .slick-slide.slick-current [data-industry-card]") as HTMLElement | null;
     const hero = heroSectionRef.current;
@@ -163,7 +155,6 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
     if (next !== undefined) {
       setTimeout(() => tryStartExpand(attempt + 1), next);
     } else {
-      // DOM/slider not ready after all retries (e.g. Vercel/hydration) — advance without expand so no card is skipped
       const direction = pendingDirectionRef.current;
       advanceSlideWithoutExpand(direction);
       pendingDirectionRef.current = null;
@@ -214,7 +205,6 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
       setExpandToFull(false);
     }, SLIDER_SPEED_MS);
   };
-
   useEffect(() => {
     if (!expandToFull || !isExpanding) return;
     const fallback = setTimeout(handleExpandEnd, EXPAND_DURATION_MS + 150);
@@ -241,20 +231,18 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
 
   const totalSlideCount = heroCards.length;
   const displayNumber = String(contentSlideIndex + 1).padStart(2, "0");
-
-  // Har card ke liye bg fade-in — key change par remount, animation hamesha chale
   const useHeroContainment = expandFromRect && expandFromRect.heroHeight != null;
   return (
     <section
       ref={heroSectionRef}
       className={combine("relative min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] xl:min-h-[90vh] overflow-hidden", styles.flexitems)}
     >
-      {/* Background: hero ke andar hi — expand overlay jahan khatam hoti wahi, top ki taraf move na ho */}
+      {/* Background Overlay*/}
       <div aria-hidden className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div key={previousIndustryId} className="absolute inset-0 animate-industries-bg-fade-in">
           <Image
             src={previousBgImage}
-            alt=""
+            alt="Previous Background Image"
             fill
             className={heroImageCover}
             priority
@@ -264,7 +252,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
         </div>
       </div>
 
-      {/* Expand overlay: hero ke andar absolute — img sirf hero tak, next sections par nahi */}
+      {/* Expand overlay */}
       {isExpanding && expandFromRect && (
         <div
           className={useHeroContainment ? "absolute z-[5] overflow-hidden" : "fixed z-[5] overflow-hidden"}
@@ -288,7 +276,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
           <div className="absolute inset-0">
             <Image
               src={activeCardImage}
-              alt=""
+              alt="Active Card Image"
               fill
               className={heroImageCover}
               sizes="100vw"
@@ -355,7 +343,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
                       >
                         <Image
                           src={cardBgImage}
-                          alt=""
+                          alt="Industry Card Images"
                           fill
                           className={heroImageCover}
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 28vw"

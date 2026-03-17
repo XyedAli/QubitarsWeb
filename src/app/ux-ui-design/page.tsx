@@ -1,8 +1,11 @@
-import { Fragment } from "react/jsx-runtime"
-import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation"
+import { Fragment } from "react/jsx-runtime";
+import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation";
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { webDevelopmentProcessSteps } from "@/data/digital-transformation/process";
+import { getServicePageMetadata } from "@/lib/metadata";
+
+export const metadata = getServicePageMetadata("ux-ui-design");
 
 const UIUXService = () => {
     // Merge testimonials data with images

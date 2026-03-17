@@ -1,7 +1,11 @@
-import {AdvantagesSection, HeroSection, BenefitsSection, Models4Team, OperationalProcess, FlexibleScaling, ProductDelivery, DedicatedTeam,  FAQs } from "@/components/features/services/staff-Augmentation"
+import { AdvantagesSection, HeroSection, BenefitsSection, Models4Team, OperationalProcess, FlexibleScaling, ProductDelivery, DedicatedTeam, FAQs } from "@/components/features/services/staff-Augmentation";
 import { Fragment } from "react/jsx-runtime";
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
+import { getServicePageMetadata } from "@/lib/metadata";
+
+export const metadata = getServicePageMetadata("staff-augmentation");
+
 const StaffAugmentation = () => {
        const testimonialsWithImages = testimonialsData.map((testimonial) => {
             const images = testimonialImagesById[testimonial.id];

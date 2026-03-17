@@ -1,10 +1,13 @@
-import { Fragment } from "react/jsx-runtime"
-import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation"
+import { Fragment } from "react/jsx-runtime";
+import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation";
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { lowCodeDevelopmentProcessSteps } from "@/data/digital-transformation/process";
 import { lowCodeDevelopmentServices } from "@/data/digital-transformation/services";
 import { lowCodeData } from "@/data/digital-transformation/hero";
+import { getServicePageMetadata } from "@/lib/metadata";
+
+export const metadata = getServicePageMetadata("low-code-no-code");
 
 const LowCodeDevelopment = () => {
     // Merge testimonials data with images

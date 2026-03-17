@@ -13,13 +13,11 @@ import {
 export default function ProductHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const borderBoxRef = useRef<HTMLDivElement>(null);
-
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [isVideoPinned, setIsVideoPinned] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(true);
   const [boxTop, setBoxTop] = useState(0);
   const [boxSize, setBoxSize] = useState({ width: 0, height: 0 });
-
   const mouseX = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 120, damping: 20 });
 
@@ -37,7 +35,6 @@ export default function ProductHero() {
     });
     return unsubscribe;
   }, [scrollYProgress]);
-
   /* ===============================
      GET BORDER BOX POSITION
   =============================== */
@@ -67,11 +64,9 @@ export default function ProductHero() {
       window.removeEventListener("scroll", updateLayout);
     };
   }, []);
-
   /* ===============================
      🔥 FASTER GROW + MOVE ANIMATION
   =============================== */
-
   const maxScale =
     boxSize.width && boxSize.height
       ? Math.min(boxSize.width / 50, boxSize.height / 245)
@@ -82,29 +77,23 @@ export default function ProductHero() {
     [0, 0.6, 1], // 🔥 Faster growth
     [1, maxScale * 1.05, maxScale]
   );
-
   const moveDown = useTransform(
     scrollYProgress,
     [0, 0.6, 1],
     [0, (boxTop - 180) * 2, boxTop - 220]
   );
-
   const borderRadius = useTransform(scrollYProgress, [0, 1], [20, 0]);
 
   /* ===============================
      MOUSE MOVE
   =============================== */
-
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
-
     const rect = containerRef.current
       .querySelector(".sticky-area")!
       .getBoundingClientRect();
-
     const boxWidth = 400;
     const relativeX = e.clientX - rect.left;
-
     const minX = 0;
     const maxX = rect.width - boxWidth;
 
@@ -112,11 +101,8 @@ export default function ProductHero() {
       minX,
       Math.min(maxX, relativeX - boxWidth / 2)
     );
-
     mouseX.set(clamped);
   };
-
-  /* =============================== */
 
  return (
   <div
@@ -131,9 +117,7 @@ export default function ProductHero() {
       onMouseMove={handleMouseMove}
       className="relative"
     >
-      {/* ========================= */}
       {/* 🔥 LARGE & XL SCREENS */}
-      {/* ========================= */}
       <div className="hidden lg:block">
         <div className="sticky-area sticky top-0 h-screen mx-16 relative">
           {/* TEXT */}
@@ -142,13 +126,11 @@ export default function ProductHero() {
               We design what moves business forward
             </h1>
           </div>
-
           {/* BORDER BOX */}
           <div
             ref={borderBoxRef}
             className="mx-14 rounded-3xl h-[600px]"
           />
-
           {/* VIDEO WITH ANIMATION */}
           {isVideoVisible && (
             <motion.div
@@ -174,7 +156,6 @@ export default function ProductHero() {
                 playsInline
                 className="w-full h-full object-cover"
               />
-
               <AnimatePresence>
                 {showPlayButton && (
                   <motion.div
@@ -192,13 +173,8 @@ export default function ProductHero() {
           )}
         </div>
       </div>
-
-      {/* ========================= */}
       {/* 🔥 MD & SM SCREENS */}
-      {/* ========================= */}
-
       <div className="block lg:hidden px-6 py-12">
-
         {/* SIMPLE VIDEO (NO ANIMATION) */}
         <div className="rounded-2xl overflow-hidden shadow-lg">
           <video

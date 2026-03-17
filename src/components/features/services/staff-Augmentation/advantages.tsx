@@ -30,21 +30,16 @@ export default function AdvantagesSection() {
 
     return (
         <section className={combine("bg-gray-50 py-16", styles.sectionPaddingX)}>
-            <div className="">
-
                 {/* Section Header */}
                 <SectionHeading
                     subtitle="Key Deliverables"
                     title="Key Advantages of a Dedicated Team"
                 />
-
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
-
                     {/* First Column */}
                     <div className="space-y-4 xl:space-y-6">
                         {advantagesData.filter(item => item.column === 1).map(renderCard)}
                     </div>
-
                     {/* Second Column - Image - Hidden on mobile */}
                     <div className="hidden lg:flex items-center justify-center">
                         <div className="relative w-full h-96 lg:h-full min-h-[400px]">
@@ -56,14 +51,12 @@ export default function AdvantagesSection() {
                             />
                         </div>
                     </div>
-
                     {/* Third Column */}
                     <div className="space-y-4 xl:space-y-6">
                         {advantagesData.filter(item => item.column === 3).map(renderCard)}
                     </div>
 
                 </div>
-            </div>
         </section>
     );
 }

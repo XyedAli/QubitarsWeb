@@ -3,9 +3,7 @@
 import { useEffect, useMemo, useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import "./ScrollFloat.css";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export interface ScrollFloatProps {
@@ -32,7 +30,6 @@ const ScrollFloat = ({
   stagger = 0.03,
 }: ScrollFloatProps) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
-
   const splitText = useMemo(() => {
     const text = typeof children === "string" ? children : "";
     return text.split("").map((char, index) => (
@@ -45,11 +42,9 @@ const ScrollFloat = ({
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-
     const scroller =
       scrollContainerRef?.current ?? (typeof window !== "undefined" ? window : null);
     if (!scroller) return;
-
     const charElements = el.querySelectorAll(".char");
 
     gsap.fromTo(

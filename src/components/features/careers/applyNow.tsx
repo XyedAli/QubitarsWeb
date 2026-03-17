@@ -5,48 +5,8 @@ import { Upload, X, Plus, Linkedin } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { Button } from "@/components/shared/ui";
+import { personalInfoFields, addressFields, INITIAL_FORM, type FormData } from "@/data/careers";
 
-interface FormData {
-  resume: File | null;
-  title: string;
-  fullName: string;
-  lastName: string;
-  email: string;
-  mobile: string;
-  street: string;
-  zipCode: string;
-  city: string;
-  state: string;
-  country: string;
-  skillSet: string[];
-  preferredDepartment: string[];
-  graduationYear: string;
-  cgpa: string;
-  additionalInfo: Array<{ id: number; preferredWorkLocation: string; graduatingYear: string; cgpa: string }>;
-  experience: Array<{ id: number; company: string; position: string; duration: string }>;
-  linkedin: string;
-}
-
-const INITIAL_FORM: FormData = {
-  resume: null,
-  title: "",
-  fullName: "",
-  lastName: "",
-  email: "",
-  mobile: "",
-  street: "",
-  zipCode: "",
-  city: "",
-  state: "",
-  country: "",
-  skillSet: [],
-  preferredDepartment: [],
-  graduationYear: "",
-  cgpa: "",
-  additionalInfo: [],
-  experience: [],
-  linkedin: "",
-};
 
 const RESUME_ACCEPT = ".doc,.docx,.pdf,.odt,.rtf";
 const VALID_RESUME_TYPES = ["application/pdf", "application/rtf", "application/vnd.oasis.opendocument.text"];
@@ -184,13 +144,7 @@ const ApplyNow = () => {
         <div className="space-y-4">
           <FormSectionHeader title="Basic Info" onClear={() => set({ title: "", fullName: "", lastName: "", email: "", mobile: "" })} />
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${BORDER_SECTION}`}>
-            {[
-              { key: "title", label: "Title", type: "select", options: ["", "Mr", "Mrs", "Ms", "Dr"] },
-              { key: "fullName", label: "Full Name", placeholder: "Enter your full name" },
-              { key: "lastName", label: "Last Name", placeholder: "Enter your last name" },
-              { key: "email", label: "Email", type: "email", placeholder: "Enter your email" },
-              { key: "mobile", label: "Mobile", type: "tel", placeholder: "Enter your mobile number" },
-            ].map((f) =>
+            {personalInfoFields.map((f) =>
               f.type === "select" ? (
                 <div key={f.key}>
                   <label className={`${LABEL_CLASS} text-blue`}>{f.label}</label>
@@ -226,13 +180,7 @@ const ApplyNow = () => {
         <div className="space-y-4">
           <FormSectionHeader title="Address Information" onClear={() => set({ street: "", zipCode: "", city: "", state: "", country: "" })} />
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${BORDER_SECTION}`}>
-            {[
-              { key: "street", label: "Street", placeholder: "Enter street address" },
-              { key: "zipCode", label: "Zip/Postal Code", placeholder: "Enter zip code" },
-              { key: "city", label: "City", placeholder: "Enter city" },
-              { key: "state", label: "State/Province", placeholder: "Enter state" },
-              { key: "country", label: "Country", placeholder: "Enter country" },
-            ].map((f) => (
+            {addressFields.map((f) => (
               <div key={f.key}>
                 <label className={LABEL_CLASS}>{f.label}</label>
                 <input

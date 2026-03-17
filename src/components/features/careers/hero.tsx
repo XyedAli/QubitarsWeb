@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/shared/heroSection";
+import { careersVideos } from "@/lib/assets/videos";
 
 export default function CareersHero() {
   return (
@@ -17,7 +18,7 @@ export default function CareersHero() {
       }
       descriptions={["Turn your curiosity into expertise and your skills into real-world impact."]}
       backgroundType="video"
-      backgroundVideo="/assets/videos/temp_video_for_share.MP4"
+      backgroundVideo={careersVideos.hero}
       overlayTag="CAREERS"
       overlayTitle="Empowering Talent. Building the Future."
       overlayDescription="Join a team where innovation, collaboration, and growth are part of everyday life."

@@ -42,7 +42,7 @@ export default function ChooseQubitars() {
                 <div className={iconWrapperClass} aria-hidden>
                   <Image
                     src={iconSrc}
-                    alt=""
+                    alt="choose qubitars icons"
                     width={36}
                     height={36}
                     className="h-10 w-10 lg:w-12 lg:h-12 object-contain"

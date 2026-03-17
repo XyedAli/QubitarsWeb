@@ -26,15 +26,8 @@ export async function generateMetadata({
   params: Promise<{ industryId: string }>;
 }) {
   const { industryId } = await params;
-  if (!isValidIndustryId(industryId)) return { title: "Industries | Qubitars Technologies" };
-  const title = industryId
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-  return {
-    title: `${title} | Qubitars Technologies`,
-    description: `Industry solutions and digital transformation for ${title}.`,
-  };
+  const { getIndustryPageMetadata } = await import("@/lib/metadata");
+  return getIndustryPageMetadata(industryId);
 }
 
 export default async function IndustryPage({

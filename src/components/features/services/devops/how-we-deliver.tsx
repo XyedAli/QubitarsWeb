@@ -30,7 +30,6 @@ function LayeredShape({ activeIndex = 0 }: { activeIndex?: number }) {
             }}
           />
         ))}
-
       {layers[activeIndex] && (
         <polygon
           key={layers[activeIndex].id}
@@ -67,10 +66,8 @@ export default function DeliverFlow() {
 
         {/* RIGHT SIDE TABS */}
         <div className="border-l border-gray-200">
-
           {deliverData.map((item, index) => {
             const isActive = activeIndex === index;
-
             return (
               <div
                 key={index}

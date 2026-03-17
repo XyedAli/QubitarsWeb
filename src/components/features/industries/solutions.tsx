@@ -9,7 +9,6 @@ import { getIndustriesStateIcons } from "@/lib/assets/icons";
 interface SolutionsProps {
   industryId?: string;
 }
-
 const CURVE_CLIP_ID = "solutions-curve-clip";
 const VIDEO_SRC = "/assets/videos/BG%202.mp4";
 /** Static icons for Solutions section – same for all industries (by card index) */

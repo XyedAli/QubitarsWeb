@@ -18,7 +18,6 @@ interface SuccessStoryCardProps {
   title: string;
   desc: string;
 }
-
 function SuccessStoryCard({ image, logo, tag, title }: SuccessStoryCardProps) {
   return (
     <Link
@@ -58,7 +57,7 @@ function SuccessStoryCard({ image, logo, tag, title }: SuccessStoryCardProps) {
             <div className="relative h-7 md:h-8 w-auto min-w-0 flex-shrink-0">
               <Image
                 src={logo}
-                alt=""
+                alt="Other companies logos"
                 width={120}
                 height={36}
                 className="object-contain object-left h-full w-auto max-w-[100px] md:max-w-[120px] opacity-95"
@@ -77,7 +76,6 @@ function SuccessStoryCard({ image, logo, tag, title }: SuccessStoryCardProps) {
     </Link>
   );
 }
-
 export default function OtherSuccessStoriesSlider() {
   const sliderRef = useRef<Slider | null>(null);
   const industryIcons = getIndustryCloudinaryIcons();

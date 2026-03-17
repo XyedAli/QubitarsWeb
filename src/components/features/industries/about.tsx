@@ -7,7 +7,6 @@ import { getAboutCopyForIndustry } from "@/data/industries";
 interface IndustriesAboutProps {
   industryId?: string;
 }
-
 export default function IndustriesAbout({ industryId = "real-estate" }: IndustriesAboutProps) {
   const copy = getAboutCopyForIndustry(industryId);
 

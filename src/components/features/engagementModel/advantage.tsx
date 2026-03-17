@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
@@ -25,23 +26,27 @@ const Advantage = () => {
         <div className="flex items-center justify-between">
           <SectionHeading subtitle={advantageSection.subtitle} title={advantageSection.title} />
           <div className="hidden lg:block shrink-0">
-            <Button
-              variant="accent"
-              size="lg"
-              className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-              onClick={scrollToContact}
-            >
-              Discuss Your Needs
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <Link href="/contact">
+              <Button
+                variant="accent"
+                size="lg"
+                className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                onClick={scrollToContact}
+              >
+                Discuss Your Needs
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 xl:gap-23 items-center">
           <div className="md:col-span-6 relative w-full overflow-hidden rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={images.advantageImg}
-              alt="Advantage"
+              alt="Advantage Image1"
+              width={1000}
+              height={600}
               className="w-full h-[360px] md:h-[440px] lg:h-[500px] xl:h-[600px]"
             />
           </div>
@@ -52,7 +57,7 @@ const Advantage = () => {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-white">
                     <Image
                       src={item.icon}
-                      alt=""
+                      alt="Advantages icons"
                       width={48}
                       height={48}
                       className="w-14 h-14 object-contain"
@@ -73,15 +78,16 @@ const Advantage = () => {
           </div>
         </div>
         <div className="flex justify-center mt-3 md:mt-8 lg:mt-0 lg:hidden">
-          <Button
-            variant="accent"
-            size="lg"
-            className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-            onClick={scrollToContact}
-          >
-            Discuss Your Needs
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <Link href="/contact">
+            <Button
+              variant="accent"
+              size="lg"
+              className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            >
+              Discuss Your Needs
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

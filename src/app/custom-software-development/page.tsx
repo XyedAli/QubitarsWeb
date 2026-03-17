@@ -1,10 +1,13 @@
-import { Fragment } from "react/jsx-runtime"
-import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation"
+import { Fragment } from "react/jsx-runtime";
+import { HeroSection, OurServices, SalesforceProcess, TechnicalResource, FAQ, Measureables, ChooseQubitars } from "@/components/features/services/digital-Transformation";
 import { OurClient } from "@/components/features/home";
 import { testimonialsData, testimonialImagesById } from "@/data/home";
 import { mobileDevelopmentProcessSteps } from "@/data/digital-transformation/process";
 import { mobileDevelopmentServices } from "@/data/digital-transformation/services";
 import { mobileAppData } from "@/data/digital-transformation/hero";
+import { getServicePageMetadata } from "@/lib/metadata";
+
+export const metadata = getServicePageMetadata("custom-software-development");
 
 const MobileAppDevelopment = () => {
     // Merge testimonials data with images

@@ -1,4 +1,6 @@
 import { MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LucideIcon } from "lucide-react";
+export type { FormFieldConfig, FormData } from "./formFields";
+export { personalInfoFields, addressFields, INITIAL_FORM } from "./formFields";
 
 // Benefits (Why Work With Us)
 export interface BenefitItem {

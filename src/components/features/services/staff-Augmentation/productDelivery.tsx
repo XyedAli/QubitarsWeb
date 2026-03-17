@@ -25,7 +25,6 @@ export default function HowItWorks() {
                     subtitle="How It Works"
                     title="Clear Roles For Faster Product Delivery"
                 />
-
                 {/* Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-0 items-center xl:px-4">
 

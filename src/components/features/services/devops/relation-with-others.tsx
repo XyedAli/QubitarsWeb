@@ -39,7 +39,6 @@ export default function BusinessExcellence() {
             width={192}
             height={192}
           />
-
           <div className="relative z-10 text-center max-w-4xl mx-auto mt-0 md:mt-4 lg:mt-0">
             <h2
               id="business-excellence-heading"
@@ -54,11 +53,6 @@ export default function BusinessExcellence() {
             </p>
           </div>
         </div>
-        {/* <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 max-w-2xl mx-auto px-0 md:hidden">
-          {engagementCards.map((card) => (
-            <EngagementCardItem key={card.id} card={card} />
-          ))}
-        </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-2 -mt-20 md:-mt-22 lg:-mt-32 relative z-10 px-2 sm:px-0 max-w-[24rem] md:max-w-[46rem] lg:max-w-4xl xl:max-w-6xl mx-auto bg-white pb-9">
           {engagementCards.map((card, index) => (
             <EngagementCardItem key={card.id} card={card} index={index} />

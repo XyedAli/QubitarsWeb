@@ -12,7 +12,6 @@ export default function BenefitsSection() {
         subtitle="Benefits"
         title="Why Choose Our Staff Augmentation"
       />
-
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 lg:gap-6 xl:gap-8 items-center">
         {benefitsCardsData.map((card, index) => (
           <div
@@ -32,12 +31,10 @@ export default function BenefitsSection() {
               >
                 {card.title}
               </h3>
-
               <p className={combine("text-gray-600 xl:mt-2 max-w-[230px]", styles.p4)}>
                 {card.description}
               </p>
             </div>
-
             {/* IMAGE */}
             <div className="my-6">
               <Image

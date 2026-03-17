@@ -19,8 +19,8 @@ export type { CaseStudy } from "./caseStudies";
 // Careers data exports
 export { careerValues, openPositions, benefitsSection } from "./careers";
 export type { CareerValue, JobPosition, JobRequirements, BenefitItem } from "./careers";
-export { INITIAL_CAREER_FORM } from "./careers";
-export type { CareerFormData } from "./careers";
+export { personalInfoFields, addressFields } from "./careers";
+export type { FormFieldConfig } from "./careers";
 
 // Engagement Model page data exports
 export {processSection,advantageSection,modelsSection,customersNeedsSection,numericBannerSection,heroSection,engModelFaqSection,engModelFaqData,} from "./engModel";

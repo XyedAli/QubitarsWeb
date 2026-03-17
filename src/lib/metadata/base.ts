@@ -19,9 +19,7 @@ export const baseMetadata: Metadata = {
     },
   },
   verification: {
-    // Add your verification codes here when available
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
+    // Add verification codes when available: google: "...", yandex: "..."
   },
 };
 

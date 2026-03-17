@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { processSection } from "@/data/engModel";
 import { SectionHeading } from "@/components/shared/headings";
@@ -33,7 +35,7 @@ const Process = () => {
               <div className={`flex-shrink-0 w-30 h-30 flex items-center justify-center ${imgFirst ? "me-8" : "ms-1"}`}>
                 <Image
                   src={icons[step.mobileIconKey]}
-                  alt=""
+                  alt="Process Icons"
                   width={56}
                   height={56}
                   className="object-contain w-full h-full"
@@ -61,7 +63,7 @@ const Process = () => {
             <div key={`img-${index}`} className={`flex-1 min-w-0 flex justify-center ${[1, 3].includes(index) ? "-mt-6 md:-mt-26" : ""}`}>
               <Image
                 src={step.src}
-                alt=""
+                alt="Process Icons"
                 width={200}
                 height={200}
                 className="object-contain w-full max-w-[140px] lg:max-w-[180px] xl:max-w-[220px]"
@@ -79,7 +81,11 @@ const Process = () => {
         </div>
       </div>
       <div className="mt-8 md:mt-10 flex justify-center">
-        <Button variant="accent">{processSection.ctaText}</Button>
+        <Link href="/contact">
+        <Button variant="accent">{processSection.ctaText}
+        <ArrowRight className="w-5 h-5" />
+        </Button>
+        </Link>
       </div>
     </section>
   );

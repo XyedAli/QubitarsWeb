@@ -18,7 +18,6 @@ export default function DedicatedTeam() {
                 subtitle="Our Expert Teams"
                 title="Skilled Professionals Across All Technologies"
             />
-
             {/* Team Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8 mt-5 xl:mt-12">
                 {dedicatedTeamData.map((member, index) => (
@@ -40,8 +39,7 @@ export default function DedicatedTeam() {
                                 {member.text}
                             </h3>
                         </div>
-                     
-                          <a href="" className="text-blue flex items-center gap-1 mt-6 text-lg hover:text-accent">Apply Now<span className="text-accent text-xl"> <GoArrowRight /></span></a>  
+                       <a href="" className="text-blue flex items-center gap-1 mt-6 text-lg hover:text-accent">Apply Now<span className="text-accent text-xl"> <GoArrowRight /></span></a>  
                     </div>
                 ))}
             </div>

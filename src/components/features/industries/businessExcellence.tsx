@@ -4,7 +4,6 @@ import Image from "next/image";
 import { styles, combine } from "@/styles/style";
 import { getIndustriesAssets } from "@/lib/assets/images";
 import {
-  businessExcellenceHeading,
   engagementCards,
   getEngagementCardIcon,
   type EngagementCard,
@@ -27,7 +26,7 @@ function EngagementCardItem({
       <div>
         <Image
           src={iconSrc}
-          alt=""
+          alt="Business Excellence Icons"
           width={56}
           height={56}
           className="w-12 h-12 md:w-14 md:h-14 xl:w-18 xl:h-18 object-contain"
@@ -50,7 +49,7 @@ export default function BusinessExcellence() {
             className="absolute top-0 right-0 w-[320px] md:w-[340px] xl:w-[380px] h-[200px] md:h-[260px] xl:h-[300px] pointer-events-none z-0"
             aria-hidden
           >
-            <Image src={assets.stateimg6} alt="" fill sizes="" />
+            <Image src={assets.stateimg6} alt="lines bg image1" fill sizes="" />
           </div>
           <div
             className="absolute bottom-0 left-0 w-[280px] md:w-[260px] xl:w-[300px] h-[180px] md:h-[160px] xl:h-[200px] pointer-events-none z-0"
@@ -58,7 +57,7 @@ export default function BusinessExcellence() {
           >
             <Image
               src={assets.stateimg7}
-              alt=""
+              alt="lines bg image2"
               fill
               sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 420px"
             />
