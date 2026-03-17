@@ -37,7 +37,7 @@ const ExcellenceExecution = () => {
   const images = getEngagementModelCloudinaryImages();
   const cards = executionExcellenceSection.cards.map((card) => ({
     ...card,
-    image: (images as Record<string, string>)[card.imageKey],
+    image: (images as unknown as Record<string, string>)[card.imageKey],
   }));
 
   return (
