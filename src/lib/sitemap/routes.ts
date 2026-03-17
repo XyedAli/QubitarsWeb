@@ -30,13 +30,14 @@ export const serviceSlugs = [
   "devops",
   "product-design",
   "ai-development",
-  "custom-software-development",
   "web-development",
   "mobile-app-development",
   "mvp-development",
   "saas-development",
   "low-code-no-code",
   "ux-ui-design",
+  "custom-software-development",
+
 ] as const;
 
 /** Default priority for service pages. */

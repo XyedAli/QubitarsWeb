@@ -9,6 +9,46 @@ import { navItems } from "@/data";
 import { useNavbar } from "@/lib/hooks";
 import { styles, combine } from "@/styles/style";
 import { MobileDropdownContent } from "./MobileDropdownContent";
+import { lazy, Suspense } from "react";
+
+// Lazy load dropdown components to avoid circular dependencies
+const CapabilitiesDropdown = lazy(() => import("@/components/layout/dropdowns/CapabilitiesDropdown").then(module => ({ default: module.CapabilitiesDropdown })));
+const IndustriesDropdown = lazy(() => import("@/components/layout/dropdowns/IndustriesDropdown").then(module => ({ default: module.IndustriesDropdown })));
+const CompanyDropdown = lazy(() => import("@/components/layout/dropdowns/CompanyDropdown").then(module => ({ default: module.CompanyDropdown })));
+const EngagementDropdown = lazy(() => import("@/components/layout/dropdowns/EngagementDropdown").then(module => ({ default: module.EngagementDropdown })));
+
+// Wrapper components to handle props consistently
+const CapabilitiesDropdownWrapper = ({ onClose }: { onClose?: () => void }) => (
+  <CapabilitiesDropdown />
+);
+
+const IndustriesDropdownWrapper = ({ onClose }: { onClose?: () => void }) => (
+  <IndustriesDropdown />
+);
+
+const CompanyDropdownWrapper = ({ onClose }: { onClose?: () => void }) => (
+  <CompanyDropdown />
+);
+
+const EngagementDropdownWrapper = ({ onClose }: { onClose: () => void }) => (
+  <EngagementDropdown onClose={onClose} />
+);
+
+// Function to get the correct dropdown component
+const getDropdownComponent = (id: string) => {
+  switch (id) {
+    case "capabilities":
+      return CapabilitiesDropdownWrapper;
+    case "industries":
+      return IndustriesDropdownWrapper;
+    case "company":
+      return CompanyDropdownWrapper;
+    case "engagement":
+      return EngagementDropdownWrapper;
+    default:
+      return null;
+  }
+};
 // Main navigation header component
 const Navbar = () => {
   const {
@@ -54,33 +94,34 @@ const Navbar = () => {
             {/* Desktop nav */}
             <div className={combine("hidden md:flex", styles.flexitems, "gap-7 lg:gap-14")}>
               <div className={combine(styles.flexitems, "gap-4 lg:gap-8")}>
-                {navItems.map(({ id, label, DropdownComponent }) => (
-                  <div
-                    key={id}
-                    className="relative group"
-                  >
-                    <button
-                      onClick={() => handleDropdownToggle(id)}
-                      className={combine(styles.flexitems, "gap-1 lg:gap-2 text-[13px] lg:text-base cursor-pointer transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300", activeDropdown === id
-                          ? "text-accent after:w-full"
-                          : "text-blackish hover:text-accent after:w-0 hover:after:w-full"
-                        )}
+                {navItems.map(({ id, label }) => {
+                  const DropdownComponent = getDropdownComponent(id);
+                  return (
+                    <div
+                      key={id}
+                      className="relative group"
                     >
-                      {label}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === id ? "rotate-180" : ""
-                          }`}
-                      />
-                    </button>
-                    {activeDropdown === id && (
-                      id === "engagement" ? (
-                        <DropdownComponent onClose={() => setActiveDropdown(null)} />
-                      ) : (
-                        <DropdownComponent />
-                      )
-                    )}
-                  </div>
-                ))}
+                      <button
+                        onClick={() => handleDropdownToggle(id)}
+                        className={combine(styles.flexitems, "gap-1 lg:gap-2 text-[13px] lg:text-base cursor-pointer transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300", activeDropdown === id
+                            ? "text-accent after:w-full"
+                            : "text-blackish hover:text-accent after:w-0 hover:after:w-full"
+                          )}
+                      >
+                        {label}
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === id ? "rotate-180" : ""
+                            }`}
+                        />
+                      </button>
+                      {activeDropdown === id && DropdownComponent && (
+                        <Suspense fallback={<div>Loading...</div>}>
+                          <DropdownComponent onClose={() => setActiveDropdown(null)} />
+                        </Suspense>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Contact button */}

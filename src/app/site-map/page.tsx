@@ -2,7 +2,7 @@ import Link from "next/link";
 import { styles, combine } from "@/styles/style";
 import { staticRoutes } from "@/lib/sitemap";
 import { industrySlugs } from "@/data/industries/industrySlugs";
-import { capabilitiesData, additionalServices } from "@/data/navbar/Navbar";
+import { capabilitiesData, additionalServices } from "@/data";
 import { Map, MapPin, ArrowUpRight } from "lucide-react";
 
 const staticLabels: Record<string, string> = {
@@ -57,11 +57,11 @@ export default function SitemapPage() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFC]">
-      {/* Header – unique gradient + pattern */}
+      {/* Header */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1E274F] via-[#1a2244] to-[#171F3D] text-white">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
         <div className={combine(styles.sectionPadding, "max-w-6xl mx-auto py-20 relative")}>
-          <div className="flex items-center gap-4 ">
+          <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/10">
               <Map className="w-7 h-7 text-white" aria-hidden />
             </div>
@@ -78,8 +78,7 @@ export default function SitemapPage() {
       </section>
 
       <section className={combine(styles.sectionPadding, "py-10 md:py-14")}>
-        <div className="max-w-6xl mx-auto space-y-14">
-          {/* Main */}
+        <div className="max-w-7xl mx-auto space-y-14">
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100/80">
             <SectionHeading title="Main" />
             <div className="grid grid-cols-2 gap-x-6 gap-y-0">
@@ -92,10 +91,9 @@ export default function SitemapPage() {
                 </SitemapLink>
               ))}
             </div>
-          </div>
+       
 
-          {/* Company */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100/80">
+          <div className="bg-white rounded-2xl p-6 md:p-8 ">
             <SectionHeading title="Company" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-0">
               {companyRoutes.map((route) => (
@@ -109,8 +107,7 @@ export default function SitemapPage() {
             </div>
           </div>
 
-          {/* Services */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100/80">
+          <div className="bg-white rounded-2xl p-6  ">
             <SectionHeading title="Services" />
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-0">
               {additionalServices.map((svc) => (
@@ -119,10 +116,8 @@ export default function SitemapPage() {
                 </SitemapLink>
               ))}
             </div>
-
-
-               {/* Digital Transformation */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 ">
+            
+          <div className="bg-white rounded-2xl p-8">
             <SectionHeading title="Digital Transformation" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-0">
               {digitalCapability?.items.map((item) => (
@@ -133,8 +128,7 @@ export default function SitemapPage() {
             </div>
           </div>
 
-          {/* AI & ML */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 ">
+          <div className="bg-white rounded-2xl p-6">
             <SectionHeading title="AI & ML Development" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-0">
               {aiCapability?.items.map((item) => (
@@ -147,9 +141,7 @@ export default function SitemapPage() {
 
           </div>
 
-       
-          {/* Industries */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100/80">
+          <div className="bg-white rounded-2xl p-6 md:p-8">
             <SectionHeading title="Industries" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-0">
               {industrySlugs.map((item) => (
@@ -159,8 +151,7 @@ export default function SitemapPage() {
               ))}
             </div>
           </div>
-
-          {/* XML sitemap footer */}
+          </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 bg-white/80 backdrop-blur rounded-2xl px-5 py-4 border border-gray-100 shadow-sm">
             <span className="text-gray-500">For search engines</span>
             <Link
@@ -172,6 +163,7 @@ export default function SitemapPage() {
             </Link>
           </div>
         </div>
+       
       </section>
     </div>
   );

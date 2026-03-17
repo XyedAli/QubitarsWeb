@@ -3,10 +3,6 @@ import Icons from "@/lib/assets/icons";
 import { ChartNoAxesCombined, MapPin, Atom, Diameter, HeartPlus, GraduationCap, Rocket, LandPlot, Users, Handshake, ThumbsUp, Linkedin, Facebook, Instagram, Plug, Users2, UserPlus } from "lucide-react";
 import { industriesImages, companyImages, getProfileCloudinaryImages, getCompanyCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
 import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
-import { CapabilitiesDropdown } from "@/components/layout/dropdowns/CapabilitiesDropdown";
-import { IndustriesDropdown } from "@/components/layout/dropdowns/IndustriesDropdown";
-import { CompanyDropdown } from "@/components/layout/dropdowns/CompanyDropdown";
-import { EngagementDropdown } from "@/components/layout/dropdowns/EngagementDropdown";
 import { NavItem } from "@/lib/types";
 
 // Get Cloudinary icons for company logos
@@ -329,10 +325,10 @@ export const engagementData: EngagementDataItem[] = [
   },
 ];
 
-// Main navigation items - links to dropdown components
+// Main navigation items - dropdown component names (to avoid circular imports)
 export const navItems: NavItem[] = [
-  { id: "capabilities", label: "Capabilities", DropdownComponent: CapabilitiesDropdown },
-  { id: "industries", label: "Industries", DropdownComponent: IndustriesDropdown },
-  { id: "company", label: "Company", DropdownComponent: CompanyDropdown },
-  { id: "engagement", label: "Engagement Models", DropdownComponent: EngagementDropdown },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "industries", label: "Industries" },
+  { id: "company", label: "Company" },
+  { id: "engagement", label: "Engagement Models" },
 ];
