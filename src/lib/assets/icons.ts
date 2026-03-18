@@ -287,3 +287,17 @@ export const getStaffAugmentationIcons = () => {
 
   return icons;
 };
+
+/** QA Approaches section – title icons (Manual / Automated / Performance) */
+export const getQAApproachIcons = () => {
+  const icons = {
+    qaIcon1: optimizeIconImage(buildCloudinaryUrl("v1773811656/qaIcon1_uuz8ae.svg")),
+    qaIcon2: optimizeIconImage(buildCloudinaryUrl("v1773811656/qaIcon2_xs0xxf.svg")),
+    qaIcon3: optimizeIconImage(buildCloudinaryUrl("v1773811656/qaIcon3_nwualf.svg")),
+  };
+  return icons as {
+    qaIcon1: string;
+    qaIcon2: string;
+    qaIcon3: string;
+  };
+};

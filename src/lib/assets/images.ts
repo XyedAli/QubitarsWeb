@@ -609,3 +609,50 @@ export const getProductDesignCloudinaryImages = () => {
     pdImg5: string;
   };
 };
+
+// Quality Assurance Page Images
+export const getQACloudinaryImages = () => {
+  const qaEndpoints = {
+    QAimg1: "v1773746576/QAimg1_qs1ql7.webp",
+    QAimg2: "v1773746576/QAimg2_kd4qed.webp",
+    QAimg3: "v1773746576/QAimg3_md0xlc.webp",
+    QAimg4: "v1773746576/QAimg4_nuppsw.webp",
+    QABannerBg: "v1773824410/qabannerBg_vq5gxi.webp",
+  };
+
+  const qaImages: Record<string, string> = {};
+  Object.entries(qaEndpoints).forEach(([key, endpoint]) => {
+    const fullUrl = buildCloudinaryUrl(endpoint);
+    qaImages[key] = optimizeHeroImage(fullUrl);
+  });
+
+  return qaImages as {
+    QAimg1: string;
+    QAimg2: string;
+    QAimg3: string;
+    QAimg4: string;
+    QABannerBg: string;
+  };
+};
+
+/** Testing-solutions card art (Figma). Replace endpoints when final illustrations are on Cloudinary. */
+export const getQASoftwarePerformanceImages = () => {
+  const endpoints = {
+    QAsolFunctional: "v1773746576/QAimg2_kd4qed.webp",
+    QAsolApi: "v1773746576/QAimg3_md0xlc.webp",
+    QAsolPerformance: "v1773746576/QAimg4_nuppsw.webp",
+    QAsolSecurity: "v1773746576/QAimg1_qs1ql7.webp",
+    QAsolUsability: "v1773746576/QAimg3_md0xlc.webp",
+  };
+  const out: Record<string, string> = {};
+  Object.entries(endpoints).forEach(([k, ep]) => {
+    out[k] = optimizeHeroImage(buildCloudinaryUrl(ep));
+  });
+  return out as {
+    QAsolFunctional: string;
+    QAsolApi: string;
+    QAsolPerformance: string;
+    QAsolSecurity: string;
+    QAsolUsability: string;
+  };
+};
