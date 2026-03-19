@@ -1,30 +1,28 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useState } from "react"
-import Link from "next/link"
-import { combine, styles } from "@/styles/style"
-import { techStackData } from '@/data/staff-augmentation';
+import Image from "next/image";
+import { useState } from "react";
+import { combine, styles } from "@/styles/style";
+import { Button } from "@/components/shared/ui";
+import { techStackData } from "@/data/staff-augmentation";
 
 export default function HireEngineers() {
   const [active, setActive] = useState("Front-End")
 
   return (
-    <section className={combine("mx-auto", styles.sectionPaddingX, "pt-8")}>
+    <section className={combine(styles.sectionPaddingY, styles.sectionPaddingX)}>
       <div className={combine("bg-[#1e2b56] rounded-2xl p-5 md:p-7 lg:p-9 xl:p-12 lg:flex gap-7 xl:gap-16 items-center")}>
         
         {/* LEFT SIDE */}
         <div className="flex-1 text-white">
-          <h2 className={combine("font-bold leading-tight mb-10 text-[28px] md:text-[32px] lg:text-[29px] xl:text-[40px] max-w-[38rem] xl:max-w-lg")}>
-            Hire Engineers 
-            Experienced In The Tools 
+          <h2 className={combine(styles.h2, "font-bold leading-tight mb-10 text-white max-w-[38rem] xl:max-w-lg")}>
+            Hire Engineers
+            Experienced In The Tools
             Your Project Relies On
           </h2>
-          <Link href="/contact">
-            <button className="border border-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-white hover:text-black transition hidden lg:block">
-              Get In Touch →
-            </button>
-          </Link>
+          <Button href="/contact" variant="outline" size="lg" showArrow className="border-white text-white hover:bg-white hover:text-[#1e2b56] hidden lg:inline-flex">
+            Get In Touch
+          </Button>
         </div>
 
         {/* RIGHT SIDE */}

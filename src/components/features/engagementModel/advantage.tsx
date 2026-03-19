@@ -1,16 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { styles } from "@/styles/style";
+import { combine, styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
-import { Button } from "@/components/shared/ui";
+import Button from "@/components/shared/ui/button/Button";
 import { getEngagementModelCloudinaryImages } from "@/lib/assets/images";
 import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { advantageSection } from "@/data/engModel";
-
-const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
 const Advantage = () => {
   const images = getEngagementModelCloudinaryImages();
@@ -26,17 +22,9 @@ const Advantage = () => {
         <div className="flex items-center justify-between">
           <SectionHeading subtitle={advantageSection.subtitle} title={advantageSection.title} />
           <div className="hidden lg:block shrink-0">
-            <Link href="/contact">
-              <Button
-                variant="accent"
-                size="lg"
-                className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-                onClick={scrollToContact}
-              >
-                Discuss Your Needs
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
+            <Button href="/contact" variant="accent" size="lg" showArrow className="font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]">
+              Discuss Your Needs
+            </Button>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 xl:gap-23 items-center">
@@ -78,16 +66,9 @@ const Advantage = () => {
           </div>
         </div>
         <div className="flex justify-center mt-3 md:mt-8 lg:mt-0 lg:hidden">
-          <Link href="/contact">
-            <Button
-              variant="accent"
-              size="lg"
-              className="gap-2 font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Discuss Your Needs
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-          </Link>
+          <Button href="/contact" variant="accent" size="lg" showArrow className="font-inter hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]">
+            Discuss Your Needs
+          </Button>
         </div>
       </div>
     </div>

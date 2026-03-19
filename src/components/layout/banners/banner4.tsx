@@ -1,22 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles, combine } from "@/styles/style";
-import Button from "@/components/shared/ui/button/Button";
-import Link from "next/link";
+import { Button } from "@/components/shared/ui";
 
 const ConsultationButton = () => (
   <Button
+    href="/contact"
     variant="outline"
     size="lg"
+    showArrow
     className="bg-white text-[#111827] font-semibold font-outfit rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 w-fit"
   >
-    <span><Link href="/contact">Book a Consultation, it&apos;s free</Link></span>
-    <div className="relative">
-      <MoveUpRight className="w-5 h-5 mx-1 text-[#111827] transition-opacity duration-300 group-hover:opacity-0" />
-      <MoveRight className="w-5 h-5 mx-1 text-[#111827] font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-    </div>
+    Book a Consultation, it&apos;s free
   </Button>
 );
 

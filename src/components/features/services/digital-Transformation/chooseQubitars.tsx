@@ -2,12 +2,10 @@
 
 import { combine, styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
-import Button from "@/components/shared/ui/button/Button";
-import { MoveRight } from "lucide-react";
+import { Button } from "@/components/shared/ui";
 import Image from "next/image";
 import { getChooseQubitarsIcons } from "@/lib/assets/icons";
 import {chooseQubitarsCards,qualitySecurityData,} from "@/data/digital-transformation/chooseQubitars";
-import Link from "next/link";
 const ChooseQubitars = () => {
   const qubitarsIcons = getChooseQubitarsIcons();
 
@@ -98,12 +96,9 @@ const ChooseQubitars = () => {
                 {qualitySecurityData.description2}
               </p>
             </div>
-            <Link href="/contact">
-            <Button variant="accent" size="lg" className="mt-10 group w-54">
+            <Button href="/contact" variant="accent" size="lg" showArrow className="mt-10">
               Let's Talk Design
-              <MoveRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
-            </Link>
           </div>
         </div>
       </div>

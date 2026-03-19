@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
 import { getHeroClasses } from "./styles";
@@ -59,7 +58,6 @@ const HeroSection = ({
     (backgroundType === "color" || backgroundType === "pattern") ? backgroundColor || "bg-[#1E274F]" : "";
   const accentGradient =
     "bg-gradient-to-r from-[#F05C22] via-[#F58220] to-[#EA4D24]";
-  const arrowTransition = "transition-opacity duration-300";
 
   const hasOverlay = overlayTag || overlayTitle || overlayDescription;
 
@@ -107,12 +105,8 @@ const HeroSection = ({
                     {overlayDescription && <p className={`${isWhite ? "text-white" : "text-blue"} text-xs md:text-sm mt-1`}>{overlayDescription}</p>}
                   </div>
                   <div className="flex-shrink-0">
-                    <Button variant="accent" size={isLargeScreen ? "lg" : "md"} className="whitespace-nowrap">
-                      <Link href="/contact" className="whitespace-nowrap">{buttonText}</Link>
-                      <div className="relative flex-shrink-0">
-                        <MoveUpRight className={`w-5 h-5 mx-1 text-white ${arrowTransition} group-hover:opacity-0`} />
-                        <MoveRight className={`w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 ${arrowTransition} group-hover:opacity-100`} />
-                      </div>
+                    <Button href="/contact" variant="accent" size={isLargeScreen ? "lg" : "md"} showArrow className="whitespace-nowrap">
+                      {buttonText}
                     </Button>
                   </div>
                 </div>
@@ -203,17 +197,14 @@ const HeroSection = ({
                   {desc}
                 </p>
               ))}
-              <Link href="/contact">
-                <Button
-                  className={`group inline-flex items-center text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 ${accentGradient} text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 hover:shadow-lg ${h.buttonMarginTopClass}`}
-                >
-                  <span>{buttonText}</span>
-                  <div className="relative">
-                    <MoveUpRight className={`w-5 h-5 ${arrowTransition} group-hover:opacity-0`} />
-                    <MoveUpRight className={`w-5 h-5 absolute top-0 left-0 opacity-0 ${arrowTransition} group-hover:opacity-100`} />
-                  </div>
-                </Button>
-              </Link>
+              <Button
+                href="/contact"
+                variant="accent"
+                showArrow
+                className={`text-sm lg:text-base gap-3 px-4 lg:px-6 xl:px-8 py-2.5 xl:py-4 rounded-lg ${h.buttonMarginTopClass}`}
+              >
+                {buttonText}
+              </Button>
             </div>
           </div>
           {awardsSection && (

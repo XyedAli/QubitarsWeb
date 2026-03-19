@@ -1,10 +1,10 @@
 // components/DevOpsSection.jsx
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { combine, styles } from "@/styles/style";
 import { getDevOpsIcons } from "@/lib/assets/icons";
 import { SectionHeading } from "@/components/shared/headings";
+import { Button } from "@/components/shared/ui";
 import { devopsServices, devopsTags } from "@/data/devops/devops";
 
 const devOpsIcons = getDevOpsIcons();
@@ -68,11 +68,9 @@ const DevOpsSection = () => {
             </div>
 
             {/* Button */}
-            <Link href="/contact">
-              <button className={combine(styles.p3, "w-inline-flex w-50 items-center px-6 py-2 border border-orange-600 text-orange-600 font-medium rounded hover:bg-orange-50 transition")}>
-                Get In Touch <span className="ml-2">→</span>
-              </button>
-            </Link>
+            <Button href="/contact" variant="outline" size="lg" showArrow className={combine(styles.p3, "w-50 border-orange-600 text-orange-600 hover:bg-orange-50")}>
+              Get In Touch
+            </Button>
           </div>
         </div>
       </div>

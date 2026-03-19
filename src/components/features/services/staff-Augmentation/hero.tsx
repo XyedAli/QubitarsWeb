@@ -4,9 +4,9 @@ import Image from "next/image";
 import { getStaffAugmentationImages } from "@/lib/assets";
 import { combine, styles } from "@/styles/style";
 import { useState } from "react";
-import Link from "next/link";
+import { Button } from "@/components/shared/ui";
+
 export default function HeroSection() {
-  const staffImages = getStaffAugmentationImages();
   const [selectedService, setSelectedService] = useState("");
 
   return (
@@ -26,7 +26,6 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 z-0 w-full bg-blue"
         style={{
-          backgroundImage: ``,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -44,11 +43,9 @@ export default function HeroSection() {
             with your internal teams to deliver projects faster and more
             efficiently.
           </p>
-          <Link href="/contact">
-            <button className={combine("mt-6 md:mt-8", styles.ctaButtonOrange)}>
-              Build Your Team →
-            </button>
-          </Link>
+          <Button href="/contact" variant="accent" size="lg" showArrow className="mt-6 md:mt-8">
+            Build Your Team
+          </Button>
         </div>
 
         {/* RIGHT FORM - Centered on mobile */}
@@ -71,14 +68,12 @@ export default function HeroSection() {
               <option value="ui-design" className="text-gray-700">UI/UX Design</option>
               <option value="consulting" className="text-gray-700">Consulting</option>
             </select>
-            <input type="text" placeholder="US +1 (xxx) xxx-xxxx" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors" />
-            <textarea placeholder="Please describe your project *" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors resize-none" />
-            <input type="text" placeholder="What is your budget? *" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors" />
-            <Link href="/conatct">
-              <button className="mt-6 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-                Submit →
-              </button>
-            </Link>
+            <input type="text" placeholder="US +1 (xxx) xxx-xxxx" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors font-inter" />
+            <textarea placeholder="Please describe your project *" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors resize-none font-inter" />
+            <input type="text" placeholder="What is your budget? *" className="w-full border-b border-gray-300 py-3 mt-2 lg:mt-4 xl:mt-6 outline-none text-gray-700 placeholder:text-gray-400 focus:border-blue-500 transition-colors font-inter" />
+            <Button href="/contact" variant="accent" size="lg" showArrow className="mt-6">
+              Submit
+            </Button>
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { businessTypes } from "@/data";
@@ -62,17 +61,8 @@ const BusinessTypes = () => {
         </div>
 
         <div className="flex justify-center">
-          <Button
-            variant="accent"
-            size="lg"
-          >
-            <Link href="/contact">
-              Let's Talk Business
-            </Link>
-            <div className="relative">
-              <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-              <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </div>
+          <Button href="/contact" variant="accent" size="lg" showArrow>
+            Let's Talk Business
           </Button>
         </div>
       </div>

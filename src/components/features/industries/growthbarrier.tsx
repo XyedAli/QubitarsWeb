@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { styles, combine } from "@/styles/style";
+import { Button } from "@/components/shared/ui";
 import {valueCardGradient,valueCardBaseClass,valueCardBorderClass,valueCardOverlayClass,valueCardIconBorderClass,valueCardDescColorClass,valueCardTitleClassCompact,valueCardDescClass2,valueCardContentClassCompact,valueCardIconWrapperBaseClass,} from "@/styles/valueCardStyles";
 import { SectionHeading } from "@/components/shared/headings";
 import { getGrowthBarrierForIndustry } from "@/data/industries";
@@ -37,10 +36,9 @@ export default function GrowthBarrier({ industryId = "real-estate" }: GrowthBarr
                 {description}
               </p>
             </div>
-            <Link href="/contact" className={styles.ctaButtonOrange}>
+            <Button href="/contact" variant="accent" size="lg" showArrow>
               {buttonText}
-              <ArrowRight className="w-5 h-5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            </Button>
           </div>
 
           <div className="lg:col-span-7">

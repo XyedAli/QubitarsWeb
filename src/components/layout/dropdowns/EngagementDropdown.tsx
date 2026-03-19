@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Button, CustomSlider } from "@/components/shared/ui";
 import { engagementData } from "@/data";
 import { styles, combine } from "@/styles/style";
-import { MoveUpRight, MoveRight } from "lucide-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type Slider from "react-slick";
 import Link from "next/link";
@@ -91,14 +90,8 @@ export const EngagementDropdown = ({ onClose }: { onClose: () => void }) => {
                                     </Link>
                                 );
                             })}
-                            <Button variant="accent" size="md" className="mt-4">
-                                <Link href="/engagement-models">
-                                    Discover More
-                                </Link>
-                                <div className="relative">
-                                    <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-                                    <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                                </div>
+                            <Button href="/engagement-models" variant="accent" size="md" showArrow className="mt-4">
+                                Discover More
                             </Button>
                         </div>
 

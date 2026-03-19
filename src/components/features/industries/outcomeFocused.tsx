@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { styles, combine } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
+import Button from "@/components/shared/ui/button/Button";
 import { getIndustriesStateIcons } from "@/lib/assets/icons";
 import { outcomeFocusedHeading, roadmapSteps, type RoadmapStep } from "@/data/industries";
 
@@ -122,10 +121,9 @@ export default function OutcomeFocused() {
                             />
                         </div>
                         <div className="shrink-0 hidden lg:block">
-                            <Link href="/contact" className={styles.ctaButtonOrange}>
+                            <Button href="/contact" variant="accent" size="lg" showArrow>
                                 Discuss Your Needs
-                                <ArrowRight className="w-5 h-5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                            </Link>
+                            </Button>
                         </div>
                     </div>
 
@@ -154,11 +152,10 @@ export default function OutcomeFocused() {
                         <StepCard step={roadmapSteps[2]} />
                         <StepCard step={roadmapSteps[3]} />
                     </div>
-                      <div className="w-full shrink-0 flex justify-center mt-8 md:mt-11">
-                            <Link href="/contact" className={styles.ctaButtonOrange}>
+                      <div className="w-full shrink-0 flex justify-center mt-8 md:mt-11 block lg:hidden">
+                            <Button href="/contact" variant="accent" size="lg" showArrow>
                                 Discuss Your Needs
-                                <ArrowRight className="w-5 h-5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                            </Link>
+                            </Button>
                         </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getHomeCloudinaryImages, getNavbarCloudinaryImages } from "@/lib/assets/images";
-import { ChevronDown, Menu, MoveRight, MoveUpRight, X } from "lucide-react";
+import { ChevronDown, Menu, MoveUpRight, X } from "lucide-react";
 import { Button } from "@/components/shared/ui";
 import TopNav from "@/components/layout/topNav";
 import { navItems } from "@/data";
@@ -128,15 +128,11 @@ const Navbar = () => {
               <Button
                 variant="accent"
                 size="md"
-                className="group hover:bg-transparent border border-accent"
+                href="/contact"
+                showArrow
+                className="hover:bg-transparent border border-accent"
               >
-                <Link href="/contact">
                 Contact Us
-                </Link>
-                <div className="relative">
-                  <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-                  <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
               </Button>
             </div>
 

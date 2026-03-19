@@ -1,14 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { styles } from "@/styles/style";
+import { combine, styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { Button } from "@/components/shared/ui";
-import { MoveUpRight } from "lucide-react";
 import { caseStudies } from "@/data";
 import { getIndustryCloudinaryIcons } from "@/lib/assets/icons";
-
 interface CaseCardProps {
   image: string;
   logo: string;
@@ -49,11 +46,8 @@ const CaseCard = ({ image, logo, tag, title, desc, reversed = false }: CaseCardP
 
           {/* CTA Button */}
           <div>
-            <Button variant="accent" size="lg" className="group/btn">
-              <Link href="#" className="flex items-center gap-2">
+            <Button href="/contact" variant="accent" size="lg" showArrow>
               {tag}
-                <MoveUpRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-              </Link>
             </Button>
           </div>
         </div>

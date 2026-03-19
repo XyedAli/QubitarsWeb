@@ -2,11 +2,10 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { getStaffAugmentationIcons, getStaffAugmentationImages } from "@/lib/assets";
 import { combine, styles } from "@/styles/style";
 import { SectionHeading } from '@/components/shared/headings';
-import Button from '@/components/shared/ui/button/Button';
+import { Button } from '@/components/shared/ui';
 import { teamsData } from '@/data/staff-augmentation';
 
 interface Team {
@@ -92,9 +91,9 @@ const Models4Team: React.FC = () => {
                       </div>
                       <div>
                         {isActive && team.showButton && (
-                          <Link href="/contact">
-                            <Button variant="accent">Get a Quote</Button>
-                          </Link>
+                          <Button href="/contact" variant="accent" size="lg" showArrow>
+                            Get a Quote
+                          </Button>
                         )}
                       </div>
                     </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { MoveRight, MoveUpRight } from 'lucide-react';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -9,7 +11,14 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   fullWidth?: boolean;
+  /** When true, shows MoveUpRight that swaps to MoveRight on hover */
+  showArrow?: boolean;
+  /** When set, renders as Next.js Link instead of button (for CTAs) */
+  href?: string;
 }
+
+const arrowIconClasses = 'w-5 h-5 mx-1 transition-opacity duration-300 group-hover:opacity-0';
+const arrowIconClassesHover = 'w-5 h-5 mx-1 font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100';
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -20,6 +29,8 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className = '',
   fullWidth = false,
+  showArrow = false,
+  href,
 }) => {
   const baseClasses = 'group inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
@@ -41,6 +52,27 @@ const Button: React.FC<ButtonProps> = ({
   
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClass} ${className}`.trim();
 
+  const arrowEl = showArrow && (
+    <div className="relative" aria-hidden>
+      <MoveUpRight className={`${arrowIconClasses} text-current`} />
+      <MoveRight className={`${arrowIconClassesHover} text-current`} />
+    </div>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={buttonClasses}
+        onClick={onClick}
+        aria-disabled={disabled}
+      >
+        {children}
+        {arrowEl}
+      </Link>
+    );
+  }
+
   return (
     <button
       type={type}
@@ -49,6 +81,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
     >
       {children}
+      {arrowEl}
     </button>
   );
 };

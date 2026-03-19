@@ -2,8 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin, ArrowLeft, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button, CustomSlider } from "@/components/shared/ui";
 import { getHeroCardsForIndustry } from "@/data/industries";
 import { styles, combine } from "@/styles/style";
@@ -299,11 +298,9 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
               <p className={combine("text-white max-w-lg text-lg leading-relaxed mb-6 xl:mb-8")}>
                 {contentIndustry.description}
               </p>
-              <Link href="/contact">
-                <Button variant="primary" size="lg" className="w-fit mt-0 xl:mt-2">
-                  {contentIndustry.buttonText}
-                </Button>
-              </Link>
+              <Button href="/contact" variant="accent" size="lg" showArrow className="w-fit mt-0 xl:mt-2">
+                {contentIndustry.buttonText}
+              </Button>
             </div>
           </div>
 

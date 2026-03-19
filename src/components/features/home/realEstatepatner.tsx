@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MoveUpRight, MoveRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
-import Link from "next/link";
 import { getHomeCloudinaryImages } from "@/lib/assets/images";
 
 const RealEstatePartner = () => {
@@ -66,17 +64,8 @@ const RealEstatePartner = () => {
             </div>
           </h2>
           {/* CTA Button */}
-          <Button
-            variant="accent"
-            size="lg"
-            className="font-outfit "
-          >
-            <span className={`${styles.p2}`}>
-            <Link href="/contact">Start Partnership</Link></span>
-            <div className="relative">
-              <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-              <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </div>
+          <Button href="/contact" variant="accent" size="lg" showArrow className={`font-outfit ${styles.p2}`}>
+            Start Partnership
           </Button>
         </div>
       </div>

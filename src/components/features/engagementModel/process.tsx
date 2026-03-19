@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { styles } from "@/styles/style";
+import { combine, styles } from "@/styles/style";
 import { Button } from "@/components/shared/ui";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { getEngagementModelCloudinaryIcons } from "@/lib/assets/icons";
 import { processSection } from "@/data/engModel";
 import { SectionHeading } from "@/components/shared/headings";
@@ -81,11 +79,9 @@ const Process = () => {
         </div>
       </div>
       <div className="mt-8 md:mt-10 flex justify-center">
-        <Link href="/contact">
-        <Button variant="accent">{processSection.ctaText}
-        <ArrowRight className="w-5 h-5" />
+        <Button href="/contact" variant="accent" size="lg" showArrow>
+          {processSection.ctaText}
         </Button>
-        </Link>
       </div>
     </section>
   );

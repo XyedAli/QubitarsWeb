@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button, CustomSlider, sliderBreakpoints } from "@/components/shared/ui";
 import { industries } from "@/data";
-import { MoveUpRight, MoveRight } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 
 import { styles, combine } from "@/styles/style";
 
@@ -152,15 +152,9 @@ export const IndustriesDropdown = () => {
                         <h3 className="font-bold text-sm lg:text-base text-accent">Let&apos;s Build Your Next Project Together</h3>
                         <p className="text-[#1E274F] font-semibold text-sm">With over 1000 tech experts, we&apos;re ready to discuss your project.</p>
                       </div>
-                      <Link href="/contact-us">
-                        <Button variant="accent" size="md">
-                          Schedule a Call
-                          <div className="relative">
-                            <MoveUpRight className="w-5 h-5 mx-1 text-white transition-opacity duration-300 group-hover:opacity-0" />
-                            <MoveRight className="w-5 h-5 mx-1 text-white font-bold absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                          </div>
-                        </Button>
-                      </Link>
+                      <Button href="/contact-us" variant="accent" size="md" showArrow>
+                        Schedule a Call
+                      </Button>
                     </div>
                   </>
                 ) : (

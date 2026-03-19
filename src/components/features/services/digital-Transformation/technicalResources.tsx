@@ -4,8 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { styles, combine } from "@/styles/style";
 import Link from "next/link";
 import { SectionHeading } from "@/components/shared/headings";
-import { MoveUpRight, MoveRight } from "lucide-react";
-import Button from "@/components/shared/ui/button/Button";
+import { Button } from "@/components/shared/ui";
 import { tabs, techCards } from "@/data/digital-transformation/chooseQubitars";
 import TechTabsSectionLG from "./technicalResourcesLG";
 
@@ -80,15 +79,9 @@ export default function TechTabsSection() {
                 Using a neutral and agnostic methodology, we choose tools that align perfectly with your organization's infrastructure, scalability goals, and performance needs.
               </p>
               <div className="mt-8">
-                <Link href="/contact">
-                  <Button variant="accent" size="lg" className="group flex items-center">
-                    Let's Talk Design
-                    <div className="relative flex items-center justify-center ml-3">
-                      <MoveUpRight className="w-4 h-4 text-white transition-opacity duration-300 group-hover:opacity-0" />
-                      <MoveRight className="w-4 h-4 text-white absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    </div>
-                  </Button>
-                </Link>
+                <Button href="/contact" variant="accent" size="lg" showArrow>
+                  Let's Talk Design
+                </Button>
               </div>
             </div>
 
