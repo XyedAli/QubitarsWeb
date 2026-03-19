@@ -17,11 +17,9 @@ const staticLabels: Record<string, string> = {
   "engagement-models": "Engagement Models",
 };
 
-export const metadata = {
-  title: "Sitemap | Qubitars Technology",
-  description:
-    "Browse all pages on Qubitars Technology - company, services, industries, and more.",
-};
+import { sitemapMetadata } from "@/lib/metadata";
+
+export const metadata = sitemapMetadata;
 
 function SectionHeading({ title }: { title: string }) {
   return (

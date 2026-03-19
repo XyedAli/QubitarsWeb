@@ -92,7 +92,7 @@ export default function Solutions({ industryId = "real-estate" }: SolutionsProps
                 <div className={solutionIconCircle} aria-hidden>
                   <Image
                     src={SOLUTION_ICONS[index % SOLUTION_ICONS.length]}
-                    alt=""
+                    alt={card.title}
                     width={24}
                     height={24}
                     className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 object-contain"

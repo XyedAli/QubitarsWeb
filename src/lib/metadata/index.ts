@@ -28,3 +28,7 @@ export const contactMetadata = getStaticPageMetadata("contact");
 export const blogsMetadata = getStaticPageMetadata("blogs");
 export const caseStudiesMetadata = getStaticPageMetadata("case-studies");
 export const servicesMetadata = getStaticPageMetadata("services");
+export const sitemapMetadata = getStaticPageMetadata("site-map", {
+  canonicalPath: "/site-map",
+  titleTemplate: true,
+});

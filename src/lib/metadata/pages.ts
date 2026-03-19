@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { baseMetadata, defaultOpenGraph, defaultTwitter } from "./base";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.qubitars.com";
+import { baseMetadata, defaultOpenGraph, defaultTwitter, siteUrl } from "./base";
 
 /** Build full Cloudinary URL for OG/social images (hero or section images per page). */
 const cloudinaryBase =
@@ -87,6 +85,12 @@ export const staticPagesMeta: Record<string, PageMeta> = {
     description:
       "Engage Smarter, Build Faster. Choose an engagement structure that fits your business today, while leaving room for where you're headed next. Start lean, scale confidently, and adjust seamlessly.",
   },
+  "site-map": {
+    image: cloudinaryOgUrl("v1769175115/himg8_et4dcc.webp"),
+    title: "Sitemap",
+    description:
+      "Browse all pages on Qubitars Technology - company, services, industries, careers, and more. Find what you need quickly.",
+  },
 };
 
 /** Service pages: hero or section image for OG/social. */
@@ -156,6 +160,12 @@ export const servicesMeta: Record<string, PageMeta> = {
     title: "UI/UX Design",
     description:
       "We design user-centered interfaces that simplify complexity, accelerate conversions, and deliver measurable product performance.",
+  },
+  "quality-assurance": {
+    image: cloudinaryOgUrl("v1772188381/approachbg_lcwrsw.webp"),
+    title: "Quality Assurance - Prevent Failures in Advance",
+    description:
+      "From functional testing to performance validation, we detect issues early and keep your product reliable, secure, and scalable. Ensure your product meets the highest standards.",
   },
 };
 

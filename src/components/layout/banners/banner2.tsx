@@ -24,7 +24,7 @@ const Banner2 = ({
   return (
     <section className="relative overflow-hidden min-h-[45vh] md:min-h-[45vh] lg:min-h-[53vh] flex items-center mx-0 md:mx-5">
       <div className="absolute inset-0 z-0">
-        <Image src={backgroundImage} alt="" fill className="object-cover" unoptimized />
+        <Image src={backgroundImage} alt="Banner background - build faster, scale smarter" fill className="object-cover" unoptimized />
       </div>
       <div className={combine("relative z-10 w-full", styles.sectionPadding)}>
         <div className="flex flex-col md:flex-row flex-nowrap justify-left md:justify-between items-start md:items-center w-full gap-6 md:gap-0">

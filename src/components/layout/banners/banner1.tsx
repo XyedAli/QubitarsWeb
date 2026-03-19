@@ -10,7 +10,7 @@ const Banner1 = () => {
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/generals/banners/bannerbg1.png"
-          alt=""
+          alt="Strategic partner for digital growth - hero background"
           fill
           className="object-cover"
           unoptimized
