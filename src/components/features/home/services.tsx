@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { MoveUpRight } from "lucide-react";
 import { styles } from "@/styles/style";
 import { SectionHeading } from "@/components/shared/headings";
 import { servicesData, ServiceData } from "@/data/home";
 import ServiceModal from "@/components/shared/ui/ServiceModal";
-
 const MD_DEFAULT_ACTIVE_INDICES = [0, 3, 4];
 const Services = () => {
   const [activeCardRow1, setActiveCardRow1] = useState<number>(0);
@@ -104,6 +104,14 @@ const Services = () => {
           subtitle="Our Services"
           title="Growth-Focused Digital Services"
         />
+        <p className="text-center -mt-4 mb-6 md:mb-8">
+          <Link
+            href="/site-map"
+            className="text-accent font-semibold font-inter text-sm md:text-base underline underline-offset-2 hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+          >
+            Browse all pages and services
+          </Link>
+        </p>
 
         <div
           className="flex flex-wrap gap-6 lg:gap-6 xl:gap-8"
@@ -196,15 +204,17 @@ const Services = () => {
                           {service.description}
                         </p>
                       </div>
-                      <div
-                        className="group/btn flex items-center gap-2 mt-2 md:mt-5 xl:mt-9 cursor-pointer transition-all duration-300 hover:gap-3"
+                      <button
+                        type="button"
+                        className="group/btn flex items-center gap-2 mt-2 md:mt-5 xl:mt-9 cursor-pointer transition-all duration-300 hover:gap-3 text-left"
                         onClick={(e) => handleExploreMore(service, e)}
+                        aria-label={`Explore ${service.title} — opens details`}
                       >
                         <span className={`${styles.p3} font-semibold text-white transition-all duration-300 group-hover/btn:translate-x-1`}>Explore More</span>
                         <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">
-                          <MoveUpRight className="w-4 h-4 text-accent transition-transform duration-300" />
+                          <MoveUpRight className="w-4 h-4 text-accent transition-transform duration-300" aria-hidden />
                         </div>
-                      </div>
+                      </button>
                     </div>
                   </div>
                   <div className={`relative pe-2 flex flex-col justify-between w-full h-full transition-opacity duration-300 ease-in-out ${isActive ? "opacity-0 z-0 pointer-events-none absolute inset-0" : "opacity-100 z-10"
@@ -220,15 +230,17 @@ const Services = () => {
                         </p>
                       )}
                     </div>
-                    <div
-                      className="group/btn flex items-center gap-2 pb-1 cursor-pointer transition-all duration-300 hover:gap-3"
+                    <button
+                      type="button"
+                      className="group/btn flex items-center gap-2 pb-1 cursor-pointer transition-all duration-300 hover:gap-3 text-left"
                       onClick={(e) => handleExploreMore(service, e)}
+                      aria-label={`Explore ${service.title} — opens details`}
                     >
                       <span className={`${styles.p3} font-semibold text-blue transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-blue-600`}>Explore More</span>
                       <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-blue/20 group-hover/btn:rotate-45 group-hover/btn:scale-110">
-                        <MoveUpRight className="w-4 h-4 text-blue transition-transform duration-300" />
+                        <MoveUpRight className="w-4 h-4 text-blue transition-transform duration-300" aria-hidden />
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>

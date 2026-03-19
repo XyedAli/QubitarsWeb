@@ -21,7 +21,13 @@ export const CapabilitiesDropdown = () => {
                     {section.title}
                   </h4>
                   {section.image && (
-                    <Image src={section.image || ""} alt={section.title || ""} width={20} height={20} className="w-10 h-10 object-contain" />
+                    <Image
+                    src={section.image || ""}
+                    alt={section.title?.trim() ? `${section.title} — Qubitars capability` : "Qubitars Technology service capability icon"}
+                    width={20}
+                    height={20}
+                    className="w-10 h-10 object-contain"
+                  />
                   )}
                 </div>
                 {/* Capability items */}

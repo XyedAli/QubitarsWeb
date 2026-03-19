@@ -45,7 +45,7 @@ export default function HowItWorks() {
                         <div className="relative z-10 block lg:hidden md:mt-0 md:ml-4 order-2">
                             <Image
                                 src={staffImages.saImg19}
-                                alt="Qubitars Arrow"
+                                alt="Qubitars staff augmentation — your team and delivery flow diagram"
                                 width={370}
                                 height={120}
                             />
@@ -59,7 +59,7 @@ export default function HowItWorks() {
                         <div className="relative z-10 flex justify-center">
                             <Image
                                 src={staffImages.saImg19}
-                                alt="Qubitars Arrow"
+                                alt="Qubitars staff augmentation — your team and delivery flow diagram"
                                 width={340}
                                 height={120}
                             />
@@ -68,7 +68,7 @@ export default function HowItWorks() {
                         <div className="relative z-10 flex justify-center">
                             <Image
                                 src={staffImages.saImg20}
-                                alt="Qubitars Arrow"
+                                alt="Qubitars staff augmentation — your team and delivery flow diagram"
                                 width={340}
                                 height={120}
                             />
@@ -92,7 +92,7 @@ export default function HowItWorks() {
                         <div className="relative z-10 block lg:hidden mt-23 md:mt-7 md:me-4 order-1">
                             <Image
                                 src={staffImages.saImg20}
-                                alt="Qubitars Arrow"
+                                alt="Qubitars staff augmentation — your team and delivery flow diagram"
                                 width={370}
                                 height={120}
                             />

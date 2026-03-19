@@ -87,7 +87,7 @@ const HeroSection = ({
                 </>
               )}
               {backgroundType === "image" && backgroundImage && (
-                <Image src={backgroundImage} alt="Blog Hero" fill className="object-cover" priority sizes="100vw" quality={90} />
+                <Image src={backgroundImage} alt="Qubitars Technology — hero background for insights and blog" fill className="object-cover" priority sizes="100vw" quality={90} />
               )}
             </div>
             {hasOverlay && (

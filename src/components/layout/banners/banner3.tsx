@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { styles, combine } from "@/styles/style";
+import { Button } from "@/components/shared/ui";
 
 const Banner3 = () => (
   <section className={combine("relative overflow-hidden bg-white my-4 shadow-xl rounded-xl", styles.sectionPadding)}>
@@ -18,16 +19,22 @@ const Banner3 = () => (
             We design, build, and scale digital products that drive measurable growth.
           </p>
           <div className="flex flex-row gap-4">
-            <button className="text-sm lg:text-base px-4 lg:px-6 xl:px-10 py-2 lg:py-3 xl:py-4 bg-[#1E274F] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300">
+            <Button href="/contact" variant="secondary" size="lg">
               Work With Experts
-            </button>
-            <button className="text-sm lg:text-base px-4 lg:px-6 xl:px-10 py-2 lg:py-3 xl:py-4 bg-white border-2 border-gray-300 text-gray-800 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300">
+            </Button>
+            <Button href="/contact" variant="outline" size="lg" className="bg-white border-2 border-gray-300 text-gray-800 hover:bg-gray-50">
               Book Consultation
-            </button>
+            </Button>
           </div>
         </div>
         <div className="relative h-[250px] md:h-[310px] lg:h-[360px] xl:h-[390px]">
-          <Image src="/assets/images/generals/banners/bannerbg3.png" alt="Banner 3" fill className="object-cover ms-0 md:ms-8 lg:ms-0" unoptimized />
+          <Image
+            src="/assets/images/generals/banners/bannerbg3.png"
+            alt="Qubitars Technology — digital product growth and scaling illustration"
+            fill
+            className="object-cover ms-0 md:ms-8 lg:ms-0"
+            unoptimized
+          />
         </div>
       </div>
     </div>

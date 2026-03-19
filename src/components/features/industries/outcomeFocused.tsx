@@ -128,7 +128,7 @@ export default function OutcomeFocused() {
                     </div>
 
                     <div className="absolute left-85 lg:left-98 xl:left-123 top-58 lg:top-60 xl:top-64 hidden md:block">
-                        <Image src={getIndustriesStateIcons().arrow1} alt="Arrow 1" width={430} height={70} className="w-[220px] lg:w-[280px] xl:w-[430px] h-[70px] lg:h-[80px] xl:h-[70px]" />
+                        <Image src={getIndustriesStateIcons().arrow1} alt="Qubitars industry solutions — directional connector graphic" width={430} height={70} className="w-[220px] lg:w-[280px] xl:w-[430px] h-[70px] lg:h-[80px] xl:h-[70px]" />
                     </div>
 
                     <div className="absolute left-26 lg:left-29 xl:left-62 top-106 lg:top-121 xl:top-127 hidden md:block">
@@ -136,7 +136,7 @@ export default function OutcomeFocused() {
                     </div>
 
                     <div className="absolute left-83 lg:left-119 xl:left-163 top-153 lg:top-172 xl:top-186 hidden md:block">
-                        <Image src={getIndustriesStateIcons().arrow3} alt="Arrow 3" width={430} height={70} className="w-[230px] lg:w-[260px] xl:w-[430px] h-[75px] lg:h-[82px] xl:h-[70px]" />
+                        <Image src={getIndustriesStateIcons().arrow3} alt="Qubitars digital transformation — workflow connector graphic" width={430} height={70} className="w-[230px] lg:w-[260px] xl:w-[430px] h-[75px] lg:h-[82px] xl:h-[70px]" />
                     </div>
 
 

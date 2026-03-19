@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { baseMetadata, defaultOpenGraph, defaultTwitter, siteUrl } from "./base";
+import { globalSeoKeywords, mergeSeoKeywords } from "./keywords";
 
 /** Build full Cloudinary URL for OG/social images (hero or section images per page). */
 const cloudinaryBase =
@@ -19,6 +20,8 @@ export interface PageMeta {
   image: string;
   title: string;
   description: string;
+  /** Merged with global SEO keywords for this route */
+  keywords?: string[];
 }
 
 /** Default OG image used when no page-specific image is set. */
@@ -31,6 +34,12 @@ export const staticPagesMeta: Record<string, PageMeta> = {
     title: "Qubitars Technology - Your Partner in Digital Innovation",
     description:
       "Qubitars Technology provides cutting-edge AI solutions, custom software development, web and mobile app development, and digital transformation services. Partner with us for innovative technology solutions.",
+    keywords: [
+      "hire software developers",
+      "technology consulting",
+      "IT services company",
+      "full stack development",
+    ],
   },
   "about-us": {
     image: cloudinaryOgUrl("v1769366420/herobg_pqhs8m.webp"),
@@ -43,6 +52,7 @@ export const staticPagesMeta: Record<string, PageMeta> = {
     title: "Contact Us",
     description:
       "Get in touch with Qubitars Technology. Contact our team for AI solutions, custom software development, web and mobile app development, and digital transformation services. We're here to help transform your business.",
+    keywords: ["contact Qubitars", "software project quote", "book consultation", "hire developers"],
   },
   "case-studies": {
     image: cloudinaryOgUrl("v1769159269/caseStudiesbg_piw2gw.webp"),
@@ -247,10 +257,13 @@ export function buildPageMetadata(
   const imageUrl =
     meta.image.startsWith("http") ? meta.image : `${siteUrl}${meta.image.startsWith("/") ? meta.image : `/${meta.image}`}`;
 
+  const keywords = mergeSeoKeywords(globalSeoKeywords, meta.keywords);
+
   return {
     ...baseMetadata,
     title,
     description: meta.description,
+    keywords,
     alternates: {
       canonical: canonicalUrl,
     },

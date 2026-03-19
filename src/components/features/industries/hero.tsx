@@ -241,7 +241,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
         <div key={previousIndustryId} className="absolute inset-0 animate-industries-bg-fade-in">
           <Image
             src={previousBgImage}
-            alt="Previous Background Image"
+            alt="Qubitars industry solutions — previous hero background"
             fill
             className={heroImageCover}
             priority
@@ -275,7 +275,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
           <div className="absolute inset-0">
             <Image
               src={activeCardImage}
-              alt="Active Card Image"
+              alt="Qubitars industry focus — active sector hero visual"
               fill
               className={heroImageCover}
               sizes="100vw"
@@ -340,7 +340,7 @@ const IndustriesHero = ({ industryId = "real-estate" }: IndustriesHeroProps) => 
                       >
                         <Image
                           src={cardBgImage}
-                          alt="Industry Card Images"
+                          alt={`Qubitars ${industry.name} industry card background`}
                           fill
                           className={heroImageCover}
                           sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 28vw"

@@ -96,7 +96,7 @@ const Models = () => {
               <div className="relative min-h-[320px] md:min-h-[380px] rounded-2xl overflow-hidden lg:col-span-5 bg-[#1E274F] hidden md:block">
                 <Image
                   src={tabImages[index]}
-                  alt="Growth-focused process"
+                  alt={`Qubitars engagement model — ${tab.title} overview visual`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

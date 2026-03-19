@@ -5,4 +5,5 @@ export { CustomSlider, sliderBreakpoints } from "./slider/Slider";
 export { default as DualRowSlider } from "./slider/DualRowSlider";
 export { default as IndustryLogosSlider } from "./slider/IndustryLogosSlider";
 export { default as ServiceModal } from "./ServiceModal";
+export { SEOImage, SEOLink } from "./seo";
 

@@ -33,7 +33,7 @@ const Process = () => {
               <div className={`flex-shrink-0 w-30 h-30 flex items-center justify-center ${imgFirst ? "me-8" : "ms-1"}`}>
                 <Image
                   src={icons[step.mobileIconKey]}
-                  alt="Process Icons"
+                  alt={`Qubitars engagement process — ${step.title} icon`}
                   width={56}
                   height={56}
                   className="object-contain w-full h-full"
@@ -61,7 +61,7 @@ const Process = () => {
             <div key={`img-${index}`} className={`flex-1 min-w-0 flex justify-center ${[1, 3].includes(index) ? "-mt-6 md:-mt-26" : ""}`}>
               <Image
                 src={step.src}
-                alt="Process Icons"
+                alt={`Qubitars engagement process — ${step.title} illustration`}
                 width={200}
                 height={200}
                 className="object-contain w-full max-w-[140px] lg:max-w-[180px] xl:max-w-[220px]"

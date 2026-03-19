@@ -15,6 +15,7 @@ export {
 } from "./pages";
 
 export { baseMetadata, defaultOpenGraph, defaultTwitter } from "./base";
+export { globalSeoKeywords, mergeSeoKeywords } from "./keywords";
 
 // Static page metadata (from single source for backward compatibility)
 import { getStaticPageMetadata } from "./pages";

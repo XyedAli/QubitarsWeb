@@ -21,7 +21,7 @@ export const MobileDropdownContent = ({ dropdownId }: MobileDropdownContentProps
                   {section.image && (
                     <Image
                       src={section.image}
-                      alt={section.title || ""}
+                      alt={section.title?.trim() ? `${section.title} — Qubitars menu` : "Qubitars Technology navigation"}
                       width={24}
                       height={24}
                       className="w-9 h-9 object-contain"

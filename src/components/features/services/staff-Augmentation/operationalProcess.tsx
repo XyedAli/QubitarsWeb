@@ -35,7 +35,7 @@ export default function OperationalProcess() {
                                 <div className="absolute top-10 right-0">
                                     <Image
                                         src={staffImages[card.bgImageKey as keyof typeof staffImages]}
-                                        alt="Process Image"
+                                        alt={`Qubitars dedicated team process — ${card.title} step illustration`}
                                         width={80}
                                         height={80}
                                         className="rounded-lg w-[160px] h-[250px]"

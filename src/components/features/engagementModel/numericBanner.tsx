@@ -75,7 +75,7 @@ const NumericBanner = () => {
             <div className="flex items-center w-9 h-9 md:w-12 md:h-12 xl:w-14 xl:h-14">
               <Image
                 src={stat.icon}
-                alt="Numeric Icons"
+                alt={`Qubitars engagement metrics — ${stat.label} statistic icon`}
                 width={56}
                 height={56}
                 className="w-full h-full object-contain"

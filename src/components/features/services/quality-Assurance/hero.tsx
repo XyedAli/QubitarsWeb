@@ -31,7 +31,7 @@ const HeroSection = () => {
                 <div className="flex justify-end pe-17">
                     <Image
                         src={qaImages.QAimg1}
-                        alt="DevOps Development"
+                        alt="Qubitars Technology quality assurance and software testing services"
                         width={500}
                         height={500}
                         className="h-full w-[260px] md:w-[300px] lg:w-[405px] xl:w-[400px] object-cover "

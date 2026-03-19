@@ -32,7 +32,7 @@ const Advantage = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <Image
               src={images.advantageImg}
-              alt="Advantage Image1"
+              alt="Qubitars engagement models — strategic advantage illustration"
               width={1000}
               height={600}
               className="w-full h-[360px] md:h-[440px] lg:h-[500px] xl:h-[600px]"
@@ -45,7 +45,7 @@ const Advantage = () => {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-white">
                     <Image
                       src={item.icon}
-                      alt="Advantages icons"
+                      alt="Qubitars engagement benefits — icon set"
                       width={48}
                       height={48}
                       className="w-14 h-14 object-contain"
