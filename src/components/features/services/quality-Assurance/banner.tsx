@@ -2,8 +2,7 @@
 
 import { combine, styles } from "@/styles/style";
 import { getQACloudinaryImages } from "@/lib/assets/images";
-import { MdOutlineArrowOutward } from 'react-icons/md';
-import Link from "next/link"
+import { Button } from "@/components/shared/ui";
 
 const Banner = () => {
     const { QABannerBg } = getQACloudinaryImages();
@@ -13,20 +12,15 @@ const Banner = () => {
             className={combine(styles.sectionPadding, "bg-blue relative overflow-hidden bg-cover bg-center bg-no-repeat rounded-xl")}
             style={{ backgroundImage: `url(${QABannerBg})` }}
         >
-            {/* Content */}
-            <div className="relative z-10 max-w-3xl mx-auto text-center px-6 py-16 lg:py-24 flex flex-col justify-center items-center">
-                <h2 className={combine(styles.h1, "text-white font-bold mb-6")}>
+            {/* Mobile: left-aligned. md+: centered block + text + CTA */}
+            <div className="relative z-10 w-full max-w-xl xl:max-w-3xl mx-0 md:mx-auto text-left md:text-center px-4 md:px-6 py-10 md:py-12 lg:py-18 xl:py-21 flex flex-col justify-start items-start md:items-center">
+                <h2 className={combine(styles.h1, "text-white font-bold mb-2 lg:mb-6 leading-tight xl:leading-normal")}>
                     Ensure your product meets the higher standards       
                      </h2>
 
-                <Link href="/conatct">
-                    <button className='bg-white w-40 lg:w-48 px-3 lg:px-5 py-2 mt-6 text-blue text-base lg:text-lg font-bold rounded-lg flex items-center gap-2 cursor-pointer justify-center transition-colors'>
-                        Get In Touch
-                        <span className='w-7 h-7 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-blue text-white'>
-                            <MdOutlineArrowOutward />
-                        </span>
-                    </button>
-                </Link>
+                <Button href="/contact" variant="outline" size="lg" showArrow className="mt-6 border-white bg-white text-blue hover:bg-white/90 hover:border-white">
+                    Get In Touch
+                </Button>
             </div>
             
         </section>

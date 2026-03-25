@@ -8,6 +8,10 @@ import { SectionHeading } from "@/components/shared/headings";
 
 const AUTO_ADVANCE_MS = 6500;
 
+/** Smaller icons at md (two-column) so headings breathe; full size on mobile stack & xl+ */
+const iconImgClass =
+  "shrink-0 mb-3 w-11 h-11 md:w-8 md:h-8 md:mb-2 lg:w-9 lg:h-9 xl:w-11 xl:h-11";
+
 function SadIcon() {
   return (
     <Image
@@ -15,7 +19,7 @@ function SadIcon() {
       alt="Sad icon"
       width={44}
       height={44}
-      className="shrink-0 mb-3"
+      className={iconImgClass}
     />
   );
 }
@@ -27,7 +31,7 @@ function HappyIcon() {
       alt="Happy icon"
       width={44}
       height={44}
-      className="shrink-0 mb-3"
+      className={iconImgClass}
     />
   );
 }
@@ -74,45 +78,44 @@ const BusinessChallenges = () => {
 
   return (
     <section
-      className={combine(styles.sectionPaddingY, "bg-white ms-18")}
+      className={combine("bg-white overflow-visible mx-4 md:mx-0 md:ms-4 lg:ms-6 xl:ms-12 2xl:ms-18")}
       aria-labelledby="qubitars-edge-heading"
     >
-      <div>
+      <div className="min-w-0 w-full">
         <SectionHeading
           subtitle="Qubitars Edge"
           title="Solving real business challenges intelligently"
         />
-        <div className="flex gap-10 lg:gap-12 xl:gap-32 items-center">
+        {/* Below md: one column. md and up: two columns (copy left, tabs right). */}
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-5 lg:gap-15 xl:gap-12 2xl:gap-16">
           {/* Left side content */}
-          <div className="flex flex-col items-center min-w-0 order-2 lg:order-1 space-y-14">
+          <div className="flex flex-col items-stretch w-full min-w-0 flex-1 basis-0 order-2 md:order-1 md:items-start space-y-8 md:space-y-6 lg:space-y-10 xl:space-y-14 md:pr-1 lg:pr-0">
             {[
               { icon: <SadIcon />, title: slide.painPoint.title, description: slide.painPoint.description, titleStyle: styles.h4, titleColor: "text-black", descStyle: styles.h6 },
-              { icon: <HappyIcon />, title: slide.qubitarsEdge.title, description: slide.qubitarsEdge.description, titleStyle: styles.h5, titleColor: "text-accent", descStyle: styles.h5 }
+              { icon: <HappyIcon />, title: slide.qubitarsEdge.title, description: slide.qubitarsEdge.description, titleStyle: styles.h5, titleColor: "text-accent", descStyle: styles.h6 }
             ].map((section, index) => (
               <div key={index}>
-                <div className={combine(" mb-4")}>
+                <div className={combine("mb-1 lg:mb-2 xl:mb-4")}>
                   {section.icon}
                   <h3 className={combine(section.titleStyle, `font-bold ${section.titleColor} tracking-tight`)}>
                     {section.title}
                   </h3>
                 </div>
-                <p className={combine(section.descStyle, "text-gray-600 max-w-2xl leading-tight ")}>
+                <p className={combine(section.descStyle, "text-gray-600 max-w-2xl w-full leading-relaxed md:leading-tight")}>
                   {section.description}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Right side cards - stacked */}
+          {/* Right side cards - stacked; fluid width at lg so 1024px layouts don’t overflow */}
           <div
-            className="w-full lg:w-[650px] shrink-0 flex flex-col gap-0 order-1 lg:order-2 rounded-tl-2xl rounded-bl-2xl overflow-hidden justify-end pr-0"
+            className="w-full max-w-full md:max-w-[min(100%,370px)] lg:max-w-[min(100%,450px)] xl:max-w-[min(100%,600px)] 2xl:max-w-[650px] shrink-0 lg:shrink-0 flex flex-col gap-0 order-1 lg:order-2 rounded-2xl lg:rounded-tl-2xl lg:rounded-tr-none lg:rounded-br-none lg:rounded-bl-2xl overflow-hidden self-stretch lg:self-start"
             role="tablist"
             aria-label="Business challenges"
           >
             {BUSINESS_CHALLENGE_SLIDES.map((item, index) => {
               const isActive = index === activeIndex;
-              const isLast = index === BUSINESS_CHALLENGE_SLIDES.length - 1;
-              const isFirst = index === 0;
 
               return (
                 <button
@@ -126,7 +129,7 @@ const BusinessChallenges = () => {
                   onClick={() => setActiveIndex(index)}
                   className={combine(
                     TAB_PANEL_BG[index],
-                    "relative text-left overflow-hidden min-h-[72px] sm:min-h-[80px] lg:min-h-[90px] px-5 py-4 lg:px-7 lg:py-11 transition-shadow duration-200",
+                    "relative text-left overflow-hidden min-h-[68px] sm:min-h-[76px] md:min-h-[80px] lg:min-h-[84px] xl:min-h-[90px] px-4 py-3.5 sm:px-5 sm:py-4 lg:px-6 lg:py-6 xl:px-7 xl:py-8 2xl:py-11 transition-shadow duration-200",
                     "border border-black/5 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   )}
                 >
@@ -141,7 +144,7 @@ const BusinessChallenges = () => {
                       />
                     </div>
                   )}
-                  <span className={combine(styles.h4, "font-semibold text-black tracking-tight block", isActive ? "pt-2.5" : "pt-0.5")}>
+                  <span className={combine(styles.h4, "font-semibold text-black tracking-tight block", isActive ? "pt-6 lg:pt-2.5" : "pt-0.5")}>
                     {item.tabIndexLabel} {item.tabLabel}
                   </span>
                 </button>

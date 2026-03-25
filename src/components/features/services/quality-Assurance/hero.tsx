@@ -7,7 +7,7 @@ import Link from "next/link"
 const HeroSection = () => {
         const qaImages = getQACloudinaryImages();
     return (
-        <section className={combine(styles.flexCenter, styles.sectionPadding, "relative min-h-[55vh] md:min-h-[48vh] lg:min-h-[62vh] overflow-hidden bg-blue mt-4 lg:mt-8 xl:mt-10 rounded-2xl")}>
+        <section className={combine(styles.flexCenter, styles.sectionPadding, "relative min-h-[60vh] md:min-h-[58vh] lg:min-h-[66vh] xl:min-h-[62vh] overflow-hidden bg-blue mt-4 lg:mt-8 xl:mt-10 rounded-2xl")}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 flex items-center">
                 <div className={combine(styles.sectionPadding, "relative z-10")}>
                     <div className="max-w-4xl mx-auto">
@@ -34,7 +34,7 @@ const HeroSection = () => {
                         alt="Qubitars Technology quality assurance and software testing services"
                         width={500}
                         height={500}
-                        className="h-full w-[260px] md:w-[300px] lg:w-[405px] xl:w-[400px] object-cover "
+                        className="h-full w-[260px] md:w-[300px] lg:w-[350px] xl:w-[400px] object-cover "
                         priority
                     />
                 </div>

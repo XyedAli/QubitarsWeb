@@ -21,13 +21,13 @@ const QAApproaches = () => {
   };
 
   return (
-    <section className={combine(styles.sectionPadding, "bg-white py-14 md:py-18 lg:py-21 xl:py-24")}>
+    <section className={combine(styles.sectionPadding,styles.sectionPaddingY, "bg-white")}>
       <SectionHeading
         title="Methods We Use To Ensure Product Quality"
         subtitle="QA Approaches"
       />
       <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col gap-14 md:gap-16 lg:gap-20 xl:gap-24">
+        <div className="flex flex-col gap-7 md:gap-12 lg:gap-16 xl:gap-24">
           {QA_APPROACHES.map((block, index) => {
             const isImageLeft = index % 2 === 0;
 
@@ -36,11 +36,11 @@ const QAApproaches = () => {
                 key={block.id}
                 className={combine(
                   "flex flex-col gap-8 lg:gap-12 xl:gap-16 items-stretch lg:items-center",
-                  isImageLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+                  isImageLeft ? "md:flex-row" : "md:flex-row-reverse"
                 )}
               >
-                <div className="w-full lg:w-1/2">
-                  <div className="relative h-[380px] w-full max-w-[560px] mx-auto lg:mx-0 aspect-[4/3] overflow-hidden">
+                <div className="w-full md:w-1/2">
+                  <div className="relative h-[270px] md:h-[350px] lg:h-[380px] w-full max-w-[560px] mx-auto lg:mx-0 aspect-[4/3] overflow-hidden">
                     <Image
                       src={imageById[block.id]}
                       alt={block.imageAlt}
@@ -49,7 +49,7 @@ const QAApproaches = () => {
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-1/2 flex items-center">
+                <div className="w-full md:w-1/2 flex items-center">
                   <div className="flex flex-col justify-center">
                     <div className="mb-3 shrink-0">
                       <Image
@@ -57,20 +57,20 @@ const QAApproaches = () => {
                         alt={`${block.title} icon`}
                         width={40}
                         height={40}
-                        className="w-9 h-9 md:w-12 md:h-12 object-contain"
+                        className="w-8 h-8 xl:w-12 md:w-10 md:h-10 xl:h-12 object-contain"
                       />
                     </div>
-                    <h3 className={combine(styles.h5, "font-bold text-blue mb-3 lg:mb-4")}>
+                    <h3 className={combine(styles.h5, "font-bold text-blue mb-2 lg:mb-4")}>
                       {block.title}
                     </h3>
-                    <p className={combine(styles.p2, "text-gray-600 leading-relaxed mb-6 lg:mb-8")}>
+                    <p className={combine(styles.p2, "text-gray-600 leading-relaxed mb-4 lg:mb-6 xl:mb-8")}>
                       {block.description}
                     </p>
-                    <ul className="space-y-3.5 lg:space-y-4">
+                    <ul className="space-y-2 lg:space-y-3 xl:space-y-4">
                       {block.bullets.map((line) => (
                         <li key={line} className={combine(styles.flexitems, "gap-3 items-start")}>
-                          <span className="-mt-1.5 shrink-0 flex items-center justify-center">
-                            <Check className="w-8 h-8 text-accent " />
+                          <span className="lg:-mt-1.5 shrink-0 flex items-center justify-center">
+                            <Check className="w-6 xl:w-8 h-6 xl:h-8 text-accent " />
                           </span>
                           <span className={combine(styles.p2, "text-gray-700 leading-snug")}>{line}</span>
                         </li>

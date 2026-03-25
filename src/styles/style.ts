@@ -15,7 +15,7 @@
  p1 : "text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] font-urbanist",
  p2 : "text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] font-urbanist",
  p3 : "text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] font-urbanist",
- p4 : "text-[12px] md:text-[14px] lg:text-[16px] xl:text-[16px] font-urbanist",
+ p4 : "text-[12px] md:text-[14px] lg:text-[16px] font-urbanist",
  p5 : "text-[12px] md:text-[13px] lg:text-[14px] xl:text-[14px] font-urbanist",
 
 // Layout

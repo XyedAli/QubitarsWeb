@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { styles } from "@/styles/style";
 import { getAboutCloudinaryImages } from "@/lib/assets/images";
+import { Button } from "@/components/shared/ui";
 
-const IMG_CLASS = "relative w-full h-[300px] md:h-[400px] lg:h-[370px] rounded-lg overflow-hidden";
+const IMG_CLASS = "relative w-full h-[300px] md:h-[400px] lg:h-[450px] rounded-lg overflow-hidden";
 const P_CLASS = `${styles.p3} text-gray-700 leading-relaxed font-inter`;
 
 const MissionVision = () => {
@@ -27,6 +28,11 @@ const MissionVision = () => {
               <p className={P_CLASS}>
                 We dedicate ourselves as a team to building enduring partnerships with clients based on transparency, integrity and mutual respect.
               </p>
+             <div className="mt-4">
+                <Button href="/careers" variant="outline" size="lg" className="bg-blue text-white" showArrow>
+                  Join Our Team
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -42,10 +48,16 @@ const MissionVision = () => {
               <p className={P_CLASS}>
                 We aim to be recognized for delivering secure, reliable, and accessible software solutions, built with state-of-the-art technologies and a culture that champions creativity, innovation, and continuous improvement.
               </p>
+              <div className="mt-4">
+                <Button href="/careers" variant="outline" size="lg" className="bg-blue text-white" showArrow>
+                  Join Our Team
+                </Button>
+              </div>
             </div>
             <div className={`${IMG_CLASS} order-1 lg:order-2`}>
               <Image src={images.vision} alt="Our Vision - Team collaboration" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
+
           </div>
         </div>
       </div>

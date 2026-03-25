@@ -11,7 +11,7 @@ const { LINE_MS, PAUSE_AFTER_LINE_MS, HOLD_ALL_MS, LINE_EASE, GRAD, H } = STRUCT
 const LINE_SEC = LINE_MS / 1000;
 const N = STEPS.length;
 const MT = "mt-4 xl:mt-5";
-const COL = combine(styles.flexCol, "items-center min-h-[340px] xl:min-h-[320px]");
+const COL = combine(styles.flexCol, "items-center min-h-[250px] xl:min-h-[320px]");
 const TICK_BG = "repeating-linear-gradient(90deg,#FF7A1A 0 2px,transparent 2px 7px)";
 const MOB_LINE = "w-0.5 h-16 rounded-full bg-gradient-to-b from-[#F58220] to-[#EA4D24]";
 const MOB_LINE_DIM = "w-0.5 h-16 rounded-full bg-gradient-to-b from-[#F58220] to-[#EA4D24]/60";
@@ -57,7 +57,7 @@ function Pill({ label, active, done }: { label: string; active: boolean; done: b
         on ? "border-[#F58220]/50 shadow-[0_0_20px_rgba(252,126,19,0.2)]" : "border-white/[0.12] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] opacity-50"
       )}
     >
-      <span className="text-white font-semibold text-sm sm:text-base tracking-tight whitespace-nowrap">{label}</span>
+      <span className="text-white font-semibold text-xl lg:text-base tracking-tight whitespace-nowrap">{label}</span>
       <div
         className={combine(
           "w-8 h-8 sm:w-9 sm:h-9 rounded-lg shrink-0 bg-gradient-to-br from-[#FF9A3C] to-[#EA4D24]",
@@ -99,15 +99,15 @@ function DeskColumnLine({ phase, i, tall }: { phase: number; i: number; tall: bo
 function StepCopy({ step, visible }: { step: (typeof STEPS)[number]; visible: boolean }) {
   return (
     <motion.div
-      className={combine(styles.flexCol, "items-center max-w-[220px] xl:max-w-[240px] shrink-0 min-h-[120px] text-center")}
+      className={combine(styles.flexCol, "items-center max-w-[220px] xl:max-w-[240px] shrink-0 min-h-[110px] xl:min-h-[120px] text-center")}
       initial={false}
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 16 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <h3 className={combine(styles.h6, "text-white font-bold mb-2 xl:mb-3")} style={{ letterSpacing: "-0.02em" }}>
+      <h3 className={combine(styles.h6, "text-white font-bold mb-2 leading-tight")} style={{ letterSpacing: "-0.02em" }}>
         {step.title}
       </h3>
-      <p className={combine(styles.p4, "text-gray-400 leading-relaxed")}>{step.description}</p>
+      <p className={combine("text-gray-400 leading-tight xl:leading-relaxed text-[13px] xl:text-base")}>{step.description}</p>
     </motion.div>
   );
 }
@@ -117,7 +117,7 @@ export default function TestingProcess() {
 
   return (
     <section className="mt-16">
-      <div className="relative overflow-hidden min-h-[640px] md:min-h-[720px] lg:min-h-[680px] mt-8">
+      <div className="relative overflow-hidden min-h-[640px] md:min-h-[600px] lg:min-h-[590px] xl:min-h-[680px] mt-8">
         <div className="absolute inset-0 bg-[#000034]" aria-hidden />
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
           {[14, 32, 50, 68, 86].map((l) => (
@@ -154,44 +154,41 @@ export default function TestingProcess() {
             </div>
           </div>
 
-          <div className="lg:hidden max-w-lg mx-auto">
-            {STEPS.map((step, i) => (
-              <Fragment key={step.title}>
-                <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-sm mb-3">
-                  <div className="mb-3">
-                    <Pill label={step.timelineLabel} active={phase === i} done={pillOk(i)} />
-                  </div>
-                  <div className={combine(styles.flexitems, "gap-3")}>
-                    <div className={combine(styles.flexCol, styles.flexitems, "w-3 pt-1")}>
-                      {drawing(i) ? (
-                        <motion.div
-                          key={`m-${phase}`}
-                          initial={{ scaleY: 0 }}
-                          animate={{ scaleY: 1 }}
-                          transition={{ duration: LINE_SEC, ease: LINE_EASE }}
-                          style={{ transformOrigin: "bottom" }}
-                          className={MOB_LINE}
-                          aria-hidden
-                        />
-                      ) : lineOk(i) && showText(i) ? (
-                        <div className={MOB_LINE_DIM} aria-hidden />
-                      ) : (
-                        <div className="w-0.5 h-0" aria-hidden />
-                      )}
+          <div className="lg:hidden max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-14 xl:pb-0">
+              {STEPS.map((step, i) => (
+                <Fragment key={step.title}>
+                  <div className="rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-sm">
+                    <div className="mb-3">
+                      <Pill label={step.timelineLabel} active={phase === i} done={pillOk(i)} />
                     </div>
-                    <motion.div className="flex-1 min-w-0" initial={false} animate={{ opacity: showText(i) ? 1 : 0, y: showText(i) ? 0 : 8 }} transition={{ duration: 0.4 }}>
-                      <h3 className={combine(styles.h3, "text-white font-bold mb-2")}>{step.title}</h3>
-                      <p className={combine(styles.p3, "text-gray-400 leading-relaxed")}>{step.description}</p>
-                    </motion.div>
+                    <div className={combine(styles.flexitems, "gap-3")}>
+                      <div className={combine(styles.flexCol, styles.flexitems, "w-3 pt-1")}>
+                        {drawing(i) ? (
+                          <motion.div
+                            key={`m-${phase}`}
+                            initial={{ scaleY: 0 }}
+                            animate={{ scaleY: 1 }}
+                            transition={{ duration: LINE_SEC, ease: LINE_EASE }}
+                            style={{ transformOrigin: "bottom" }}
+                            className={MOB_LINE}
+                            aria-hidden
+                          />
+                        ) : lineOk(i) && showText(i) ? (
+                          <div className={MOB_LINE_DIM} aria-hidden />
+                        ) : (
+                          <div className="w-0.5 h-0" aria-hidden />
+                        )}
+                      </div>
+                      <motion.div className="flex-1 min-w-0" initial={false} animate={{ opacity: showText(i) ? 1 : 0, y: showText(i) ? 0 : 8 }} transition={{ duration: 0.4 }}>
+                        <h3 className={combine(styles.h5, "text-white font-bold mb-2")}>{step.title}</h3>
+                        <p className={combine(styles.p3, "text-gray-400 leading-tight")}>{step.description}</p>
+                      </motion.div>
+                    </div>
                   </div>
-                </div>
-                {i < N - 1 && (
-                  <div className="py-2 px-4">
-                    <TickStrip className="w-full min-h-[14px]" active={pillOk(i)} />
-                  </div>
-                )}
-              </Fragment>
-            ))}
+                </Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </div>
